@@ -24,6 +24,7 @@
 		05C94252202D6BD200B78CA4 /* SCBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9424D202D6BD200B78CA4 /* SCBaseTableViewController.m */; };
 		05C94259202D7F3900B78CA4 /* UIColor+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94258202D7F3900B78CA4 /* UIColor+Additional.m */; };
 		05C9425C202D7F4700B78CA4 /* UIColor+CDF.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9425B202D7F4700B78CA4 /* UIColor+CDF.m */; };
+		05C94262202D854E00B78CA4 /* SCSharedCarSuitsClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94261202D854E00B78CA4 /* SCSharedCarSuitsClient.m */; };
 		A7A03487A480F79B5C5D8C66 /* libPods-SharedCarSuitsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B31BBBBF74AC20BFA0ECB8 /* libPods-SharedCarSuitsUITests.a */; };
 		B54ACDE8FDCE0F818429C677 /* libPods-SharedCarSuits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEC7B6670E2B583689B8B8C /* libPods-SharedCarSuits.a */; };
 		F0363A110D61A92361150273 /* libPods-SharedCarSuitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A4C0452F94898FC366DE15 /* libPods-SharedCarSuitsTests.a */; };
@@ -82,6 +83,8 @@
 		05C94258202D7F3900B78CA4 /* UIColor+Additional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additional.m"; sourceTree = "<group>"; };
 		05C9425A202D7F4700B78CA4 /* UIColor+CDF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+CDF.h"; sourceTree = "<group>"; };
 		05C9425B202D7F4700B78CA4 /* UIColor+CDF.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CDF.m"; sourceTree = "<group>"; };
+		05C94260202D854E00B78CA4 /* SCSharedCarSuitsClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCSharedCarSuitsClient.h; sourceTree = "<group>"; };
+		05C94261202D854E00B78CA4 /* SCSharedCarSuitsClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCSharedCarSuitsClient.m; sourceTree = "<group>"; };
 		2395F901FF494BAEC814C9AA /* Pods-SharedCarSuitsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsUITests/Pods-SharedCarSuitsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		39F0ED9ACAE88E8ED7934748 /* Pods-SharedCarSuits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuits/Pods-SharedCarSuits.debug.xcconfig"; sourceTree = "<group>"; };
 		3FA8F58B19238B9921B044F9 /* Pods-SharedCarSuitsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsTests/Pods-SharedCarSuitsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,8 +137,8 @@
 		0597250D201EF3DD00E7EFFB = {
 			isa = PBXGroup;
 			children = (
+				05C9425E202D84DC00B78CA4 /* SharedCarSuitsExtension */,
 				05C94239202D6B1500B78CA4 /* ViewController */,
-				0597254B201EF73100E7EFFB /* Common */,
 				05972518201EF3DD00E7EFFB /* SharedCarSuits */,
 				05972531201EF3DD00E7EFFB /* SharedCarSuitsTests */,
 				0597253C201EF3DD00E7EFFB /* SharedCarSuitsUITests */,
@@ -158,6 +161,7 @@
 		05972518201EF3DD00E7EFFB /* SharedCarSuits */ = {
 			isa = PBXGroup;
 			children = (
+				0597254B201EF73100E7EFFB /* Common */,
 				05972519201EF3DD00E7EFFB /* AppDelegate.h */,
 				0597251A201EF3DD00E7EFFB /* AppDelegate.m */,
 				05972522201EF3DD00E7EFFB /* Assets.xcassets */,
@@ -223,6 +227,7 @@
 		05C94239202D6B1500B78CA4 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				05C9425D202D828C00B78CA4 /* Login */,
 				05C94246202D6BC600B78CA4 /* Base */,
 				05C9423A202D6B1500B78CA4 /* HomePageController */,
 				05C9423D202D6B1500B78CA4 /* Mine */,
@@ -282,6 +287,30 @@
 				05C9425B202D7F4700B78CA4 /* UIColor+CDF.m */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		05C9425D202D828C00B78CA4 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		05C9425E202D84DC00B78CA4 /* SharedCarSuitsExtension */ = {
+			isa = PBXGroup;
+			children = (
+				05C9425F202D84F800B78CA4 /* Common */,
+			);
+			path = SharedCarSuitsExtension;
+			sourceTree = "<group>";
+		};
+		05C9425F202D84F800B78CA4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				05C94260202D854E00B78CA4 /* SCSharedCarSuitsClient.h */,
+				05C94261202D854E00B78CA4 /* SCSharedCarSuitsClient.m */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		70C5A2F7AB093DE3D39B4CBA /* Pods */ = {
@@ -599,6 +628,7 @@
 				05C94259202D7F3900B78CA4 /* UIColor+Additional.m in Sources */,
 				05C94245202D6B1500B78CA4 /* SCReservationViewController.m in Sources */,
 				05C94235202D69CC00B78CA4 /* NSMutableArray+Category.m in Sources */,
+				05C94262202D854E00B78CA4 /* SCSharedCarSuitsClient.m in Sources */,
 				05C9425C202D7F4700B78CA4 /* UIColor+CDF.m in Sources */,
 				05C94243202D6B1500B78CA4 /* SCHomePageViewController.m in Sources */,
 				05C94250202D6BD200B78CA4 /* SCHomeTabBarController.m in Sources */,

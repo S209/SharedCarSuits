@@ -20,10 +20,10 @@
 		05972553201EF81200E7EFFB /* SCHomeTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05972552201EF81200E7EFFB /* SCHomeTabBarController.m */; };
 		05972556201EF83500E7EFFB /* SCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05972555201EF83500E7EFFB /* SCBaseViewController.m */; };
 		0597255D201EFEC300E7EFFB /* SCMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597255C201EFEC300E7EFFB /* SCMineController.m */; };
-		05972560201EFEDB00E7EFFB /* SCReservationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597255F201EFEDB00E7EFFB /* SCReservationController.m */; };
 		05972563201EFEFA00E7EFFB /* SCHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05972562201EFEFA00E7EFFB /* SCHomePageController.m */; };
 		05C94234202D69CC00B78CA4 /* NSArray+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9422F202D69CC00B78CA4 /* NSArray+Category.m */; };
 		05C94235202D69CC00B78CA4 /* NSMutableArray+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94231202D69CC00B78CA4 /* NSMutableArray+Category.m */; };
+		05C94238202D6AB600B78CA4 /* SCReservationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94236202D6AB600B78CA4 /* SCReservationController.m */; };
 		A7A03487A480F79B5C5D8C66 /* libPods-SharedCarSuitsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B31BBBBF74AC20BFA0ECB8 /* libPods-SharedCarSuitsUITests.a */; };
 		B54ACDE8FDCE0F818429C677 /* libPods-SharedCarSuits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEC7B6670E2B583689B8B8C /* libPods-SharedCarSuits.a */; };
 		F0363A110D61A92361150273 /* libPods-SharedCarSuitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A4C0452F94898FC366DE15 /* libPods-SharedCarSuitsTests.a */; };
@@ -73,14 +73,14 @@
 		05972555201EF83500E7EFFB /* SCBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCBaseViewController.m; sourceTree = "<group>"; };
 		0597255B201EFEC300E7EFFB /* SCMineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMineController.h; sourceTree = "<group>"; };
 		0597255C201EFEC300E7EFFB /* SCMineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMineController.m; sourceTree = "<group>"; };
-		0597255E201EFEDB00E7EFFB /* SCReservationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCReservationController.h; sourceTree = "<group>"; };
-		0597255F201EFEDB00E7EFFB /* SCReservationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCReservationController.m; sourceTree = "<group>"; };
 		05972561201EFEFA00E7EFFB /* SCHomePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCHomePageController.h; sourceTree = "<group>"; };
 		05972562201EFEFA00E7EFFB /* SCHomePageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCHomePageController.m; sourceTree = "<group>"; };
 		05C9422E202D69CC00B78CA4 /* NSArray+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Category.h"; sourceTree = "<group>"; };
 		05C9422F202D69CC00B78CA4 /* NSArray+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Category.m"; sourceTree = "<group>"; };
 		05C94230202D69CC00B78CA4 /* NSMutableArray+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Category.h"; sourceTree = "<group>"; };
 		05C94231202D69CC00B78CA4 /* NSMutableArray+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Category.m"; sourceTree = "<group>"; };
+		05C94236202D6AB600B78CA4 /* SCReservationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCReservationController.m; sourceTree = "<group>"; };
+		05C94237202D6AB600B78CA4 /* SCReservationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCReservationController.h; sourceTree = "<group>"; };
 		2395F901FF494BAEC814C9AA /* Pods-SharedCarSuitsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsUITests/Pods-SharedCarSuitsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		39F0ED9ACAE88E8ED7934748 /* Pods-SharedCarSuits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuits/Pods-SharedCarSuits.debug.xcconfig"; sourceTree = "<group>"; };
 		3FA8F58B19238B9921B044F9 /* Pods-SharedCarSuitsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsTests/Pods-SharedCarSuitsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -234,8 +234,8 @@
 		05972559201EF92400E7EFFB /* ReservationController */ = {
 			isa = PBXGroup;
 			children = (
-				0597255E201EFEDB00E7EFFB /* SCReservationController.h */,
-				0597255F201EFEDB00E7EFFB /* SCReservationController.m */,
+				05C94237202D6AB600B78CA4 /* SCReservationController.h */,
+				05C94236202D6AB600B78CA4 /* SCReservationController.m */,
 			);
 			path = ReservationController;
 			sourceTree = "<group>";
@@ -589,7 +589,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05972560201EFEDB00E7EFFB /* SCReservationController.m in Sources */,
+				05C94238202D6AB600B78CA4 /* SCReservationController.m in Sources */,
 				05972550201EF7C800E7EFFB /* SCBaseNavigationController.m in Sources */,
 				05972556201EF83500E7EFFB /* SCBaseViewController.m in Sources */,
 				05C94235202D69CC00B78CA4 /* NSMutableArray+Category.m in Sources */,

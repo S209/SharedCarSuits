@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597251A201EF3DD00E7EFFB /* AppDelegate.m */; };
-		0597251E201EF3DD00E7EFFB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597251D201EF3DD00E7EFFB /* ViewController.m */; };
-		05972521201EF3DD00E7EFFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0597251F201EF3DD00E7EFFB /* Main.storyboard */; };
 		05972523201EF3DD00E7EFFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05972522201EF3DD00E7EFFB /* Assets.xcassets */; };
 		05972526201EF3DD00E7EFFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05972524201EF3DD00E7EFFB /* LaunchScreen.storyboard */; };
 		05972529201EF3DD00E7EFFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05972528201EF3DD00E7EFFB /* main.m */; };
@@ -50,9 +48,6 @@
 		05972516201EF3DD00E7EFFB /* SharedCarSuits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharedCarSuits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05972519201EF3DD00E7EFFB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0597251A201EF3DD00E7EFFB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0597251C201EF3DD00E7EFFB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0597251D201EF3DD00E7EFFB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		05972520201EF3DD00E7EFFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		05972522201EF3DD00E7EFFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05972525201EF3DD00E7EFFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05972527201EF3DD00E7EFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -158,9 +153,6 @@
 			children = (
 				05972519201EF3DD00E7EFFB /* AppDelegate.h */,
 				0597251A201EF3DD00E7EFFB /* AppDelegate.m */,
-				0597251C201EF3DD00E7EFFB /* ViewController.h */,
-				0597251D201EF3DD00E7EFFB /* ViewController.m */,
-				0597251F201EF3DD00E7EFFB /* Main.storyboard */,
 				05972522201EF3DD00E7EFFB /* Assets.xcassets */,
 				05972524201EF3DD00E7EFFB /* LaunchScreen.storyboard */,
 				05972527201EF3DD00E7EFFB /* Info.plist */,
@@ -374,7 +366,7 @@
 				TargetAttributes = {
 					05972515201EF3DD00E7EFFB = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					0597252D201EF3DD00E7EFFB = {
 						CreatedOnToolsVersion = 9.2;
@@ -415,7 +407,6 @@
 			files = (
 				05972526201EF3DD00E7EFFB /* LaunchScreen.storyboard in Resources */,
 				05972523201EF3DD00E7EFFB /* Assets.xcassets in Resources */,
-				05972521201EF3DD00E7EFFB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,7 +581,6 @@
 				05C94245202D6B1500B78CA4 /* SCReservationViewController.m in Sources */,
 				05C94235202D69CC00B78CA4 /* NSMutableArray+Category.m in Sources */,
 				05C94243202D6B1500B78CA4 /* SCHomePageViewController.m in Sources */,
-				0597251E201EF3DD00E7EFFB /* ViewController.m in Sources */,
 				05C94250202D6BD200B78CA4 /* SCHomeTabBarController.m in Sources */,
 				05C94251202D6BD200B78CA4 /* SCBaseNavigationController.m in Sources */,
 				05972529201EF3DD00E7EFFB /* main.m in Sources */,
@@ -634,14 +624,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0597251F201EF3DD00E7EFFB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				05972520201EF3DD00E7EFFB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		05972524201EF3DD00E7EFFB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -762,11 +744,13 @@
 			baseConfigurationReference = 39F0ED9ACAE88E8ED7934748 /* Pods-SharedCarSuits.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SharedCarSuits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ths.SharedCarSuits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -776,11 +760,13 @@
 			baseConfigurationReference = 6ACE2CCEB2825ABBD9CC5D25 /* Pods-SharedCarSuits.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SharedCarSuits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ths.SharedCarSuits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

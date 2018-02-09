@@ -1,0 +1,891 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		058379EF202A002700FE6F3F /* SCBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 058379EE202A002700FE6F3F /* SCBaseTableViewController.m */; };
+		058379F6202A035100FE6F3F /* NSArray+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 058379F5202A035100FE6F3F /* NSArray+Category.m */; };
+		058379F9202A041B00FE6F3F /* NSMutableArray+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 058379F8202A041B00FE6F3F /* NSMutableArray+Category.m */; };
+		0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597251A201EF3DD00E7EFFB /* AppDelegate.m */; };
+		0597251E201EF3DD00E7EFFB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597251D201EF3DD00E7EFFB /* ViewController.m */; };
+		05972521201EF3DD00E7EFFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0597251F201EF3DD00E7EFFB /* Main.storyboard */; };
+		05972523201EF3DD00E7EFFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05972522201EF3DD00E7EFFB /* Assets.xcassets */; };
+		05972526201EF3DD00E7EFFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05972524201EF3DD00E7EFFB /* LaunchScreen.storyboard */; };
+		05972529201EF3DD00E7EFFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05972528201EF3DD00E7EFFB /* main.m */; };
+		05972533201EF3DD00E7EFFB /* SharedCarSuitsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05972532201EF3DD00E7EFFB /* SharedCarSuitsTests.m */; };
+		0597253E201EF3DD00E7EFFB /* SharedCarSuitsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597253D201EF3DD00E7EFFB /* SharedCarSuitsUITests.m */; };
+		05972550201EF7C800E7EFFB /* SCBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597254F201EF7C800E7EFFB /* SCBaseNavigationController.m */; };
+		05972553201EF81200E7EFFB /* SCHomeTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05972552201EF81200E7EFFB /* SCHomeTabBarController.m */; };
+		05972556201EF83500E7EFFB /* SCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05972555201EF83500E7EFFB /* SCBaseViewController.m */; };
+		0597255D201EFEC300E7EFFB /* SCMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597255C201EFEC300E7EFFB /* SCMineController.m */; };
+		05972560201EFEDB00E7EFFB /* SCReservationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597255F201EFEDB00E7EFFB /* SCReservationController.m */; };
+		05972563201EFEFA00E7EFFB /* SCHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05972562201EFEFA00E7EFFB /* SCHomePageController.m */; };
+		A7A03487A480F79B5C5D8C66 /* libPods-SharedCarSuitsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B31BBBBF74AC20BFA0ECB8 /* libPods-SharedCarSuitsUITests.a */; };
+		B54ACDE8FDCE0F818429C677 /* libPods-SharedCarSuits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEC7B6670E2B583689B8B8C /* libPods-SharedCarSuits.a */; };
+		F0363A110D61A92361150273 /* libPods-SharedCarSuitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A4C0452F94898FC366DE15 /* libPods-SharedCarSuitsTests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0597252F201EF3DD00E7EFFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0597250E201EF3DD00E7EFFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05972515201EF3DD00E7EFFB;
+			remoteInfo = SharedCarSuits;
+		};
+		0597253A201EF3DD00E7EFFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0597250E201EF3DD00E7EFFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05972515201EF3DD00E7EFFB;
+			remoteInfo = SharedCarSuits;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		058379ED202A002700FE6F3F /* SCBaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCBaseTableViewController.h; sourceTree = "<group>"; };
+		058379EE202A002700FE6F3F /* SCBaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCBaseTableViewController.m; sourceTree = "<group>"; };
+		058379F4202A035100FE6F3F /* NSArray+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Category.h"; sourceTree = "<group>"; };
+		058379F5202A035100FE6F3F /* NSArray+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Category.m"; sourceTree = "<group>"; };
+		058379F7202A041B00FE6F3F /* NSMutableArray+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Category.h"; sourceTree = "<group>"; };
+		058379F8202A041B00FE6F3F /* NSMutableArray+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Category.m"; sourceTree = "<group>"; };
+		05972516201EF3DD00E7EFFB /* SharedCarSuits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharedCarSuits.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05972519201EF3DD00E7EFFB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0597251A201EF3DD00E7EFFB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0597251C201EF3DD00E7EFFB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0597251D201EF3DD00E7EFFB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		05972520201EF3DD00E7EFFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		05972522201EF3DD00E7EFFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		05972525201EF3DD00E7EFFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		05972527201EF3DD00E7EFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05972528201EF3DD00E7EFFB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0597252E201EF3DD00E7EFFB /* SharedCarSuitsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharedCarSuitsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		05972532201EF3DD00E7EFFB /* SharedCarSuitsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedCarSuitsTests.m; sourceTree = "<group>"; };
+		05972534201EF3DD00E7EFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05972539201EF3DD00E7EFFB /* SharedCarSuitsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharedCarSuitsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0597253D201EF3DD00E7EFFB /* SharedCarSuitsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedCarSuitsUITests.m; sourceTree = "<group>"; };
+		0597253F201EF3DD00E7EFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0597254E201EF7C800E7EFFB /* SCBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCBaseNavigationController.h; sourceTree = "<group>"; };
+		0597254F201EF7C800E7EFFB /* SCBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCBaseNavigationController.m; sourceTree = "<group>"; };
+		05972551201EF81200E7EFFB /* SCHomeTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCHomeTabBarController.h; sourceTree = "<group>"; };
+		05972552201EF81200E7EFFB /* SCHomeTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCHomeTabBarController.m; sourceTree = "<group>"; };
+		05972554201EF83500E7EFFB /* SCBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCBaseViewController.h; sourceTree = "<group>"; };
+		05972555201EF83500E7EFFB /* SCBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCBaseViewController.m; sourceTree = "<group>"; };
+		0597255B201EFEC300E7EFFB /* SCMineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMineController.h; sourceTree = "<group>"; };
+		0597255C201EFEC300E7EFFB /* SCMineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMineController.m; sourceTree = "<group>"; };
+		0597255E201EFEDB00E7EFFB /* SCReservationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCReservationController.h; sourceTree = "<group>"; };
+		0597255F201EFEDB00E7EFFB /* SCReservationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCReservationController.m; sourceTree = "<group>"; };
+		05972561201EFEFA00E7EFFB /* SCHomePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCHomePageController.h; sourceTree = "<group>"; };
+		05972562201EFEFA00E7EFFB /* SCHomePageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCHomePageController.m; sourceTree = "<group>"; };
+		2395F901FF494BAEC814C9AA /* Pods-SharedCarSuitsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsUITests/Pods-SharedCarSuitsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		39F0ED9ACAE88E8ED7934748 /* Pods-SharedCarSuits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuits/Pods-SharedCarSuits.debug.xcconfig"; sourceTree = "<group>"; };
+		3FA8F58B19238B9921B044F9 /* Pods-SharedCarSuitsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsTests/Pods-SharedCarSuitsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		60A4C0452F94898FC366DE15 /* libPods-SharedCarSuitsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SharedCarSuitsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6ACE2CCEB2825ABBD9CC5D25 /* Pods-SharedCarSuits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuits.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuits/Pods-SharedCarSuits.release.xcconfig"; sourceTree = "<group>"; };
+		85EB3A99F0A1ADC78ECB743F /* Pods-SharedCarSuitsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsUITests/Pods-SharedCarSuitsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9A472414CD2D0246B21E28B1 /* Pods-SharedCarSuitsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsTests/Pods-SharedCarSuitsTests.release.xcconfig"; sourceTree = "<group>"; };
+		ABEC7B6670E2B583689B8B8C /* libPods-SharedCarSuits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SharedCarSuits.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8B31BBBBF74AC20BFA0ECB8 /* libPods-SharedCarSuitsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SharedCarSuitsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05972513201EF3DD00E7EFFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B54ACDE8FDCE0F818429C677 /* libPods-SharedCarSuits.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0597252B201EF3DD00E7EFFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0363A110D61A92361150273 /* libPods-SharedCarSuitsTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05972536201EF3DD00E7EFFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7A03487A480F79B5C5D8C66 /* libPods-SharedCarSuitsUITests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		058379F0202A02B400FE6F3F /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				058379F1202A02C800FE6F3F /* Foundation */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		058379F1202A02C800FE6F3F /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				058379F3202A02DF00FE6F3F /* NSDictionary */,
+				058379F2202A02D200FE6F3F /* NSArray */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		058379F2202A02D200FE6F3F /* NSArray */ = {
+			isa = PBXGroup;
+			children = (
+				058379F4202A035100FE6F3F /* NSArray+Category.h */,
+				058379F5202A035100FE6F3F /* NSArray+Category.m */,
+				058379F7202A041B00FE6F3F /* NSMutableArray+Category.h */,
+				058379F8202A041B00FE6F3F /* NSMutableArray+Category.m */,
+			);
+			name = NSArray;
+			path = "../New Group/NSArray";
+			sourceTree = "<group>";
+		};
+		058379F3202A02DF00FE6F3F /* NSDictionary */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NSDictionary;
+			sourceTree = "<group>";
+		};
+		0597250D201EF3DD00E7EFFB = {
+			isa = PBXGroup;
+			children = (
+				0597254C201EF75C00E7EFFB /* ViewController */,
+				0597254B201EF73100E7EFFB /* Common */,
+				05972518201EF3DD00E7EFFB /* SharedCarSuits */,
+				05972531201EF3DD00E7EFFB /* SharedCarSuitsTests */,
+				0597253C201EF3DD00E7EFFB /* SharedCarSuitsUITests */,
+				05972517201EF3DD00E7EFFB /* Products */,
+				70C5A2F7AB093DE3D39B4CBA /* Pods */,
+				8B91FD0D546FB20916FEEA2C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		05972517201EF3DD00E7EFFB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05972516201EF3DD00E7EFFB /* SharedCarSuits.app */,
+				0597252E201EF3DD00E7EFFB /* SharedCarSuitsTests.xctest */,
+				05972539201EF3DD00E7EFFB /* SharedCarSuitsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05972518201EF3DD00E7EFFB /* SharedCarSuits */ = {
+			isa = PBXGroup;
+			children = (
+				05972519201EF3DD00E7EFFB /* AppDelegate.h */,
+				0597251A201EF3DD00E7EFFB /* AppDelegate.m */,
+				0597251C201EF3DD00E7EFFB /* ViewController.h */,
+				0597251D201EF3DD00E7EFFB /* ViewController.m */,
+				0597251F201EF3DD00E7EFFB /* Main.storyboard */,
+				05972522201EF3DD00E7EFFB /* Assets.xcassets */,
+				05972524201EF3DD00E7EFFB /* LaunchScreen.storyboard */,
+				05972527201EF3DD00E7EFFB /* Info.plist */,
+				05972528201EF3DD00E7EFFB /* main.m */,
+			);
+			path = SharedCarSuits;
+			sourceTree = "<group>";
+		};
+		05972531201EF3DD00E7EFFB /* SharedCarSuitsTests */ = {
+			isa = PBXGroup;
+			children = (
+				05972532201EF3DD00E7EFFB /* SharedCarSuitsTests.m */,
+				05972534201EF3DD00E7EFFB /* Info.plist */,
+			);
+			path = SharedCarSuitsTests;
+			sourceTree = "<group>";
+		};
+		0597253C201EF3DD00E7EFFB /* SharedCarSuitsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0597253D201EF3DD00E7EFFB /* SharedCarSuitsUITests.m */,
+				0597253F201EF3DD00E7EFFB /* Info.plist */,
+			);
+			path = SharedCarSuitsUITests;
+			sourceTree = "<group>";
+		};
+		0597254B201EF73100E7EFFB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				058379F0202A02B400FE6F3F /* Category */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		0597254C201EF75C00E7EFFB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0597255A201EF94300E7EFFB /* MineController */,
+				05972559201EF92400E7EFFB /* ReservationController */,
+				05972558201EF8E400E7EFFB /* HomePageController */,
+				0597254D201EF76900E7EFFB /* Base */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0597254D201EF76900E7EFFB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0597254E201EF7C800E7EFFB /* SCBaseNavigationController.h */,
+				0597254F201EF7C800E7EFFB /* SCBaseNavigationController.m */,
+				05972551201EF81200E7EFFB /* SCHomeTabBarController.h */,
+				05972552201EF81200E7EFFB /* SCHomeTabBarController.m */,
+				05972554201EF83500E7EFFB /* SCBaseViewController.h */,
+				05972555201EF83500E7EFFB /* SCBaseViewController.m */,
+				058379ED202A002700FE6F3F /* SCBaseTableViewController.h */,
+				058379EE202A002700FE6F3F /* SCBaseTableViewController.m */,
+			);
+			name = Base;
+			path = "../New Group/New Group";
+			sourceTree = "<group>";
+		};
+		05972558201EF8E400E7EFFB /* HomePageController */ = {
+			isa = PBXGroup;
+			children = (
+				05972561201EFEFA00E7EFFB /* SCHomePageController.h */,
+				05972562201EFEFA00E7EFFB /* SCHomePageController.m */,
+			);
+			path = HomePageController;
+			sourceTree = "<group>";
+		};
+		05972559201EF92400E7EFFB /* ReservationController */ = {
+			isa = PBXGroup;
+			children = (
+				0597255E201EFEDB00E7EFFB /* SCReservationController.h */,
+				0597255F201EFEDB00E7EFFB /* SCReservationController.m */,
+			);
+			path = ReservationController;
+			sourceTree = "<group>";
+		};
+		0597255A201EF94300E7EFFB /* MineController */ = {
+			isa = PBXGroup;
+			children = (
+				0597255B201EFEC300E7EFFB /* SCMineController.h */,
+				0597255C201EFEC300E7EFFB /* SCMineController.m */,
+			);
+			name = MineController;
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		70C5A2F7AB093DE3D39B4CBA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				39F0ED9ACAE88E8ED7934748 /* Pods-SharedCarSuits.debug.xcconfig */,
+				6ACE2CCEB2825ABBD9CC5D25 /* Pods-SharedCarSuits.release.xcconfig */,
+				3FA8F58B19238B9921B044F9 /* Pods-SharedCarSuitsTests.debug.xcconfig */,
+				9A472414CD2D0246B21E28B1 /* Pods-SharedCarSuitsTests.release.xcconfig */,
+				85EB3A99F0A1ADC78ECB743F /* Pods-SharedCarSuitsUITests.debug.xcconfig */,
+				2395F901FF494BAEC814C9AA /* Pods-SharedCarSuitsUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8B91FD0D546FB20916FEEA2C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABEC7B6670E2B583689B8B8C /* libPods-SharedCarSuits.a */,
+				60A4C0452F94898FC366DE15 /* libPods-SharedCarSuitsTests.a */,
+				E8B31BBBBF74AC20BFA0ECB8 /* libPods-SharedCarSuitsUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		05972515201EF3DD00E7EFFB /* SharedCarSuits */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05972542201EF3DD00E7EFFB /* Build configuration list for PBXNativeTarget "SharedCarSuits" */;
+			buildPhases = (
+				55A76C131470C78283DEF3FD /* [CP] Check Pods Manifest.lock */,
+				05972512201EF3DD00E7EFFB /* Sources */,
+				05972513201EF3DD00E7EFFB /* Frameworks */,
+				05972514201EF3DD00E7EFFB /* Resources */,
+				14F28A9ADEB84C0A06293060 /* [CP] Embed Pods Frameworks */,
+				65A72BAE68AC10FFE05D251A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SharedCarSuits;
+			productName = SharedCarSuits;
+			productReference = 05972516201EF3DD00E7EFFB /* SharedCarSuits.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0597252D201EF3DD00E7EFFB /* SharedCarSuitsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05972545201EF3DD00E7EFFB /* Build configuration list for PBXNativeTarget "SharedCarSuitsTests" */;
+			buildPhases = (
+				DA7BDF2ADE85EA34692D9F22 /* [CP] Check Pods Manifest.lock */,
+				0597252A201EF3DD00E7EFFB /* Sources */,
+				0597252B201EF3DD00E7EFFB /* Frameworks */,
+				0597252C201EF3DD00E7EFFB /* Resources */,
+				2AE91AFD9C9B9C9EE8FE8F35 /* [CP] Embed Pods Frameworks */,
+				A7E77CB51917730170FE9592 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05972530201EF3DD00E7EFFB /* PBXTargetDependency */,
+			);
+			name = SharedCarSuitsTests;
+			productName = SharedCarSuitsTests;
+			productReference = 0597252E201EF3DD00E7EFFB /* SharedCarSuitsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		05972538201EF3DD00E7EFFB /* SharedCarSuitsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05972548201EF3DD00E7EFFB /* Build configuration list for PBXNativeTarget "SharedCarSuitsUITests" */;
+			buildPhases = (
+				CBBA9E2AB7ADB368FDAEEFE4 /* [CP] Check Pods Manifest.lock */,
+				05972535201EF3DD00E7EFFB /* Sources */,
+				05972536201EF3DD00E7EFFB /* Frameworks */,
+				05972537201EF3DD00E7EFFB /* Resources */,
+				ADE021B9F69BD7993BABE17B /* [CP] Embed Pods Frameworks */,
+				D5071188DABFCDA1D7769100 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0597253B201EF3DD00E7EFFB /* PBXTargetDependency */,
+			);
+			name = SharedCarSuitsUITests;
+			productName = SharedCarSuitsUITests;
+			productReference = 05972539201EF3DD00E7EFFB /* SharedCarSuitsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0597250E201EF3DD00E7EFFB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SC;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = tuhaisheng;
+				TargetAttributes = {
+					05972515201EF3DD00E7EFFB = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					0597252D201EF3DD00E7EFFB = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 05972515201EF3DD00E7EFFB;
+					};
+					05972538201EF3DD00E7EFFB = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 05972515201EF3DD00E7EFFB;
+					};
+				};
+			};
+			buildConfigurationList = 05972511201EF3DD00E7EFFB /* Build configuration list for PBXProject "SharedCarSuits" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0597250D201EF3DD00E7EFFB;
+			productRefGroup = 05972517201EF3DD00E7EFFB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				05972515201EF3DD00E7EFFB /* SharedCarSuits */,
+				0597252D201EF3DD00E7EFFB /* SharedCarSuitsTests */,
+				05972538201EF3DD00E7EFFB /* SharedCarSuitsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05972514201EF3DD00E7EFFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05972526201EF3DD00E7EFFB /* LaunchScreen.storyboard in Resources */,
+				05972523201EF3DD00E7EFFB /* Assets.xcassets in Resources */,
+				05972521201EF3DD00E7EFFB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0597252C201EF3DD00E7EFFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05972537201EF3DD00E7EFFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14F28A9ADEB84C0A06293060 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SharedCarSuits/Pods-SharedCarSuits-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2AE91AFD9C9B9C9EE8FE8F35 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SharedCarSuitsTests/Pods-SharedCarSuitsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55A76C131470C78283DEF3FD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SharedCarSuits-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		65A72BAE68AC10FFE05D251A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SharedCarSuits/Pods-SharedCarSuits-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7E77CB51917730170FE9592 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SharedCarSuitsTests/Pods-SharedCarSuitsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADE021B9F69BD7993BABE17B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SharedCarSuitsUITests/Pods-SharedCarSuitsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBBA9E2AB7ADB368FDAEEFE4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SharedCarSuitsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5071188DABFCDA1D7769100 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SharedCarSuitsUITests/Pods-SharedCarSuitsUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA7BDF2ADE85EA34692D9F22 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SharedCarSuitsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05972512201EF3DD00E7EFFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05972560201EFEDB00E7EFFB /* SCReservationController.m in Sources */,
+				05972550201EF7C800E7EFFB /* SCBaseNavigationController.m in Sources */,
+				05972556201EF83500E7EFFB /* SCBaseViewController.m in Sources */,
+				058379F9202A041B00FE6F3F /* NSMutableArray+Category.m in Sources */,
+				0597251E201EF3DD00E7EFFB /* ViewController.m in Sources */,
+				05972529201EF3DD00E7EFFB /* main.m in Sources */,
+				0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */,
+				0597255D201EFEC300E7EFFB /* SCMineController.m in Sources */,
+				058379F6202A035100FE6F3F /* NSArray+Category.m in Sources */,
+				05972563201EFEFA00E7EFFB /* SCHomePageController.m in Sources */,
+				058379EF202A002700FE6F3F /* SCBaseTableViewController.m in Sources */,
+				05972553201EF81200E7EFFB /* SCHomeTabBarController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0597252A201EF3DD00E7EFFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05972533201EF3DD00E7EFFB /* SharedCarSuitsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05972535201EF3DD00E7EFFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0597253E201EF3DD00E7EFFB /* SharedCarSuitsUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		05972530201EF3DD00E7EFFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05972515201EF3DD00E7EFFB /* SharedCarSuits */;
+			targetProxy = 0597252F201EF3DD00E7EFFB /* PBXContainerItemProxy */;
+		};
+		0597253B201EF3DD00E7EFFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05972515201EF3DD00E7EFFB /* SharedCarSuits */;
+			targetProxy = 0597253A201EF3DD00E7EFFB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0597251F201EF3DD00E7EFFB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05972520201EF3DD00E7EFFB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		05972524201EF3DD00E7EFFB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05972525201EF3DD00E7EFFB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		05972540201EF3DD00E7EFFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		05972541201EF3DD00E7EFFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		05972543201EF3DD00E7EFFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39F0ED9ACAE88E8ED7934748 /* Pods-SharedCarSuits.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SharedCarSuits/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ths.SharedCarSuits;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		05972544201EF3DD00E7EFFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6ACE2CCEB2825ABBD9CC5D25 /* Pods-SharedCarSuits.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SharedCarSuits/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ths.SharedCarSuits;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		05972546201EF3DD00E7EFFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FA8F58B19238B9921B044F9 /* Pods-SharedCarSuitsTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SharedCarSuitsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ths.SharedCarSuitsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SharedCarSuits.app/SharedCarSuits";
+			};
+			name = Debug;
+		};
+		05972547201EF3DD00E7EFFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A472414CD2D0246B21E28B1 /* Pods-SharedCarSuitsTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SharedCarSuitsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ths.SharedCarSuitsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SharedCarSuits.app/SharedCarSuits";
+			};
+			name = Release;
+		};
+		05972549201EF3DD00E7EFFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85EB3A99F0A1ADC78ECB743F /* Pods-SharedCarSuitsUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SharedCarSuitsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ths.SharedCarSuitsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SharedCarSuits;
+			};
+			name = Debug;
+		};
+		0597254A201EF3DD00E7EFFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2395F901FF494BAEC814C9AA /* Pods-SharedCarSuitsUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SharedCarSuitsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ths.SharedCarSuitsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SharedCarSuits;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05972511201EF3DD00E7EFFB /* Build configuration list for PBXProject "SharedCarSuits" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05972540201EF3DD00E7EFFB /* Debug */,
+				05972541201EF3DD00E7EFFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05972542201EF3DD00E7EFFB /* Build configuration list for PBXNativeTarget "SharedCarSuits" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05972543201EF3DD00E7EFFB /* Debug */,
+				05972544201EF3DD00E7EFFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05972545201EF3DD00E7EFFB /* Build configuration list for PBXNativeTarget "SharedCarSuitsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05972546201EF3DD00E7EFFB /* Debug */,
+				05972547201EF3DD00E7EFFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05972548201EF3DD00E7EFFB /* Build configuration list for PBXNativeTarget "SharedCarSuitsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05972549201EF3DD00E7EFFB /* Debug */,
+				0597254A201EF3DD00E7EFFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0597250E201EF3DD00E7EFFB /* Project object */;
+}

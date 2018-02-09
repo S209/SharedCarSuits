@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		058379EF202A002700FE6F3F /* SCBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 058379EE202A002700FE6F3F /* SCBaseTableViewController.m */; };
 		0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597251A201EF3DD00E7EFFB /* AppDelegate.m */; };
 		0597251E201EF3DD00E7EFFB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597251D201EF3DD00E7EFFB /* ViewController.m */; };
 		05972521201EF3DD00E7EFFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0597251F201EF3DD00E7EFFB /* Main.storyboard */; };
@@ -16,14 +15,8 @@
 		05972529201EF3DD00E7EFFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05972528201EF3DD00E7EFFB /* main.m */; };
 		05972533201EF3DD00E7EFFB /* SharedCarSuitsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05972532201EF3DD00E7EFFB /* SharedCarSuitsTests.m */; };
 		0597253E201EF3DD00E7EFFB /* SharedCarSuitsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597253D201EF3DD00E7EFFB /* SharedCarSuitsUITests.m */; };
-		05972550201EF7C800E7EFFB /* SCBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597254F201EF7C800E7EFFB /* SCBaseNavigationController.m */; };
-		05972553201EF81200E7EFFB /* SCHomeTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05972552201EF81200E7EFFB /* SCHomeTabBarController.m */; };
-		05972556201EF83500E7EFFB /* SCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05972555201EF83500E7EFFB /* SCBaseViewController.m */; };
-		0597255D201EFEC300E7EFFB /* SCMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597255C201EFEC300E7EFFB /* SCMineController.m */; };
-		05972563201EFEFA00E7EFFB /* SCHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05972562201EFEFA00E7EFFB /* SCHomePageController.m */; };
 		05C94234202D69CC00B78CA4 /* NSArray+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9422F202D69CC00B78CA4 /* NSArray+Category.m */; };
 		05C94235202D69CC00B78CA4 /* NSMutableArray+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94231202D69CC00B78CA4 /* NSMutableArray+Category.m */; };
-		05C94238202D6AB600B78CA4 /* SCReservationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94236202D6AB600B78CA4 /* SCReservationController.m */; };
 		A7A03487A480F79B5C5D8C66 /* libPods-SharedCarSuitsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B31BBBBF74AC20BFA0ECB8 /* libPods-SharedCarSuitsUITests.a */; };
 		B54ACDE8FDCE0F818429C677 /* libPods-SharedCarSuits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEC7B6670E2B583689B8B8C /* libPods-SharedCarSuits.a */; };
 		F0363A110D61A92361150273 /* libPods-SharedCarSuitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A4C0452F94898FC366DE15 /* libPods-SharedCarSuitsTests.a */; };
@@ -47,8 +40,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		058379ED202A002700FE6F3F /* SCBaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCBaseTableViewController.h; sourceTree = "<group>"; };
-		058379EE202A002700FE6F3F /* SCBaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCBaseTableViewController.m; sourceTree = "<group>"; };
 		05972516201EF3DD00E7EFFB /* SharedCarSuits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharedCarSuits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05972519201EF3DD00E7EFFB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0597251A201EF3DD00E7EFFB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -65,22 +56,10 @@
 		05972539201EF3DD00E7EFFB /* SharedCarSuitsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharedCarSuitsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0597253D201EF3DD00E7EFFB /* SharedCarSuitsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedCarSuitsUITests.m; sourceTree = "<group>"; };
 		0597253F201EF3DD00E7EFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0597254E201EF7C800E7EFFB /* SCBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCBaseNavigationController.h; sourceTree = "<group>"; };
-		0597254F201EF7C800E7EFFB /* SCBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCBaseNavigationController.m; sourceTree = "<group>"; };
-		05972551201EF81200E7EFFB /* SCHomeTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCHomeTabBarController.h; sourceTree = "<group>"; };
-		05972552201EF81200E7EFFB /* SCHomeTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCHomeTabBarController.m; sourceTree = "<group>"; };
-		05972554201EF83500E7EFFB /* SCBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCBaseViewController.h; sourceTree = "<group>"; };
-		05972555201EF83500E7EFFB /* SCBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCBaseViewController.m; sourceTree = "<group>"; };
-		0597255B201EFEC300E7EFFB /* SCMineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMineController.h; sourceTree = "<group>"; };
-		0597255C201EFEC300E7EFFB /* SCMineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMineController.m; sourceTree = "<group>"; };
-		05972561201EFEFA00E7EFFB /* SCHomePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCHomePageController.h; sourceTree = "<group>"; };
-		05972562201EFEFA00E7EFFB /* SCHomePageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCHomePageController.m; sourceTree = "<group>"; };
 		05C9422E202D69CC00B78CA4 /* NSArray+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Category.h"; sourceTree = "<group>"; };
 		05C9422F202D69CC00B78CA4 /* NSArray+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Category.m"; sourceTree = "<group>"; };
 		05C94230202D69CC00B78CA4 /* NSMutableArray+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Category.h"; sourceTree = "<group>"; };
 		05C94231202D69CC00B78CA4 /* NSMutableArray+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Category.m"; sourceTree = "<group>"; };
-		05C94236202D6AB600B78CA4 /* SCReservationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCReservationController.m; sourceTree = "<group>"; };
-		05C94237202D6AB600B78CA4 /* SCReservationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCReservationController.h; sourceTree = "<group>"; };
 		2395F901FF494BAEC814C9AA /* Pods-SharedCarSuitsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsUITests/Pods-SharedCarSuitsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		39F0ED9ACAE88E8ED7934748 /* Pods-SharedCarSuits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuits/Pods-SharedCarSuits.debug.xcconfig"; sourceTree = "<group>"; };
 		3FA8F58B19238B9921B044F9 /* Pods-SharedCarSuitsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsTests/Pods-SharedCarSuitsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,7 +111,6 @@
 		0597250D201EF3DD00E7EFFB = {
 			isa = PBXGroup;
 			children = (
-				0597254C201EF75C00E7EFFB /* ViewController */,
 				0597254B201EF73100E7EFFB /* Common */,
 				05972518201EF3DD00E7EFFB /* SharedCarSuits */,
 				05972531201EF3DD00E7EFFB /* SharedCarSuitsTests */,
@@ -193,61 +171,6 @@
 				058379F0202A02B400FE6F3F /* Category */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		0597254C201EF75C00E7EFFB /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				0597255A201EF94300E7EFFB /* MineController */,
-				05972559201EF92400E7EFFB /* ReservationController */,
-				05972558201EF8E400E7EFFB /* HomePageController */,
-				0597254D201EF76900E7EFFB /* Base */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		0597254D201EF76900E7EFFB /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				0597254E201EF7C800E7EFFB /* SCBaseNavigationController.h */,
-				0597254F201EF7C800E7EFFB /* SCBaseNavigationController.m */,
-				05972551201EF81200E7EFFB /* SCHomeTabBarController.h */,
-				05972552201EF81200E7EFFB /* SCHomeTabBarController.m */,
-				05972554201EF83500E7EFFB /* SCBaseViewController.h */,
-				05972555201EF83500E7EFFB /* SCBaseViewController.m */,
-				058379ED202A002700FE6F3F /* SCBaseTableViewController.h */,
-				058379EE202A002700FE6F3F /* SCBaseTableViewController.m */,
-			);
-			name = Base;
-			path = "../New Group/New Group";
-			sourceTree = "<group>";
-		};
-		05972558201EF8E400E7EFFB /* HomePageController */ = {
-			isa = PBXGroup;
-			children = (
-				05972561201EFEFA00E7EFFB /* SCHomePageController.h */,
-				05972562201EFEFA00E7EFFB /* SCHomePageController.m */,
-			);
-			path = HomePageController;
-			sourceTree = "<group>";
-		};
-		05972559201EF92400E7EFFB /* ReservationController */ = {
-			isa = PBXGroup;
-			children = (
-				05C94237202D6AB600B78CA4 /* SCReservationController.h */,
-				05C94236202D6AB600B78CA4 /* SCReservationController.m */,
-			);
-			path = ReservationController;
-			sourceTree = "<group>";
-		};
-		0597255A201EF94300E7EFFB /* MineController */ = {
-			isa = PBXGroup;
-			children = (
-				0597255B201EFEC300E7EFFB /* SCMineController.h */,
-				0597255C201EFEC300E7EFFB /* SCMineController.m */,
-			);
-			name = MineController;
-			path = Mine;
 			sourceTree = "<group>";
 		};
 		05C9422D202D69CC00B78CA4 /* NSArray */ = {
@@ -589,18 +512,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05C94238202D6AB600B78CA4 /* SCReservationController.m in Sources */,
-				05972550201EF7C800E7EFFB /* SCBaseNavigationController.m in Sources */,
-				05972556201EF83500E7EFFB /* SCBaseViewController.m in Sources */,
 				05C94235202D69CC00B78CA4 /* NSMutableArray+Category.m in Sources */,
 				0597251E201EF3DD00E7EFFB /* ViewController.m in Sources */,
 				05972529201EF3DD00E7EFFB /* main.m in Sources */,
 				0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */,
-				0597255D201EFEC300E7EFFB /* SCMineController.m in Sources */,
 				05C94234202D69CC00B78CA4 /* NSArray+Category.m in Sources */,
-				05972563201EFEFA00E7EFFB /* SCHomePageController.m in Sources */,
-				058379EF202A002700FE6F3F /* SCBaseTableViewController.m in Sources */,
-				05972553201EF81200E7EFFB /* SCHomeTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

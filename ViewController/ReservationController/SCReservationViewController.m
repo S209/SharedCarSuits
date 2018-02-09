@@ -6,13 +6,13 @@
 //  Copyright © 2018年 tuhaisheng. All rights reserved.
 //
 
-#import "SCReservationController.h"
+#import "SCReservationViewController.h"
 
-@interface SCReservationController ()
+@interface SCReservationViewController ()
 
 @end
 
-@implementation SCReservationController
+@implementation SCReservationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

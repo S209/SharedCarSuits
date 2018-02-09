@@ -7,7 +7,6 @@
 //
 
 #import "SCHomePageViewController.h"
-
 @interface SCHomePageViewController ()
 
 @end

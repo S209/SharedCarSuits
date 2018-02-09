@@ -85,6 +85,10 @@
 		05C9425B202D7F4700B78CA4 /* UIColor+CDF.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CDF.m"; sourceTree = "<group>"; };
 		05C94260202D854E00B78CA4 /* SCSharedCarSuitsClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCSharedCarSuitsClient.h; sourceTree = "<group>"; };
 		05C94261202D854E00B78CA4 /* SCSharedCarSuitsClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCSharedCarSuitsClient.m; sourceTree = "<group>"; };
+		05C94265202D8A3400B78CA4 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		05C94266202D8C0600B78CA4 /* SCDeviceConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDeviceConst.h; sourceTree = "<group>"; };
+		05C94267202D8C3500B78CA4 /* SCRouterURLHeaderConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRouterURLHeaderConst.h; sourceTree = "<group>"; };
+		05C94268202D8E9900B78CA4 /* SCThirdInfoConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCThirdInfoConst.h; sourceTree = "<group>"; };
 		2395F901FF494BAEC814C9AA /* Pods-SharedCarSuitsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsUITests/Pods-SharedCarSuitsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		39F0ED9ACAE88E8ED7934748 /* Pods-SharedCarSuits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuits/Pods-SharedCarSuits.debug.xcconfig"; sourceTree = "<group>"; };
 		3FA8F58B19238B9921B044F9 /* Pods-SharedCarSuitsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsTests/Pods-SharedCarSuitsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -307,10 +311,22 @@
 		05C9425F202D84F800B78CA4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				05C94263202D899200B78CA4 /* Macros */,
 				05C94260202D854E00B78CA4 /* SCSharedCarSuitsClient.h */,
 				05C94261202D854E00B78CA4 /* SCSharedCarSuitsClient.m */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		05C94263202D899200B78CA4 /* Macros */ = {
+			isa = PBXGroup;
+			children = (
+				05C94265202D8A3400B78CA4 /* PrefixHeader.pch */,
+				05C94266202D8C0600B78CA4 /* SCDeviceConst.h */,
+				05C94267202D8C3500B78CA4 /* SCRouterURLHeaderConst.h */,
+				05C94268202D8E9900B78CA4 /* SCThirdInfoConst.h */,
+			);
+			path = Macros;
 			sourceTree = "<group>";
 		};
 		70C5A2F7AB093DE3D39B4CBA /* Pods */ = {

@@ -1,18 +1,18 @@
 //
-//  SCHomePageController.m
+//  SCHomePageViewController.m
 //  SharedCarSuits
 //
 //  Created by tuhaisheng on 2018/1/29.
 //  Copyright © 2018年 tuhaisheng. All rights reserved.
 //
 
-#import "SCHomePageController.h"
+#import "SCHomePageViewController.h"
 
-@interface SCHomePageController ()
+@interface SCHomePageViewController ()
 
 @end
 
-@implementation SCHomePageController
+@implementation SCHomePageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

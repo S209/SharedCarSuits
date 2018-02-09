@@ -1,5 +1,5 @@
 //
-//  SCMineController.h
+//  SCMineViewController.h
 //  SharedCarSuits
 //
 //  Created by tuhaisheng on 2018/1/29.
@@ -8,6 +8,6 @@
 
 #import "SCBaseViewController.h"
 
-@interface SCMineController : SCBaseViewController
+@interface SCMineViewController : SCBaseViewController
 
 @end

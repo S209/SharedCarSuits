@@ -17,9 +17,9 @@
 		0597253E201EF3DD00E7EFFB /* SharedCarSuitsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597253D201EF3DD00E7EFFB /* SharedCarSuitsUITests.m */; };
 		05C94234202D69CC00B78CA4 /* NSArray+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9422F202D69CC00B78CA4 /* NSArray+Category.m */; };
 		05C94235202D69CC00B78CA4 /* NSMutableArray+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94231202D69CC00B78CA4 /* NSMutableArray+Category.m */; };
-		05C94243202D6B1500B78CA4 /* SCHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9423C202D6B1500B78CA4 /* SCHomePageController.m */; };
-		05C94244202D6B1500B78CA4 /* SCMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9423F202D6B1500B78CA4 /* SCMineController.m */; };
-		05C94245202D6B1500B78CA4 /* SCReservationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94242202D6B1500B78CA4 /* SCReservationController.m */; };
+		05C94243202D6B1500B78CA4 /* SCHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9423C202D6B1500B78CA4 /* SCHomePageViewController.m */; };
+		05C94244202D6B1500B78CA4 /* SCMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9423F202D6B1500B78CA4 /* SCMineViewController.m */; };
+		05C94245202D6B1500B78CA4 /* SCReservationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94242202D6B1500B78CA4 /* SCReservationViewController.m */; };
 		05C9424F202D6BD200B78CA4 /* SCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94248202D6BD100B78CA4 /* SCBaseViewController.m */; };
 		05C94250202D6BD200B78CA4 /* SCHomeTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94249202D6BD100B78CA4 /* SCHomeTabBarController.m */; };
 		05C94251202D6BD200B78CA4 /* SCBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9424B202D6BD200B78CA4 /* SCBaseNavigationController.m */; };
@@ -67,12 +67,12 @@
 		05C9422F202D69CC00B78CA4 /* NSArray+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Category.m"; sourceTree = "<group>"; };
 		05C94230202D69CC00B78CA4 /* NSMutableArray+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Category.h"; sourceTree = "<group>"; };
 		05C94231202D69CC00B78CA4 /* NSMutableArray+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Category.m"; sourceTree = "<group>"; };
-		05C9423B202D6B1500B78CA4 /* SCHomePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCHomePageController.h; sourceTree = "<group>"; };
-		05C9423C202D6B1500B78CA4 /* SCHomePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCHomePageController.m; sourceTree = "<group>"; };
-		05C9423E202D6B1500B78CA4 /* SCMineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMineController.h; sourceTree = "<group>"; };
-		05C9423F202D6B1500B78CA4 /* SCMineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMineController.m; sourceTree = "<group>"; };
-		05C94241202D6B1500B78CA4 /* SCReservationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCReservationController.h; sourceTree = "<group>"; };
-		05C94242202D6B1500B78CA4 /* SCReservationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCReservationController.m; sourceTree = "<group>"; };
+		05C9423B202D6B1500B78CA4 /* SCHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCHomePageViewController.h; sourceTree = "<group>"; };
+		05C9423C202D6B1500B78CA4 /* SCHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCHomePageViewController.m; sourceTree = "<group>"; };
+		05C9423E202D6B1500B78CA4 /* SCMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMineViewController.h; sourceTree = "<group>"; };
+		05C9423F202D6B1500B78CA4 /* SCMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMineViewController.m; sourceTree = "<group>"; };
+		05C94241202D6B1500B78CA4 /* SCReservationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCReservationViewController.h; sourceTree = "<group>"; };
+		05C94242202D6B1500B78CA4 /* SCReservationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCReservationViewController.m; sourceTree = "<group>"; };
 		05C94247202D6BD100B78CA4 /* SCBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBaseNavigationController.h; sourceTree = "<group>"; };
 		05C94248202D6BD100B78CA4 /* SCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBaseViewController.m; sourceTree = "<group>"; };
 		05C94249202D6BD100B78CA4 /* SCHomeTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCHomeTabBarController.m; sourceTree = "<group>"; };
@@ -235,8 +235,8 @@
 		05C9423A202D6B1500B78CA4 /* HomePageController */ = {
 			isa = PBXGroup;
 			children = (
-				05C9423B202D6B1500B78CA4 /* SCHomePageController.h */,
-				05C9423C202D6B1500B78CA4 /* SCHomePageController.m */,
+				05C9423B202D6B1500B78CA4 /* SCHomePageViewController.h */,
+				05C9423C202D6B1500B78CA4 /* SCHomePageViewController.m */,
 			);
 			path = HomePageController;
 			sourceTree = "<group>";
@@ -244,8 +244,8 @@
 		05C9423D202D6B1500B78CA4 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				05C9423E202D6B1500B78CA4 /* SCMineController.h */,
-				05C9423F202D6B1500B78CA4 /* SCMineController.m */,
+				05C9423E202D6B1500B78CA4 /* SCMineViewController.h */,
+				05C9423F202D6B1500B78CA4 /* SCMineViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -253,8 +253,8 @@
 		05C94240202D6B1500B78CA4 /* ReservationController */ = {
 			isa = PBXGroup;
 			children = (
-				05C94241202D6B1500B78CA4 /* SCReservationController.h */,
-				05C94242202D6B1500B78CA4 /* SCReservationController.m */,
+				05C94241202D6B1500B78CA4 /* SCReservationViewController.h */,
+				05C94242202D6B1500B78CA4 /* SCReservationViewController.m */,
 			);
 			path = ReservationController;
 			sourceTree = "<group>";
@@ -587,15 +587,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05C94245202D6B1500B78CA4 /* SCReservationController.m in Sources */,
+				05C94245202D6B1500B78CA4 /* SCReservationViewController.m in Sources */,
 				05C94235202D69CC00B78CA4 /* NSMutableArray+Category.m in Sources */,
-				05C94243202D6B1500B78CA4 /* SCHomePageController.m in Sources */,
+				05C94243202D6B1500B78CA4 /* SCHomePageViewController.m in Sources */,
 				0597251E201EF3DD00E7EFFB /* ViewController.m in Sources */,
 				05C94250202D6BD200B78CA4 /* SCHomeTabBarController.m in Sources */,
 				05C94251202D6BD200B78CA4 /* SCBaseNavigationController.m in Sources */,
 				05972529201EF3DD00E7EFFB /* main.m in Sources */,
 				0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */,
-				05C94244202D6B1500B78CA4 /* SCMineController.m in Sources */,
+				05C94244202D6B1500B78CA4 /* SCMineViewController.m in Sources */,
 				05C9424F202D6BD200B78CA4 /* SCBaseViewController.m in Sources */,
 				05C94252202D6BD200B78CA4 /* SCBaseTableViewController.m in Sources */,
 				05C94234202D69CC00B78CA4 /* NSArray+Category.m in Sources */,

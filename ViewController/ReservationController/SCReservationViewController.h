@@ -1,5 +1,5 @@
 //
-//  SCHomePageController.h
+//  SCReservationController.h
 //  SharedCarSuits
 //
 //  Created by tuhaisheng on 2018/1/29.
@@ -8,6 +8,6 @@
 
 #import "SCBaseViewController.h"
 
-@interface SCHomePageController : SCBaseViewController
+@interface SCReservationViewController : SCBaseViewController
 
 @end

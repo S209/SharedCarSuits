@@ -8,8 +8,8 @@
 
 #ifndef SCDeviceConst_h
 #define SCDeviceConst_h
-#define SCREEN_WIDTH  [[UIScreen mainScreen] applicationFrame].size.width    //屏幕宽
-#define SCREEN_HEIGHT [[UIScreen mainScreen] applicationFrame].size.height   //屏幕高，去除状态栏
+#define SCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width    //屏幕宽
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height   //屏幕高，去除状态栏
 #define NAVIGATIONBAR_HEIGHT 44 //导航条高
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 //#define IS_IPHONE_5      ([UIScreen mainScreen].bounds.size.height == 568)
@@ -21,4 +21,10 @@
 #define SYTabBarHeight (IS_IPHONE_X?83:49)
 #define SYTabBarSpacingBottom (IS_IPHONE_X?34:0)
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define kSYFontArialMT     @"ArialMT"
+#define kSYFontPingFangSCRegular    @"PingFangSC-Regular"
+#define kSYFontPingFangSCSemibold   @"PingFangSC-Semibold"
+#define kSYFontPingFangSCMedium     @"PingFangSC-Medium"
+#define kSYFontPingFangSCLight      @"PingFangSC-Light"
+#define kSYFontName   kSYFontPingFangSCLight
 #endif /* SCDeviceConst_h */

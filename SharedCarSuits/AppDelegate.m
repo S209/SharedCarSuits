@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "SCHomeTabBarController.h"
+#import "SCLaunchViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,9 +16,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
+//    SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
+    SCLaunchViewController * launchView = [[SCLaunchViewController alloc] init];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = homeTabBarController;
+    self.window.rootViewController = launchView;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

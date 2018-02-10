@@ -11,4 +11,8 @@
 #import "SCThirdInfoConst.h"
 #import "SCRouterURLHeaderConst.h"
 #import "SCDeviceConst.h"
+#import "UIFont+Addition.h"
+#import "UIColor+CDF.h"
+#import "UIColor+Additional.h"
+#import "UIView+CDFFrame.h"
 #endif /* PrefixHeader_pch */

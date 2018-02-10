@@ -15,5 +15,6 @@
 + (UIColor *)sc_colorWith444444;
 + (UIColor *)sc_colorWith6C6DFD;
 + (UIColor *)sc_colorWithFC8739;
++ (UIColor *)sc_colorWithF8F8F8;
 + (UIColor *)sy_green4Color;
 @end

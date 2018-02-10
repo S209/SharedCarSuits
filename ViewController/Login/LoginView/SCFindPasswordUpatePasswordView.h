@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef NS_ENUM(NSInteger, UpdateType){
+    UpdateTypePassword = 0,
+    UpdateTypeRegister = 1,
+};
 @protocol SCFindPasswordUpatePasswordViewDelegate<NSObject>
 @required
 - (void)complete;
 @end
 @interface SCFindPasswordUpatePasswordView : UIView
 @property (nonatomic, weak) id <SCFindPasswordUpatePasswordViewDelegate>deleate;
+@property (nonatomic, assign) UpdateType update;
 @end

@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef NS_ENUM(NSInteger, TypeR){
+    TypeRetrieveThePassword = 0,
+    TypeRegister = 1,
+};
 @protocol SCRetrieveThePasswordViewDelegate<NSObject>
 @required
 - (void)nextStep;
@@ -14,4 +18,5 @@
 @interface SCRetrieveThePasswordView : UIView
 - (instancetype)initWithFrame:(CGRect)frame;
 @property (nonatomic, weak) id <SCRetrieveThePasswordViewDelegate> delegate;
+@property (nonatomic, assign) TypeR type;
 @end

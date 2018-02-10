@@ -1,48 +1,50 @@
 //
-//  SCFindPasswordUpatePasswordController.m
+//  SCRegisterViewCarInfoViewController.m
 //  SharedCarSuits
 //
 //  Created by tuhaisheng on 2018/2/10.
 //  Copyright © 2018年 tuhaisheng. All rights reserved.
 //
 
-#import "SCFindPasswordUpatePasswordController.h"
-#import "SCFindPasswordUpatePasswordView.h"
-#import "SCHomeTabBarController.h"
-#import "AppDelegate.h"
-@interface SCFindPasswordUpatePasswordController ()<SCFindPasswordUpatePasswordViewDelegate>
+#import "SCRegisterViewCarInfoViewController.h"
+#import "SCRegisterViewCarInfoView.h"
+@interface SCRegisterViewCarInfoViewController ()<SCRegisterViewCarInfoViewDelegate>
 
 @end
 
-@implementation SCFindPasswordUpatePasswordController
+@implementation SCRegisterViewCarInfoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNavigationWithTitle:@"找回密码"];
+    [self setNavigationWithTitle:@"注册"];
     [self sy_leftBarButtonItem];
     [self setupView];
 }
 
 - (void)setupView
 {
-    SCFindPasswordUpatePasswordView * upatePasswordView = [[SCFindPasswordUpatePasswordView alloc] init];
-    [self.view addSubview:upatePasswordView];
-    upatePasswordView.deleate = self;
-    upatePasswordView.update = UpdateTypePassword;
-    [upatePasswordView mas_makeConstraints:^(MASConstraintMaker *make) {
+    SCRegisterViewCarInfoView * carInfo = [[SCRegisterViewCarInfoView alloc] init];
+    carInfo.delegate = self;
+    [self.view addSubview:carInfo];
+    [carInfo mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
-        make.right.equalTo(self.view.mas_right).with.offset(-0);
         make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight);
+        make.right.equalTo(self.view.mas_right).with.offset(-0);
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
     }];
+    
 }
 
-- (void)complete
+- (void)carNumberBtnClickWithIndex:(NSInteger)index
 {
-    SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
-    [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
+    
+    
 }
 
+- (void)sureBtnClick
+{
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

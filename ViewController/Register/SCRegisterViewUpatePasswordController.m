@@ -1,25 +1,23 @@
 //
-//  SCFindPasswordUpatePasswordController.m
+//  SCRegisterViewUpatePasswordController.m
 //  SharedCarSuits
 //
 //  Created by tuhaisheng on 2018/2/10.
 //  Copyright © 2018年 tuhaisheng. All rights reserved.
 //
 
-#import "SCFindPasswordUpatePasswordController.h"
+#import "SCRegisterViewUpatePasswordController.h"
 #import "SCFindPasswordUpatePasswordView.h"
-#import "SCHomeTabBarController.h"
-#import "AppDelegate.h"
-@interface SCFindPasswordUpatePasswordController ()<SCFindPasswordUpatePasswordViewDelegate>
+#import "SCRegisterViewCarInfoViewController.h"
+@interface SCRegisterViewUpatePasswordController ()<SCFindPasswordUpatePasswordViewDelegate>
 
 @end
 
-@implementation SCFindPasswordUpatePasswordController
+@implementation SCRegisterViewUpatePasswordController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNavigationWithTitle:@"找回密码"];
-    [self sy_leftBarButtonItem];
+    [self setNavigationWithTitle:@"注册"];
     [self setupView];
 }
 
@@ -28,7 +26,7 @@
     SCFindPasswordUpatePasswordView * upatePasswordView = [[SCFindPasswordUpatePasswordView alloc] init];
     [self.view addSubview:upatePasswordView];
     upatePasswordView.deleate = self;
-    upatePasswordView.update = UpdateTypePassword;
+    upatePasswordView.update = UpdateTypeRegister;
     [upatePasswordView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(-0);
@@ -37,12 +35,12 @@
     }];
 }
 
+#pragma mark 下一步
 - (void)complete
 {
-    SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
-    [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
+    SCRegisterViewCarInfoViewController * carInfor = [[SCRegisterViewCarInfoViewController alloc] init];
+    [self.navigationController pushViewController:carInfor animated:YES];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

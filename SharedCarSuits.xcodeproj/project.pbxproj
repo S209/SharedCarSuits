@@ -36,6 +36,10 @@
 		05C94288202EB85000B78CA4 /* SCRetrieveThePasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94287202EB85000B78CA4 /* SCRetrieveThePasswordView.m */; };
 		05C9428B202EC39A00B78CA4 /* SCFindPasswordUpatePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9428A202EC39A00B78CA4 /* SCFindPasswordUpatePasswordController.m */; };
 		05C9428E202EC44700B78CA4 /* SCFindPasswordUpatePasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9428D202EC44700B78CA4 /* SCFindPasswordUpatePasswordView.m */; };
+		05C94292202ECAE600B78CA4 /* SCRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94291202ECAE600B78CA4 /* SCRegisterViewController.m */; };
+		05C94295202ECEE300B78CA4 /* SCRegisterViewUpatePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94294202ECEE300B78CA4 /* SCRegisterViewUpatePasswordController.m */; };
+		05C94299202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94298202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m */; };
+		05C9429D202ED16600B78CA4 /* SCRegisterViewCarInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9429C202ED16600B78CA4 /* SCRegisterViewCarInfoView.m */; };
 		A7A03487A480F79B5C5D8C66 /* libPods-SharedCarSuitsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B31BBBBF74AC20BFA0ECB8 /* libPods-SharedCarSuitsUITests.a */; };
 		B54ACDE8FDCE0F818429C677 /* libPods-SharedCarSuits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEC7B6670E2B583689B8B8C /* libPods-SharedCarSuits.a */; };
 		F0363A110D61A92361150273 /* libPods-SharedCarSuitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A4C0452F94898FC366DE15 /* libPods-SharedCarSuitsTests.a */; };
@@ -122,6 +126,15 @@
 		05C9428A202EC39A00B78CA4 /* SCFindPasswordUpatePasswordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCFindPasswordUpatePasswordController.m; sourceTree = "<group>"; };
 		05C9428C202EC44700B78CA4 /* SCFindPasswordUpatePasswordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCFindPasswordUpatePasswordView.h; sourceTree = "<group>"; };
 		05C9428D202EC44700B78CA4 /* SCFindPasswordUpatePasswordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCFindPasswordUpatePasswordView.m; sourceTree = "<group>"; };
+		05C94290202ECAE600B78CA4 /* SCRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRegisterViewController.h; sourceTree = "<group>"; };
+		05C94291202ECAE600B78CA4 /* SCRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRegisterViewController.m; sourceTree = "<group>"; };
+		05C94293202ECEE300B78CA4 /* SCRegisterViewUpatePasswordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRegisterViewUpatePasswordController.h; sourceTree = "<group>"; };
+		05C94294202ECEE300B78CA4 /* SCRegisterViewUpatePasswordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRegisterViewUpatePasswordController.m; sourceTree = "<group>"; };
+		05C94296202ED00100B78CA4 /* SCProjectConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCProjectConst.h; sourceTree = "<group>"; };
+		05C94297202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRegisterViewCarInfoViewController.h; sourceTree = "<group>"; };
+		05C94298202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRegisterViewCarInfoViewController.m; sourceTree = "<group>"; };
+		05C9429B202ED16600B78CA4 /* SCRegisterViewCarInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRegisterViewCarInfoView.h; sourceTree = "<group>"; };
+		05C9429C202ED16600B78CA4 /* SCRegisterViewCarInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRegisterViewCarInfoView.m; sourceTree = "<group>"; };
 		2395F901FF494BAEC814C9AA /* Pods-SharedCarSuitsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsUITests/Pods-SharedCarSuitsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		39F0ED9ACAE88E8ED7934748 /* Pods-SharedCarSuits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuits/Pods-SharedCarSuits.debug.xcconfig"; sourceTree = "<group>"; };
 		3FA8F58B19238B9921B044F9 /* Pods-SharedCarSuitsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsTests/Pods-SharedCarSuitsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -265,6 +278,7 @@
 		05C94239202D6B1500B78CA4 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				05C9428F202ECAC300B78CA4 /* Register */,
 				05C94269202E8CC400B78CA4 /* LaunchViewController */,
 				05C9425D202D828C00B78CA4 /* Login */,
 				05C94246202D6BC600B78CA4 /* Base */,
@@ -370,6 +384,7 @@
 				05C94266202D8C0600B78CA4 /* SCDeviceConst.h */,
 				05C94267202D8C3500B78CA4 /* SCRouterURLHeaderConst.h */,
 				05C94268202D8E9900B78CA4 /* SCThirdInfoConst.h */,
+				05C94296202ED00100B78CA4 /* SCProjectConst.h */,
 			);
 			path = Macros;
 			sourceTree = "<group>";
@@ -414,6 +429,29 @@
 				05C9428A202EC39A00B78CA4 /* SCFindPasswordUpatePasswordController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		05C9428F202ECAC300B78CA4 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				05C9429A202ED14C00B78CA4 /* View */,
+				05C94290202ECAE600B78CA4 /* SCRegisterViewController.h */,
+				05C94291202ECAE600B78CA4 /* SCRegisterViewController.m */,
+				05C94293202ECEE300B78CA4 /* SCRegisterViewUpatePasswordController.h */,
+				05C94294202ECEE300B78CA4 /* SCRegisterViewUpatePasswordController.m */,
+				05C94297202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.h */,
+				05C94298202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		05C9429A202ED14C00B78CA4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				05C9429B202ED16600B78CA4 /* SCRegisterViewCarInfoView.h */,
+				05C9429C202ED16600B78CA4 /* SCRegisterViewCarInfoView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		70C5A2F7AB093DE3D39B4CBA /* Pods */ = {
@@ -731,6 +769,7 @@
 				05C94285202EB3D100B78CA4 /* UIBarButtonItem+Spacing.m in Sources */,
 				05C94259202D7F3900B78CA4 /* UIColor+Additional.m in Sources */,
 				05C94245202D6B1500B78CA4 /* SCReservationViewController.m in Sources */,
+				05C94299202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m in Sources */,
 				05C94270202E8E3800B78CA4 /* SCLoginView.m in Sources */,
 				05C9427C202EB1DC00B78CA4 /* SCFindPasswordController.m in Sources */,
 				05C94235202D69CC00B78CA4 /* NSMutableArray+Category.m in Sources */,
@@ -743,9 +782,12 @@
 				05972529201EF3DD00E7EFFB /* main.m in Sources */,
 				05C9426C202E8CE800B78CA4 /* SCLaunchViewController.m in Sources */,
 				0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */,
+				05C94292202ECAE600B78CA4 /* SCRegisterViewController.m in Sources */,
 				05C94273202E907800B78CA4 /* UIFont+Addition.m in Sources */,
 				05C94244202D6B1500B78CA4 /* SCMineViewController.m in Sources */,
+				05C94295202ECEE300B78CA4 /* SCRegisterViewUpatePasswordController.m in Sources */,
 				05C9424F202D6BD200B78CA4 /* SCBaseViewController.m in Sources */,
+				05C9429D202ED16600B78CA4 /* SCRegisterViewCarInfoView.m in Sources */,
 				05C94252202D6BD200B78CA4 /* SCBaseTableViewController.m in Sources */,
 				05C9427F202EB32400B78CA4 /* UIViewController+Utility.m in Sources */,
 				05C94277202EA1C700B78CA4 /* UIView+CDFFrame.m in Sources */,

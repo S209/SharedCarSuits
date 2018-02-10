@@ -12,6 +12,7 @@
 #import <Masonry.h>
 #import "AppDelegate.h"
 #import "SCFindPasswordController.h"
+#import "SCRegisterViewController.h"
 @interface SCLaunchViewController ()<SCLoginViewDelegate>
 @property (nonatomic , strong) SCHomeTabBarController * homeTabBarController;
 @end
@@ -57,7 +58,8 @@
 }
 - (void)loginViewWithRegister
 {
-    
+    SCRegisterViewController * registerView = [[SCRegisterViewController alloc] init];
+    [self.navigationController pushViewController:registerView animated:YES];
 }
 - (void)forgetPassword
 {

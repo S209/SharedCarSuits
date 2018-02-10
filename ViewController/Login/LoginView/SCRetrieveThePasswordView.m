@@ -10,6 +10,7 @@
 
 @interface SCRetrieveThePasswordView()<UITextFieldDelegate>
 @property (nonatomic, weak) UITextField * phoneNumberField;
+@property (nonatomic, weak) UIButton * repeateBtn;
 @end
 @implementation SCRetrieveThePasswordView
 - (instancetype)initWithFrame:(CGRect)frame
@@ -39,6 +40,7 @@
     UITextField * phoneNumberField = [[UITextField alloc] init];
     [self addSubview:phoneNumberField];
     phoneNumberField.tag = 300;
+    phoneNumberField.placeholder = @"请输入11位手机号";
     self.phoneNumberField = phoneNumberField;
     phoneNumberField.textColor = [UIColor sc_colorWith444444];
     phoneNumberField.backgroundColor = [UIColor sc_colorWihtf8f8f8];
@@ -69,18 +71,21 @@
     smsVerification.leftViewMode = UITextFieldViewModeAlways;    //此句代码较容易忽略
     smsVerification.leftView = smsVerificationView;
     
-    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:smsVerificationString];
-    [placeholder addAttribute:NSForegroundColorAttributeName
-                        value:[UIColor sc_colorWith444444]
-                        range:NSMakeRange(0, smsVerificationString.length)];
-    [placeholder addAttribute:NSFontAttributeName
-                        value:[UIFont sy_font14]
-                        range:NSMakeRange(0, smsVerificationString.length)];
-    smsVerification.attributedPlaceholder = placeholder;
+//    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:smsVerificationString];
+//    [placeholder addAttribute:NSForegroundColorAttributeName
+//                        value:[UIColor sc_colorWith444444]
+//                        range:NSMakeRange(0, smsVerificationString.length)];
+//    [placeholder addAttribute:NSFontAttributeName
+//                        value:[UIFont sy_font14]
+//                        range:NSMakeRange(0, smsVerificationString.length)];
+//    smsVerification.attributedPlaceholder = placeholder;
     
     
     UIButton * repeateBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self addSubview:repeateBtn];
+    self.repeateBtn = repeateBtn;
+    repeateBtn.layer.masksToBounds = YES;
+    [repeateBtn.layer setCornerRadius:4.0];
     [repeateBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.mas_right).with.offset(-15);
         make.top.equalTo(phoneNumberField.mas_bottom).with.offset(15);
@@ -88,7 +93,6 @@
     }];
     [repeateBtn addTarget:self action:@selector(repeateBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     repeateBtn.backgroundColor = [UIColor sc_colorWith6C6DFD];
-    [repeateBtn setTitle:@"重新发送" forState:UIControlStateNormal];
     repeateBtn.titleLabel.font = [UIFont sy_font14];
     [repeateBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
@@ -115,6 +119,16 @@
     nextBtn.titleLabel.font = [UIFont sy_boldFont16];
 }
 
+- (void)setType:(TypeR)type
+{
+    _type = type;
+    if (type == TypeRetrieveThePassword) {
+         [self.repeateBtn setTitle:@"重新发送" forState:UIControlStateNormal];
+    }else{
+        [self.repeateBtn setTitle:@"发送验证" forState:UIControlStateNormal];
+    }
+    
+}
 
 
 - (void)repeateBtnClick:(UIButton *)sender

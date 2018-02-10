@@ -31,8 +31,8 @@
 }
 - (UIBarButtonItem *)backItemWithAction:(SEL)action {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[UIImage imageNamed:@"title_btn_back"] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"title_btn_back"] forState:UIControlStateHighlighted];
+    [button setImage:[UIImage imageNamed:@"top_back_b"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"top_back_b"] forState:UIControlStateHighlighted];
     button.frame = CGRectMake(0, 0, 21, 44);
     if (action != nil) {
         [button addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
@@ -42,7 +42,10 @@
 }
 
 - (void)sy_goBack:(id)sender
-{    [self.navigationController popViewControllerAnimated:YES];
+{
+    //    NSArray *arr = self.navigationController.viewControllers;
+    //    NSLog(@"%lu", self.navigationController.viewControllers.count);
+    [self.navigationController popViewControllerAnimated:YES];
     
     if (self.title && self.title.length) {
         self.title = @"";
@@ -53,9 +56,9 @@
 }
 
 
-
 - (void)sy_setDefaultCloseBarButtonItem {
-    [self sy_setLeftItem:[self backItemWithAction:@selector(sy_dismissView:)].customView];
+    //[self sy_cleanLeftItem];
+    [self sy_setLeftItem:[self backItemWithAction:@selector(sy_dismissView:)].customView];//.navigationItem setLeftBarButtonItem:[self backItemWithAction:@selector(sy_dismissView:)]];
 }
 
 
@@ -288,15 +291,23 @@
     [self.navigationItem setRightBarButtonItems:buttonArray];
 }
 
-
-
+- (void)sy_setHaveSearchBarRightItemWithTitle:(NSString *)title
+                                       action:(SEL)selector {
+    [self sy_cleanRightItem];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:title
+                                                             style:UIBarButtonItemStylePlain
+                                                            target:self
+                                                            action:selector];
+    item.tintColor = [UIColor sy_green4Color];
+    [item setTitleTextAttributes:@{NSFontAttributeName: [UIFont sy_font15],
+                                   NSForegroundColorAttributeName: [UIColor sy_green4Color]} forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = item;
+}
 - (UIButton *)sy_rightButton
 {
-    return (UIButton *) [[self.navigationItem.rightBarButtonItems safeObjectAtIndex:1] customView];
+    return (UIButton *)[[self.navigationItem.rightBarButtonItems safeObjectAtIndex:1] customView];
 }
-
 - (UIButton *)sy_leftButton {
     return (UIButton *)[[self.navigationItem.leftBarButtonItems safeObjectAtIndex:1] customView];
 }
 @end
-

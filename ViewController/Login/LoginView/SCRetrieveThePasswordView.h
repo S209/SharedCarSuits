@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol SCRetrieveThePasswordViewDelegate<NSObject>
+@required
+- (void)nextStep;
+@end
 @interface SCRetrieveThePasswordView : UIView
 - (instancetype)initWithFrame:(CGRect)frame;
+@property (nonatomic, weak) id <SCRetrieveThePasswordViewDelegate> delegate;
 @end

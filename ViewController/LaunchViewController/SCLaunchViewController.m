@@ -10,6 +10,8 @@
 #import "SCHomeTabBarController.h"
 #import "SCLoginView.h"
 #import <Masonry.h>
+#import "AppDelegate.h"
+#import "SCFindPasswordController.h"
 @interface SCLaunchViewController ()<SCLoginViewDelegate>
 @property (nonatomic , strong) SCHomeTabBarController * homeTabBarController;
 @end
@@ -23,13 +25,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
+    [self setNavigationWithTitle:@"登录验证"];
+    [self setupLoginView];
 }
 
-- (void)setNavigation
-{
-    self.navigationItem.title = @"登录验证";
-}
+
 
 #pragma mark 加载登录页面
 - (void)setupLoginView
@@ -41,7 +41,7 @@
         make.left.equalTo(self.view.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(-0);
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
-        make.top.equalTo(self.view.mas_top).with.offset(NAVIGATIONBAR_HEIGHT);
+        make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight);
     }];
 }
 
@@ -50,6 +50,10 @@
 - (void)loginViewLoginWithAccount:(NSString *)account password:(NSString *)password
 {
     
+//    SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
+//    [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
+    
+    [self forgetPassword];
 }
 - (void)loginViewWithRegister
 {
@@ -57,7 +61,8 @@
 }
 - (void)forgetPassword
 {
-    
+    SCFindPasswordController * findPassword = [[SCFindPasswordController alloc] init];
+    [self.navigationController pushViewController:findPassword animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

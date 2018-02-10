@@ -29,4 +29,8 @@
 {
     return [self cdf_colorWithHexString:@"FC8739"];
 }
++ (UIColor *)sy_green4Color
+{
+    return [self cdf_colorWithHexString:@"#2CC7C5"];
+}
 @end

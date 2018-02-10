@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SCBaseViewController : UIViewController
-
+- (void)setNavigationWithTitle:(NSString *)title;
 @end

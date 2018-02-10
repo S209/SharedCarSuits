@@ -1,5 +1,5 @@
 //
-//  SCLaunchViewController.h
+//  SCFindPasswordController.h
 //  SharedCarSuits
 //
 //  Created by tuhaisheng on 2018/2/10.
@@ -7,6 +7,6 @@
 //
 
 #import "SCBaseViewController.h"
-@interface SCLaunchViewController : SCBaseViewController
+@interface SCFindPasswordController : SCBaseViewController
 
 @end

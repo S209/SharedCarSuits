@@ -1,37 +1,23 @@
 //
-//  SCBaseViewController.m
+//  SCFindPasswordController.m
 //  SharedCarSuits
 //
-//  Created by tuhaisheng on 2018/1/29.
+//  Created by tuhaisheng on 2018/2/10.
 //  Copyright © 2018年 tuhaisheng. All rights reserved.
 //
 
-#import "SCBaseViewController.h"
-@interface SCBaseViewController ()
+#import "SCFindPasswordController.h"
+
+@interface SCFindPasswordController ()
 
 @end
 
-@implementation SCBaseViewController
+@implementation SCFindPasswordController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-}
-
-
-
-- (void)setNavigationWithTitle:(NSString *)title
-{
-    UILabel * label = [[UILabel alloc] init];
-    label.text = title;
-    label.font = [UIFont sy_boldFont17];
-    label.textColor = [UIColor sc_colorWith444444];
-    label.textAlignment = NSTextAlignmentCenter;
-    self.navigationItem.titleView = label;
-}
-- (BOOL)prefersStatusBarHidden
-{
-    return NO;
+    [self setNavigationWithTitle:@"找回密码"];
+    [self sy_leftBarButtonItem];
 }
 
 

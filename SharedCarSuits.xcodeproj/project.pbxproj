@@ -34,6 +34,8 @@
 		05C94282202EB3C800B78CA4 /* UIButton+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94280202EB3C800B78CA4 /* UIButton+Navigation.m */; };
 		05C94285202EB3D100B78CA4 /* UIBarButtonItem+Spacing.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94284202EB3D000B78CA4 /* UIBarButtonItem+Spacing.m */; };
 		05C94288202EB85000B78CA4 /* SCRetrieveThePasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94287202EB85000B78CA4 /* SCRetrieveThePasswordView.m */; };
+		05C9428B202EC39A00B78CA4 /* SCFindPasswordUpatePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9428A202EC39A00B78CA4 /* SCFindPasswordUpatePasswordController.m */; };
+		05C9428E202EC44700B78CA4 /* SCFindPasswordUpatePasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9428D202EC44700B78CA4 /* SCFindPasswordUpatePasswordView.m */; };
 		A7A03487A480F79B5C5D8C66 /* libPods-SharedCarSuitsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B31BBBBF74AC20BFA0ECB8 /* libPods-SharedCarSuitsUITests.a */; };
 		B54ACDE8FDCE0F818429C677 /* libPods-SharedCarSuits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEC7B6670E2B583689B8B8C /* libPods-SharedCarSuits.a */; };
 		F0363A110D61A92361150273 /* libPods-SharedCarSuitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A4C0452F94898FC366DE15 /* libPods-SharedCarSuitsTests.a */; };
@@ -116,6 +118,10 @@
 		05C94284202EB3D000B78CA4 /* UIBarButtonItem+Spacing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Spacing.m"; sourceTree = "<group>"; };
 		05C94286202EB85000B78CA4 /* SCRetrieveThePasswordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRetrieveThePasswordView.h; sourceTree = "<group>"; };
 		05C94287202EB85000B78CA4 /* SCRetrieveThePasswordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRetrieveThePasswordView.m; sourceTree = "<group>"; };
+		05C94289202EC39A00B78CA4 /* SCFindPasswordUpatePasswordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCFindPasswordUpatePasswordController.h; sourceTree = "<group>"; };
+		05C9428A202EC39A00B78CA4 /* SCFindPasswordUpatePasswordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCFindPasswordUpatePasswordController.m; sourceTree = "<group>"; };
+		05C9428C202EC44700B78CA4 /* SCFindPasswordUpatePasswordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCFindPasswordUpatePasswordView.h; sourceTree = "<group>"; };
+		05C9428D202EC44700B78CA4 /* SCFindPasswordUpatePasswordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCFindPasswordUpatePasswordView.m; sourceTree = "<group>"; };
 		2395F901FF494BAEC814C9AA /* Pods-SharedCarSuitsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsUITests/Pods-SharedCarSuitsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		39F0ED9ACAE88E8ED7934748 /* Pods-SharedCarSuits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuits/Pods-SharedCarSuits.debug.xcconfig"; sourceTree = "<group>"; };
 		3FA8F58B19238B9921B044F9 /* Pods-SharedCarSuitsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsTests/Pods-SharedCarSuitsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -384,6 +390,8 @@
 				05C9426F202E8E3800B78CA4 /* SCLoginView.m */,
 				05C94286202EB85000B78CA4 /* SCRetrieveThePasswordView.h */,
 				05C94287202EB85000B78CA4 /* SCRetrieveThePasswordView.m */,
+				05C9428C202EC44700B78CA4 /* SCFindPasswordUpatePasswordView.h */,
+				05C9428D202EC44700B78CA4 /* SCFindPasswordUpatePasswordView.m */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -402,6 +410,8 @@
 			children = (
 				05C9427A202EB1DC00B78CA4 /* SCFindPasswordController.h */,
 				05C9427B202EB1DC00B78CA4 /* SCFindPasswordController.m */,
+				05C94289202EC39A00B78CA4 /* SCFindPasswordUpatePasswordController.h */,
+				05C9428A202EC39A00B78CA4 /* SCFindPasswordUpatePasswordController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -728,6 +738,7 @@
 				05C9425C202D7F4700B78CA4 /* UIColor+CDF.m in Sources */,
 				05C94243202D6B1500B78CA4 /* SCHomePageViewController.m in Sources */,
 				05C94250202D6BD200B78CA4 /* SCHomeTabBarController.m in Sources */,
+				05C9428B202EC39A00B78CA4 /* SCFindPasswordUpatePasswordController.m in Sources */,
 				05C94251202D6BD200B78CA4 /* SCBaseNavigationController.m in Sources */,
 				05972529201EF3DD00E7EFFB /* main.m in Sources */,
 				05C9426C202E8CE800B78CA4 /* SCLaunchViewController.m in Sources */,
@@ -740,6 +751,7 @@
 				05C94277202EA1C700B78CA4 /* UIView+CDFFrame.m in Sources */,
 				05C94288202EB85000B78CA4 /* SCRetrieveThePasswordView.m in Sources */,
 				05C94282202EB3C800B78CA4 /* UIButton+Navigation.m in Sources */,
+				05C9428E202EC44700B78CA4 /* SCFindPasswordUpatePasswordView.m in Sources */,
 				05C94234202D69CC00B78CA4 /* NSArray+Category.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

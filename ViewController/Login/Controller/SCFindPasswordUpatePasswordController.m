@@ -1,19 +1,20 @@
 //
-//  SCFindPasswordController.m
+//  SCFindPasswordUpatePasswordController.m
 //  SharedCarSuits
 //
 //  Created by tuhaisheng on 2018/2/10.
 //  Copyright © 2018年 tuhaisheng. All rights reserved.
 //
 
-#import "SCFindPasswordController.h"
-#import "SCRetrieveThePasswordView.h"
 #import "SCFindPasswordUpatePasswordController.h"
-@interface SCFindPasswordController ()<SCRetrieveThePasswordViewDelegate>
+#import "SCFindPasswordUpatePasswordView.h"
+#import "SCHomeTabBarController.h"
+#import "AppDelegate.h"
+@interface SCFindPasswordUpatePasswordController ()<SCFindPasswordUpatePasswordViewDelegate>
 
 @end
 
-@implementation SCFindPasswordController
+@implementation SCFindPasswordUpatePasswordController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,25 +25,23 @@
 
 - (void)setupView
 {
-    SCRetrieveThePasswordView * passwordView = [[SCRetrieveThePasswordView alloc] init];
-    [self.view addSubview:passwordView];
-    [passwordView mas_makeConstraints:^(MASConstraintMaker *make) {
+    SCFindPasswordUpatePasswordView * upatePasswordView = [[SCFindPasswordUpatePasswordView alloc] init];
+    [self.view addSubview:upatePasswordView];
+    upatePasswordView.deleate = self;
+    [upatePasswordView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(-0);
         make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight);
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
     }];
-    passwordView.delegate = self;
-    
 }
 
-
-- (void)nextStep
+- (void)complete
 {
-    SCFindPasswordUpatePasswordController * updatePassword = [[SCFindPasswordUpatePasswordController alloc] init];
-    [self.navigationController pushViewController:updatePassword animated:YES];
-    
+    SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
+    [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

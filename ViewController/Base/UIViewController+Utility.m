@@ -31,8 +31,8 @@
 }
 - (UIBarButtonItem *)backItemWithAction:(SEL)action {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[UIImage imageNamed:@"top_back_b"] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"top_back_b"] forState:UIControlStateHighlighted];
+    [button setImage:[UIImage imageNamed:@"title_btn_back"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"title_btn_back"] forState:UIControlStateHighlighted];
     button.frame = CGRectMake(0, 0, 21, 44);
     if (action != nil) {
         [button addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];

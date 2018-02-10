@@ -8,6 +8,8 @@
 
 #import "SCRegisterViewCarInfoViewController.h"
 #import "SCRegisterViewCarInfoView.h"
+#import "SCHomeTabBarController.h"
+#import "AppDelegate.h"
 @interface SCRegisterViewCarInfoViewController ()<SCRegisterViewCarInfoViewDelegate>
 
 @end
@@ -43,7 +45,8 @@
 
 - (void)sureBtnClick
 {
-    
+    SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
+    [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

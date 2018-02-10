@@ -34,13 +34,14 @@
     
     UILabel * choiseBrandLabel = [[UILabel alloc] init];
     [self addSubview:choiseBrandLabel];
-    choiseBrandLabel.text = @" 请选择品牌";
+    choiseBrandLabel.text = @"  请选择品牌";
     choiseBrandLabel.font = [UIFont sy_font16];
     choiseBrandLabel.textColor = [UIColor sc_colorWith282828];
     [choiseBrandLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).with.offset(15);
-        make.top.equalTo(brand.mas_bottom).with.offset(16);
+        make.top.equalTo(brand.mas_bottom).with.offset(15);
         make.right.equalTo(self.mas_right).with.offset(-15);
+        make.height.mas_equalTo(40);
     }];
     choiseBrandLabel.backgroundColor = [UIColor sc_colorWithF8F8F8];
     
@@ -58,7 +59,7 @@
     
     NSInteger spaceing = 10;
     CGFloat spaceX = 0;
-    CGFloat size = (SCREEN_WIDTH-30-6*spaceing)/6.0;
+    CGFloat size = (SCREEN_WIDTH-30-6*spaceing)/7.0;
     for (NSUInteger i = 0; i < 7; i++) {
         UIButton * carNumberBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self addSubview:carNumberBtn];

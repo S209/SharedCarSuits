@@ -7,7 +7,11 @@
 //
 
 #import "SCMineViewController.h"
-
+#import "SCMineViewHeaderView.h"
+@interface SCMineViewController()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, weak) UITableView * tableView;
+@property (nonatomic, weak) SCMineViewHeaderView * headerView;
+@end
 @interface SCMineViewController ()
 
 @end
@@ -17,7 +21,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"个人资料";
+    [self setupView];
 }
+
+- (void)setupView
+{
+    UITableView * tableView = [[UITableView alloc] init];
+    [self.view addSubview:tableView];
+    self.tableView = tableView;
+
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).with.offset(0);
+        make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight);
+        make.right.equalTo(self.view.mas_right).with.offset(-0);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
+    }];
+    
+    SCMineViewHeaderView * headerView = [[SCMineViewHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 226)];
+    tableView.tableHeaderView = headerView;
+}
+
+#pragma mark
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -1,15 +1,14 @@
 //
-//  SCChoiseAreaView.m
+//  SCChoiseCarNumberView.m
 //  SharedCarSuits
 //
 //  Created by tuhaisheng on 2018/2/11.
 //  Copyright © 2018年 tuhaisheng. All rights reserved.
 //
 
-#import "SCChoiseAreaView.h"
+#import "SCChoiseCarNumberView.h"
 
-@implementation SCChoiseAreaView
-
+@implementation SCChoiseCarNumberView
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -91,18 +90,18 @@
         make.bottom.equalTo(self.mas_bottom).with.offset(-0);
     }];
     
-    NSArray * areaArray = @[@"京",@"沪",@"津",@"渝",@"翼",@"晋",@"蒙",@"辽",@"吉",@"黑",@"苏",@"浙",@"皖",@"闽",@"赣",@"鲁",@"豫",@"鄂",@"湘",@"粤",@"桂",@"琼",@"川",@"贵",@"云",@"藏",@"陕",@"甘",@"青",@"宁",@"新",@"台"];
+    NSArray * areaArray = @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z",@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9"];
     CGFloat areaX = 0.0;
     CGFloat areaY = 0.0;
     CGFloat ColumnSpace = 6.5;
     CGFloat RowSpace = 10;
-    CGFloat areaWidth = (SCREEN_WIDTH - 30 - ColumnSpace*7)/8;
+    CGFloat areaWidth = (SCREEN_WIDTH - 30 - ColumnSpace*9)/10;
     CGFloat areaHeight = (218 - 30 - RowSpace*3)/4;
     NSInteger wrapRow = 0;
     NSInteger wrapColumn = 0;
     for (NSUInteger i = 0; i < areaArray.count; i++) {
-        wrapRow = i%8;
-        wrapColumn = i/8;
+        wrapRow = i%10;
+        wrapColumn = i/10;
         areaX = 15 + (areaWidth+ColumnSpace)*wrapRow;
         areaY = 15 + (areaHeight+RowSpace)*wrapColumn;
         
@@ -120,6 +119,7 @@
         areaBtn.layer.masksToBounds = YES;
         [areaBtn.layer setCornerRadius:8];
         [areaBtn addTarget:self action:@selector(areaBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        areaBtn.tag = 300+i;
     }
     
 }
@@ -138,23 +138,26 @@
 
 - (void)cancelBtnClick
 {
-    if ([_delegate respondsToSelector:@selector(choiseAreaViewClickCancelBtn)]) {
-        [self.delegate choiseAreaViewClickCancelBtn];
+    if ([_delegate respondsToSelector:@selector(choiseCarNumberViewDidCancel)]) {
+        [self.delegate choiseCarNumberViewDidCancel];
     }
 }
 - (void)sureBtnClick
 {
- 
-    if ([_delegate respondsToSelector:@selector(ChoiseAreaViewClickSureBtn)]) {
-        [self.delegate ChoiseAreaViewClickSureBtn];
+    
+    if ([_delegate respondsToSelector:@selector(choiseCarNumberViewDidSure)]) {
+        [self.delegate choiseCarNumberViewDidSure];
     }
 }
 
 - (void)areaBtnClick:(UIButton *)sender
 {
     NSString * content = sender.titleLabel.text;
-    if ([_delegate respondsToSelector:@selector(ChoiseAreaViewClickItemWithContent:)]) {
-        [self.delegate ChoiseAreaViewClickItemWithContent:content];
+    if (self.carNumberIndex <= 6) {
+        self.carNumberIndex++;
+        if ([_delegate respondsToSelector:@selector(choiseCarNumberViewDidItemWithContent: andIndex:)]) {
+            [self.delegate choiseCarNumberViewDidItemWithContent:content andIndex:self.carNumberIndex];
+        }
     }
 }
 @end

@@ -89,6 +89,8 @@
     [sureBtn addTarget:self action:@selector(sureBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [sureBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     sureBtn.titleLabel.font = [UIFont sy_boldFont16];
+    sureBtn.layer.masksToBounds = YES;
+    [sureBtn.layer setCornerRadius:4.0];
 }
 
 
@@ -109,14 +111,19 @@
     }
 }
 
-- (void)updateCarInfoWithInfo:(NSString *)info andIndex:(NSInteger)index
+- (void)updateCarInfoWithInfo:(NSString *)info andIndex:(NSInteger)index btnClickState:(BOOL)flag
 {
-    if (index == 0) {
-        UIButton * areaBtn = (UIButton *)[self viewWithTag:300];
-        [areaBtn setTitleColor:[UIColor sc_colorWith6C6DFD] forState:UIControlStateNormal];
-        [areaBtn setTitle:info forState:UIControlStateNormal];
+    UIButton * areaBtn = (UIButton *)[self viewWithTag:300+index];
+    [areaBtn setTitleColor:[UIColor sc_colorWith6C6DFD] forState:UIControlStateNormal];
+    [areaBtn setTitle:info forState:UIControlStateNormal];
+    if (flag) {
         [areaBtn.layer setBorderColor: [[UIColor sc_colorWith6C6DFD]CGColor]];
+        [areaBtn.layer setBorderWidth:1.0];
+    }else{
+        [areaBtn.layer setBorderColor: [[UIColor sc_colorWith666666]CGColor]];
+        [areaBtn.layer setBorderWidth:0.0];
     }
+   
 }
 
 @end

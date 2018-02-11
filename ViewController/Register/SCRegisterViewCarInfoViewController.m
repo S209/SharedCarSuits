@@ -11,9 +11,11 @@
 #import "SCHomeTabBarController.h"
 #import "AppDelegate.h"
 #import "SCChoiseAreaView.h"
-@interface SCRegisterViewCarInfoViewController ()<SCRegisterViewCarInfoViewDelegate,SCChoiseAreaViewDelegate>
+#import "SCChoiseCarNumberView.h"
+@interface SCRegisterViewCarInfoViewController ()<SCRegisterViewCarInfoViewDelegate,SCChoiseAreaViewDelegate,SCChoiseCarNumberViewDelegate>
 @property (nonatomic, weak) SCChoiseAreaView * areaView;
 @property (nonatomic, weak) SCRegisterViewCarInfoView * carInfo;
+@property (nonatomic, weak) SCChoiseCarNumberView * carNumberView;
 @end
 
 @implementation SCRegisterViewCarInfoViewController
@@ -48,6 +50,12 @@
     self.areaView = areaView;
     [self.view addSubview:areaView];
     
+    SCChoiseCarNumberView * carNumberView = [[SCChoiseCarNumberView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    carNumberView.delegate = self;
+    carNumberView.hidden = YES;
+    self.carNumberView = carNumberView;
+    [self.view addSubview:carNumberView];
+    
 }
 
 #pragma mark 创建选择车牌的View
@@ -55,6 +63,10 @@
 {
     if (index == 0) {
         self.areaView.hidden = NO;
+        self.carNumberView.hidden = YES;
+    }else{
+        self.areaView.hidden = YES;
+        self.carNumberView.hidden = NO;
     }
 }
 
@@ -67,18 +79,38 @@
 #pragma mark choiseAreaViewDelegate
 - (void)choiseAreaViewClickCancelBtn
 {
-    self.areaView.hidden = YES;
+    [self.carInfo updateCarInfoWithInfo:@" " andIndex:0 btnClickState:NO];
 }
 
 
 - (void)ChoiseAreaViewClickSureBtn
 {
-    
+    self.areaView.hidden = YES;
 }
 
 - (void)ChoiseAreaViewClickItemWithContent:(NSString *)content
 {
-    [self.carInfo updateCarInfoWithInfo:content andIndex:0];
+    [self.carInfo updateCarInfoWithInfo:content andIndex:0 btnClickState:YES];
+}
+
+#pragma mark choiseCarNumberViewDelegate
+- (void)choiseCarNumberViewDidCancel
+{
+    if (self.carNumberView.carNumberIndex >= 0) {
+        [self.carInfo updateCarInfoWithInfo:@"" andIndex:self.carNumberView.carNumberIndex btnClickState:NO];
+        self.carNumberView.carNumberIndex -= 1;
+    }
+}
+
+- (void)choiseCarNumberViewDidSure
+{
+    
+}
+
+- (void)choiseCarNumberViewDidItemWithContent:(NSString *)content andIndex:(NSInteger)index
+{
+
+    [self.carInfo updateCarInfoWithInfo:content andIndex:index btnClickState:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

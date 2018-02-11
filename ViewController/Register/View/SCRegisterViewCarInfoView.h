@@ -15,5 +15,5 @@
 @end
 @interface SCRegisterViewCarInfoView : UIView
 @property (nonatomic, weak) id <SCRegisterViewCarInfoViewDelegate>delegate;
-- (void)updateCarInfoWithInfo:(NSString *)info andIndex:(NSInteger)index;
+- (void)updateCarInfoWithInfo:(NSString *)info andIndex:(NSInteger)index btnClickState:(BOOL)flag;
 @end

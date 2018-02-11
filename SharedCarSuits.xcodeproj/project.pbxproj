@@ -41,6 +41,7 @@
 		05C94299202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94298202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m */; };
 		05C9429D202ED16600B78CA4 /* SCRegisterViewCarInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9429C202ED16600B78CA4 /* SCRegisterViewCarInfoView.m */; };
 		05C942DE203062D800B78CA4 /* SCChoiseAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C942DD203062D800B78CA4 /* SCChoiseAreaView.m */; };
+		05DAD55820307ED7000E13C2 /* SCChoiseCarNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DAD55720307ED7000E13C2 /* SCChoiseCarNumberView.m */; };
 		A7A03487A480F79B5C5D8C66 /* libPods-SharedCarSuitsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B31BBBBF74AC20BFA0ECB8 /* libPods-SharedCarSuitsUITests.a */; };
 		B54ACDE8FDCE0F818429C677 /* libPods-SharedCarSuits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEC7B6670E2B583689B8B8C /* libPods-SharedCarSuits.a */; };
 		F0363A110D61A92361150273 /* libPods-SharedCarSuitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A4C0452F94898FC366DE15 /* libPods-SharedCarSuitsTests.a */; };
@@ -138,6 +139,8 @@
 		05C9429C202ED16600B78CA4 /* SCRegisterViewCarInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRegisterViewCarInfoView.m; sourceTree = "<group>"; };
 		05C942DC203062D800B78CA4 /* SCChoiseAreaView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCChoiseAreaView.h; sourceTree = "<group>"; };
 		05C942DD203062D800B78CA4 /* SCChoiseAreaView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCChoiseAreaView.m; sourceTree = "<group>"; };
+		05DAD55620307ED7000E13C2 /* SCChoiseCarNumberView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCChoiseCarNumberView.h; sourceTree = "<group>"; };
+		05DAD55720307ED7000E13C2 /* SCChoiseCarNumberView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCChoiseCarNumberView.m; sourceTree = "<group>"; };
 		2395F901FF494BAEC814C9AA /* Pods-SharedCarSuitsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsUITests/Pods-SharedCarSuitsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		39F0ED9ACAE88E8ED7934748 /* Pods-SharedCarSuits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuits/Pods-SharedCarSuits.debug.xcconfig"; sourceTree = "<group>"; };
 		3FA8F58B19238B9921B044F9 /* Pods-SharedCarSuitsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsTests/Pods-SharedCarSuitsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -455,6 +458,8 @@
 				05C9429C202ED16600B78CA4 /* SCRegisterViewCarInfoView.m */,
 				05C942DC203062D800B78CA4 /* SCChoiseAreaView.h */,
 				05C942DD203062D800B78CA4 /* SCChoiseAreaView.m */,
+				05DAD55620307ED7000E13C2 /* SCChoiseCarNumberView.h */,
+				05DAD55720307ED7000E13C2 /* SCChoiseCarNumberView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -563,7 +568,7 @@
 					};
 					0597252D201EF3DD00E7EFFB = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = 05972515201EF3DD00E7EFFB;
 					};
 					05972538201EF3DD00E7EFFB = {
@@ -791,6 +796,7 @@
 				05C94292202ECAE600B78CA4 /* SCRegisterViewController.m in Sources */,
 				05C94273202E907800B78CA4 /* UIFont+Addition.m in Sources */,
 				05C94244202D6B1500B78CA4 /* SCMineViewController.m in Sources */,
+				05DAD55820307ED7000E13C2 /* SCChoiseCarNumberView.m in Sources */,
 				05C94295202ECEE300B78CA4 /* SCRegisterViewUpatePasswordController.m in Sources */,
 				05C9424F202D6BD200B78CA4 /* SCBaseViewController.m in Sources */,
 				05C9429D202ED16600B78CA4 /* SCRegisterViewCarInfoView.m in Sources */,
@@ -957,14 +963,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 86NC63YY5X;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SharedCarSuitsExtension/Common/Macros/PrefixHeader.pch";
 				INFOPLIST_FILE = SharedCarSuits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ths.SharedCarSuits;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lavion.soyoungapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "6aab2505-ff06-4f79-9b7e-cc708efc0bf8";
+				PROVISIONING_PROFILE_SPECIFIER = soyoungapp;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -974,15 +981,17 @@
 			baseConfigurationReference = 6ACE2CCEB2825ABBD9CC5D25 /* Pods-SharedCarSuits.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 86NC63YY5X;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SharedCarSuitsExtension/Common/Macros/PrefixHeader.pch";
 				INFOPLIST_FILE = SharedCarSuits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ths.SharedCarSuits;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lavion.soyoungapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "dccd7518-0c23-44d4-90a4-fc41eb19b38e";
+				PROVISIONING_PROFILE_SPECIFIER = qd_adhoc1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -992,11 +1001,13 @@
 			baseConfigurationReference = 3FA8F58B19238B9921B044F9 /* Pods-SharedCarSuitsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SharedCarSuitsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ths.SharedCarSuitsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SharedCarSuits.app/SharedCarSuits";
 			};
@@ -1007,11 +1018,13 @@
 			baseConfigurationReference = 9A472414CD2D0246B21E28B1 /* Pods-SharedCarSuitsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SharedCarSuitsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ths.SharedCarSuitsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SharedCarSuits.app/SharedCarSuits";
 			};

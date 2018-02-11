@@ -40,6 +40,7 @@
 		05C94295202ECEE300B78CA4 /* SCRegisterViewUpatePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94294202ECEE300B78CA4 /* SCRegisterViewUpatePasswordController.m */; };
 		05C94299202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94298202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m */; };
 		05C9429D202ED16600B78CA4 /* SCRegisterViewCarInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9429C202ED16600B78CA4 /* SCRegisterViewCarInfoView.m */; };
+		05C942DE203062D800B78CA4 /* SCChoiseAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C942DD203062D800B78CA4 /* SCChoiseAreaView.m */; };
 		A7A03487A480F79B5C5D8C66 /* libPods-SharedCarSuitsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B31BBBBF74AC20BFA0ECB8 /* libPods-SharedCarSuitsUITests.a */; };
 		B54ACDE8FDCE0F818429C677 /* libPods-SharedCarSuits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEC7B6670E2B583689B8B8C /* libPods-SharedCarSuits.a */; };
 		F0363A110D61A92361150273 /* libPods-SharedCarSuitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A4C0452F94898FC366DE15 /* libPods-SharedCarSuitsTests.a */; };
@@ -135,6 +136,8 @@
 		05C94298202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRegisterViewCarInfoViewController.m; sourceTree = "<group>"; };
 		05C9429B202ED16600B78CA4 /* SCRegisterViewCarInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRegisterViewCarInfoView.h; sourceTree = "<group>"; };
 		05C9429C202ED16600B78CA4 /* SCRegisterViewCarInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRegisterViewCarInfoView.m; sourceTree = "<group>"; };
+		05C942DC203062D800B78CA4 /* SCChoiseAreaView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCChoiseAreaView.h; sourceTree = "<group>"; };
+		05C942DD203062D800B78CA4 /* SCChoiseAreaView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCChoiseAreaView.m; sourceTree = "<group>"; };
 		2395F901FF494BAEC814C9AA /* Pods-SharedCarSuitsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsUITests/Pods-SharedCarSuitsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		39F0ED9ACAE88E8ED7934748 /* Pods-SharedCarSuits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuits/Pods-SharedCarSuits.debug.xcconfig"; sourceTree = "<group>"; };
 		3FA8F58B19238B9921B044F9 /* Pods-SharedCarSuitsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsTests/Pods-SharedCarSuitsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -450,6 +453,8 @@
 			children = (
 				05C9429B202ED16600B78CA4 /* SCRegisterViewCarInfoView.h */,
 				05C9429C202ED16600B78CA4 /* SCRegisterViewCarInfoView.m */,
+				05C942DC203062D800B78CA4 /* SCChoiseAreaView.h */,
+				05C942DD203062D800B78CA4 /* SCChoiseAreaView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -776,6 +781,7 @@
 				05C94262202D854E00B78CA4 /* SCSharedCarSuitsClient.m in Sources */,
 				05C9425C202D7F4700B78CA4 /* UIColor+CDF.m in Sources */,
 				05C94243202D6B1500B78CA4 /* SCHomePageViewController.m in Sources */,
+				05C942DE203062D800B78CA4 /* SCChoiseAreaView.m in Sources */,
 				05C94250202D6BD200B78CA4 /* SCHomeTabBarController.m in Sources */,
 				05C9428B202EC39A00B78CA4 /* SCFindPasswordUpatePasswordController.m in Sources */,
 				05C94251202D6BD200B78CA4 /* SCBaseNavigationController.m in Sources */,

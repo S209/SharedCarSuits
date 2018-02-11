@@ -95,11 +95,10 @@
 - (void)carNumberBtnClick:(UIButton *)sender
 {
     NSInteger tag = sender.tag;
-    if (tag == 300) {
-        [sender.layer setBorderColor: [[UIColor sc_colorWith6C6DFD]CGColor]];
-    }
+   
+    
     if ([_delegate respondsToSelector:@selector(carNumberBtnClickWithIndex:)]) {
-        [self.delegate carNumberBtnClickWithIndex:tag];
+        [self.delegate carNumberBtnClickWithIndex:tag-300];
     }
 }
 
@@ -107,6 +106,16 @@
 {
     if ([_delegate respondsToSelector:@selector(sureBtnClick)]) {
         [self.delegate sureBtnClick];
+    }
+}
+
+- (void)updateCarInfoWithInfo:(NSString *)info andIndex:(NSInteger)index
+{
+    if (index == 0) {
+        UIButton * areaBtn = (UIButton *)[self viewWithTag:300];
+        [areaBtn setTitleColor:[UIColor sc_colorWith6C6DFD] forState:UIControlStateNormal];
+        [areaBtn setTitle:info forState:UIControlStateNormal];
+        [areaBtn.layer setBorderColor: [[UIColor sc_colorWith6C6DFD]CGColor]];
     }
 }
 

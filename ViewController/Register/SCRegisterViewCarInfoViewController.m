@@ -10,11 +10,17 @@
 #import "SCRegisterViewCarInfoView.h"
 #import "SCHomeTabBarController.h"
 #import "AppDelegate.h"
-@interface SCRegisterViewCarInfoViewController ()<SCRegisterViewCarInfoViewDelegate>
-
+#import "SCChoiseAreaView.h"
+@interface SCRegisterViewCarInfoViewController ()<SCRegisterViewCarInfoViewDelegate,SCChoiseAreaViewDelegate>
+@property (nonatomic, weak) SCChoiseAreaView * areaView;
+@property (nonatomic, weak) SCRegisterViewCarInfoView * carInfo;
 @end
 
 @implementation SCRegisterViewCarInfoViewController
+- (void)dealloc
+{
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,6 +32,7 @@
 - (void)setupView
 {
     SCRegisterViewCarInfoView * carInfo = [[SCRegisterViewCarInfoView alloc] init];
+    self.carInfo = carInfo;
     carInfo.delegate = self;
     [self.view addSubview:carInfo];
     [carInfo mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -35,18 +42,43 @@
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
     }];
     
+    SCChoiseAreaView * areaView = [[SCChoiseAreaView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    areaView.delegate = self;
+    areaView.hidden = YES;
+    self.areaView = areaView;
+    [self.view addSubview:areaView];
+    
 }
 
+#pragma mark 创建选择车牌的View
 - (void)carNumberBtnClickWithIndex:(NSInteger)index
 {
-    
-    
+    if (index == 0) {
+        self.areaView.hidden = NO;
+    }
 }
 
 - (void)sureBtnClick
 {
     SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
     [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
+}
+
+#pragma mark choiseAreaViewDelegate
+- (void)choiseAreaViewClickCancelBtn
+{
+    self.areaView.hidden = YES;
+}
+
+
+- (void)ChoiseAreaViewClickSureBtn
+{
+    
+}
+
+- (void)ChoiseAreaViewClickItemWithContent:(NSString *)content
+{
+    [self.carInfo updateCarInfoWithInfo:content andIndex:0];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

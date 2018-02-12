@@ -8,15 +8,33 @@
 
 #import "SCMineViewController.h"
 #import "SCMineViewHeaderView.h"
+#import "SCMineViewControllerSectionCell.h"
 @interface SCMineViewController()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, weak) SCMineViewHeaderView * headerView;
+@property (nonatomic, copy) NSArray * contentArray;
+@property (nonatomic, copy) NSArray * contentImgArray;
 @end
 @interface SCMineViewController ()
 
 @end
 
 @implementation SCMineViewController
+
+- (NSArray *)contentArray
+{
+    if (!_contentArray) {
+        _contentArray = @[@"我的订单",@"我的积分",@"我的消息",@"设置"];
+    }
+    return _contentArray;
+}
+- (NSArray *)contentImgArray
+{
+    if (!_contentImgArray) {
+        _contentImgArray = @[@"me_list_order",@"me_list_score",@"me_list_information",@"me_list_setting"];
+    }
+    return _contentImgArray;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,9 +45,11 @@
 - (void)setupView
 {
     UITableView * tableView = [[UITableView alloc] init];
+    tableView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
     [self.view addSubview:tableView];
     self.tableView = tableView;
-
+    tableView.delegate = self;
+    tableView.dataSource = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
@@ -38,11 +58,63 @@
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
     }];
     
-    SCMineViewHeaderView * headerView = [[SCMineViewHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 226)];
+    SCMineViewHeaderView * headerView = [[SCMineViewHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 282)];
     tableView.tableHeaderView = headerView;
 }
 
 #pragma mark
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 3;
+    }
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SCMineViewControllerSectionCell * cell = [SCMineViewControllerSectionCell mineWithTableView:tableView];
+    
+    if (indexPath.section == 0) {
+        [cell updateContentWithImageName:[self.contentImgArray safeObjectAtIndex:indexPath.row] content:[self.contentArray safeObjectAtIndex:indexPath.row]];
+    }else{
+        [cell updateContentWithImageName:[NSString stringWithFormat:@"me_list_setting"] content:@"设置"];
+    }
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 55;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if (section == 0) {
+        UIView * footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10)];
+        footView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+        return footView;
+    }
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 10;
+    }
+    return 0.0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

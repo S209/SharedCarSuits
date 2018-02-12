@@ -41,6 +41,8 @@
 		05C94299202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C94298202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m */; };
 		05C9429D202ED16600B78CA4 /* SCRegisterViewCarInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C9429C202ED16600B78CA4 /* SCRegisterViewCarInfoView.m */; };
 		05C942DE203062D800B78CA4 /* SCChoiseAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C942DD203062D800B78CA4 /* SCChoiseAreaView.m */; };
+		05D34DC12031BCC3002AADA4 /* SCManager+CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D34DC02031BCC3002AADA4 /* SCManager+CommonMethods.m */; };
+		05D34DC42031BF0A002AADA4 /* SCMineViewControllerSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D34DC32031BF0A002AADA4 /* SCMineViewControllerSectionCell.m */; };
 		05DAD55820307ED7000E13C2 /* SCChoiseCarNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DAD55720307ED7000E13C2 /* SCChoiseCarNumberView.m */; };
 		05DAD55C203098B3000E13C2 /* SCMineViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DAD55B203098B3000E13C2 /* SCMineViewHeaderView.m */; };
 		05DAD56020316D6D000E13C2 /* NSString+Predicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DAD55F20316D6D000E13C2 /* NSString+Predicate.m */; };
@@ -146,6 +148,10 @@
 		05C9429C202ED16600B78CA4 /* SCRegisterViewCarInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRegisterViewCarInfoView.m; sourceTree = "<group>"; };
 		05C942DC203062D800B78CA4 /* SCChoiseAreaView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCChoiseAreaView.h; sourceTree = "<group>"; };
 		05C942DD203062D800B78CA4 /* SCChoiseAreaView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCChoiseAreaView.m; sourceTree = "<group>"; };
+		05D34DBF2031BCC3002AADA4 /* SCManager+CommonMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SCManager+CommonMethods.h"; sourceTree = "<group>"; };
+		05D34DC02031BCC3002AADA4 /* SCManager+CommonMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SCManager+CommonMethods.m"; sourceTree = "<group>"; };
+		05D34DC22031BF0A002AADA4 /* SCMineViewControllerSectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMineViewControllerSectionCell.h; sourceTree = "<group>"; };
+		05D34DC32031BF0A002AADA4 /* SCMineViewControllerSectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMineViewControllerSectionCell.m; sourceTree = "<group>"; };
 		05DAD55620307ED7000E13C2 /* SCChoiseCarNumberView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCChoiseCarNumberView.h; sourceTree = "<group>"; };
 		05DAD55720307ED7000E13C2 /* SCChoiseCarNumberView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCChoiseCarNumberView.m; sourceTree = "<group>"; };
 		05DAD55A203098B3000E13C2 /* SCMineViewHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMineViewHeaderView.h; sourceTree = "<group>"; };
@@ -493,6 +499,8 @@
 			children = (
 				05DAD55A203098B3000E13C2 /* SCMineViewHeaderView.h */,
 				05DAD55B203098B3000E13C2 /* SCMineViewHeaderView.m */,
+				05D34DC22031BF0A002AADA4 /* SCMineViewControllerSectionCell.h */,
+				05D34DC32031BF0A002AADA4 /* SCMineViewControllerSectionCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -519,6 +527,8 @@
 				05DAD56C203175EC000E13C2 /* SCManager+Keyboard.m */,
 				05DAD56E20317A2C000E13C2 /* SCManager+MBProgressHUD.h */,
 				05DAD56F20317A2C000E13C2 /* SCManager+MBProgressHUD.m */,
+				05D34DBF2031BCC3002AADA4 /* SCManager+CommonMethods.h */,
+				05D34DC02031BCC3002AADA4 /* SCManager+CommonMethods.m */,
 			);
 			path = AppManager;
 			sourceTree = "<group>";
@@ -838,6 +848,7 @@
 				05C94285202EB3D100B78CA4 /* UIBarButtonItem+Spacing.m in Sources */,
 				05C94259202D7F3900B78CA4 /* UIColor+Additional.m in Sources */,
 				05C94245202D6B1500B78CA4 /* SCReservationViewController.m in Sources */,
+				05D34DC42031BF0A002AADA4 /* SCMineViewControllerSectionCell.m in Sources */,
 				05C94299202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m in Sources */,
 				05C94270202E8E3800B78CA4 /* SCLoginView.m in Sources */,
 				05C9427C202EB1DC00B78CA4 /* SCFindPasswordController.m in Sources */,
@@ -858,6 +869,7 @@
 				05DAD5672031727C000E13C2 /* SCManager+Login.m in Sources */,
 				05C94292202ECAE600B78CA4 /* SCRegisterViewController.m in Sources */,
 				05C94273202E907800B78CA4 /* UIFont+Addition.m in Sources */,
+				05D34DC12031BCC3002AADA4 /* SCManager+CommonMethods.m in Sources */,
 				05C94244202D6B1500B78CA4 /* SCMineViewController.m in Sources */,
 				05DAD56A203172E8000E13C2 /* SCManager+AppInfo.m in Sources */,
 				05DAD55820307ED7000E13C2 /* SCChoiseCarNumberView.m in Sources */,

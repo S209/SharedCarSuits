@@ -51,10 +51,8 @@
 - (void)loginViewLoginWithAccount:(NSString *)account password:(NSString *)password
 {
     
-//    SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
-//    [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
-    
-    [self forgetPassword];
+    SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
+    [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
 }
 - (void)loginViewWithRegister
 {

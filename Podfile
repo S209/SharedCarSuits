@@ -11,6 +11,7 @@ target 'SharedCarSuits' do
     pod  'YYModel'
     pod 'WebViewJavascriptBridge', '6.0.2'
     pod 'CRGradientNavigationBar', '~> 0.3.2'
+    pod 'MBProgressHUD', '~> 1.0.0'
     # Pods for SharedCarSuits
     
     target 'SharedCarSuitsTests' do

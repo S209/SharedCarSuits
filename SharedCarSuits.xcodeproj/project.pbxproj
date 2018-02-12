@@ -47,6 +47,8 @@
 		05DAD56420317223000E13C2 /* SCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DAD56320317223000E13C2 /* SCManager.m */; };
 		05DAD5672031727C000E13C2 /* SCManager+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DAD5662031727C000E13C2 /* SCManager+Login.m */; };
 		05DAD56A203172E8000E13C2 /* SCManager+AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DAD569203172E8000E13C2 /* SCManager+AppInfo.m */; };
+		05DAD56D203175EC000E13C2 /* SCManager+Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DAD56C203175EC000E13C2 /* SCManager+Keyboard.m */; };
+		05DAD57020317A2C000E13C2 /* SCManager+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DAD56F20317A2C000E13C2 /* SCManager+MBProgressHUD.m */; };
 		A7A03487A480F79B5C5D8C66 /* libPods-SharedCarSuitsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B31BBBBF74AC20BFA0ECB8 /* libPods-SharedCarSuitsUITests.a */; };
 		B54ACDE8FDCE0F818429C677 /* libPods-SharedCarSuits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEC7B6670E2B583689B8B8C /* libPods-SharedCarSuits.a */; };
 		F0363A110D61A92361150273 /* libPods-SharedCarSuitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A4C0452F94898FC366DE15 /* libPods-SharedCarSuitsTests.a */; };
@@ -156,6 +158,10 @@
 		05DAD5662031727C000E13C2 /* SCManager+Login.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SCManager+Login.m"; sourceTree = "<group>"; };
 		05DAD568203172E8000E13C2 /* SCManager+AppInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SCManager+AppInfo.h"; sourceTree = "<group>"; };
 		05DAD569203172E8000E13C2 /* SCManager+AppInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SCManager+AppInfo.m"; sourceTree = "<group>"; };
+		05DAD56B203175EC000E13C2 /* SCManager+Keyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SCManager+Keyboard.h"; sourceTree = "<group>"; };
+		05DAD56C203175EC000E13C2 /* SCManager+Keyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SCManager+Keyboard.m"; sourceTree = "<group>"; };
+		05DAD56E20317A2C000E13C2 /* SCManager+MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SCManager+MBProgressHUD.h"; sourceTree = "<group>"; };
+		05DAD56F20317A2C000E13C2 /* SCManager+MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SCManager+MBProgressHUD.m"; sourceTree = "<group>"; };
 		2395F901FF494BAEC814C9AA /* Pods-SharedCarSuitsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsUITests/Pods-SharedCarSuitsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		39F0ED9ACAE88E8ED7934748 /* Pods-SharedCarSuits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuits/Pods-SharedCarSuits.debug.xcconfig"; sourceTree = "<group>"; };
 		3FA8F58B19238B9921B044F9 /* Pods-SharedCarSuitsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsTests/Pods-SharedCarSuitsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -509,6 +515,10 @@
 				05DAD5662031727C000E13C2 /* SCManager+Login.m */,
 				05DAD568203172E8000E13C2 /* SCManager+AppInfo.h */,
 				05DAD569203172E8000E13C2 /* SCManager+AppInfo.m */,
+				05DAD56B203175EC000E13C2 /* SCManager+Keyboard.h */,
+				05DAD56C203175EC000E13C2 /* SCManager+Keyboard.m */,
+				05DAD56E20317A2C000E13C2 /* SCManager+MBProgressHUD.h */,
+				05DAD56F20317A2C000E13C2 /* SCManager+MBProgressHUD.m */,
 			);
 			path = AppManager;
 			sourceTree = "<group>";
@@ -838,6 +848,7 @@
 				05C942DE203062D800B78CA4 /* SCChoiseAreaView.m in Sources */,
 				05C94250202D6BD200B78CA4 /* SCHomeTabBarController.m in Sources */,
 				05C9428B202EC39A00B78CA4 /* SCFindPasswordUpatePasswordController.m in Sources */,
+				05DAD56D203175EC000E13C2 /* SCManager+Keyboard.m in Sources */,
 				05DAD56420317223000E13C2 /* SCManager.m in Sources */,
 				05C94251202D6BD200B78CA4 /* SCBaseNavigationController.m in Sources */,
 				05972529201EF3DD00E7EFFB /* main.m in Sources */,
@@ -859,6 +870,7 @@
 				05C94277202EA1C700B78CA4 /* UIView+CDFFrame.m in Sources */,
 				05C94288202EB85000B78CA4 /* SCRetrieveThePasswordView.m in Sources */,
 				05C94282202EB3C800B78CA4 /* UIButton+Navigation.m in Sources */,
+				05DAD57020317A2C000E13C2 /* SCManager+MBProgressHUD.m in Sources */,
 				05C9428E202EC44700B78CA4 /* SCFindPasswordUpatePasswordView.m in Sources */,
 				05C94234202D69CC00B78CA4 /* NSArray+Category.m in Sources */,
 			);

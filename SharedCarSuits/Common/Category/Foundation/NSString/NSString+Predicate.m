@@ -12,7 +12,8 @@
 //是否是密码格式
 - (BOOL)isPassword
 {
-    
+    NSPredicate *pwdPre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"\\w{6,20}"];
+    return [pwdPre evaluateWithObject:self];
 }
 //是否是手机号格式
 - (BOOL)isPhoneNumber

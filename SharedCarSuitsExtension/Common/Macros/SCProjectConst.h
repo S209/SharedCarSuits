@@ -8,5 +8,9 @@
 
 #ifndef SCProjectConst_h
 #define SCProjectConst_h
-
+typedef enum {
+    WPPasswordStrengthTypeWeak = 1,
+    WPPasswordStrengthTypeModerate = 2,
+    WPPasswordStrengthTypeStrong = 3,
+} WPPasswordStrengthType;
 #endif /* SCProjectConst_h */

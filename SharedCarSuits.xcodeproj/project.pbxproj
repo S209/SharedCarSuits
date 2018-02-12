@@ -43,6 +43,7 @@
 		05C942DE203062D800B78CA4 /* SCChoiseAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C942DD203062D800B78CA4 /* SCChoiseAreaView.m */; };
 		05D34DC12031BCC3002AADA4 /* SCManager+CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D34DC02031BCC3002AADA4 /* SCManager+CommonMethods.m */; };
 		05D34DC42031BF0A002AADA4 /* SCMineViewControllerSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D34DC32031BF0A002AADA4 /* SCMineViewControllerSectionCell.m */; };
+		05D34DC72031CD33002AADA4 /* SCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D34DC62031CD33002AADA4 /* SCSettingViewController.m */; };
 		05DAD55820307ED7000E13C2 /* SCChoiseCarNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DAD55720307ED7000E13C2 /* SCChoiseCarNumberView.m */; };
 		05DAD55C203098B3000E13C2 /* SCMineViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DAD55B203098B3000E13C2 /* SCMineViewHeaderView.m */; };
 		05DAD56020316D6D000E13C2 /* NSString+Predicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DAD55F20316D6D000E13C2 /* NSString+Predicate.m */; };
@@ -152,6 +153,8 @@
 		05D34DC02031BCC3002AADA4 /* SCManager+CommonMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SCManager+CommonMethods.m"; sourceTree = "<group>"; };
 		05D34DC22031BF0A002AADA4 /* SCMineViewControllerSectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMineViewControllerSectionCell.h; sourceTree = "<group>"; };
 		05D34DC32031BF0A002AADA4 /* SCMineViewControllerSectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMineViewControllerSectionCell.m; sourceTree = "<group>"; };
+		05D34DC52031CD33002AADA4 /* SCSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCSettingViewController.h; sourceTree = "<group>"; };
+		05D34DC62031CD33002AADA4 /* SCSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCSettingViewController.m; sourceTree = "<group>"; };
 		05DAD55620307ED7000E13C2 /* SCChoiseCarNumberView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCChoiseCarNumberView.h; sourceTree = "<group>"; };
 		05DAD55720307ED7000E13C2 /* SCChoiseCarNumberView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCChoiseCarNumberView.m; sourceTree = "<group>"; };
 		05DAD55A203098B3000E13C2 /* SCMineViewHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMineViewHeaderView.h; sourceTree = "<group>"; };
@@ -339,6 +342,8 @@
 				05DAD559203098A1000E13C2 /* View */,
 				05C9423E202D6B1500B78CA4 /* SCMineViewController.h */,
 				05C9423F202D6B1500B78CA4 /* SCMineViewController.m */,
+				05D34DC52031CD33002AADA4 /* SCSettingViewController.h */,
+				05D34DC62031CD33002AADA4 /* SCSettingViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -885,6 +890,7 @@
 				05DAD57020317A2C000E13C2 /* SCManager+MBProgressHUD.m in Sources */,
 				05C9428E202EC44700B78CA4 /* SCFindPasswordUpatePasswordView.m in Sources */,
 				05C94234202D69CC00B78CA4 /* NSArray+Category.m in Sources */,
+				05D34DC72031CD33002AADA4 /* SCSettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

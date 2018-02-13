@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SCMineViewHeaderViewDelegate<NSObject>
+@required
+- (void)mineViewHeaderViewClickEditor;
+@end
 @interface SCMineViewHeaderView : UIView
-
+@property(nonatomic, weak) id <SCMineViewHeaderViewDelegate>delegate;
 @end

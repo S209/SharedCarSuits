@@ -32,7 +32,6 @@
 
 - (void)setupView
 {
-    self.size = CGSizeMake(SCREEN_WIDTH, 282);
     UIImageView * userIconImg = [[UIImageView alloc] init];
     [self addSubview:userIconImg];
     self.userIconImg = userIconImg;
@@ -44,6 +43,7 @@
     userIconImg.layer.masksToBounds = YES;
     [userIconImg.layer setCornerRadius:70];
     
+    
     UILabel * userNameLabel = [[UILabel alloc] init];
     [self addSubview:userNameLabel];
     [userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -53,8 +53,8 @@
     }];
     userNameLabel.font = [UIFont sy_font14];
     userNameLabel.textColor = [UIColor whiteColor];
-    
-    
+
+
     UILabel * userNumberLabel = [[UILabel alloc] init];
     [self addSubview:userNumberLabel];
     self.userNumberLabel = userNumberLabel;
@@ -65,19 +65,41 @@
         make.bottom.equalTo(userIconImg.mas_bottom).with.offset(-10);
         make.right.equalTo(self.mas_right).with.offset(-0);
     }];
-    
-    
+
+
     UIImageView * editorImgView = [[UIImageView alloc] init];
     [self addSubview:editorImgView];
+    editorImgView.userInteractionEnabled = YES;
     [editorImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.mas_right).with.offset(-0);
         make.centerY.mas_equalTo(userIconImg.mas_centerY);
         make.size.mas_equalTo(CGSizeMake(65, 25));
     }];
+    [editorImgView setImage:[UIImage imageNamed:@"me_bg_edit"]];
     editorImgView.userInteractionEnabled = YES;
     UITapGestureRecognizer * tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editor)];
     [editorImgView addGestureRecognizer:tapGest];
 
+    UIImageView * editorPenImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me_ico_edit"]];
+    editorPenImgView.userInteractionEnabled = YES;
+    [editorImgView addSubview:editorPenImgView];
+    [editorPenImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(12.5, 12.5));
+        make.centerY.mas_equalTo(editorImgView.mas_centerY);
+        make.left.equalTo(editorImgView.mas_left).with.offset(8);
+    }];
+    
+    UILabel * editorLabel = [[UILabel alloc] init];
+    [editorImgView addSubview:editorLabel];
+    editorLabel.text = @"编辑";
+    editorLabel.font = [UIFont sy_font14];
+    editorLabel.textColor = [UIColor whiteColor];
+    [editorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(editorImgView.mas_centerY);
+        make.left.equalTo(editorPenImgView.mas_right).with.offset(5);
+        make.size.mas_equalTo(CGSizeMake(35, 15));
+    }];
+    
  [self setupBottomViewWithSupView:self];
    
 }
@@ -103,6 +125,7 @@
         make.size.mas_equalTo(CGSizeMake(1, 23));
         make.top.equalTo(bottomView.mas_top).with.offset(20);
     }];
+    
     
     //我的优惠券
     UILabel * couponLabel = [[UILabel alloc] init];
@@ -177,7 +200,9 @@
 #pragma mark 编辑
 - (void)editor
 {
-    
+    if ([_delegate respondsToSelector:@selector(mineViewHeaderViewClickEditor)]) {
+        [self.delegate mineViewHeaderViewClickEditor];
+    }
 }
 
 @end

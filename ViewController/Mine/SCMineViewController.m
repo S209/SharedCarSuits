@@ -9,7 +9,9 @@
 #import "SCMineViewController.h"
 #import "SCMineViewHeaderView.h"
 #import "SCMineViewControllerSectionCell.h"
-@interface SCMineViewController()<UITableViewDelegate,UITableViewDataSource>
+#import "SCSettingViewController.h"
+#import "SCEditorUserInfoViewController.h"
+@interface SCMineViewController()<UITableViewDelegate,UITableViewDataSource,SCMineViewHeaderViewDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, weak) SCMineViewHeaderView * headerView;
 @property (nonatomic, copy) NSArray * contentArray;
@@ -60,6 +62,7 @@
     
     SCMineViewHeaderView * headerView = [[SCMineViewHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 282)];
     tableView.tableHeaderView = headerView;
+    headerView.delegate = self;
 }
 
 #pragma mark
@@ -112,8 +115,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+ 
+    if (indexPath.section == 0) {
+        
+    }else if (indexPath.section == 1){
+        SCSettingViewController * settingController = [[SCSettingViewController alloc] init];
+        [self.navigationController pushViewController:settingController animated:YES];
+    }
     
-    
+}
+
+- (void)mineViewHeaderViewClickEditor
+{
+    SCEditorUserInfoViewController * editorController = [[SCEditorUserInfoViewController alloc] init];
+    [self.navigationController pushViewController:editorController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

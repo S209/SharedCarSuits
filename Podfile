@@ -9,6 +9,7 @@ target 'SharedCarSuits' do
     pod 'Bugly', '2.4.8'
     pod 'Masonry', '1.1.0'
     pod  'YYModel'
+    pod 'SDCycleScrollView', '~> 1.75'
     pod 'WebViewJavascriptBridge', '6.0.2'
     pod 'CRGradientNavigationBar', '~> 0.3.2'
     pod 'MBProgressHUD', '~> 1.0.0'

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0573B01420333DAA0017D852 /* SCHomePageSectionTwoCellItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B01320333DAA0017D852 /* SCHomePageSectionTwoCellItemView.m */; };
 		0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597251A201EF3DD00E7EFFB /* AppDelegate.m */; };
 		05972523201EF3DD00E7EFFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05972522201EF3DD00E7EFFB /* Assets.xcassets */; };
 		05972526201EF3DD00E7EFFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05972524201EF3DD00E7EFFB /* LaunchScreen.storyboard */; };
@@ -59,6 +60,8 @@
 		05E94F772032E4F800210BE3 /* SCMyGarageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E94F762032E4F800210BE3 /* SCMyGarageViewController.m */; };
 		05E94F7A2032E64B00210BE3 /* SCMyGarageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E94F792032E64B00210BE3 /* SCMyGarageViewCell.m */; };
 		05E94F7D203318C500210BE3 /* SCMyGarageViewDeletViewAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E94F7C203318C500210BE3 /* SCMyGarageViewDeletViewAlertView.m */; };
+		05E94F832033317700210BE3 /* SCHomePageSectionOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E94F822033317700210BE3 /* SCHomePageSectionOneCell.m */; };
+		05E94F862033318500210BE3 /* SCHomePageSectionTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E94F852033318500210BE3 /* SCHomePageSectionTwoCell.m */; };
 		A7A03487A480F79B5C5D8C66 /* libPods-SharedCarSuitsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B31BBBBF74AC20BFA0ECB8 /* libPods-SharedCarSuitsUITests.a */; };
 		B54ACDE8FDCE0F818429C677 /* libPods-SharedCarSuits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEC7B6670E2B583689B8B8C /* libPods-SharedCarSuits.a */; };
 		F0363A110D61A92361150273 /* libPods-SharedCarSuitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A4C0452F94898FC366DE15 /* libPods-SharedCarSuitsTests.a */; };
@@ -82,6 +85,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0573B01220333DAA0017D852 /* SCHomePageSectionTwoCellItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCHomePageSectionTwoCellItemView.h; sourceTree = "<group>"; };
+		0573B01320333DAA0017D852 /* SCHomePageSectionTwoCellItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCHomePageSectionTwoCellItemView.m; sourceTree = "<group>"; };
 		05972516201EF3DD00E7EFFB /* SharedCarSuits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharedCarSuits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05972519201EF3DD00E7EFFB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0597251A201EF3DD00E7EFFB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -192,6 +197,10 @@
 		05E94F792032E64B00210BE3 /* SCMyGarageViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMyGarageViewCell.m; sourceTree = "<group>"; };
 		05E94F7B203318C500210BE3 /* SCMyGarageViewDeletViewAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMyGarageViewDeletViewAlertView.h; sourceTree = "<group>"; };
 		05E94F7C203318C500210BE3 /* SCMyGarageViewDeletViewAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMyGarageViewDeletViewAlertView.m; sourceTree = "<group>"; };
+		05E94F812033317700210BE3 /* SCHomePageSectionOneCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCHomePageSectionOneCell.h; sourceTree = "<group>"; };
+		05E94F822033317700210BE3 /* SCHomePageSectionOneCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCHomePageSectionOneCell.m; sourceTree = "<group>"; };
+		05E94F842033318500210BE3 /* SCHomePageSectionTwoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCHomePageSectionTwoCell.h; sourceTree = "<group>"; };
+		05E94F852033318500210BE3 /* SCHomePageSectionTwoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCHomePageSectionTwoCell.m; sourceTree = "<group>"; };
 		2395F901FF494BAEC814C9AA /* Pods-SharedCarSuitsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsUITests/Pods-SharedCarSuitsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		39F0ED9ACAE88E8ED7934748 /* Pods-SharedCarSuits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuits/Pods-SharedCarSuits.debug.xcconfig"; sourceTree = "<group>"; };
 		3FA8F58B19238B9921B044F9 /* Pods-SharedCarSuitsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsTests/Pods-SharedCarSuitsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -351,6 +360,7 @@
 		05C9423A202D6B1500B78CA4 /* HomePageController */ = {
 			isa = PBXGroup;
 			children = (
+				05E94F802033310900210BE3 /* View */,
 				05C9423B202D6B1500B78CA4 /* SCHomePageViewController.h */,
 				05C9423C202D6B1500B78CA4 /* SCHomePageViewController.m */,
 			);
@@ -571,6 +581,19 @@
 				05D34DC02031BCC3002AADA4 /* SCManager+CommonMethods.m */,
 			);
 			path = AppManager;
+			sourceTree = "<group>";
+		};
+		05E94F802033310900210BE3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				05E94F812033317700210BE3 /* SCHomePageSectionOneCell.h */,
+				05E94F822033317700210BE3 /* SCHomePageSectionOneCell.m */,
+				05E94F842033318500210BE3 /* SCHomePageSectionTwoCell.h */,
+				05E94F852033318500210BE3 /* SCHomePageSectionTwoCell.m */,
+				0573B01220333DAA0017D852 /* SCHomePageSectionTwoCellItemView.h */,
+				0573B01320333DAA0017D852 /* SCHomePageSectionTwoCellItemView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		70C5A2F7AB093DE3D39B4CBA /* Pods */ = {
@@ -911,8 +934,10 @@
 				05C9426C202E8CE800B78CA4 /* SCLaunchViewController.m in Sources */,
 				0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */,
 				05DAD5672031727C000E13C2 /* SCManager+Login.m in Sources */,
+				05E94F862033318500210BE3 /* SCHomePageSectionTwoCell.m in Sources */,
 				05C94292202ECAE600B78CA4 /* SCRegisterViewController.m in Sources */,
 				05E94F772032E4F800210BE3 /* SCMyGarageViewController.m in Sources */,
+				05E94F832033317700210BE3 /* SCHomePageSectionOneCell.m in Sources */,
 				05C94273202E907800B78CA4 /* UIFont+Addition.m in Sources */,
 				05D34DC12031BCC3002AADA4 /* SCManager+CommonMethods.m in Sources */,
 				05C94244202D6B1500B78CA4 /* SCMineViewController.m in Sources */,
@@ -928,6 +953,7 @@
 				05DAD56020316D6D000E13C2 /* NSString+Predicate.m in Sources */,
 				05C94277202EA1C700B78CA4 /* UIView+CDFFrame.m in Sources */,
 				05C94288202EB85000B78CA4 /* SCRetrieveThePasswordView.m in Sources */,
+				0573B01420333DAA0017D852 /* SCHomePageSectionTwoCellItemView.m in Sources */,
 				05C94282202EB3C800B78CA4 /* UIButton+Navigation.m in Sources */,
 				05DAD57020317A2C000E13C2 /* SCManager+MBProgressHUD.m in Sources */,
 				05C9428E202EC44700B78CA4 /* SCFindPasswordUpatePasswordView.m in Sources */,

@@ -27,19 +27,19 @@
 {
     SCHomePageViewController * homePageController = [[SCHomePageViewController alloc] init];
     SCBaseNavigationController * homeNavigationController = [[SCBaseNavigationController alloc]initWithRootViewController:homePageController];
-    UITabBarItem * homeBarItem = [self setupTabBarItemWithTitle:@"首页" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
+    UITabBarItem * homeBarItem = [self setupTabBarItemWithTitle:@"首页" image:[UIImage imageNamed:@"footer_ico_index_normal"] selectedImage:[UIImage imageNamed:@"footer_ico_index_selcted"]];
     homeNavigationController.tabBarItem = homeBarItem;
     
     
     SCReservationViewController * rservationController = [[SCReservationViewController alloc] init];
     SCBaseNavigationController * rservationNavigationController = [[SCBaseNavigationController alloc]initWithRootViewController:rservationController];
-    UITabBarItem * rservationBarItem = [self setupTabBarItemWithTitle:@"预约" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
+    UITabBarItem * rservationBarItem = [self setupTabBarItemWithTitle:@"门店" image:[UIImage imageNamed:@"footer_ico_store_normal"] selectedImage:[UIImage imageNamed:@"footer_ico_store_selcted"]];
     rservationNavigationController.tabBarItem = rservationBarItem;
     
     
     SCMineViewController * mineController = [[SCMineViewController alloc] init];
     SCBaseNavigationController * mineNavigationController = [[SCBaseNavigationController alloc]initWithRootViewController:mineController];
-    UITabBarItem * mineBarItem = [self setupTabBarItemWithTitle:@"我的" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
+    UITabBarItem * mineBarItem = [self setupTabBarItemWithTitle:@"我的" image:[UIImage imageNamed:@"footer_ico_me_normal"] selectedImage:[UIImage imageNamed:@"footer_ico_me_selcted"]];
     mineNavigationController.tabBarItem = mineBarItem;
     
     [self setViewControllers:@[homeNavigationController,rservationNavigationController,mineNavigationController]];

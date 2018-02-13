@@ -153,6 +153,13 @@
         make.size.mas_equalTo(CGSizeMake(55, 22));
         make.top.equalTo(self.segmentView.mas_bottom).with.offset(18);
     }];
+    
+    [self.bottomSegmentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left).with.offset(0);
+        make.right.equalTo(self.contentView.mas_right).with.offset(-0);
+        make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-0);
+        make.height.mas_equalTo(10);
+    }];
 }
 
 

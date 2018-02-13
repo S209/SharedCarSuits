@@ -7,8 +7,9 @@
 //
 
 #import "SCEditorUserInfoViewController.h"
-
-@interface SCEditorUserInfoViewController ()
+#import "SCEditorIconView.h"
+#import "SCEditorUserInfoViewController+ImagePickerController.h"
+@interface SCEditorUserInfoViewController ()<SCEditorIconViewDelegate>
 
 @end
 
@@ -19,6 +20,7 @@
     [self setNavigationWithTitle:@"编辑个人资料"];
     [self sy_leftBarButtonItem];
     [self setupView];
+    [self initWithUIImagePickerController];
 }
 
 - (void)setupView
@@ -27,7 +29,7 @@
     [self.view addSubview:iconImageView];
     [iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(95, 95));
-        make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight);
+        make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight+60);
         make.centerX.mas_equalTo(self.view.mas_centerX);
     }];
     iconImageView.layer.masksToBounds = YES;
@@ -44,9 +46,17 @@
     editorImgLabel.font = [UIFont sy_font14];
     editorImgLabel.textColor = [UIColor sc_colorWith999999];
     editorImgLabel.textAlignment = NSTextAlignmentCenter;
-    UITapGestureRecognizer * tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editorImageLabel)];
-    [editorImgLabel addGestureRecognizer:tapGest];
+  
     
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:btn];
+    [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(iconImageView.mas_left).with.offset(0);
+        make.right.equalTo(iconImageView.mas_right).with.offset(-0);
+        make.top.equalTo(iconImageView.mas_bottom).with.offset(15);
+        make.height.mas_equalTo(20);
+    }];
     
     UILabel * nameLabel = [[UILabel alloc] init];
     [self.view addSubview:nameLabel];
@@ -61,6 +71,7 @@
     
     UITextField * nameField = [[UITextField alloc] init];
     [self.view addSubview:nameField];
+    nameField.backgroundColor = [UIColor sc_colorWihtf8f8f8];
     [nameField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(nameLabel.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(-15);
@@ -115,11 +126,22 @@
 }
 
 #pragma mark 编辑
-- (void)editorImageLabel
+- (void)btnClick
 {
-    
+    SCEditorIconView * editorIconView = [[SCEditorIconView alloc] init];
+    [editorIconView show];
+    editorIconView.delegate = self;
 }
 
+
+- (void)editorIconType:(TypeImageView)typeImage
+{
+    if (typeImage == TypeImageViewTakeAPhoto) {
+        [self selectImageFromCamera];
+    }else{
+        [self selectImageFromAlbum];
+    }
+}
 
 - (void)completeClick
 {

@@ -7,7 +7,7 @@
 //
 
 #import "SCBaseViewController.h"
-
+@class UIImagePickerController;
 @interface SCEditorUserInfoViewController : SCBaseViewController
-
+@property (nonatomic, strong) UIImagePickerController * imagePickerController;
 @end

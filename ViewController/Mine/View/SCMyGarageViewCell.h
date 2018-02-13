@@ -10,7 +10,7 @@
 @protocol SCMyGarageViewCellDelegate<NSObject>
 @required
 - (void)myGarageViewCellClickEditor;
-- (void)myGarageViewCellClickDelete;
+- (void)myGarageViewCellClickDeleteWithCarName:(NSString *)carName;
 @end
 @interface SCMyGarageViewCell : UITableViewCell
 + (instancetype)myGarageViewCellWithTable:(UITableView *)tableView;

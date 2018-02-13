@@ -174,15 +174,15 @@
 
 - (void)editorBtnClick:(UIButton *)sender
 {
-    if ([_delegate respondsToSelector:@selector(myGarageViewCellClickDelete)]) {
-        [self.delegate myGarageViewCellClickDelete];
+    if ([_delegate respondsToSelector:@selector(myGarageViewCellClickEditor)]) {
+        [self.delegate myGarageViewCellClickEditor];
     }
 }
 
 - (void)deleteBtnClick:(UIButton *)sender
 {
-    if ([_delegate respondsToSelector:@selector(myGarageViewCellClickEditor)]) {
-        [self.delegate myGarageViewCellClickEditor];
+    if ([_delegate respondsToSelector:@selector(myGarageViewCellClickDeleteWithCarName:)]) {
+        [self.delegate myGarageViewCellClickDeleteWithCarName:@""];
     }
 }
 
@@ -191,9 +191,11 @@
 {
     BOOL state = sender.selected ;
     if (state) {
-        [self.checkImageView setImage:[UIImage imageNamed:@"mycar_choise_selected"]];
-    }else{
         [self.checkImageView setImage:[UIImage imageNamed:@"mycar_choise_normal"]];
+        sender.selected = NO;
+    }else{
+        [self.checkImageView setImage:[UIImage imageNamed:@"mycar_choise_selected"]];
+        sender.selected = YES;
     }
 }
 

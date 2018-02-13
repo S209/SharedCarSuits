@@ -8,6 +8,7 @@
 
 #import "SCMyGarageViewController.h"
 #import "SCMyGarageViewCell.h"
+#import "SCMyGarageViewDeletViewAlertView.h"
 @interface SCMyGarageViewController ()<UITableViewDataSource,UITableViewDelegate,SCMyGarageViewCellDelegate>
 @property (nonatomic, strong)NSMutableArray * dataArray;
 @end
@@ -75,12 +76,13 @@
 #pragma mark SCMyGarageViewCellDelegate
 - (void)myGarageViewCellClickEditor
 {
-    
+   
 }
 
-- (void)myGarageViewCellClickDelete
+- (void)myGarageViewCellClickDeleteWithCarName:(NSString *)carName
 {
-    
+    SCMyGarageViewDeletViewAlertView * deleteView = [[SCMyGarageViewDeletViewAlertView alloc] init];
+    [deleteView showWithCarName:carName];
 }
 
 - (void)didReceiveMemoryWarning {

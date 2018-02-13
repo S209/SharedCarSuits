@@ -45,6 +45,8 @@
         carNumberLabel.font = [UIFont sy_boldFont16];
         carNumberLabel.textColor = [UIColor sc_colorWith444444];
       
+
+        
         UILabel * carNameLabel = [[UILabel alloc] init];
         [self.contentView addSubview:carNameLabel];
         self.carNameLabel = carNameLabel;
@@ -52,6 +54,8 @@
         carNameLabel.textColor = [UIColor whiteColor];
         carNameLabel.layer.masksToBounds = YES;
         [carNameLabel.layer setCornerRadius:2.0];
+        carNameLabel.backgroundColor = [UIColor sc_colorWithFC8739];
+        
         
         UIView * segmentView = [[UIView alloc] init];
         [self.contentView addSubview:segmentView];
@@ -115,6 +119,11 @@
         make.left.equalTo(self.contentView.mas_left).with.offset(15);
         make.top.equalTo(self.contentView.mas_top).with.offset(20);
         make.width.mas_equalTo(200);
+    }];
+    
+    [self.carNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.contentView.mas_right).with.offset(-15);
+        make.top.equalTo(self.carNumberLabel.mas_top).with.offset(0);
     }];
     
     [self.segmentView mas_makeConstraints:^(MASConstraintMaker *make) {

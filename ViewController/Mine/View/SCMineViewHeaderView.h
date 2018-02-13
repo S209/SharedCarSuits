@@ -11,6 +11,7 @@
 @protocol SCMineViewHeaderViewDelegate<NSObject>
 @required
 - (void)mineViewHeaderViewClickEditor;
+- (void)mineViewHeaderMyGarage;
 @end
 @interface SCMineViewHeaderView : UIView
 @property(nonatomic, weak) id <SCMineViewHeaderViewDelegate>delegate;

@@ -17,6 +17,7 @@
         self.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
         UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self addSubview:btn];
+        btn.backgroundColor = [UIColor clearColor];
         btn.frame = self.bounds;
         [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside
          ];
@@ -110,6 +111,7 @@
 
 - (void)exitInfoClick:(UIButton *)sender
 {
+    [self diss];
     NSInteger tag = sender.tag;
     if (tag == 200) {
         //拍照

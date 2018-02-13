@@ -162,6 +162,16 @@
         make.right.equalTo(bottomView.mas_right).with.offset(-0);
         make.top.equalTo(bottomView.mas_top).with.offset(20);
     }];
+    
+    UIButton * myCarBtn = [[UIButton alloc] init];
+    [bottomView addSubview:myCarBtn];
+    [myCarBtn addTarget:self action:@selector(myCarBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [myCarBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(segmentView.mas_right).with.offset(75);
+        make.right.equalTo(bottomView.mas_right).with.offset(-0);
+        make.top.equalTo(bottomView.mas_top).with.offset(20);
+    }];
+    
 
     UIImageView * myCarImgView = [[UIImageView alloc] init];
     [bottomView addSubview:myCarImgView];
@@ -202,6 +212,13 @@
 {
     if ([_delegate respondsToSelector:@selector(mineViewHeaderViewClickEditor)]) {
         [self.delegate mineViewHeaderViewClickEditor];
+    }
+}
+
+- (void)myCarBtnClick
+{
+    if ([_delegate respondsToSelector:@selector(mineViewHeaderMyGarage)]) {
+        [self.delegate mineViewHeaderMyGarage];
     }
 }
 

@@ -11,6 +11,7 @@
 #import "SCMineViewControllerSectionCell.h"
 #import "SCSettingViewController.h"
 #import "SCEditorUserInfoViewController.h"
+#import "SCMyGarageViewController.h"
 @interface SCMineViewController()<UITableViewDelegate,UITableViewDataSource,SCMineViewHeaderViewDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, weak) SCMineViewHeaderView * headerView;
@@ -129,6 +130,12 @@
 {
     SCEditorUserInfoViewController * editorController = [[SCEditorUserInfoViewController alloc] init];
     [self.navigationController pushViewController:editorController animated:YES];
+}
+
+- (void)mineViewHeaderMyGarage
+{
+    SCMyGarageViewController * myGarageViewController = [[SCMyGarageViewController alloc] init];
+    [self.navigationController pushViewController:myGarageViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

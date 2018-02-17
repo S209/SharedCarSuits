@@ -49,6 +49,7 @@
         self.storeImageView = storeImageView;
         storeImageView.clipsToBounds = YES;
         storeImageView.contentMode = UIViewContentModeScaleAspectFill;
+     
         
         UILabel * storeNameLabel = [[UILabel alloc] init];
         [self.contentView addSubview:storeNameLabel];
@@ -102,7 +103,7 @@
         [callBtn addTarget:self action:@selector(callBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         
         UIView * segmentThirdView = [[UIView alloc] init];
-        [self.contentView addSubview:segmentSecondView];
+        [self.contentView addSubview:segmentThirdView];
         self.segmentThirdView = segmentThirdView;
         segmentThirdView.backgroundColor = [UIColor sc_colorWithe5e5e5];
         
@@ -171,7 +172,7 @@
         distanceLeft = 15 + (10 + 80)*i;
         [serviceItemsBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left).with.offset(distanceLeft);
-            make.top.equalTo(self.storeImageView.mas_bottom).with.offset(12);
+            make.top.equalTo(self.storeImageView.mas_bottom).with.offset(10);
             make.size.mas_equalTo(CGSizeMake(80, 25));
         }];
     }
@@ -183,19 +184,17 @@
         make.height.mas_equalTo(0.5);
     }];
     
-    UIButton * checkStoreInfoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.contentView addSubview:checkStoreInfoBtn];
-    self.checkStoreInfoBtn = checkStoreInfoBtn;
-    [checkStoreInfoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+
+    [self.checkStoreInfoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(15);
-        make.top.equalTo(self.segmentView.mas_bottom).with.offset(25);
+        make.top.equalTo(self.segmentView.mas_bottom).with.offset(15);
         make.size.mas_equalTo(CGSizeMake(105, 25));
     }];
     
     [self.bottomViewSegment mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(0);
         make.right.equalTo(self.contentView.mas_right).with.offset(-0);
-        make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-0);
+        make.top.equalTo(self.checkStoreInfoBtn.mas_bottom).with.offset(15);
         make.height.mas_equalTo(10);
     }];
     
@@ -205,13 +204,20 @@
         make.width.mas_equalTo(0.5);
         make.height.mas_equalTo(30);
     }];
-    
-    
+
+
     [self.navigationImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentView.mas_right).with.offset(-0);
         make.top.equalTo(self.segmentView.mas_bottom).with.offset(0);
         make.bottom.equalTo(self.bottomViewSegment.mas_top).with.offset(-0);
         make.width.mas_equalTo(65);
+    }];
+
+    [self.segmentThirdView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.navigationImageView.mas_left).with.offset(-0);
+        make.top.equalTo(self.segmentView.mas_bottom).with.offset(12);
+        make.width.mas_equalTo(0.5);
+        make.height.mas_equalTo(30);
     }];
     
     [self.callBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -220,6 +226,8 @@
         make.bottom.equalTo(self.bottomViewSegment.mas_top).with.offset(-0);
          make.top.equalTo(self.segmentView.mas_bottom).with.offset(0);
     }];
+    
+    
 }
 
 - (void)callBtnClick:(UIButton *)sender

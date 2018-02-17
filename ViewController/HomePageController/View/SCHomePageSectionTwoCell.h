@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol SCHomePageSectionTwoCellDelegate<NSObject>
+@required
+- (void)homePageSectionTwoCellClickWithObj:(id)obj;
+@end
 @interface SCHomePageSectionTwoCell : UITableViewCell
+@property (nonatomic, weak) id <SCHomePageSectionTwoCellDelegate>delegate;
 + (instancetype)hoemPageSectionTwoWithTableView:(UITableView *)tableView;
 @end

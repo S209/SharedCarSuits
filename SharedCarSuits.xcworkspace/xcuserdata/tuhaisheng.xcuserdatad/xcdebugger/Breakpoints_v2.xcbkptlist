@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ViewController/Register/View/SCRegisterViewCarInfoView.m"
-            timestampString = "540058936.9200881"
+            filePath = "ViewController/Base/UIViewController+Utility.m"
+            timestampString = "540269328.123879"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "-updateCarInfoWithInfo:andIndex:btnClickState:"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "-backItemWithAction:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,94 +35,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ViewController/Mine/View/SCExitShowTipsView.m"
-            timestampString = "540224353.426616"
+            filePath = "ViewController/Base/UIViewController+Utility.m"
+            timestampString = "540269357.943512"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
             endingLineNumber = "30"
-            landmarkName = "-show"
+            landmarkName = "-sy_leftBarButtonItem"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ViewController/Mine/SCMyGarageViewController.m"
-            timestampString = "540224353.4270819"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "-myGarageViewCellClickEditor"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ViewController/Mine/SCMyGarageViewController.m"
-            timestampString = "540224353.4274679"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "-myGarageViewCellClickDelete"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ViewController/HomePageController/View/SCHomePageSectionOneCell.m"
-            timestampString = "540232010.866545"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "-initWithStyle:reuseIdentifier:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SCHomePageSectionOneCell initWithStyle:reuseIdentifier:]"
-                  moduleName = "SharedCarSuits"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/admin/Desktop/Work/SharedCarSuits/ViewController/HomePageController/View/SCHomePageSectionOneCell.m"
-                  timestampString = "540230708.39484"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "816">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__58-[SCHomePageSectionOneCell initWithStyle:reuseIdentifier:]_block_invoke"
-                  moduleName = "SharedCarSuits"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/admin/Desktop/Work/SharedCarSuits/ViewController/HomePageController/View/SCHomePageSectionOneCell.m"
-                  timestampString = "540230708.397663"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "19">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

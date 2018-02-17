@@ -43,12 +43,33 @@
         [self.contentView addSubview:itemView];
         [itemView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left).with.offset(leftX);
-            make.size.mas_equalTo(CGSizeMake(width, 1.4*width));
+            make.width.mas_equalTo(width);
             make.top.equalTo(self.contentView.mas_top).with.offset(0);
-            make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-10);
+            make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-0);
         }];
+        
+        UIButton * clickBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.contentView addSubview:clickBtn];
+        [clickBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView.mas_left).with.offset(leftX);
+            make.width.mas_equalTo(width);
+            make.top.equalTo(self.contentView.mas_top).with.offset(0);
+            make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-0);
+        }];
+        [clickBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        clickBtn.tag = 300+i;
     }
 }
+
+- (void)btnClick:(UIButton *)sender
+{
+    NSInteger tag = sender.tag - 300;
+    if ([_delegate respondsToSelector:@selector(homePageSectionTwoCellClickWithObj:)
+         ]) {
+        [self.delegate homePageSectionTwoCellClickWithObj:@""];
+    }
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

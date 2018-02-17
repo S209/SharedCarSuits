@@ -27,7 +27,7 @@
 - (void)setupView
 {
     CGFloat goodsImgWidth = (SCREEN_WIDTH - 30)/2;
-    self.size = CGSizeMake(goodsImgWidth, ((SCREEN_WIDTH - 30)/2)*1.4);
+    
     UIImageView * goodsImageView = [[UIImageView alloc] init];
     [self addSubview:goodsImageView];
     [goodsImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -40,14 +40,14 @@
     UILabel * goodsNameLabel = [[UILabel alloc] init];
     [self addSubview:goodsNameLabel];
     self.goodsNameLabel = goodsNameLabel;
+    goodsNameLabel.textAlignment = NSTextAlignmentLeft;
     [goodsNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.mas_left).with.offset(0);
+        make.left.equalTo(self.mas_left).with.offset(10);
         make.right.equalTo(self.mas_right).with.offset(-0);
         make.top.equalTo(goodsImageView.mas_bottom).with.offset(13);
     }];
     goodsNameLabel.font = [UIFont sy_font14];
     goodsNameLabel.textColor = [UIColor sc_colorWith444444];
-    goodsNameLabel.textAlignment = NSTextAlignmentCenter;
     goodsNameLabel.text = @"奥迪17款新A4L脚垫新";
     
     UILabel * goodsPriceLabel = [[UILabel alloc] init];
@@ -58,7 +58,8 @@
     goodsPriceLabel.textColor = [UIColor sc_colorWith6C6DFD];
     [goodsPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(goodsNameLabel.mas_left).with.offset(0);
-        make.top.equalTo(goodsPriceLabel.mas_bottom).with.offset(14);
+        make.top.equalTo(goodsNameLabel.mas_bottom).with.offset(14);
+        make.right.equalTo(self.mas_right).with.offset(-0);
     }];
 }
 @end

@@ -10,7 +10,7 @@
 #import <SDCycleScrollView.h>
 #import "SCHomePageSectionOneCell.h"
 #import "SCHomePageSectionTwoCell.h"
-@interface SCHomePageViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,SCHomePageSectionOneCellDelegate>
+@interface SCHomePageViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,SCHomePageSectionOneCellDelegate,SCHomePageSectionTwoCellDelegate>
 
 @end
 
@@ -37,7 +37,7 @@
         make.left.equalTo(self.view.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(-0);
         make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight);
-        make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-10-SYTabBarHeight);
     }];
 }
 
@@ -63,6 +63,7 @@
         return sectionOneCell;
     }else{
         SCHomePageSectionTwoCell * twoCell = [SCHomePageSectionTwoCell hoemPageSectionTwoWithTableView:tableView];
+        twoCell.delegate = self;
         return twoCell;
     }
 }
@@ -78,12 +79,31 @@
     }
 }
 
-
+#pragma mark 查看更多
 - (void)homePageSectionOneCellClickLoadMore
 {
     
 }
 
+#pragma mark 洗车美容、换油保养、钣金喷漆、施工直播
+- (void)homePageDidSeleItemWitIndex:(NSInteger)index
+{
+    if (index == 0) {
+        
+    }else if (index == 1){
+        
+    }else if (index == 2){
+        
+    }else if (index == 3){
+        
+    }
+}
+
+#pragma mark SCHomePageSectionTwoCellDelegate
+- (void)homePageSectionTwoCellClickWithObj:(id)obj
+{
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

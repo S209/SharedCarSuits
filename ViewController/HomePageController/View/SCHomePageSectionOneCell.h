@@ -10,6 +10,7 @@
 @protocol SCHomePageSectionOneCellDelegate<NSObject>
 @required
 - (void)homePageSectionOneCellClickLoadMore;
+- (void)homePageDidSeleItemWitIndex:(NSInteger)index;
 @end
 @interface SCHomePageSectionOneCell : UITableViewCell
 @property (nonatomic, weak) id <SCHomePageSectionOneCellDelegate>delegate;

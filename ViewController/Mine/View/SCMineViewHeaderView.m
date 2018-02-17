@@ -32,6 +32,7 @@
 
 - (void)setupView
 {
+    self.size = CGSizeMake(SCREEN_WIDTH, 282);
     UIImageView * userIconImg = [[UIImageView alloc] init];
     [self addSubview:userIconImg];
     self.userIconImg = userIconImg;
@@ -43,7 +44,7 @@
     userIconImg.layer.masksToBounds = YES;
     [userIconImg.layer setCornerRadius:70];
     
-    
+  
     UILabel * userNameLabel = [[UILabel alloc] init];
     [self addSubview:userNameLabel];
     [userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -99,9 +100,7 @@
         make.left.equalTo(editorPenImgView.mas_right).with.offset(5);
         make.size.mas_equalTo(CGSizeMake(35, 15));
     }];
-    
- [self setupBottomViewWithSupView:self];
-   
+    [self setupBottomViewWithSupView:self];
 }
 
 - (void)setupBottomViewWithSupView:(UIView *)supView
@@ -127,6 +126,7 @@
     }];
     
     
+
     //我的优惠券
     UILabel * couponLabel = [[UILabel alloc] init];
     [bottomView addSubview:couponLabel];
@@ -205,6 +205,7 @@
         make.bottom.equalTo(myContentView.mas_bottom).with.offset(-15);
         make.right.equalTo(myContentView.mas_right).with.offset(-0);
     }];
+   
 }
 
 #pragma mark 编辑

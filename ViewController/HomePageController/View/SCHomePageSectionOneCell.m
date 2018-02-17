@@ -48,7 +48,7 @@
         CGFloat carImageViewX = 0;
         NSArray * imageNameArray = @[@"index_function_btn_xcmr",@"index_function_btn_hyby",@"index_function_btn_bjpq",@"index_function_btn_sgzb"];
         NSArray * labelNameArray = @[@"洗车美容",@"换油保养",@"钣金喷漆",@"施工直播"];
-        for (NSUInteger i = 0; i < 4; i++) {
+        for (NSUInteger i = 0; i < labelNameArray.count; i++) {
             carImageViewX = 22 + (carImgWidth + spaceWidth)*i;
             UIImageView * carImageView = [[UIImageView alloc] init];
             [self.contentView addSubview:carImageView];
@@ -59,8 +59,19 @@
                 make.size.mas_equalTo(CGSizeMake(54, 54));
                 make.top.equalTo(advertisingImgView.mas_bottom).with.offset(2.5);
             }];
-            
             [carImageView setImage:[UIImage imageNamed:[imageNameArray safeObjectAtIndex:i]]];
+            
+            
+            UIButton * clickBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [self.contentView addSubview:clickBtn];
+            [clickBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(self.contentView.mas_left).with.offset(carImageViewX);
+                make.size.mas_equalTo(CGSizeMake(54, 54));
+                make.top.equalTo(advertisingImgView.mas_bottom).with.offset(2.5);
+            }];
+            [clickBtn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
+            clickBtn.tag = 400+i;
+            
             
             UILabel * carLabel = [[UILabel alloc] init];
             [self.contentView addSubview:carLabel];
@@ -141,6 +152,14 @@
 {
     if ([_delegate respondsToSelector:@selector(homePageSectionOneCellClickLoadMore)]) {
         [self.delegate homePageSectionOneCellClickLoadMore];
+    }
+}
+
+- (void)clickBtn:(UIButton *)sender
+{
+    NSInteger tag = sender.tag-400;
+    if ([_delegate respondsToSelector:@selector(homePageDidSeleItemWitIndex:)]) {
+        [self.delegate homePageDidSeleItemWitIndex:tag];
     }
 }
 

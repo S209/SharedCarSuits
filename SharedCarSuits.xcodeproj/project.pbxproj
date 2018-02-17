@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0573B01420333DAA0017D852 /* SCHomePageSectionTwoCellItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B01320333DAA0017D852 /* SCHomePageSectionTwoCellItemView.m */; };
+		0573B018203825B30017D852 /* SCReservationViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B017203825B30017D852 /* SCReservationViewCell.m */; };
 		0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597251A201EF3DD00E7EFFB /* AppDelegate.m */; };
 		05972523201EF3DD00E7EFFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05972522201EF3DD00E7EFFB /* Assets.xcassets */; };
 		05972526201EF3DD00E7EFFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05972524201EF3DD00E7EFFB /* LaunchScreen.storyboard */; };
@@ -87,6 +88,8 @@
 /* Begin PBXFileReference section */
 		0573B01220333DAA0017D852 /* SCHomePageSectionTwoCellItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCHomePageSectionTwoCellItemView.h; sourceTree = "<group>"; };
 		0573B01320333DAA0017D852 /* SCHomePageSectionTwoCellItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCHomePageSectionTwoCellItemView.m; sourceTree = "<group>"; };
+		0573B016203825B30017D852 /* SCReservationViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCReservationViewCell.h; sourceTree = "<group>"; };
+		0573B017203825B30017D852 /* SCReservationViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCReservationViewCell.m; sourceTree = "<group>"; };
 		05972516201EF3DD00E7EFFB /* SharedCarSuits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharedCarSuits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05972519201EF3DD00E7EFFB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0597251A201EF3DD00E7EFFB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -240,6 +243,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0573B0152038259B0017D852 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0573B016203825B30017D852 /* SCReservationViewCell.h */,
+				0573B017203825B30017D852 /* SCReservationViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		058379F0202A02B400FE6F3F /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +400,7 @@
 		05C94240202D6B1500B78CA4 /* ReservationController */ = {
 			isa = PBXGroup;
 			children = (
+				0573B0152038259B0017D852 /* View */,
 				05C94241202D6B1500B78CA4 /* SCReservationViewController.h */,
 				05C94242202D6B1500B78CA4 /* SCReservationViewController.m */,
 			);
@@ -949,6 +962,7 @@
 				05C9424F202D6BD200B78CA4 /* SCBaseViewController.m in Sources */,
 				05C9429D202ED16600B78CA4 /* SCRegisterViewCarInfoView.m in Sources */,
 				05C94252202D6BD200B78CA4 /* SCBaseTableViewController.m in Sources */,
+				0573B018203825B30017D852 /* SCReservationViewCell.m in Sources */,
 				05C9427F202EB32400B78CA4 /* UIViewController+Utility.m in Sources */,
 				05DAD56020316D6D000E13C2 /* NSString+Predicate.m in Sources */,
 				05C94277202EA1C700B78CA4 /* UIView+CDFFrame.m in Sources */,

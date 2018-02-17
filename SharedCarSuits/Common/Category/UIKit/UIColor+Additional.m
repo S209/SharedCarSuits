@@ -33,10 +33,6 @@
 {
     return [self cdf_colorWithHexString:@"#2CC7C5"];
 }
-+ (UIColor *)sc_colorWithF8F8F8
-{
-     return [self cdf_colorWithHexString:@"#F8F8F8"];
-}
 + (UIColor *)sc_colorWith666666
 {
   return [self cdf_colorWithHexString:@"#666666"];
@@ -74,5 +70,18 @@
 + (UIColor *)sc_colorWithea5858
 {
     return [self cdf_colorWithHexString:@"ea5858"];
+}
+
++ (UIColor *)sc_colorWith2AB5E6
+{
+ return [self cdf_colorWithHexString:@"2AB5E6"];
+}
++ (UIColor *)sc_colorWith4ADA98
+{
+  return [self cdf_colorWithHexString:@"4ADA98"];
+}
++ (UIColor *)sc_colorWithF6B943
+{
+   return [self cdf_colorWithHexString:@"F6B943"];
 }
 @end

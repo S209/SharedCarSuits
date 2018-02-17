@@ -43,7 +43,7 @@
         make.right.equalTo(self.mas_right).with.offset(-15);
         make.height.mas_equalTo(40);
     }];
-    choiseBrandLabel.backgroundColor = [UIColor sc_colorWithF8F8F8];
+    choiseBrandLabel.backgroundColor = [UIColor sc_colorWihtf8f8f8];
     
     
     UILabel * carNumberLabel = [[UILabel alloc] init];
@@ -73,7 +73,7 @@
         carNumberBtn.layer.masksToBounds = YES;
         [carNumberBtn.layer setCornerRadius:4.0];
         carNumberBtn.tag = 300+i;
-        carNumberBtn.backgroundColor = [UIColor sc_colorWithF8F8F8];
+        carNumberBtn.backgroundColor = [UIColor sc_colorWihtf8f8f8];
     }
     
     UIButton * sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];

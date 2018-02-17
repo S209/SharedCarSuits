@@ -7,12 +7,13 @@
 //
 
 #import "SCChoiseCarNumberView.h"
-
+#import "SCManager+CommonMethods.h"
 @implementation SCChoiseCarNumberView
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.37];
         [self setupAreaView];
     }
     return self;
@@ -68,8 +69,7 @@
     [cancelBtn addTarget:self action:@selector(cancelBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [sureBtn addTarget:self action:@selector(sureBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
-    [self bezierPathLeftTopAndRightTopWithView:topView];
-    
+    [[SCManager shareInstance] bezierPathLeftTopAndRightTopWithView:topView];
     UIView * segmentView = [[UIView alloc] init];
     [self addSubview:segmentView];
     [segmentView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -124,17 +124,6 @@
     
 }
 
-- (void)bezierPathLeftTopAndRightTopWithView:(UIView *)view
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        // 处理耗时操作的代码块...
-        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight cornerRadii:view.bounds.size];
-        CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-        maskLayer.frame = view.bounds;
-        maskLayer.path = maskPath.CGPath;
-        view.layer.mask = maskLayer;
-    });
-}
 
 - (void)cancelBtnClick
 {

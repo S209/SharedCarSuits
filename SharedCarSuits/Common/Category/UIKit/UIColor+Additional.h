@@ -16,7 +16,6 @@
 + (UIColor *)sc_colorWith6C6DFD;
 + (UIColor *)sc_colorWith6162e3;
 + (UIColor *)sc_colorWithFC8739;
-+ (UIColor *)sc_colorWithF8F8F8;
 + (UIColor *)sc_colorWith666666;
 + (UIColor *)sc_colorWith999999;
 + (UIColor *)sc_colorWithe5e5e5;
@@ -26,4 +25,7 @@
 + (UIColor *)sc_colorWithE72B2B;
 + (UIColor *)sc_colorWithea5858;
 + (UIColor *)sy_green4Color;
++ (UIColor *)sc_colorWith2AB5E6;
++ (UIColor *)sc_colorWith4ADA98;
++ (UIColor *)sc_colorWithF6B943;
 @end

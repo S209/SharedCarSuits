@@ -151,8 +151,7 @@
     
     if (![self.phoneNumberField.text isPhoneNumber]) {
         [SCManager dismissInfo:@"请输入正确的电话号码"];
-    }
-    
+    }else
     if (self.loginPasswordField.text.length == 0) {
         [SCManager dismissInfo:@"请输入密码"];
     }

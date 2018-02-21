@@ -11,6 +11,8 @@
 		0573B018203825B30017D852 /* SCReservationViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B017203825B30017D852 /* SCReservationViewCell.m */; };
 		0573B01E203BD7E70017D852 /* SCManager+RequestInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B01D203BD7E70017D852 /* SCManager+RequestInterface.m */; };
 		0573B025203C09F60017D852 /* GSKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B023203C09F50017D852 /* GSKeyChain.m */; };
+		0573B029203D516D0017D852 /* SCCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B028203D516D0017D852 /* SCCouponModel.m */; };
+		0573B02C203D53C50017D852 /* SCMyGarageListPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B02B203D53C50017D852 /* SCMyGarageListPageModel.m */; };
 		0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597251A201EF3DD00E7EFFB /* AppDelegate.m */; };
 		05972523201EF3DD00E7EFFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05972522201EF3DD00E7EFFB /* Assets.xcassets */; };
 		05972526201EF3DD00E7EFFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05972524201EF3DD00E7EFFB /* LaunchScreen.storyboard */; };
@@ -97,6 +99,10 @@
 		0573B01D203BD7E70017D852 /* SCManager+RequestInterface.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SCManager+RequestInterface.m"; sourceTree = "<group>"; };
 		0573B023203C09F50017D852 /* GSKeyChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKeyChain.m; sourceTree = "<group>"; };
 		0573B024203C09F50017D852 /* GSKeyChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKeyChain.h; sourceTree = "<group>"; };
+		0573B027203D516D0017D852 /* SCCouponModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCCouponModel.h; sourceTree = "<group>"; };
+		0573B028203D516D0017D852 /* SCCouponModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCCouponModel.m; sourceTree = "<group>"; };
+		0573B02A203D53C50017D852 /* SCMyGarageListPageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMyGarageListPageModel.h; sourceTree = "<group>"; };
+		0573B02B203D53C50017D852 /* SCMyGarageListPageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMyGarageListPageModel.m; sourceTree = "<group>"; };
 		05972516201EF3DD00E7EFFB /* SharedCarSuits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharedCarSuits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05972519201EF3DD00E7EFFB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0597251A201EF3DD00E7EFFB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -259,6 +265,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0573B026203D51350017D852 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0573B027203D516D0017D852 /* SCCouponModel.h */,
+				0573B028203D516D0017D852 /* SCCouponModel.m */,
+				0573B02A203D53C50017D852 /* SCMyGarageListPageModel.h */,
+				0573B02B203D53C50017D852 /* SCMyGarageListPageModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		058379F0202A02B400FE6F3F /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +314,7 @@
 		05972518201EF3DD00E7EFFB /* SharedCarSuits */ = {
 			isa = PBXGroup;
 			children = (
+				0573B026203D51350017D852 /* Model */,
 				0597254B201EF73100E7EFFB /* Common */,
 				05972519201EF3DD00E7EFFB /* AppDelegate.h */,
 				0597251A201EF3DD00E7EFFB /* AppDelegate.m */,
@@ -955,6 +973,7 @@
 				05E94F7A2032E64B00210BE3 /* SCMyGarageViewCell.m in Sources */,
 				05E94F7D203318C500210BE3 /* SCMyGarageViewDeletViewAlertView.m in Sources */,
 				05C94251202D6BD200B78CA4 /* SCBaseNavigationController.m in Sources */,
+				0573B029203D516D0017D852 /* SCCouponModel.m in Sources */,
 				05972529201EF3DD00E7EFFB /* main.m in Sources */,
 				05DAD55C203098B3000E13C2 /* SCMineViewHeaderView.m in Sources */,
 				05C9426C202E8CE800B78CA4 /* SCLaunchViewController.m in Sources */,
@@ -981,6 +1000,7 @@
 				05DAD56020316D6D000E13C2 /* NSString+Predicate.m in Sources */,
 				05C94277202EA1C700B78CA4 /* UIView+CDFFrame.m in Sources */,
 				05C94288202EB85000B78CA4 /* SCRetrieveThePasswordView.m in Sources */,
+				0573B02C203D53C50017D852 /* SCMyGarageListPageModel.m in Sources */,
 				0573B01420333DAA0017D852 /* SCHomePageSectionTwoCellItemView.m in Sources */,
 				05C94282202EB3C800B78CA4 /* UIButton+Navigation.m in Sources */,
 				05DAD57020317A2C000E13C2 /* SCManager+MBProgressHUD.m in Sources */,

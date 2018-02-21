@@ -42,4 +42,10 @@
  @param passWord <#passWord description#>
  */
 - (void)retrieveThePasswordWithloginName:(NSString *)loginName passWord:(NSString *)passWord success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
+///keleapp/car/carList.jspx
+/*
+ 我的车库
+ */
+- (void)myGarageWithSuccess:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 @end

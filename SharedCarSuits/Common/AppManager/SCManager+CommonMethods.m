@@ -224,7 +224,7 @@ static NSString * const KEY_UUID = @"唯一识别的key_uuid";
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{  //定位服务回调函数
     CLLocation *location = [locations lastObject];    //当前位置信息
-    self.positionString = [NSString stringWithFormat:@"%f%f%f",location.coordinate.longitude,location.coordinate.latitude,location.altitude];
+    self.positionString = [NSString stringWithFormat:@"%f%f",location.coordinate.longitude,location.coordinate.latitude];
 }
 
 

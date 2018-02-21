@@ -9,6 +9,7 @@
 #import "SCMyGarageViewController.h"
 #import "SCMyGarageViewCell.h"
 #import "SCMyGarageViewDeletViewAlertView.h"
+#import "SCManager+RequestInterface.h"
 @interface SCMyGarageViewController ()<UITableViewDataSource,UITableViewDelegate,SCMyGarageViewCellDelegate>
 @property (nonatomic, strong)NSMutableArray * dataArray;
 @end

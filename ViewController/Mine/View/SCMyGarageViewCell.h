@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class SCMyGarageListPageModel;
 @protocol SCMyGarageViewCellDelegate<NSObject>
 @required
 - (void)myGarageViewCellClickEditor;
@@ -15,4 +16,5 @@
 @interface SCMyGarageViewCell : UITableViewCell
 + (instancetype)myGarageViewCellWithTable:(UITableView *)tableView;
 @property (nonatomic, weak) id <SCMyGarageViewCellDelegate>delegate;
+@property (nonatomic, strong) SCMyGarageListPageModel * pageModel;
 @end

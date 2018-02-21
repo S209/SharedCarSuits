@@ -7,7 +7,7 @@
 //
 
 #import "SCMyGarageViewCell.h"
-
+#import "SCMyGarageListPageModel.h"
 @interface SCMyGarageViewCell()
 @property (nonatomic, weak) UILabel * carNumberLabel;
 @property (nonatomic, weak) UILabel * carNameLabel;
@@ -196,6 +196,18 @@
     }else{
         [self.checkImageView setImage:[UIImage imageNamed:@"mycar_choise_selected"]];
         sender.selected = YES;
+    }
+}
+
+- (void)setPageModel:(SCMyGarageListPageModel *)pageModel
+{
+    _pageModel = pageModel;
+    self.carNameLabel.text = pageModel.carModel;
+    self.carNumberLabel.text = pageModel.carNum;
+    if (pageModel.type == 0) {
+        [self.checkImageView setImage:[UIImage imageNamed:@"mycar_choise_selected"]];
+    }else{
+        [self.checkImageView setImage:[UIImage imageNamed:@"mycar_choise_normal"]];
     }
 }
 

@@ -9,6 +9,7 @@
 #import "SCFindPasswordController.h"
 #import "SCRetrieveThePasswordView.h"
 #import "SCFindPasswordUpatePasswordController.h"
+#import "SCSharedCarSuitsClient.h"
 @interface SCFindPasswordController ()<SCRetrieveThePasswordViewDelegate>
 
 @end
@@ -44,6 +45,12 @@
     [self.navigationController pushViewController:updatePassword animated:YES];
     
 }
+
+- (void)getVerificationCode
+{
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

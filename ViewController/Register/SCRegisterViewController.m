@@ -9,6 +9,8 @@
 #import "SCRegisterViewController.h"
 #import "SCRetrieveThePasswordView.h"
 #import "SCRegisterViewUpatePasswordController.h"
+#import "SCManager+RequestInterface.h"
+
 @interface SCRegisterViewController ()<SCRetrieveThePasswordViewDelegate>
 
 @end
@@ -34,8 +36,8 @@
       make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight);
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
     }];
-  
 }
+
 
 - (void)nextStep
 {
@@ -43,6 +45,20 @@
     [self.navigationController pushViewController:updatePassword animated:YES];
 }
 
+
+//注册请求接口
+- (void)getVerificationCodeWithPhoneNumber:(NSString *)phoneNumber;
+{
+    if ([phoneNumber isPhoneNumber]) {
+        [[SCManager shareInstance] getRegisteredVerificationCodeWithPhoneNumber:phoneNumber success:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+            
+        }];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

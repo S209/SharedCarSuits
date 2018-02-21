@@ -8,7 +8,8 @@
 
 #import "SCLoginView.h"
 #import <Masonry.h>
-
+#import "NSString+Predicate.h"
+#import "SCManager+MBProgressHUD.h"
 @interface SCLoginView()<UITextFieldDelegate>
 @property (nonatomic, weak) UILabel * phoneNumberLabel;
 @property (nonatomic, weak) UITextField * phoneNumberField;
@@ -141,8 +142,19 @@
 
 - (void)loginBtnClick:(UIButton *)sender
 {
-    if ([_delegate respondsToSelector:@selector(loginViewLoginWithAccount:password:)]) {
-        [self.delegate loginViewLoginWithAccount:self.phoneNumberField.text password:self.loginPasswordField.text];
+    
+    if ([self.phoneNumberField.text isPhoneNumber] && self.loginPasswordField.text.length > 0) {
+        if ([_delegate respondsToSelector:@selector(loginViewLoginWithAccount:password:)]) {
+            [self.delegate loginViewLoginWithAccount:self.phoneNumberField.text password:self.loginPasswordField.text];
+        }
+    }
+    
+    if (![self.phoneNumberField.text isPhoneNumber]) {
+        [SCManager dismissInfo:@"请输入正确的电话号码"];
+    }
+    
+    if (self.loginPasswordField.text.length == 0) {
+        [SCManager dismissInfo:@"请输入密码"];
     }
 }
 

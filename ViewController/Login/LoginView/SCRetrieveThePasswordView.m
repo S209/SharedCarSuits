@@ -7,9 +7,12 @@
 //
 
 #import "SCRetrieveThePasswordView.h"
-
+#import "SCManager+CommonMethods.h"
+#import "NSString+Predicate.h"
+#import "SCManager+MBProgressHUD.h"
 @interface SCRetrieveThePasswordView()<UITextFieldDelegate>
 @property (nonatomic, weak) UITextField * phoneNumberField;
+@property (nonatomic, weak) UITextField * smsVerification;
 @property (nonatomic, weak) UIButton * repeateBtn;
 @end
 @implementation SCRetrieveThePasswordView
@@ -59,6 +62,7 @@
     
     UITextField * smsVerification = [[UITextField alloc] init];
     [self addSubview:smsVerification];
+    self.smsVerification = smsVerification;
     smsVerification.backgroundColor = [UIColor sc_colorWihtf8f8f8];
     NSString * smsVerificationString = @"请输入验证码";
     smsVerification.keyboardType = UIKeyboardTypeNumberPad;
@@ -70,15 +74,6 @@
     smsVerificationView.backgroundColor = [UIColor clearColor];
     smsVerification.leftViewMode = UITextFieldViewModeAlways;    //此句代码较容易忽略
     smsVerification.leftView = smsVerificationView;
-    
-//    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:smsVerificationString];
-//    [placeholder addAttribute:NSForegroundColorAttributeName
-//                        value:[UIColor sc_colorWith444444]
-//                        range:NSMakeRange(0, smsVerificationString.length)];
-//    [placeholder addAttribute:NSFontAttributeName
-//                        value:[UIFont sy_font14]
-//                        range:NSMakeRange(0, smsVerificationString.length)];
-//    smsVerification.attributedPlaceholder = placeholder;
     
     
     UIButton * repeateBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -117,6 +112,8 @@
     [nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     nextBtn.backgroundColor = [UIColor sc_colorWith6C6DFD];
     nextBtn.titleLabel.font = [UIFont sy_boldFont16];
+    nextBtn.layer.masksToBounds = YES;
+    [nextBtn.layer setCornerRadius:4.0];
 }
 
 - (void)setType:(TypeR)type
@@ -127,20 +124,30 @@
     }else{
         [self.repeateBtn setTitle:@"发送验证" forState:UIControlStateNormal];
     }
-    
 }
 
-
+//发送验证码
 - (void)repeateBtnClick:(UIButton *)sender
 {
-    
-    
+    BOOL flag = [self.phoneNumberField.text isPhoneNumber];
+    if (flag) {
+        if ([_delegate respondsToSelector:@selector(getVerificationCodeWithPhoneNumber:)]) {
+            [self.delegate getVerificationCodeWithPhoneNumber:self.phoneNumberField.text];
+        }
+        [[SCManager shareInstance] countDownWithView:sender];
+    }else{
+        [SCManager dismissInfo:@"请输入正确电话号码"];
+    }
 }
 
 - (void)nextBtn:(UIButton *)sender
 {
-    if ([_delegate respondsToSelector:@selector(nextStep)]) {
-        [self.delegate nextStep];
+    if (self.smsVerification.text.length > 0) {
+        if ([_delegate respondsToSelector:@selector(nextStep)]) {
+            [self.delegate nextStep];
+        }
+    }else{
+          [SCManager dismissInfo:@"请输入验证码"];
     }
 }
 @end

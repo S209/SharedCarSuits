@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "SCFindPasswordController.h"
 #import "SCRegisterViewController.h"
+#import "SCManager+RequestInterface.h"
 @interface SCLaunchViewController ()<SCLoginViewDelegate>
 @property (nonatomic , strong) SCHomeTabBarController * homeTabBarController;
 @end
@@ -51,9 +52,18 @@
 - (void)loginViewLoginWithAccount:(NSString *)account password:(NSString *)password
 {
     
-    SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
-    [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
+    [[SCManager shareInstance] logInWithLoginName:account passWord:password success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
+        [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        
+    }];
+    
+   
 }
+
 - (void)loginViewWithRegister
 {
     SCRegisterViewController * registerView = [[SCRegisterViewController alloc] init];

@@ -20,4 +20,6 @@
 #import "NSArray+Category.h"
 #import "UIViewController+Utility.h"
 #import <Masonry.h>
+#import "SCRequestUrlConst.h"
+#import "NSString+Predicate.h"
 #endif /* PrefixHeader_pch */

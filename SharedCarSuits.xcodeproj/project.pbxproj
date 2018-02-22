@@ -13,6 +13,8 @@
 		0573B025203C09F60017D852 /* GSKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B023203C09F50017D852 /* GSKeyChain.m */; };
 		0573B029203D516D0017D852 /* SCCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B028203D516D0017D852 /* SCCouponModel.m */; };
 		0573B02C203D53C50017D852 /* SCMyGarageListPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B02B203D53C50017D852 /* SCMyGarageListPageModel.m */; };
+		0573B02E203E70B90017D852 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0573B02D203E70B90017D852 /* citydict.plist */; };
+		0573B031203E71440017D852 /* SCCityListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B030203E71440017D852 /* SCCityListController.m */; };
 		0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597251A201EF3DD00E7EFFB /* AppDelegate.m */; };
 		05972523201EF3DD00E7EFFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05972522201EF3DD00E7EFFB /* Assets.xcassets */; };
 		05972526201EF3DD00E7EFFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05972524201EF3DD00E7EFFB /* LaunchScreen.storyboard */; };
@@ -103,6 +105,9 @@
 		0573B028203D516D0017D852 /* SCCouponModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCCouponModel.m; sourceTree = "<group>"; };
 		0573B02A203D53C50017D852 /* SCMyGarageListPageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMyGarageListPageModel.h; sourceTree = "<group>"; };
 		0573B02B203D53C50017D852 /* SCMyGarageListPageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMyGarageListPageModel.m; sourceTree = "<group>"; };
+		0573B02D203E70B90017D852 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
+		0573B02F203E71440017D852 /* SCCityListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCCityListController.h; sourceTree = "<group>"; };
+		0573B030203E71440017D852 /* SCCityListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCCityListController.m; sourceTree = "<group>"; };
 		05972516201EF3DD00E7EFFB /* SharedCarSuits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharedCarSuits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05972519201EF3DD00E7EFFB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0597251A201EF3DD00E7EFFB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -322,6 +327,7 @@
 				05972524201EF3DD00E7EFFB /* LaunchScreen.storyboard */,
 				05972527201EF3DD00E7EFFB /* Info.plist */,
 				05972528201EF3DD00E7EFFB /* main.m */,
+				0573B02D203E70B90017D852 /* citydict.plist */,
 			);
 			path = SharedCarSuits;
 			sourceTree = "<group>";
@@ -402,6 +408,8 @@
 				05E94F802033310900210BE3 /* View */,
 				05C9423B202D6B1500B78CA4 /* SCHomePageViewController.h */,
 				05C9423C202D6B1500B78CA4 /* SCHomePageViewController.m */,
+				0573B02F203E71440017D852 /* SCCityListController.h */,
+				0573B030203E71440017D852 /* SCCityListController.m */,
 			);
 			path = HomePageController;
 			sourceTree = "<group>";
@@ -779,6 +787,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05972526201EF3DD00E7EFFB /* LaunchScreen.storyboard in Resources */,
+				0573B02E203E70B90017D852 /* citydict.plist in Resources */,
 				05972523201EF3DD00E7EFFB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -993,6 +1002,7 @@
 				05C94295202ECEE300B78CA4 /* SCRegisterViewUpatePasswordController.m in Sources */,
 				0573B01E203BD7E70017D852 /* SCManager+RequestInterface.m in Sources */,
 				05C9424F202D6BD200B78CA4 /* SCBaseViewController.m in Sources */,
+				0573B031203E71440017D852 /* SCCityListController.m in Sources */,
 				05C9429D202ED16600B78CA4 /* SCRegisterViewCarInfoView.m in Sources */,
 				05C94252202D6BD200B78CA4 /* SCBaseTableViewController.m in Sources */,
 				0573B018203825B30017D852 /* SCReservationViewCell.m in Sources */,

@@ -10,6 +10,7 @@
 #import <SDCycleScrollView.h>
 #import "SCHomePageSectionOneCell.h"
 #import "SCHomePageSectionTwoCell.h"
+#import "SCCityListController.h"
 @interface SCHomePageViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,SCHomePageSectionOneCellDelegate,SCHomePageSectionTwoCellDelegate>
 
 @end
@@ -82,7 +83,8 @@
 #pragma mark 查看更多
 - (void)homePageSectionOneCellClickLoadMore
 {
-    
+    SCCityListController * cityListController = [[SCCityListController alloc] init];
+    [self.navigationController pushViewController:cityListController animated:YES];
 }
 
 #pragma mark 洗车美容、换油保养、钣金喷漆、施工直播

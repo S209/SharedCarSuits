@@ -86,7 +86,13 @@
 
 - (void)myGarageWithSuccess:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
 {
-    self requestUrl:<#(NSString *)#> andParamater:<#(NSDictionary *)#> success:<#^(NSURLSessionDataTask *serializer, id responseObject)success#> notice:<#^(NSURLSessionDataTask *serializer, id responseObject)notice#> failure:<#^(NSURLSessionDataTask *serializer, NSError *error)failure#>
+    [self requestUrl:SCUrl_MyGarage andParamater:@{} success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        
+    }];
 }
 
 - (void)requestUrl:(NSString *)url andParamater:(NSDictionary *)parameter success:(SuccessBlock)success

@@ -29,6 +29,12 @@
 {
     return [self backItemWithAction:@selector(sy_goBack:)];
 }
+
+- (void)sy_rightBarDeleteItemWithDelete
+{
+    return [self sy_setRightItemWithImage:[UIImage imageNamed:@"title_btn_close_black"] action:@selector(sy_goBack:)];
+}
+
 - (UIBarButtonItem *)backItemWithAction:(SEL)action {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setImage:[UIImage imageNamed:@"title_btn_back"] forState:UIControlStateNormal];

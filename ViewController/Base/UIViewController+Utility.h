@@ -13,4 +13,5 @@
 #define kSY_DEFAULT_RIGHT_SPACING (10)
 @interface UIViewController (Utility)
 - (void)sy_leftBarButtonItem;
+- (void)sy_rightBarDeleteItemWithDelete;
 @end

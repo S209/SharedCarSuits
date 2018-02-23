@@ -28,4 +28,5 @@
 + (UIColor *)sc_colorWith2AB5E6;
 + (UIColor *)sc_colorWith4ADA98;
 + (UIColor *)sc_colorWithF6B943;
++ (UIColor *)sc_colorWithF4F4F4;
 @end

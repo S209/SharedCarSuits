@@ -22,6 +22,7 @@
     [self setNavigationWithTitle:@"选择城市"];
     [self initWithData];
     [self setupView];
+    [self sy_rightBarDeleteItemWithDelete];
     [self getCityData];
 }
 
@@ -55,7 +56,6 @@
                                                    ofType:@"plist"];
     self.cities = [NSMutableDictionary dictionaryWithContentsOfFile:path];
     [self.keys addObjectsFromArray:[[self.cities allKeys] sortedArrayUsingSelector:@selector(compare:)]];
-
 }
 
 
@@ -68,7 +68,7 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
-    bgView.backgroundColor = [UIColor lightGrayColor];
+    bgView.backgroundColor = [UIColor sc_colorWithF4F4F4];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, 0, 250, 20)];
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.textColor = [UIColor blackColor];
@@ -76,6 +76,8 @@
     
     NSString *key = [_keys objectAtIndex:section];
     titleLabel.text = key;
+    titleLabel.font = [UIFont sy_font17];
+    titleLabel.textColor = [UIColor sc_colorWith6C6DFD];
     [bgView addSubview:titleLabel];
     return bgView;
 }

@@ -15,6 +15,7 @@
 		0573B02C203D53C50017D852 /* SCMyGarageListPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B02B203D53C50017D852 /* SCMyGarageListPageModel.m */; };
 		0573B02E203E70B90017D852 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0573B02D203E70B90017D852 /* citydict.plist */; };
 		0573B031203E71440017D852 /* SCCityListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B030203E71440017D852 /* SCCityListController.m */; };
+		0573B034203E75430017D852 /* SCReceiveCouponsViewConroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B033203E75430017D852 /* SCReceiveCouponsViewConroller.m */; };
 		0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597251A201EF3DD00E7EFFB /* AppDelegate.m */; };
 		05972523201EF3DD00E7EFFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05972522201EF3DD00E7EFFB /* Assets.xcassets */; };
 		05972526201EF3DD00E7EFFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05972524201EF3DD00E7EFFB /* LaunchScreen.storyboard */; };
@@ -108,6 +109,8 @@
 		0573B02D203E70B90017D852 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
 		0573B02F203E71440017D852 /* SCCityListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCCityListController.h; sourceTree = "<group>"; };
 		0573B030203E71440017D852 /* SCCityListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCCityListController.m; sourceTree = "<group>"; };
+		0573B032203E75430017D852 /* SCReceiveCouponsViewConroller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCReceiveCouponsViewConroller.h; sourceTree = "<group>"; };
+		0573B033203E75430017D852 /* SCReceiveCouponsViewConroller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCReceiveCouponsViewConroller.m; sourceTree = "<group>"; };
 		05972516201EF3DD00E7EFFB /* SharedCarSuits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharedCarSuits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05972519201EF3DD00E7EFFB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0597251A201EF3DD00E7EFFB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -410,6 +413,8 @@
 				05C9423C202D6B1500B78CA4 /* SCHomePageViewController.m */,
 				0573B02F203E71440017D852 /* SCCityListController.h */,
 				0573B030203E71440017D852 /* SCCityListController.m */,
+				0573B032203E75430017D852 /* SCReceiveCouponsViewConroller.h */,
+				0573B033203E75430017D852 /* SCReceiveCouponsViewConroller.m */,
 			);
 			path = HomePageController;
 			sourceTree = "<group>";
@@ -1007,6 +1012,7 @@
 				05C94252202D6BD200B78CA4 /* SCBaseTableViewController.m in Sources */,
 				0573B018203825B30017D852 /* SCReservationViewCell.m in Sources */,
 				05C9427F202EB32400B78CA4 /* UIViewController+Utility.m in Sources */,
+				0573B034203E75430017D852 /* SCReceiveCouponsViewConroller.m in Sources */,
 				05DAD56020316D6D000E13C2 /* NSString+Predicate.m in Sources */,
 				05C94277202EA1C700B78CA4 /* UIView+CDFFrame.m in Sources */,
 				05C94288202EB85000B78CA4 /* SCRetrieveThePasswordView.m in Sources */,

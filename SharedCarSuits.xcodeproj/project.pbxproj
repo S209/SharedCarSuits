@@ -16,6 +16,8 @@
 		0573B02E203E70B90017D852 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0573B02D203E70B90017D852 /* citydict.plist */; };
 		0573B031203E71440017D852 /* SCCityListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B030203E71440017D852 /* SCCityListController.m */; };
 		0573B034203E75430017D852 /* SCReceiveCouponsViewConroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B033203E75430017D852 /* SCReceiveCouponsViewConroller.m */; };
+		0573B037203FC72E0017D852 /* SCMyAppointmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B036203FC72E0017D852 /* SCMyAppointmentViewController.m */; };
+		0573B03A203FE27E0017D852 /* SCMyAppointmentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B039203FE27E0017D852 /* SCMyAppointmentViewCell.m */; };
 		0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597251A201EF3DD00E7EFFB /* AppDelegate.m */; };
 		05972523201EF3DD00E7EFFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05972522201EF3DD00E7EFFB /* Assets.xcassets */; };
 		05972526201EF3DD00E7EFFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05972524201EF3DD00E7EFFB /* LaunchScreen.storyboard */; };
@@ -111,6 +113,10 @@
 		0573B030203E71440017D852 /* SCCityListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCCityListController.m; sourceTree = "<group>"; };
 		0573B032203E75430017D852 /* SCReceiveCouponsViewConroller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCReceiveCouponsViewConroller.h; sourceTree = "<group>"; };
 		0573B033203E75430017D852 /* SCReceiveCouponsViewConroller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCReceiveCouponsViewConroller.m; sourceTree = "<group>"; };
+		0573B035203FC72E0017D852 /* SCMyAppointmentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMyAppointmentViewController.h; sourceTree = "<group>"; };
+		0573B036203FC72E0017D852 /* SCMyAppointmentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMyAppointmentViewController.m; sourceTree = "<group>"; };
+		0573B038203FE27E0017D852 /* SCMyAppointmentViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMyAppointmentViewCell.h; sourceTree = "<group>"; };
+		0573B039203FE27E0017D852 /* SCMyAppointmentViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMyAppointmentViewCell.m; sourceTree = "<group>"; };
 		05972516201EF3DD00E7EFFB /* SharedCarSuits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharedCarSuits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05972519201EF3DD00E7EFFB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0597251A201EF3DD00E7EFFB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -433,6 +439,8 @@
 				05E94F732032DC3600210BE3 /* SCEditorUserInfoViewController+ImagePickerController.m */,
 				05E94F752032E4F800210BE3 /* SCMyGarageViewController.h */,
 				05E94F762032E4F800210BE3 /* SCMyGarageViewController.m */,
+				0573B035203FC72E0017D852 /* SCMyAppointmentViewController.h */,
+				0573B036203FC72E0017D852 /* SCMyAppointmentViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -605,6 +613,8 @@
 				05E94F792032E64B00210BE3 /* SCMyGarageViewCell.m */,
 				05E94F7B203318C500210BE3 /* SCMyGarageViewDeletViewAlertView.h */,
 				05E94F7C203318C500210BE3 /* SCMyGarageViewDeletViewAlertView.m */,
+				0573B038203FE27E0017D852 /* SCMyAppointmentViewCell.h */,
+				0573B039203FE27E0017D852 /* SCMyAppointmentViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -967,6 +977,7 @@
 			files = (
 				05C94285202EB3D100B78CA4 /* UIBarButtonItem+Spacing.m in Sources */,
 				05C94259202D7F3900B78CA4 /* UIColor+Additional.m in Sources */,
+				0573B03A203FE27E0017D852 /* SCMyAppointmentViewCell.m in Sources */,
 				05C94245202D6B1500B78CA4 /* SCReservationViewController.m in Sources */,
 				05D34DC42031BF0A002AADA4 /* SCMineViewControllerSectionCell.m in Sources */,
 				05C94299202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m in Sources */,
@@ -997,6 +1008,7 @@
 				05C94292202ECAE600B78CA4 /* SCRegisterViewController.m in Sources */,
 				05E94F772032E4F800210BE3 /* SCMyGarageViewController.m in Sources */,
 				05E94F832033317700210BE3 /* SCHomePageSectionOneCell.m in Sources */,
+				0573B037203FC72E0017D852 /* SCMyAppointmentViewController.m in Sources */,
 				05C94273202E907800B78CA4 /* UIFont+Addition.m in Sources */,
 				05D34DC12031BCC3002AADA4 /* SCManager+CommonMethods.m in Sources */,
 				05C94244202D6B1500B78CA4 /* SCMineViewController.m in Sources */,

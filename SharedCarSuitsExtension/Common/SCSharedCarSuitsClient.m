@@ -26,6 +26,24 @@
     return shareInstance;
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+//        self.httpsRequestManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:[WPCommonDefine sharedInstance].requestDomain]];
+        self.httpsRequestManager = [[AFHTTPSessionManager alloc] init];
+        self.httpsRequestManager.requestSerializer = [AFJSONRequestSerializer serializer];
+        
+         [self.httpsRequestManager.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] objectForKey:@"userToken" ]forHTTPHeaderField:@"token"];
+        
+        
+        self.httpsRequestManager.responseSerializer = [AFJSONResponseSerializer serializer];
+       [self.httpsRequestManager.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html",@"text/plain", nil]];
+//        [self.httpsRequestManager.requestSerializer setTimeoutInterval:kAPITimeOut];
+    }
+    return self;
+}
+
 - (id)post:(NSString *)URLString
 parameters:(NSDictionary *)parameters
    success:(SuccessBlock)success
@@ -50,7 +68,7 @@ parameters:(NSDictionary *)parameters
 - (NSDictionary *)finalParametersWithParams:(NSDictionary *)params
 {
     NSMutableDictionary * mutableParams = [NSMutableDictionary dictionary];
-    [mutableParams addEntriesFromDictionary:params];
+    [mutableParams setValue:params forKey:@"params"];
     NSString *string = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     [mutableParams setValue:@"" forKey:@"token"];
     [mutableParams setValue:string forKey:@"version"];

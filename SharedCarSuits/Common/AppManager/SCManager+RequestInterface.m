@@ -104,7 +104,10 @@
         NSInteger code = [[responseObject objectForKey:@"code"] integerValue];
         if (code == 200) {
             if (success) {
-                success(serializer,responseObject);
+               NSArray * dataArray = [responseObject objectForKey:@"data"];
+                if ([dataArray isKindOfClass:[NSArray class]] && dataArray.count) {
+                    success(serializer,dataArray);
+                }
             }
         }
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {

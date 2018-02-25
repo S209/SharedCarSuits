@@ -107,7 +107,20 @@
                       carModel:(NSString *)carModel carNum:(NSString *)carNum success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 {
     
-    NSDictionary * paramater = @{@"phoneNum":[phoneNum isEmpty],@"passWord":[passWord isEmpty],@"carModel":[carModel isEmpty],@"carNum":[carNum isEmpty]};
+    if (!phoneNum) {
+        phoneNum = @"";
+    }
+    if (!passWord) {
+        passWord = @"";
+    }
+    if (!carNum) {
+        carNum = @"";
+    }
+    if (!carModel) {
+        carModel = @"";
+    }
+    
+    NSDictionary * paramater = @{@"phoneNum":phoneNum,@"passWord":passWord,@"carModel":carModel,@"carNum":carNum};
     [self requestUrl:SCUrl_Registered andParamater:paramater success:^(NSURLSessionDataTask *serializer, id responseObject) {
         if (success) {
             success(serializer,responseObject);
@@ -133,8 +146,8 @@
         if (code == 200) {
             if (success) {
                NSArray * dataArray = [responseObject objectForKey:@"data"];
-                if ([NSString stringWithFormat:@"%@",[responseObject objectForKey:@"responseObject"]].length>0) {
-                    [SCManager dismissInfo:[responseObject objectForKey:@"responseObject"]];
+                if ([NSString stringWithFormat:@"%@",[responseObject objectForKey:@"message"]].length>0) {
+                    [SCManager dismissInfo:[responseObject objectForKey:@"message"]];
                 }
                 if ([dataArray isKindOfClass:[NSArray class]] && dataArray.count) {
                     [[SCManager shareInstance] setUserUid:[responseObject objectForKey:@"uId"]];
@@ -143,6 +156,11 @@
                 }else{
                     success(serializer,responseObject);
                 }
+            }
+        }else{
+            NSString * msg = [responseObject objectForKey:@"message"];
+            if (msg.length > 0) {
+                [SCManager dismissInfo:msg];
             }
         }
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {

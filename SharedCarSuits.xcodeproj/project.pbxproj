@@ -13,7 +13,6 @@
 		05626CCB20419C8E00714531 /* SCTheirOwnSheetMetalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CCA20419C8E00714531 /* SCTheirOwnSheetMetalViewController.m */; };
 		05626CCF20426CC500714531 /* SCOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CCE20426CC500714531 /* SCOrderViewController.m */; };
 		05626CD2204272FE00714531 /* SCOrderViewServeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CD1204272FE00714531 /* SCOrderViewServeCell.m */; };
-		05626CD52042E7D900714531 /* NSString+Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CD42042E7D900714531 /* NSString+Empty.m */; };
 		0571C16E204120DC002781B4 /* SCLoginResponseObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0571C16D204120DC002781B4 /* SCLoginResponseObjectModel.m */; };
 		0571C17120412973002781B4 /* SCNSUserDefaultsAndNotificConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 0571C17020412973002781B4 /* SCNSUserDefaultsAndNotificConst.m */; };
 		0571C17520413775002781B4 /* SCReservationAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0571C17420413775002781B4 /* SCReservationAlertView.m */; };
@@ -117,8 +116,6 @@
 		05626CCE20426CC500714531 /* SCOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOrderViewController.m; sourceTree = "<group>"; };
 		05626CD0204272FE00714531 /* SCOrderViewServeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOrderViewServeCell.h; sourceTree = "<group>"; };
 		05626CD1204272FE00714531 /* SCOrderViewServeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOrderViewServeCell.m; sourceTree = "<group>"; };
-		05626CD32042E7D900714531 /* NSString+Empty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Empty.h"; sourceTree = "<group>"; };
-		05626CD42042E7D900714531 /* NSString+Empty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Empty.m"; sourceTree = "<group>"; };
 		0571C16C204120DC002781B4 /* SCLoginResponseObjectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCLoginResponseObjectModel.h; sourceTree = "<group>"; };
 		0571C16D204120DC002781B4 /* SCLoginResponseObjectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCLoginResponseObjectModel.m; sourceTree = "<group>"; };
 		0571C16F20412973002781B4 /* SCNSUserDefaultsAndNotificConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCNSUserDefaultsAndNotificConst.h; sourceTree = "<group>"; };
@@ -672,8 +669,6 @@
 			children = (
 				05DAD55E20316D6D000E13C2 /* NSString+Predicate.h */,
 				05DAD55F20316D6D000E13C2 /* NSString+Predicate.m */,
-				05626CD32042E7D900714531 /* NSString+Empty.h */,
-				05626CD42042E7D900714531 /* NSString+Empty.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -1078,7 +1073,6 @@
 				05C9424F202D6BD200B78CA4 /* SCBaseViewController.m in Sources */,
 				0573B031203E71440017D852 /* SCCityListController.m in Sources */,
 				05C9429D202ED16600B78CA4 /* SCRegisterViewCarInfoView.m in Sources */,
-				05626CD52042E7D900714531 /* NSString+Empty.m in Sources */,
 				05C94252202D6BD200B78CA4 /* SCBaseTableViewController.m in Sources */,
 				0573B018203825B30017D852 /* SCReservationViewCell.m in Sources */,
 				05C9427F202EB32400B78CA4 /* UIViewController+Utility.m in Sources */,

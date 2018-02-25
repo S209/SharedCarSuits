@@ -42,18 +42,16 @@
 //下一步
 - (void)nextStepWithSMSCode:(NSString *)smsCode
 {
-    //SCUrl_VerificationCodeTimeoutJudgment
+  
     [[SCManager shareInstance] verificationWithPhoneNum:self.phoneNumber code:smsCode success:^(NSURLSessionDataTask *serializer, id responseObject) {
         SCRegisterViewUpatePasswordController * updatePassword = [[SCRegisterViewUpatePasswordController alloc] init];
         updatePassword.phoneNumber = self.phoneNumber;
         [self.navigationController pushViewController:updatePassword animated:YES];
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
+
     } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-        
+
     }];
-    
-    
 }
 
 

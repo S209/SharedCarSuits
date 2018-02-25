@@ -30,12 +30,9 @@
 {
     self = [super init];
     if (self) {
-        //        self.httpsRequestManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:[WPCommonDefine sharedInstance].requestDomain]];
         self.httpsRequestManager = [[AFHTTPSessionManager alloc] init];
         self.httpsRequestManager.requestSerializer = [AFJSONRequestSerializer serializer];
-        
         [self.httpsRequestManager.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] objectForKey:SCSessionId ]forHTTPHeaderField:@"Cookie"];
-        
         self.httpsRequestManager.responseSerializer = [AFJSONResponseSerializer serializer];
         [self.httpsRequestManager.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html",@"text/plain", nil]];
     }

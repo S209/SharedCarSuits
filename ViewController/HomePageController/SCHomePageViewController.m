@@ -12,6 +12,9 @@
 #import "SCHomePageSectionTwoCell.h"
 #import "SCCityListController.h"
 #import "SCMyAppointmentViewController.h"
+#import "SCMakeAnAppointmentprocessController.h"
+#import "SCAppointmentProcessViewController.h"
+
 @interface SCHomePageViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,SCHomePageSectionOneCellDelegate,SCHomePageSectionTwoCellDelegate>
 
 @end
@@ -87,8 +90,14 @@
 //    SCCityListController * cityListController = [[SCCityListController alloc] init];
 //    [self.navigationController pushViewController:cityListController animated:YES];
 
-    SCMyAppointmentViewController * appointmentView = [[SCMyAppointmentViewController alloc] init];
-    [self.navigationController pushViewController:appointmentView animated:YES];
+//    SCMyAppointmentViewController * appointmentView = [[SCMyAppointmentViewController alloc] init];
+//    [self.navigationController pushViewController:appointmentView animated:YES];
+
+//    SCMakeAnAppointmentprocessController * makeAnAppoint = [[SCMakeAnAppointmentprocessController alloc] init];
+//    [self.navigationController pushViewController:makeAnAppoint animated:YES];
+    
+    SCAppointmentProcessViewController * processViewController = [[SCAppointmentProcessViewController alloc] init];
+    [self.navigationController pushViewController:processViewController animated:YES];
 }
 
 #pragma mark 洗车美容、换油保养、钣金喷漆、施工直播

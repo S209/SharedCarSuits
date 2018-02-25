@@ -34,7 +34,16 @@
  */
 - (void)verificationWithPhoneNum:(NSString *)phoneNum code:(NSString *)code success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 
+/**
+ 注册
 
+ @param phoneNum 手机号
+ @param passWord 密码
+ @param carModel 车的型号
+ @param carNum 车牌号
+ */
+- (void)registeredWithPhoneNum:(NSString *)phoneNum passWord:(NSString *)passWord
+                      carModel:(NSString *)carModel carNum:(NSString *)carNum success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 /**
  找回密码
 

@@ -8,6 +8,7 @@
 
 #import "SCReservationViewController.h"
 #import "SCReservationViewCell.h"
+
 @interface SCReservationViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
@@ -26,6 +27,8 @@
     [super viewDidLoad];
     self.navigationItem.title = @"门店";
     [self setupView];
+    
+  
 }
 
 - (void)setupView

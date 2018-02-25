@@ -143,8 +143,8 @@
 - (void)nextBtn:(UIButton *)sender
 {
     if (self.smsVerification.text.length > 0) {
-        if ([_delegate respondsToSelector:@selector(nextStep)]) {
-            [self.delegate nextStep];
+        if ([_delegate respondsToSelector:@selector(nextStepWithSMSCode:)]) {
+            [self.delegate nextStepWithSMSCode:self.smsVerification.text];
         }
     }else{
           [SCManager dismissInfo:@"请输入验证码"];

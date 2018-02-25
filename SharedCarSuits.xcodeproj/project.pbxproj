@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05626CC22041406900714531 /* SCMakeAnAppointmentprocessController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CC12041406900714531 /* SCMakeAnAppointmentprocessController.m */; };
+		05626CC52041458700714531 /* SCMakeAnAppointmentprocessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CC42041458700714531 /* SCMakeAnAppointmentprocessCell.m */; };
+		05626CC820419B7E00714531 /* SCAppointmentProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CC720419B7E00714531 /* SCAppointmentProcessViewController.m */; };
+		05626CCB20419C8E00714531 /* SCTheirOwnSheetMetalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CCA20419C8E00714531 /* SCTheirOwnSheetMetalViewController.m */; };
+		05626CCF20426CC500714531 /* SCOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CCE20426CC500714531 /* SCOrderViewController.m */; };
+		05626CD2204272FE00714531 /* SCOrderViewServeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CD1204272FE00714531 /* SCOrderViewServeCell.m */; };
+		05626CD52042E7D900714531 /* NSString+Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CD42042E7D900714531 /* NSString+Empty.m */; };
+		0571C16E204120DC002781B4 /* SCLoginResponseObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0571C16D204120DC002781B4 /* SCLoginResponseObjectModel.m */; };
+		0571C17120412973002781B4 /* SCNSUserDefaultsAndNotificConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 0571C17020412973002781B4 /* SCNSUserDefaultsAndNotificConst.m */; };
+		0571C17520413775002781B4 /* SCReservationAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0571C17420413775002781B4 /* SCReservationAlertView.m */; };
 		0573B01420333DAA0017D852 /* SCHomePageSectionTwoCellItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B01320333DAA0017D852 /* SCHomePageSectionTwoCellItemView.m */; };
 		0573B018203825B30017D852 /* SCReservationViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B017203825B30017D852 /* SCReservationViewCell.m */; };
 		0573B01E203BD7E70017D852 /* SCManager+RequestInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B01D203BD7E70017D852 /* SCManager+RequestInterface.m */; };
@@ -95,6 +105,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05626CC02041406900714531 /* SCMakeAnAppointmentprocessController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMakeAnAppointmentprocessController.h; sourceTree = "<group>"; };
+		05626CC12041406900714531 /* SCMakeAnAppointmentprocessController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMakeAnAppointmentprocessController.m; sourceTree = "<group>"; };
+		05626CC32041458700714531 /* SCMakeAnAppointmentprocessCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMakeAnAppointmentprocessCell.h; sourceTree = "<group>"; };
+		05626CC42041458700714531 /* SCMakeAnAppointmentprocessCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMakeAnAppointmentprocessCell.m; sourceTree = "<group>"; };
+		05626CC620419B7E00714531 /* SCAppointmentProcessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAppointmentProcessViewController.h; sourceTree = "<group>"; };
+		05626CC720419B7E00714531 /* SCAppointmentProcessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAppointmentProcessViewController.m; sourceTree = "<group>"; };
+		05626CC920419C8E00714531 /* SCTheirOwnSheetMetalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCTheirOwnSheetMetalViewController.h; sourceTree = "<group>"; };
+		05626CCA20419C8E00714531 /* SCTheirOwnSheetMetalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCTheirOwnSheetMetalViewController.m; sourceTree = "<group>"; };
+		05626CCD20426CC500714531 /* SCOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOrderViewController.h; sourceTree = "<group>"; };
+		05626CCE20426CC500714531 /* SCOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOrderViewController.m; sourceTree = "<group>"; };
+		05626CD0204272FE00714531 /* SCOrderViewServeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOrderViewServeCell.h; sourceTree = "<group>"; };
+		05626CD1204272FE00714531 /* SCOrderViewServeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOrderViewServeCell.m; sourceTree = "<group>"; };
+		05626CD32042E7D900714531 /* NSString+Empty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Empty.h"; sourceTree = "<group>"; };
+		05626CD42042E7D900714531 /* NSString+Empty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Empty.m"; sourceTree = "<group>"; };
+		0571C16C204120DC002781B4 /* SCLoginResponseObjectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCLoginResponseObjectModel.h; sourceTree = "<group>"; };
+		0571C16D204120DC002781B4 /* SCLoginResponseObjectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCLoginResponseObjectModel.m; sourceTree = "<group>"; };
+		0571C16F20412973002781B4 /* SCNSUserDefaultsAndNotificConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCNSUserDefaultsAndNotificConst.h; sourceTree = "<group>"; };
+		0571C17020412973002781B4 /* SCNSUserDefaultsAndNotificConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCNSUserDefaultsAndNotificConst.m; sourceTree = "<group>"; };
+		0571C17320413775002781B4 /* SCReservationAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCReservationAlertView.h; sourceTree = "<group>"; };
+		0571C17420413775002781B4 /* SCReservationAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCReservationAlertView.m; sourceTree = "<group>"; };
 		0573B01220333DAA0017D852 /* SCHomePageSectionTwoCellItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCHomePageSectionTwoCellItemView.h; sourceTree = "<group>"; };
 		0573B01320333DAA0017D852 /* SCHomePageSectionTwoCellItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCHomePageSectionTwoCellItemView.m; sourceTree = "<group>"; };
 		0573B016203825B30017D852 /* SCReservationViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCReservationViewCell.h; sourceTree = "<group>"; };
@@ -275,6 +305,10 @@
 			children = (
 				0573B016203825B30017D852 /* SCReservationViewCell.h */,
 				0573B017203825B30017D852 /* SCReservationViewCell.m */,
+				0571C17320413775002781B4 /* SCReservationAlertView.h */,
+				0571C17420413775002781B4 /* SCReservationAlertView.m */,
+				05626CC32041458700714531 /* SCMakeAnAppointmentprocessCell.h */,
+				05626CC42041458700714531 /* SCMakeAnAppointmentprocessCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,6 +320,8 @@
 				0573B028203D516D0017D852 /* SCCouponModel.m */,
 				0573B02A203D53C50017D852 /* SCMyGarageListPageModel.h */,
 				0573B02B203D53C50017D852 /* SCMyGarageListPageModel.m */,
+				0571C16C204120DC002781B4 /* SCLoginResponseObjectModel.h */,
+				0571C16D204120DC002781B4 /* SCLoginResponseObjectModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -441,6 +477,8 @@
 				05E94F762032E4F800210BE3 /* SCMyGarageViewController.m */,
 				0573B035203FC72E0017D852 /* SCMyAppointmentViewController.h */,
 				0573B036203FC72E0017D852 /* SCMyAppointmentViewController.m */,
+				05626CCD20426CC500714531 /* SCOrderViewController.h */,
+				05626CCE20426CC500714531 /* SCOrderViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -451,6 +489,12 @@
 				0573B0152038259B0017D852 /* View */,
 				05C94241202D6B1500B78CA4 /* SCReservationViewController.h */,
 				05C94242202D6B1500B78CA4 /* SCReservationViewController.m */,
+				05626CC02041406900714531 /* SCMakeAnAppointmentprocessController.h */,
+				05626CC12041406900714531 /* SCMakeAnAppointmentprocessController.m */,
+				05626CC620419B7E00714531 /* SCAppointmentProcessViewController.h */,
+				05626CC720419B7E00714531 /* SCAppointmentProcessViewController.m */,
+				05626CC920419C8E00714531 /* SCTheirOwnSheetMetalViewController.h */,
+				05626CCA20419C8E00714531 /* SCTheirOwnSheetMetalViewController.m */,
 			);
 			path = ReservationController;
 			sourceTree = "<group>";
@@ -525,6 +569,8 @@
 				05C94268202D8E9900B78CA4 /* SCThirdInfoConst.h */,
 				05C94296202ED00100B78CA4 /* SCProjectConst.h */,
 				0573B01B203BCF250017D852 /* SCRequestUrlConst.h */,
+				0571C16F20412973002781B4 /* SCNSUserDefaultsAndNotificConst.h */,
+				0571C17020412973002781B4 /* SCNSUserDefaultsAndNotificConst.m */,
 			);
 			path = Macros;
 			sourceTree = "<group>";
@@ -615,6 +661,8 @@
 				05E94F7C203318C500210BE3 /* SCMyGarageViewDeletViewAlertView.m */,
 				0573B038203FE27E0017D852 /* SCMyAppointmentViewCell.h */,
 				0573B039203FE27E0017D852 /* SCMyAppointmentViewCell.m */,
+				05626CD0204272FE00714531 /* SCOrderViewServeCell.h */,
+				05626CD1204272FE00714531 /* SCOrderViewServeCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -624,6 +672,8 @@
 			children = (
 				05DAD55E20316D6D000E13C2 /* NSString+Predicate.h */,
 				05DAD55F20316D6D000E13C2 /* NSString+Predicate.m */,
+				05626CD32042E7D900714531 /* NSString+Empty.h */,
+				05626CD42042E7D900714531 /* NSString+Empty.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -977,16 +1027,21 @@
 			files = (
 				05C94285202EB3D100B78CA4 /* UIBarButtonItem+Spacing.m in Sources */,
 				05C94259202D7F3900B78CA4 /* UIColor+Additional.m in Sources */,
+				05626CC52041458700714531 /* SCMakeAnAppointmentprocessCell.m in Sources */,
 				0573B03A203FE27E0017D852 /* SCMyAppointmentViewCell.m in Sources */,
 				05C94245202D6B1500B78CA4 /* SCReservationViewController.m in Sources */,
 				05D34DC42031BF0A002AADA4 /* SCMineViewControllerSectionCell.m in Sources */,
 				05C94299202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m in Sources */,
+				05626CCF20426CC500714531 /* SCOrderViewController.m in Sources */,
 				05C94270202E8E3800B78CA4 /* SCLoginView.m in Sources */,
 				05C9427C202EB1DC00B78CA4 /* SCFindPasswordController.m in Sources */,
 				0573B025203C09F60017D852 /* GSKeyChain.m in Sources */,
 				05C94235202D69CC00B78CA4 /* NSMutableArray+Category.m in Sources */,
 				05C94262202D854E00B78CA4 /* SCSharedCarSuitsClient.m in Sources */,
 				05C9425C202D7F4700B78CA4 /* UIColor+CDF.m in Sources */,
+				05626CD2204272FE00714531 /* SCOrderViewServeCell.m in Sources */,
+				0571C17520413775002781B4 /* SCReservationAlertView.m in Sources */,
+				05626CCB20419C8E00714531 /* SCTheirOwnSheetMetalViewController.m in Sources */,
 				05C94243202D6B1500B78CA4 /* SCHomePageViewController.m in Sources */,
 				05C942DE203062D800B78CA4 /* SCChoiseAreaView.m in Sources */,
 				05C94250202D6BD200B78CA4 /* SCHomeTabBarController.m in Sources */,
@@ -1005,6 +1060,7 @@
 				0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */,
 				05DAD5672031727C000E13C2 /* SCManager+Login.m in Sources */,
 				05E94F862033318500210BE3 /* SCHomePageSectionTwoCell.m in Sources */,
+				05626CC820419B7E00714531 /* SCAppointmentProcessViewController.m in Sources */,
 				05C94292202ECAE600B78CA4 /* SCRegisterViewController.m in Sources */,
 				05E94F772032E4F800210BE3 /* SCMyGarageViewController.m in Sources */,
 				05E94F832033317700210BE3 /* SCHomePageSectionOneCell.m in Sources */,
@@ -1017,15 +1073,19 @@
 				05DAD55820307ED7000E13C2 /* SCChoiseCarNumberView.m in Sources */,
 				05D34DCA2032C043002AADA4 /* SCEditorUserInfoViewController.m in Sources */,
 				05C94295202ECEE300B78CA4 /* SCRegisterViewUpatePasswordController.m in Sources */,
+				0571C17120412973002781B4 /* SCNSUserDefaultsAndNotificConst.m in Sources */,
 				0573B01E203BD7E70017D852 /* SCManager+RequestInterface.m in Sources */,
 				05C9424F202D6BD200B78CA4 /* SCBaseViewController.m in Sources */,
 				0573B031203E71440017D852 /* SCCityListController.m in Sources */,
 				05C9429D202ED16600B78CA4 /* SCRegisterViewCarInfoView.m in Sources */,
+				05626CD52042E7D900714531 /* NSString+Empty.m in Sources */,
 				05C94252202D6BD200B78CA4 /* SCBaseTableViewController.m in Sources */,
 				0573B018203825B30017D852 /* SCReservationViewCell.m in Sources */,
 				05C9427F202EB32400B78CA4 /* UIViewController+Utility.m in Sources */,
 				0573B034203E75430017D852 /* SCReceiveCouponsViewConroller.m in Sources */,
+				0571C16E204120DC002781B4 /* SCLoginResponseObjectModel.m in Sources */,
 				05DAD56020316D6D000E13C2 /* NSString+Predicate.m in Sources */,
+				05626CC22041406900714531 /* SCMakeAnAppointmentprocessController.m in Sources */,
 				05C94277202EA1C700B78CA4 /* UIView+CDFFrame.m in Sources */,
 				05C94288202EB85000B78CA4 /* SCRetrieveThePasswordView.m in Sources */,
 				0573B02C203D53C50017D852 /* SCMyGarageListPageModel.m in Sources */,

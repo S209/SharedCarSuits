@@ -9,5 +9,5 @@
 #import "SCBaseViewController.h"
 
 @interface SCRegisterViewUpatePasswordController : SCBaseViewController
-
+@property (nonatomic, copy) NSString * phoneNumber;
 @end

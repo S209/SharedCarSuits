@@ -9,5 +9,6 @@
 #import "SCBaseViewController.h"
 
 @interface SCRegisterViewCarInfoViewController : SCBaseViewController
-
+@property (nonatomic, copy) NSString * password;
+@property (nonatomic, copy) NSString * phoneNumber;
 @end

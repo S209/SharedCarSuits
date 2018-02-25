@@ -14,7 +14,7 @@ typedef NS_ENUM(NSInteger, TypeR){
 @protocol SCRetrieveThePasswordViewDelegate<NSObject>
 @required
 - (void)getVerificationCodeWithPhoneNumber:(NSString *)phoneNumber;
-- (void)nextStep;
+- (void)nextStepWithSMSCode:(NSString*)smsCode;
 @end
 @interface SCRetrieveThePasswordView : UIView
 - (instancetype)initWithFrame:(CGRect)frame;

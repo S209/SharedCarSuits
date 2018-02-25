@@ -12,7 +12,7 @@
 #import "SCManager+RequestInterface.h"
 
 @interface SCRegisterViewController ()<SCRetrieveThePasswordViewDelegate>
-
+@property (nonatomic, copy) NSString * phoneNumber;
 @end
 
 @implementation SCRegisterViewController
@@ -22,6 +22,7 @@
     [self setNavigationWithTitle:@"注册"];
     [self sy_leftBarButtonItem];
     [self setupView];
+    
 }
 
 - (void)setupView
@@ -38,11 +39,21 @@
     }];
 }
 
-
-- (void)nextStep
+//下一步
+- (void)nextStepWithSMSCode:(NSString *)smsCode
 {
-    SCRegisterViewUpatePasswordController * updatePassword = [[SCRegisterViewUpatePasswordController alloc] init];
-    [self.navigationController pushViewController:updatePassword animated:YES];
+    //SCUrl_VerificationCodeTimeoutJudgment
+    [[SCManager shareInstance] verificationWithPhoneNum:self.phoneNumber code:smsCode success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        SCRegisterViewUpatePasswordController * updatePassword = [[SCRegisterViewUpatePasswordController alloc] init];
+        updatePassword.phoneNumber = self.phoneNumber;
+        [self.navigationController pushViewController:updatePassword animated:YES];
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        
+    }];
+    
+    
 }
 
 
@@ -50,6 +61,7 @@
 - (void)getVerificationCodeWithPhoneNumber:(NSString *)phoneNumber;
 {
     if ([phoneNumber isPhoneNumber]) {
+        self.phoneNumber = phoneNumber;
         [[SCManager shareInstance] getRegisteredVerificationCodeWithPhoneNumber:phoneNumber success:^(NSURLSessionDataTask *serializer, id responseObject) {
             
         } notice:^(NSURLSessionDataTask *serializer, id responseObject) {

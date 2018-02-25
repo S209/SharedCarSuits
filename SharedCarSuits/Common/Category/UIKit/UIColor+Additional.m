@@ -93,5 +93,12 @@
 {
     return [self cdf_colorWithHexString:@"CCCCCC"];
 }
-
++ (UIColor *)sc_colorwithFED832
+{
+    return [self cdf_colorWithHexString:@"FED832"];
+}
++ (UIColor *)sc_colorWithF9F4DE
+{
+    return [self cdf_colorWithHexString:@"F9F4DE"];
+}
 @end

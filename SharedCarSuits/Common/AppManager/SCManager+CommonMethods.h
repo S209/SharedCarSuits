@@ -10,6 +10,10 @@
 #import <CoreLocation/CoreLocation.h>
 @interface SCManager (CommonMethods)<CLLocationManagerDelegate>
 @property (nonatomic, copy) NSString * positionString;
+- (void)setUserUid:(NSString *)uId;
+- (void)setSessionId:(NSString *)sessionId;
++ (NSString *)getUserId;
++ (NSString *)getSessionId;
 - (void)bezierPathLeftTopAndRightTopWithView:(UIView *)view;
 - (void)bezierPathLeftTopAndRightTopWithView:(UIView *)view withRadius:(CGFloat)radius;
 - (void)countDownWithView:(UIButton *)codeButton;

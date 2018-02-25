@@ -7,7 +7,11 @@
 //
 
 #import "SCFindPasswordUpatePasswordView.h"
-
+#import "SCManager+MBProgressHUD.h"
+@interface SCFindPasswordUpatePasswordView();
+@property (nonatomic, weak) UITextField * setupPasswordField;
+@property (nonatomic, weak) UITextField * repeateInputField;
+@end
 @implementation SCFindPasswordUpatePasswordView
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -37,6 +41,7 @@
     
     UITextField * setupPasswordField = [[UITextField alloc] init];
     [self addSubview:setupPasswordField];
+    self.setupPasswordField = setupPasswordField;
     setupPasswordField.backgroundColor = [UIColor sc_colorWihtf8f8f8];
     NSString * setupPasswordString = @"请输入密码";
     setupPasswordField.keyboardType = UIKeyboardTypeNumberPad;
@@ -78,6 +83,7 @@
     
     UITextField * repeateInputField = [[UITextField alloc] init];
     [self addSubview:repeateInputField];
+    self.repeateInputField = repeateInputField;
     repeateInputField.placeholder = @"请再次输入密码";
     [repeateInputField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).with.offset(15);
@@ -111,8 +117,13 @@
 
 - (void)completeBtnClick
 {
-    if ([_deleate respondsToSelector:@selector(complete)]) {
-        [self.deleate complete];
+    
+    if ([self.setupPasswordField.text isEqualToString:self.repeateInputField.text]) {
+        if ([_deleate respondsToSelector:@selector(completeWithPassword:)]) {
+            [self.deleate completeWithPassword:self.setupPasswordField.text];
+        }
+    }else{
+        [SCManager dismissInfo:@"两次密码不一样"];
     }
 }
 @end

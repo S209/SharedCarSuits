@@ -13,7 +13,7 @@ typedef NS_ENUM(NSInteger, UpdateType){
 };
 @protocol SCFindPasswordUpatePasswordViewDelegate<NSObject>
 @required
-- (void)complete;
+- (void)completeWithPassword:(NSString *)password;
 @end
 @interface SCFindPasswordUpatePasswordView : UIView
 @property (nonatomic, weak) id <SCFindPasswordUpatePasswordViewDelegate>deleate;

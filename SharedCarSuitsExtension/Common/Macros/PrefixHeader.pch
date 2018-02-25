@@ -22,4 +22,7 @@
 #import <Masonry.h>
 #import "SCRequestUrlConst.h"
 #import "NSString+Predicate.h"
+#import <NSObject+YYModel.h>
+#import "SCNSUserDefaultsAndNotificConst.h"
+#import "NSString+Empty.h"
 #endif /* PrefixHeader_pch */

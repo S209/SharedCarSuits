@@ -36,9 +36,11 @@
 }
 
 #pragma mark 下一步
-- (void)complete
+- (void)completeWithPassword:(NSString *)password
 {
     SCRegisterViewCarInfoViewController * carInfor = [[SCRegisterViewCarInfoViewController alloc] init];
+    carInfor.password = password;
+    carInfor.phoneNumber = _phoneNumber;
     [self.navigationController pushViewController:carInfor animated:YES];
 }
 - (void)didReceiveMemoryWarning {

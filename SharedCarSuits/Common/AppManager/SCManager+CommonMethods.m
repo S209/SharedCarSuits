@@ -257,8 +257,29 @@ static NSString * const KEY_UUID = @"唯一识别的key_uuid";
 }
 
 +(void)deleteUUID{
-    
     [GSKeyChain delete:KEY_IN_KEYCHAIN_UUID];
-    
+}
+
+#pragma mark UserId
+- (void)setUserUid:(NSString *)uId
+{
+    [[NSUserDefaults standardUserDefaults] setValue:uId forKey:SCUserId];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)setSessionId:(NSString *)sessionId
+{
+    [[NSUserDefaults standardUserDefaults] setValue:sessionId forKey:SCSessionId];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (NSString *)getUserId
+{
+  return [[NSUserDefaults standardUserDefaults] objectForKey:SCUserId];
+}
+
++ (NSString *)getSessionId
+{
+   return [[NSUserDefaults standardUserDefaults] objectForKey:SCSessionId];
 }
 @end

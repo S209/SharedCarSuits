@@ -8,6 +8,7 @@
 
 #import "SCMyAppointmentViewController.h"
 #import "SCMyAppointmentViewCell.h"
+#import "SCReservationAlertView.h"
 @interface SCMyAppointmentViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
@@ -24,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setNavigationWithTitle:@"预约流程"];
     [self setupView];
 }
@@ -143,10 +143,43 @@
     
     UILabel * numberOfServiceLabel = [[UILabel alloc] init];
     [bottomView addSubview:numberOfServiceLabel];
+    numberOfServiceLabel.textColor = [UIColor whiteColor];
     [numberOfServiceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(bottomView.mas_left).with.offset(20);
-        
+        make.centerY.mas_equalTo(bottomView.mas_centerY);
     }];
+    numberOfServiceLabel.text = [NSString stringWithFormat:@"共%zd项，总计¥%@",2,@"1167"];
+    
+    UILabel * makeAnAppointmentLabel = [[UILabel alloc] init];
+    [bottomView addSubview:makeAnAppointmentLabel];
+    makeAnAppointmentLabel.text = @"我的预约";
+    makeAnAppointmentLabel.textColor = [UIColor whiteColor];
+    [makeAnAppointmentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(bottomView.mas_centerY);
+        make.right.equalTo(bottomView.mas_right).with.offset(-33);
+    }];
+    
+    UIButton * makeAnAppointmentBtn = [[UIButton alloc] init];
+    [bottomView addSubview:makeAnAppointmentBtn];
+    [makeAnAppointmentBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(bottomView.mas_centerY);
+        make.right.equalTo(bottomView.mas_right).with.offset(-0);
+        make.top.equalTo(bottomView.mas_top).with.offset(0);
+        make.bottom.equalTo(bottomView.mas_bottom).with.offset(-0);
+        make.width.mas_equalTo(44);
+    }];
+    makeAnAppointmentBtn.backgroundColor = [UIColor clearColor];
+    [makeAnAppointmentBtn addTarget:self action:@selector(makeAnAppointmentBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIView * segmentView = [[UIView alloc] init];
+    [bottomView addSubview:segmentView];
+    segmentView.backgroundColor = [UIColor blackColor];
+    [segmentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(makeAnAppointmentLabel.mas_left).with.offset(-35);
+        make.centerY.mas_equalTo(bottomView.mas_centerY);
+        make.size.mas_equalTo(CGSizeMake(0.5, 20));
+    }];
+    
 }
 
 
@@ -162,6 +195,11 @@
 }
 
 - (void)timeBtnClick:(UIButton *)sender
+{
+    
+}
+
+- (void)makeAnAppointmentBtnClick:(UIButton *)sender
 {
     
 }

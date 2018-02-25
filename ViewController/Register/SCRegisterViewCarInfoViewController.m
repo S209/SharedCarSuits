@@ -91,6 +91,12 @@
     }] ;
 }
 
+- (void)choiseBrandLabelClick
+{
+    
+    
+}
+
 #pragma mark choiseAreaViewDelegate
 - (void)choiseAreaViewClickCancelBtn
 {

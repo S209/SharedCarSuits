@@ -44,7 +44,8 @@
         make.height.mas_equalTo(40);
     }];
     choiseBrandLabel.backgroundColor = [UIColor sc_colorWihtf8f8f8];
-    
+    UITapGestureRecognizer * tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(choiseBrandLabelClick)];
+    [choiseBrandLabel addGestureRecognizer:tapGest];
     
     UILabel * carNumberLabel = [[UILabel alloc] init];
     [self addSubview:carNumberLabel];
@@ -123,7 +124,13 @@
         [areaBtn.layer setBorderColor: [[UIColor sc_colorWith666666]CGColor]];
         [areaBtn.layer setBorderWidth:0.0];
     }
-   
 }
 
+- (void)choiseBrandLabelClick
+{
+    if ([_delegate respondsToSelector:@selector(choiseBrandLabelClick)]) {
+        [self.delegate choiseBrandLabelClick];
+    }
+    
+}
 @end

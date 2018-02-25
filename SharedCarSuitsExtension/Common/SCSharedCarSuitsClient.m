@@ -88,7 +88,7 @@ parameters:(NSDictionary *)parameters
     }else{
          [mutableParams setValue:@"" forKey:@"session"];
     }
-    NSString * uIdString = [[NSUserDefaults standardUserDefaults] objectForKey:SCUserId];
+    NSString * uIdString = [[NSUserDefaults standardUserDefaults] objectForKey:SCUserId] ;
     if (uIdString.length > 0) {
        [mutableParams setObject:uIdString forKey:@"uId"];
     }else{

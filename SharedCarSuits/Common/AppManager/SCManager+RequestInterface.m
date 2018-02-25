@@ -37,9 +37,7 @@
     NSDictionary * parameterDictionary = @{@"loginName":loginName,@"passWord":passWord};
     [self requestUrl:SCUrl_Login andParamater:parameterDictionary success:^(NSURLSessionDataTask *serializer, id responseObject) {
         if (success) {
-            SCLoginResponseObjectModel * objectModel = [SCLoginResponseObjectModel yy_modelWithDictionary:responseObject];
-            NSString * modelJsonString = [objectModel yy_modelToJSONString];
-            [[NSUserDefaults standardUserDefaults] setValue:modelJsonString forKey:SCLoginModelJsonString];
+            [[NSUserDefaults standardUserDefaults] setObject:responseObject forKey:SCLoginModelUserJsonString];
             [[NSUserDefaults standardUserDefaults] synchronize];
             success(serializer,responseObject);
         }
@@ -150,8 +148,12 @@
                     [SCManager dismissInfo:[responseObject objectForKey:@"message"]];
                 }
                 if ([dataArray isKindOfClass:[NSArray class]] && dataArray.count) {
-                    [[SCManager shareInstance] setUserUid:[responseObject objectForKey:@"uId"]];
-                    [[SCManager shareInstance] setSessionId:[responseObject objectForKey:@"sessionId"]];
+                    NSString * uIdString = [NSString stringWithFormat:@"%zd",[responseObject objectForKey:@"uId"]];
+                    
+                    [[SCManager shareInstance] setUserUid:uIdString];
+                    NSString * sessionIdString = [NSString stringWithFormat:@"%zd",[responseObject objectForKey:@"sessionId"]];
+                    [[SCManager shareInstance] setSessionId:sessionIdString];
+                    
                     success(serializer,dataArray);
                 }else{
                     success(serializer,responseObject);

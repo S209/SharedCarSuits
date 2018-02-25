@@ -13,6 +13,9 @@
 		05626CCB20419C8E00714531 /* SCTheirOwnSheetMetalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CCA20419C8E00714531 /* SCTheirOwnSheetMetalViewController.m */; };
 		05626CCF20426CC500714531 /* SCOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CCE20426CC500714531 /* SCOrderViewController.m */; };
 		05626CD2204272FE00714531 /* SCOrderViewServeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CD1204272FE00714531 /* SCOrderViewServeCell.m */; };
+		05626CD82043020700714531 /* SCChoiseBrandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CD72043020700714531 /* SCChoiseBrandViewController.m */; };
+		05626CDB204302C400714531 /* SCChoiseBrandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CDA204302C400714531 /* SCChoiseBrandModel.m */; };
+		05626CDE2043030600714531 /* SCChoiseBrandCarGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CDD2043030600714531 /* SCChoiseBrandCarGroupModel.m */; };
 		0571C16E204120DC002781B4 /* SCLoginResponseObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0571C16D204120DC002781B4 /* SCLoginResponseObjectModel.m */; };
 		0571C17120412973002781B4 /* SCNSUserDefaultsAndNotificConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 0571C17020412973002781B4 /* SCNSUserDefaultsAndNotificConst.m */; };
 		0571C17520413775002781B4 /* SCReservationAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0571C17420413775002781B4 /* SCReservationAlertView.m */; };
@@ -116,6 +119,12 @@
 		05626CCE20426CC500714531 /* SCOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOrderViewController.m; sourceTree = "<group>"; };
 		05626CD0204272FE00714531 /* SCOrderViewServeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOrderViewServeCell.h; sourceTree = "<group>"; };
 		05626CD1204272FE00714531 /* SCOrderViewServeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOrderViewServeCell.m; sourceTree = "<group>"; };
+		05626CD62043020700714531 /* SCChoiseBrandViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCChoiseBrandViewController.h; sourceTree = "<group>"; };
+		05626CD72043020700714531 /* SCChoiseBrandViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCChoiseBrandViewController.m; sourceTree = "<group>"; };
+		05626CD9204302C400714531 /* SCChoiseBrandModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCChoiseBrandModel.h; sourceTree = "<group>"; };
+		05626CDA204302C400714531 /* SCChoiseBrandModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCChoiseBrandModel.m; sourceTree = "<group>"; };
+		05626CDC2043030600714531 /* SCChoiseBrandCarGroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCChoiseBrandCarGroupModel.h; sourceTree = "<group>"; };
+		05626CDD2043030600714531 /* SCChoiseBrandCarGroupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCChoiseBrandCarGroupModel.m; sourceTree = "<group>"; };
 		0571C16C204120DC002781B4 /* SCLoginResponseObjectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCLoginResponseObjectModel.h; sourceTree = "<group>"; };
 		0571C16D204120DC002781B4 /* SCLoginResponseObjectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCLoginResponseObjectModel.m; sourceTree = "<group>"; };
 		0571C16F20412973002781B4 /* SCNSUserDefaultsAndNotificConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCNSUserDefaultsAndNotificConst.h; sourceTree = "<group>"; };
@@ -319,6 +328,10 @@
 				0573B02B203D53C50017D852 /* SCMyGarageListPageModel.m */,
 				0571C16C204120DC002781B4 /* SCLoginResponseObjectModel.h */,
 				0571C16D204120DC002781B4 /* SCLoginResponseObjectModel.m */,
+				05626CD9204302C400714531 /* SCChoiseBrandModel.h */,
+				05626CDA204302C400714531 /* SCChoiseBrandModel.m */,
+				05626CDC2043030600714531 /* SCChoiseBrandCarGroupModel.h */,
+				05626CDD2043030600714531 /* SCChoiseBrandCarGroupModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -624,6 +637,8 @@
 				05C94294202ECEE300B78CA4 /* SCRegisterViewUpatePasswordController.m */,
 				05C94297202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.h */,
 				05C94298202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m */,
+				05626CD62043020700714531 /* SCChoiseBrandViewController.h */,
+				05626CD72043020700714531 /* SCChoiseBrandViewController.m */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -1023,6 +1038,7 @@
 				05C94285202EB3D100B78CA4 /* UIBarButtonItem+Spacing.m in Sources */,
 				05C94259202D7F3900B78CA4 /* UIColor+Additional.m in Sources */,
 				05626CC52041458700714531 /* SCMakeAnAppointmentprocessCell.m in Sources */,
+				05626CDE2043030600714531 /* SCChoiseBrandCarGroupModel.m in Sources */,
 				0573B03A203FE27E0017D852 /* SCMyAppointmentViewCell.m in Sources */,
 				05C94245202D6B1500B78CA4 /* SCReservationViewController.m in Sources */,
 				05D34DC42031BF0A002AADA4 /* SCMineViewControllerSectionCell.m in Sources */,
@@ -1037,9 +1053,11 @@
 				05626CD2204272FE00714531 /* SCOrderViewServeCell.m in Sources */,
 				0571C17520413775002781B4 /* SCReservationAlertView.m in Sources */,
 				05626CCB20419C8E00714531 /* SCTheirOwnSheetMetalViewController.m in Sources */,
+				05626CD82043020700714531 /* SCChoiseBrandViewController.m in Sources */,
 				05C94243202D6B1500B78CA4 /* SCHomePageViewController.m in Sources */,
 				05C942DE203062D800B78CA4 /* SCChoiseAreaView.m in Sources */,
 				05C94250202D6BD200B78CA4 /* SCHomeTabBarController.m in Sources */,
+				05626CDB204302C400714531 /* SCChoiseBrandModel.m in Sources */,
 				05C9428B202EC39A00B78CA4 /* SCFindPasswordUpatePasswordController.m in Sources */,
 				05E94F712032D80200210BE3 /* SCEditorIconView.m in Sources */,
 				05D34DCD2032CA17002AADA4 /* SCExitShowTipsView.m in Sources */,

@@ -17,6 +17,12 @@
 		05626CDB204302C400714531 /* SCChoiseBrandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CDA204302C400714531 /* SCChoiseBrandModel.m */; };
 		05626CDE2043030600714531 /* SCChoiseBrandCarGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CDD2043030600714531 /* SCChoiseBrandCarGroupModel.m */; };
 		05626CE1204309FE00714531 /* SCUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CE0204309FE00714531 /* SCUserModel.m */; };
+		05626CE92044474100714531 /* SCOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CE82044474100714531 /* SCOrderListViewController.m */; };
+		05626CEC204448B700714531 /* SCNoPayListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CEB204448B700714531 /* SCNoPayListViewController.m */; };
+		05626CEF204448FD00714531 /* SCPayedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CEE204448FD00714531 /* SCPayedListViewController.m */; };
+		05626CF22044491000714531 /* SCCompleteOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CF12044491000714531 /* SCCompleteOrderListViewController.m */; };
+		05626CF52044492800714531 /* SCOrderCancelListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CF42044492800714531 /* SCOrderCancelListViewController.m */; };
+		05626CF820445A3500714531 /* SCOrderListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CF720445A3500714531 /* SCOrderListCell.m */; };
 		0571C16E204120DC002781B4 /* SCLoginResponseObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0571C16D204120DC002781B4 /* SCLoginResponseObjectModel.m */; };
 		0571C17120412973002781B4 /* SCNSUserDefaultsAndNotificConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 0571C17020412973002781B4 /* SCNSUserDefaultsAndNotificConst.m */; };
 		0571C17520413775002781B4 /* SCReservationAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0571C17420413775002781B4 /* SCReservationAlertView.m */; };
@@ -128,6 +134,18 @@
 		05626CDD2043030600714531 /* SCChoiseBrandCarGroupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCChoiseBrandCarGroupModel.m; sourceTree = "<group>"; };
 		05626CDF204309FE00714531 /* SCUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCUserModel.h; sourceTree = "<group>"; };
 		05626CE0204309FE00714531 /* SCUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCUserModel.m; sourceTree = "<group>"; };
+		05626CE72044474100714531 /* SCOrderListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOrderListViewController.h; sourceTree = "<group>"; };
+		05626CE82044474100714531 /* SCOrderListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOrderListViewController.m; sourceTree = "<group>"; };
+		05626CEA204448B700714531 /* SCNoPayListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCNoPayListViewController.h; sourceTree = "<group>"; };
+		05626CEB204448B700714531 /* SCNoPayListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCNoPayListViewController.m; sourceTree = "<group>"; };
+		05626CED204448FD00714531 /* SCPayedListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCPayedListViewController.h; sourceTree = "<group>"; };
+		05626CEE204448FD00714531 /* SCPayedListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCPayedListViewController.m; sourceTree = "<group>"; };
+		05626CF02044491000714531 /* SCCompleteOrderListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCCompleteOrderListViewController.h; sourceTree = "<group>"; };
+		05626CF12044491000714531 /* SCCompleteOrderListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCCompleteOrderListViewController.m; sourceTree = "<group>"; };
+		05626CF32044492800714531 /* SCOrderCancelListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOrderCancelListViewController.h; sourceTree = "<group>"; };
+		05626CF42044492800714531 /* SCOrderCancelListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOrderCancelListViewController.m; sourceTree = "<group>"; };
+		05626CF620445A3500714531 /* SCOrderListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOrderListCell.h; sourceTree = "<group>"; };
+		05626CF720445A3500714531 /* SCOrderListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOrderListCell.m; sourceTree = "<group>"; };
 		0571C16C204120DC002781B4 /* SCLoginResponseObjectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCLoginResponseObjectModel.h; sourceTree = "<group>"; };
 		0571C16D204120DC002781B4 /* SCLoginResponseObjectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCLoginResponseObjectModel.m; sourceTree = "<group>"; };
 		0571C16F20412973002781B4 /* SCNSUserDefaultsAndNotificConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCNSUserDefaultsAndNotificConst.h; sourceTree = "<group>"; };
@@ -494,6 +512,16 @@
 				0573B036203FC72E0017D852 /* SCMyAppointmentViewController.m */,
 				05626CCD20426CC500714531 /* SCOrderViewController.h */,
 				05626CCE20426CC500714531 /* SCOrderViewController.m */,
+				05626CE72044474100714531 /* SCOrderListViewController.h */,
+				05626CE82044474100714531 /* SCOrderListViewController.m */,
+				05626CEA204448B700714531 /* SCNoPayListViewController.h */,
+				05626CEB204448B700714531 /* SCNoPayListViewController.m */,
+				05626CED204448FD00714531 /* SCPayedListViewController.h */,
+				05626CEE204448FD00714531 /* SCPayedListViewController.m */,
+				05626CF02044491000714531 /* SCCompleteOrderListViewController.h */,
+				05626CF12044491000714531 /* SCCompleteOrderListViewController.m */,
+				05626CF32044492800714531 /* SCOrderCancelListViewController.h */,
+				05626CF42044492800714531 /* SCOrderCancelListViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -680,6 +708,8 @@
 				0573B039203FE27E0017D852 /* SCMyAppointmentViewCell.m */,
 				05626CD0204272FE00714531 /* SCOrderViewServeCell.h */,
 				05626CD1204272FE00714531 /* SCOrderViewServeCell.m */,
+				05626CF620445A3500714531 /* SCOrderListCell.h */,
+				05626CF720445A3500714531 /* SCOrderListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1040,16 +1070,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05626CF22044491000714531 /* SCCompleteOrderListViewController.m in Sources */,
 				05C94285202EB3D100B78CA4 /* UIBarButtonItem+Spacing.m in Sources */,
 				05C94259202D7F3900B78CA4 /* UIColor+Additional.m in Sources */,
 				05626CC52041458700714531 /* SCMakeAnAppointmentprocessCell.m in Sources */,
 				05626CDE2043030600714531 /* SCChoiseBrandCarGroupModel.m in Sources */,
+				05626CF52044492800714531 /* SCOrderCancelListViewController.m in Sources */,
 				0573B03A203FE27E0017D852 /* SCMyAppointmentViewCell.m in Sources */,
 				05C94245202D6B1500B78CA4 /* SCReservationViewController.m in Sources */,
 				05D34DC42031BF0A002AADA4 /* SCMineViewControllerSectionCell.m in Sources */,
 				05C94299202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m in Sources */,
+				05626CF820445A3500714531 /* SCOrderListCell.m in Sources */,
 				05626CCF20426CC500714531 /* SCOrderViewController.m in Sources */,
 				05C94270202E8E3800B78CA4 /* SCLoginView.m in Sources */,
+				05626CEF204448FD00714531 /* SCPayedListViewController.m in Sources */,
 				05C9427C202EB1DC00B78CA4 /* SCFindPasswordController.m in Sources */,
 				0573B025203C09F60017D852 /* GSKeyChain.m in Sources */,
 				05C94235202D69CC00B78CA4 /* NSMutableArray+Category.m in Sources */,
@@ -1057,6 +1091,7 @@
 				05C9425C202D7F4700B78CA4 /* UIColor+CDF.m in Sources */,
 				05626CD2204272FE00714531 /* SCOrderViewServeCell.m in Sources */,
 				0571C17520413775002781B4 /* SCReservationAlertView.m in Sources */,
+				05626CEC204448B700714531 /* SCNoPayListViewController.m in Sources */,
 				05626CCB20419C8E00714531 /* SCTheirOwnSheetMetalViewController.m in Sources */,
 				05626CD82043020700714531 /* SCChoiseBrandViewController.m in Sources */,
 				05C94243202D6B1500B78CA4 /* SCHomePageViewController.m in Sources */,
@@ -1091,6 +1126,7 @@
 				05E94F742032DC3600210BE3 /* SCEditorUserInfoViewController+ImagePickerController.m in Sources */,
 				05DAD55820307ED7000E13C2 /* SCChoiseCarNumberView.m in Sources */,
 				05D34DCA2032C043002AADA4 /* SCEditorUserInfoViewController.m in Sources */,
+				05626CE92044474100714531 /* SCOrderListViewController.m in Sources */,
 				05C94295202ECEE300B78CA4 /* SCRegisterViewUpatePasswordController.m in Sources */,
 				0571C17120412973002781B4 /* SCNSUserDefaultsAndNotificConst.m in Sources */,
 				0573B01E203BD7E70017D852 /* SCManager+RequestInterface.m in Sources */,

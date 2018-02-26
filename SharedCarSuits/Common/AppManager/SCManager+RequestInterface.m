@@ -37,7 +37,7 @@
     NSDictionary * parameterDictionary = @{@"loginName":loginName,@"passWord":passWord};
     [self requestUrl:SCUrl_Login andParamater:parameterDictionary success:^(NSURLSessionDataTask *serializer, id responseObject) {
         if (success) {
-            [[NSUserDefaults standardUserDefaults] setObject:[responseObject safeObjectAtIndex:0] forKey:SCLoginModelUserDict];
+            [[NSUserDefaults standardUserDefaults] setObject:responseObject forKey:SCLoginModelUserDict];
             [[NSUserDefaults standardUserDefaults] synchronize];
             success(serializer,responseObject);
         }
@@ -161,18 +161,19 @@
         NSInteger code = [[responseObject objectForKey:@"code"] integerValue];
         if (code == 200) {
             if (success) {
-               NSArray * dataArray = [responseObject objectForKey:@"data"];
+               NSDictionary * dataDict = [responseObject objectForKey:@"data"];
                 if ([NSString stringWithFormat:@"%@",[responseObject objectForKey:@"message"]].length>0) {
                     [SCManager dismissInfo:[responseObject objectForKey:@"message"]];
                 }
-                if ([dataArray isKindOfClass:[NSArray class]] && dataArray.count) {
+                
+                if ([dataDict isKindOfClass:[NSDictionary class]] && dataDict.allKeys.count) {
                     NSString * uIdString = [NSString stringWithFormat:@"%zd",[responseObject objectForKey:@"uId"]];
                     
                     [[SCManager shareInstance] setUserUid:uIdString];
                     NSString * sessionIdString = [NSString stringWithFormat:@"%zd",[responseObject objectForKey:@"sessionId"]];
                     [[SCManager shareInstance] setSessionId:sessionIdString];
                     
-                    success(serializer,dataArray);
+                    success(serializer,dataDict);
                 }else{
                     success(serializer,responseObject);
                 }

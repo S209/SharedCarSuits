@@ -52,13 +52,9 @@
  */
 - (void)retrieveThePasswordWithloginName:(NSString *)loginName passWord:(NSString *)passWord success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 
-///keleapp/car/carList.jspx
-/*
- 我的车库
- */
-- (void)myGarageWithSuccess:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 
 
+#pragma mark 我的
 /**
  编辑个人信息
 
@@ -66,4 +62,43 @@
  @param headUrlData 用户头像
  */
 - (void)editUserInfoWithRealName:(NSString *)realNameString HeadUrl:(NSData *)headUrlData success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
+
+/**
+ 我的优惠券
+
+ @param userId 用户ID
+ @param length 请求条数
+ */
+- (void)myCouponListWithId:(NSString *)userId andLength:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
+///keleapp/car/carList.jspx
+/*
+ 我的车库
+ */
+- (void)myGarageWithId:(NSString *)userId andLength:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
+
+/**
+ 我的车库编辑
+
+ @param carId <#carId description#>
+ @param carModel <#carModel description#>
+ @param carNum <#carNum description#>
+ */
+- (void)myGarageEditWithCarId:(NSString *)carId carModel:(NSString *)carModel carNum:(NSString *)carNum success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+/**
+ 我的车库删除
+ /keleapp/car/carDelete.jspx
+ */
+- (void)myGarageDeleteWithUserId:(NSString *)userId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+//keleapp/car/carDefault.jspx
+- (void)myGarageCarDefaultWithUserId:(NSString *)userId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+///keleapp/car/carAdd.jspx
+- (void)myGarageCarAddWithCarNum:(NSString *)carNum carModel:(NSString *)carModel success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+///keleapp/coupon/couponReceiveList.jspx
+- (void)couponReceiveListWithUserId:(NSString *)userId length:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
+///keleapp/coupon/couponReceive.jspx
+- (void)couponReceiveWithUserId:(NSString *)userId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 @end

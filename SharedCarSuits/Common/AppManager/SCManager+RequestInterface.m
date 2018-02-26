@@ -89,16 +89,44 @@
 }
 
 
-- (void)myGarageWithSuccess:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+- (void)myCouponListWithId:(NSString *)userId andLength:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
 {
-    [self requestUrl:SCUrl_MyGarage andParamater:@{} success:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
+    NSDictionary * paramater = @{@"id":userId,@"length":length};
+    [self requestUrl:SCUrl_MyDiscountCoupon andParamater:paramater success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
+        if (notice) {
+            notice(serializer,responseObject);
+        }
     } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-        
+        if (failure) {
+            failure(serializer,error);
+        }
     }];
 }
+
+- (void)myGarageWithId:(NSString *)userId andLength:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+{
+    NSDictionary * paramater = @{@"id":userId,@"length":length};
+    [self requestUrl:SCUrl_MyGarage andParamater:paramater success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (notice) {
+            notice(serializer,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer,error);
+        }
+    }];
+}
+
+
+
 
 - (void)editUserInfoWithRealName:(NSString *)realNameString HeadUrl:(NSData *)headUrlData success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
 {
@@ -152,6 +180,113 @@
     }];
 }
 
+- (void)myGarageEditWithCarId:(NSString *)carId carModel:(NSString *)carModel carNum:(NSString *)carNum success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    NSDictionary * paramater = @{@"carId":carId,@"carModel":carModel,@"carNum":carNum};
+    [self requestUrl:SCUrl_GarageEditor andParamater:paramater success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (notice) {
+            notice(serializer,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer, error);
+        }
+    }];
+}
+
+- (void)myGarageDeleteWithUserId:(NSString *)userId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    NSDictionary * paramater = @{@"id":userId};
+    [self requestUrl:SCUrl_GarageDeleted andParamater:paramater success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (notice) {
+            notice(serializer,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer, error);
+        }
+    }];
+}
+
+- (void)myGarageCarDefaultWithUserId:(NSString *)userId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    NSDictionary * paramater = @{@"id":userId};
+    [self requestUrl:SCUrl_MyGarageSetAsTheDefaultCar andParamater:paramater success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (notice) {
+            notice(serializer,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer, error);
+        }
+    }];
+}
+
+- (void)myGarageCarAddWithCarNum:(NSString *)carNum carModel:(NSString *)carModel success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    NSDictionary * paramater = @{@"carModel":carModel,@"carNum":carNum};
+    [self requestUrl:SCUrl_MyGarageAddACar andParamater:paramater success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (notice) {
+            notice(serializer,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer, error);
+        }
+    }];
+}
+
+- (void)couponReceiveListWithUserId:(NSString *)userId length:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    NSDictionary * paramater = @{@"id":userId,@"length":length};
+    [self requestUrl:SCUrl_GetCouponsList andParamater:paramater success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (notice) {
+            notice(serializer,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer, error);
+        }
+    }];
+}
+
+- (void)couponReceiveWithUserId:(NSString *)userId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    NSDictionary * paramater = @{@"id":userId};
+    [self requestUrl:SCUrl_ReceiveCouponsGet andParamater:paramater success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (notice) {
+            notice(serializer,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer, error);
+        }
+    }];
+}
 
 - (void)requestUrl:(NSString *)url andParamater:(NSDictionary *)parameter success:(SuccessBlock)success
             notice:(OptionBlock)notice

@@ -7,4 +7,4 @@
 //
 extern NSString * const SCUserId;
 extern NSString * const SCSessionId;
-extern NSString * const SCLoginModelUserJsonString;
+extern NSString * const SCLoginModelUserDict;//字典

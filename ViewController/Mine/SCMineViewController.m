@@ -12,11 +12,13 @@
 #import "SCSettingViewController.h"
 #import "SCEditorUserInfoViewController.h"
 #import "SCMyGarageViewController.h"
+#import "SCUserModel.h"
 @interface SCMineViewController()<UITableViewDelegate,UITableViewDataSource,SCMineViewHeaderViewDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, weak) SCMineViewHeaderView * headerView;
 @property (nonatomic, copy) NSArray * contentArray;
 @property (nonatomic, copy) NSArray * contentImgArray;
+@property (nonatomic, strong) SCUserModel * userModel;
 @end
 @interface SCMineViewController ()
 
@@ -41,6 +43,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSDictionary * userDict = [[NSUserDefaults standardUserDefaults] objectForKey:SCLoginModelUserDict];
+    SCUserModel  * userModel = [SCUserModel yy_modelWithDictionary:userDict];
+    self.userModel = userModel;
     self.navigationItem.title = @"个人资料";
     [self setupView];
 }
@@ -62,6 +67,7 @@
     }];
     
     SCMineViewHeaderView * headerView = [[SCMineViewHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 282)];
+    headerView.userModel = self.userModel;
     tableView.tableHeaderView = headerView;
     headerView.delegate = self;
 }
@@ -129,6 +135,7 @@
 - (void)mineViewHeaderViewClickEditor
 {
     SCEditorUserInfoViewController * editorController = [[SCEditorUserInfoViewController alloc] init];
+    editorController.userModel = self.userModel;
     [self.navigationController pushViewController:editorController animated:YES];
 }
 

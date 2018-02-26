@@ -9,6 +9,7 @@
 #import "SCEditorUserInfoViewController.h"
 #import "SCEditorIconView.h"
 #import "SCEditorUserInfoViewController+ImagePickerController.h"
+#import "SCUserModel.h"
 @interface SCEditorUserInfoViewController ()<SCEditorIconViewDelegate>
 
 @end
@@ -23,6 +24,11 @@
     [self initWithUIImagePickerController];
 }
 
+/*
+ @property (nonatomic, copy) NSString * realName;
+ @property (nonatomic, copy) NSString * headUrl;
+ @property (nonatomic, copy) NSString * loginName;
+ */
 - (void)setupView
 {
     UIImageView * iconImageView = [[UIImageView alloc] init];
@@ -34,6 +40,8 @@
     }];
     iconImageView.layer.masksToBounds = YES;
     [iconImageView.layer setCornerRadius:47.5];
+    [iconImageView sd_setImageWithURL:[NSURL URLWithString:_userModel.headUrl] placeholderImage:[UIImage imageNamed:@""]];
+    
     
     UILabel * editorImgLabel = [[UILabel alloc] init];
     [self.view addSubview:editorImgLabel];
@@ -83,7 +91,7 @@
     nameField.leftViewMode = UITextFieldViewModeAlways;
     leftView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
     nameField.placeholder = @"请输入真实姓名";
-    
+    nameField.text = _userModel.realName;
     
     UILabel * phoneLabel = [[UILabel alloc] init];
     [self.view addSubview:phoneLabel];
@@ -105,9 +113,10 @@
     }];
     
     phoneField.textColor = [UIColor sc_colorWith000044];
-    UIView * leftPhoneView = [[UIView alloc] initWithFrame:CGRectMake(0, 0,30,40)];
+    UIView * leftPhoneView = [[UIView alloc] initWithFrame:CGRectMake(0, 0,15,40)];
     phoneField.leftView = leftPhoneView;
     phoneField.leftViewMode = UITextFieldViewModeAlways;
+    phoneField.text = _userModel.loginName;
     
     
     UIButton * completeBtn = [UIButton buttonWithType:UIButtonTypeCustom];

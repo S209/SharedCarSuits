@@ -8,4 +8,4 @@
 
 NSString * const SCUserId = @"SCUserId";
 NSString * const SCSessionId = @"SCSessionId";
-NSString * const SCLoginModelUserJsonString = @"SCLoginModelUserJsonString";
+NSString * const SCLoginModelUserDict = @"SCLoginModelUserDict";

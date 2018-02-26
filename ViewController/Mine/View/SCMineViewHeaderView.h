@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class SCUserModel;
 @protocol SCMineViewHeaderViewDelegate<NSObject>
 @required
 - (void)mineViewHeaderViewClickEditor;
 - (void)mineViewHeaderMyGarage;
 @end
 @interface SCMineViewHeaderView : UIView
-@property(nonatomic, weak) id <SCMineViewHeaderViewDelegate>delegate;
+@property (nonatomic, weak) id <SCMineViewHeaderViewDelegate>delegate;
+@property (nonatomic, strong) SCUserModel * userModel;
 @end

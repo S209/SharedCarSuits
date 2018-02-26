@@ -16,6 +16,7 @@
 		05626CD82043020700714531 /* SCChoiseBrandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CD72043020700714531 /* SCChoiseBrandViewController.m */; };
 		05626CDB204302C400714531 /* SCChoiseBrandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CDA204302C400714531 /* SCChoiseBrandModel.m */; };
 		05626CDE2043030600714531 /* SCChoiseBrandCarGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CDD2043030600714531 /* SCChoiseBrandCarGroupModel.m */; };
+		05626CE1204309FE00714531 /* SCUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CE0204309FE00714531 /* SCUserModel.m */; };
 		0571C16E204120DC002781B4 /* SCLoginResponseObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0571C16D204120DC002781B4 /* SCLoginResponseObjectModel.m */; };
 		0571C17120412973002781B4 /* SCNSUserDefaultsAndNotificConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 0571C17020412973002781B4 /* SCNSUserDefaultsAndNotificConst.m */; };
 		0571C17520413775002781B4 /* SCReservationAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0571C17420413775002781B4 /* SCReservationAlertView.m */; };
@@ -125,6 +126,8 @@
 		05626CDA204302C400714531 /* SCChoiseBrandModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCChoiseBrandModel.m; sourceTree = "<group>"; };
 		05626CDC2043030600714531 /* SCChoiseBrandCarGroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCChoiseBrandCarGroupModel.h; sourceTree = "<group>"; };
 		05626CDD2043030600714531 /* SCChoiseBrandCarGroupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCChoiseBrandCarGroupModel.m; sourceTree = "<group>"; };
+		05626CDF204309FE00714531 /* SCUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCUserModel.h; sourceTree = "<group>"; };
+		05626CE0204309FE00714531 /* SCUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCUserModel.m; sourceTree = "<group>"; };
 		0571C16C204120DC002781B4 /* SCLoginResponseObjectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCLoginResponseObjectModel.h; sourceTree = "<group>"; };
 		0571C16D204120DC002781B4 /* SCLoginResponseObjectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCLoginResponseObjectModel.m; sourceTree = "<group>"; };
 		0571C16F20412973002781B4 /* SCNSUserDefaultsAndNotificConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCNSUserDefaultsAndNotificConst.h; sourceTree = "<group>"; };
@@ -332,6 +335,8 @@
 				05626CDA204302C400714531 /* SCChoiseBrandModel.m */,
 				05626CDC2043030600714531 /* SCChoiseBrandCarGroupModel.h */,
 				05626CDD2043030600714531 /* SCChoiseBrandCarGroupModel.m */,
+				05626CDF204309FE00714531 /* SCUserModel.h */,
+				05626CE0204309FE00714531 /* SCUserModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1059,6 +1064,7 @@
 				05C94250202D6BD200B78CA4 /* SCHomeTabBarController.m in Sources */,
 				05626CDB204302C400714531 /* SCChoiseBrandModel.m in Sources */,
 				05C9428B202EC39A00B78CA4 /* SCFindPasswordUpatePasswordController.m in Sources */,
+				05626CE1204309FE00714531 /* SCUserModel.m in Sources */,
 				05E94F712032D80200210BE3 /* SCEditorIconView.m in Sources */,
 				05D34DCD2032CA17002AADA4 /* SCExitShowTipsView.m in Sources */,
 				05DAD56D203175EC000E13C2 /* SCManager+Keyboard.m in Sources */,

@@ -57,4 +57,13 @@
  我的车库
  */
 - (void)myGarageWithSuccess:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
+
+/**
+ 编辑个人信息
+
+ @param realNameString 用户姓名
+ @param headUrlData 用户头像
+ */
+- (void)editUserInfoWithRealName:(NSString *)realNameString HeadUrl:(NSData *)headUrlData success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 @end

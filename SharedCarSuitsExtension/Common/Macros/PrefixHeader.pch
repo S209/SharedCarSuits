@@ -24,4 +24,5 @@
 #import "NSString+Predicate.h"
 #import <NSObject+YYModel.h>
 #import "SCNSUserDefaultsAndNotificConst.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #endif /* PrefixHeader_pch */

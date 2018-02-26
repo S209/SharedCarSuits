@@ -8,6 +8,7 @@
 
 #import "SCMineViewHeaderView.h"
 #import "SCManager+CommonMethods.h"
+#import "SCUserModel.h"
 @interface SCMineViewHeaderView()
 @property (nonatomic, weak) UIImageView * userIconImg;
 @property (nonatomic, weak) UILabel * userNameLabel;
@@ -205,7 +206,14 @@
         make.bottom.equalTo(myContentView.mas_bottom).with.offset(-15);
         make.right.equalTo(myContentView.mas_right).with.offset(-0);
     }];
-   
+}
+
+- (void)setUserModel:(SCUserModel *)userModel
+{
+    _userModel = userModel;
+    [self.userIconImg sd_setImageWithURL:[NSURL URLWithString:userModel.headUrl] placeholderImage:[UIImage imageNamed:@""]];
+    self.userNameLabel.text = userModel.realName;
+    self.userNumberLabel.text = userModel.loginName;
 }
 
 #pragma mark 编辑

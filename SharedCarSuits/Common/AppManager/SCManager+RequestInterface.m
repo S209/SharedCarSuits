@@ -37,7 +37,7 @@
     NSDictionary * parameterDictionary = @{@"loginName":loginName,@"passWord":passWord};
     [self requestUrl:SCUrl_Login andParamater:parameterDictionary success:^(NSURLSessionDataTask *serializer, id responseObject) {
         if (success) {
-            [[NSUserDefaults standardUserDefaults] setObject:responseObject forKey:SCLoginModelUserJsonString];
+            [[NSUserDefaults standardUserDefaults] setObject:[responseObject safeObjectAtIndex:0] forKey:SCLoginModelUserDict];
             [[NSUserDefaults standardUserDefaults] synchronize];
             success(serializer,responseObject);
         }
@@ -97,6 +97,24 @@
         
     } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
         
+    }];
+}
+
+- (void)editUserInfoWithRealName:(NSString *)realNameString HeadUrl:(NSData *)headUrlData success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    NSDictionary * paramaterDict = @{@"realName":realNameString,@"headUrl":headUrlData};
+    [self requestUrl:SCUrl_EditUserInfo andParamater:paramaterDict success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (notice) {
+            notice(serializer,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer,error);
+        }
     }];
 }
 

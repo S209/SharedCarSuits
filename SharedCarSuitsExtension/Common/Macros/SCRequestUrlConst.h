@@ -50,3 +50,5 @@
 //领取优惠券-领取
 #define SCUrl_ReceiveCouponsGet GeneralUrl(@"/keleapp/coupon/couponReceive.jspx")
 
+//我的 编辑个人信息
+#define SCUrl_EditUserInfo GeneralUrl(@"/keleapp/userInfor/editUser.jspx")

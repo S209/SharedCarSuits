@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SharedCarSuits/Common/AppManager/SCManager+RequestInterface.m"
-            timestampString = "541264249.319653"
+            filePath = "ViewController/Mine/SCMineViewController.m"
+            timestampString = "541265532.9023941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "-logInWithLoginName:passWord:success:notice:failure:"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SharedCarSuits/Common/AppManager/SCManager+RequestInterface.m"
-            timestampString = "541264249.32008"
+            filePath = "ViewController/Mine/SCEditorUserInfoViewController.m"
+            timestampString = "541265538.324131"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "-logInWithLoginName:passWord:success:notice:failure:"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "-setupView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

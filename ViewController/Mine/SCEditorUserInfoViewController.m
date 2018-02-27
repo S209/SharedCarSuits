@@ -24,11 +24,6 @@
     [self initWithUIImagePickerController];
 }
 
-/*
- @property (nonatomic, copy) NSString * realName;
- @property (nonatomic, copy) NSString * headUrl;
- @property (nonatomic, copy) NSString * loginName;
- */
 - (void)setupView
 {
     UIImageView * iconImageView = [[UIImageView alloc] init];

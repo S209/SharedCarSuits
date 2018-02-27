@@ -36,7 +36,7 @@
     self.imagePickerController.mediaTypes = @[(NSString *)kUTTypeImage];
     //视频上传质量
     //设置摄像头模式（拍照，录制视频）为录像模式
-    self.imagePickerController.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
+//    self.imagePickerController.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
     [self presentViewController:self.imagePickerController animated:YES completion:nil];
 }
 

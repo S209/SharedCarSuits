@@ -46,7 +46,7 @@
     NSDictionary * userDict = [[NSUserDefaults standardUserDefaults] objectForKey:SCLoginModelUserDict];
     SCUserModel  * userModel = [SCUserModel yy_modelWithDictionary:userDict];
     self.userModel = userModel;
-    self.navigationItem.title = @"个人资料";
+    [self setNavigationWithTitle:@"个人资料"];
     [self setupView];
 }
 

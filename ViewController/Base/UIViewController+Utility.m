@@ -25,9 +25,10 @@
     self.navigationItem.rightBarButtonItems = itemsArray;
 }
 
-- (UIBarButtonItem *)sy_leftBarButtonItem
+- (void)sy_leftBarButtonItem
 {
-    return [self backItemWithAction:@selector(sy_goBack:)];
+    UIBarButtonItem * item = [self backItemWithAction:@selector(sy_goBack:)];
+    self.navigationItem.leftBarButtonItem = item;
 }
 
 - (void)sy_rightBarDeleteItemWithDelete
@@ -49,8 +50,7 @@
 
 - (void)sy_goBack:(id)sender
 {
-    //    NSArray *arr = self.navigationController.viewControllers;
-    //    NSLog(@"%lu", self.navigationController.viewControllers.count);
+   
     [self.navigationController popViewControllerAnimated:YES];
     
     if (self.title && self.title.length) {

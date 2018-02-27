@@ -22,13 +22,12 @@
     [self setNavigationWithTitle:@"注册"];
     [self sy_leftBarButtonItem];
     [self setupView];
-    
 }
 
 - (void)setupView
 {
     SCRetrieveThePasswordView * passwordView = [[SCRetrieveThePasswordView alloc] init];
-    passwordView.type = TypeRetrieveThePassword;
+    passwordView.type = TypeRegister;
       passwordView.delegate = self;
     [self.view addSubview:passwordView];
     [passwordView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -14,6 +14,8 @@
 @property (nonatomic, weak) UITextField * phoneNumberField;
 @property (nonatomic, weak) UITextField * smsVerification;
 @property (nonatomic, weak) UIButton * repeateBtn;
+@property (nonatomic, weak) UIImageView * stepOneImageView;
+@property (nonatomic, weak) UIButton * nextBtn;
 @end
 @implementation SCRetrieveThePasswordView
 - (instancetype)initWithFrame:(CGRect)frame
@@ -101,6 +103,7 @@
     
     UIButton * nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self addSubview:nextBtn];
+    self.nextBtn = nextBtn;
     [nextBtn addTarget:self action:@selector(nextBtn:) forControlEvents:UIControlEventTouchUpInside];
     [nextBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).with.offset(15);
@@ -114,15 +117,36 @@
     nextBtn.titleLabel.font = [UIFont sy_boldFont16];
     nextBtn.layer.masksToBounds = YES;
     [nextBtn.layer setCornerRadius:4.0];
+    
+    UIImageView * stepOneImageView = [[UIImageView alloc] init];
+    [self addSubview:stepOneImageView];
+    self.stepOneImageView = stepOneImageView;
+    [self.stepOneImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.nextBtn.mas_bottom).with.offset(119);
+        make.centerX.mas_equalTo(self.nextBtn.centerX);
+    }];
 }
 
 - (void)setType:(TypeR)type
 {
     _type = type;
-    if (type == TypeRetrieveThePassword) {
-         [self.repeateBtn setTitle:@"重新发送" forState:UIControlStateNormal];
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    if (self.type == TypeRetrieveThePassword) {
+        [self.repeateBtn setTitle:@"重新发送" forState:UIControlStateNormal];
+        [self.stepOneImageView setImage:[UIImage imageNamed:@"find_num_1"]];
+        [self.stepOneImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(67.5, 15));
+        }];
     }else{
         [self.repeateBtn setTitle:@"发送验证" forState:UIControlStateNormal];
+        [self.stepOneImageView setImage:[UIImage imageNamed:@"register_num_1"]];
+        [self.stepOneImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(120, 15));
+        }];
     }
 }
 

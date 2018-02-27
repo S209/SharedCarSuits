@@ -10,8 +10,10 @@
 #import "SCRetrieveThePasswordView.h"
 #import "SCFindPasswordUpatePasswordController.h"
 #import "SCSharedCarSuitsClient.h"
+#import "SCManager+RequestInterface.h"
+#import "SCFindPasswordUpatePasswordController.h"
 @interface SCFindPasswordController ()<SCRetrieveThePasswordViewDelegate>
-
+@property (nonatomic, copy) NSString * phoneNumber;
 @end
 
 @implementation SCFindPasswordController
@@ -46,10 +48,38 @@
     
 }
 
-- (void)getVerificationCode
+#pragma mark SCRetrieveThePasswordViewDelegate
+//下一步
+- (void)nextStepWithSMSCode:(NSString *)smsCode
 {
-
+    
+    [[SCManager shareInstance] verificationWithPhoneNum:self.phoneNumber code:smsCode success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+        SCFindPasswordUpatePasswordController * updatePasswordController = [[SCFindPasswordUpatePasswordController alloc] init];
+        [self.navigationController pushViewController:updatePasswordController animated:YES];
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        
+    }];
 }
+
+
+//注册请求接口
+- (void)getVerificationCodeWithPhoneNumber:(NSString *)phoneNumber;
+{
+    if ([phoneNumber isPhoneNumber]) {
+        self.phoneNumber = phoneNumber;
+        [[SCManager shareInstance] getRegisteredVerificationCodeWithPhoneNumber:phoneNumber success:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+            
+        }];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

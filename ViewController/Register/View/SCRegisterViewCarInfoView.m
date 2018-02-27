@@ -92,6 +92,15 @@
     sureBtn.titleLabel.font = [UIFont sy_boldFont16];
     sureBtn.layer.masksToBounds = YES;
     [sureBtn.layer setCornerRadius:4.0];
+    
+    UIImageView * stepOneImageView = [[UIImageView alloc] init];
+    [self addSubview:stepOneImageView];
+    [stepOneImageView setImage:[UIImage imageNamed:@"register_num_3"]];
+    [stepOneImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(120, 15));
+        make.top.equalTo(sureBtn.mas_bottom).with.offset(119);
+        make.centerX.mas_equalTo(self.centerX);
+    }];
 }
 
 

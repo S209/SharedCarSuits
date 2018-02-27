@@ -11,6 +11,8 @@
 @interface SCFindPasswordUpatePasswordView();
 @property (nonatomic, weak) UITextField * setupPasswordField;
 @property (nonatomic, weak) UITextField * repeateInputField;
+@property (nonatomic, weak) UIImageView * stepTwoImageView;
+@property (nonatomic, weak) UIButton * completeBtn;
 @end
 @implementation SCFindPasswordUpatePasswordView
 
@@ -54,14 +56,6 @@
     setupPasswordField.leftViewMode = UITextFieldViewModeAlways;    //此句代码较容易忽略
     setupPasswordField.leftView = setupPasswordView;
     
-//    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:setupPasswordString];
-//    [placeholder addAttribute:NSForegroundColorAttributeName
-//                        value:[UIColor sc_colorWith444444]
-//                        range:NSMakeRange(0, setupPasswordString.length)];
-//    [placeholder addAttribute:NSFontAttributeName
-//                        value:[UIFont sy_font14]
-//                        range:NSMakeRange(0, setupPasswordString.length)];
-//    setupPasswordField.attributedPlaceholder = placeholder;
     [setupPasswordField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).with.offset(15);
         make.top.equalTo(setupPasswordLabel.mas_bottom).with.offset(15);
@@ -85,6 +79,7 @@
     [self addSubview:repeateInputField];
     self.repeateInputField = repeateInputField;
     repeateInputField.placeholder = @"请再次输入密码";
+    repeateInputField.keyboardType = UIKeyboardTypeNumberPad;
     [repeateInputField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).with.offset(15);
         make.right.equalTo(self.mas_right).with.offset(-15);
@@ -101,6 +96,7 @@
     
     UIButton * completeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self addSubview:completeBtn];
+    self.completeBtn = completeBtn;
     [completeBtn addTarget:self action:@selector(completeBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [completeBtn setTitle:@"完成" forState:UIControlStateNormal];
     completeBtn.backgroundColor = [UIColor sc_colorWith6C6DFD];
@@ -113,11 +109,34 @@
         make.height.mas_equalTo(40);
         make.top.equalTo(repeateInputField.mas_bottom).with.offset(85);
     }];
+    
+    UIImageView * stepTwoImageView = [[UIImageView alloc] init];
+    [self addSubview:stepTwoImageView];
+    self.stepTwoImageView = stepTwoImageView;
+}
+
+- (void)setUpdate:(UpdateType)update
+{
+    _update = update;
+    if (update == UpdateTypeRegister) {
+        [self.stepTwoImageView setImage:[UIImage imageNamed:@"register_num_2"]];
+        [self.stepTwoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(120, 15));
+            make.top.equalTo(self.completeBtn.mas_bottom).with.offset(119);
+            make.centerX.mas_equalTo(self.completeBtn.centerX);
+        }];
+    }else{
+        [self.stepTwoImageView setImage:[UIImage imageNamed:@"find_num_2"]];
+        [self.stepTwoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(67.5, 15));
+            make.top.equalTo(self.completeBtn.mas_bottom).with.offset(119);
+            make.centerX.mas_equalTo(self.completeBtn.centerX);
+        }];
+    }
 }
 
 - (void)completeBtnClick
 {
-    
     if ([self.setupPasswordField.text isEqualToString:self.repeateInputField.text]) {
         if ([_deleate respondsToSelector:@selector(completeWithPassword:)]) {
             [self.deleate completeWithPassword:self.setupPasswordField.text];

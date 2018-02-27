@@ -866,7 +866,7 @@
 					};
 					05972538201EF3DD00E7EFFB = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = 05972515201EF3DD00E7EFFB;
 					};
 				};
@@ -1304,11 +1304,13 @@
 			baseConfigurationReference = 39F0ED9ACAE88E8ED7934748 /* Pods-SharedCarSuits.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 86NC63YY5X;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SharedCarSuitsExtension/Common/Macros/PrefixHeader.pch";
 				INFOPLIST_FILE = SharedCarSuits/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lavion.soyoungapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1323,12 +1325,14 @@
 			baseConfigurationReference = 6ACE2CCEB2825ABBD9CC5D25 /* Pods-SharedCarSuits.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 86NC63YY5X;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SharedCarSuitsExtension/Common/Macros/PrefixHeader.pch";
 				INFOPLIST_FILE = SharedCarSuits/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lavion.soyoungapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1376,11 +1380,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 85EB3A99F0A1ADC78ECB743F /* Pods-SharedCarSuitsUITests.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SharedCarSuitsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ths.SharedCarSuitsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = SharedCarSuits;
 			};
@@ -1390,11 +1396,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2395F901FF494BAEC814C9AA /* Pods-SharedCarSuitsUITests.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SharedCarSuitsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ths.SharedCarSuitsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = SharedCarSuits;
 			};

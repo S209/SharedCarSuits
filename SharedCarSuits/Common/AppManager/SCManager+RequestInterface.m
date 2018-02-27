@@ -312,11 +312,21 @@
                 }else{
                     success(serializer,responseObject);
                 }
+            }else{
+                if (notice) {
+                    notice(serializer,responseObject);
+                }
             }
         }else{
             NSString * msg = [responseObject objectForKey:@"message"];
             if (msg.length > 0) {
                 [SCManager dismissInfo:msg];
+            }
+            NSInteger code = [[responseObject objectForKey:@"code"] integerValue];
+            if (code == 1001) {
+                if (notice) {
+                    notice(serializer,responseObject);
+                }
             }
         }
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {

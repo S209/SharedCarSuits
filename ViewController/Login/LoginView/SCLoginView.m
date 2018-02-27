@@ -15,11 +15,10 @@
 @property (nonatomic, weak) UITextField * phoneNumberField;
 @property (nonatomic, weak) UILabel * loginPasswordLabel;
 @property (nonatomic, weak) UITextField * loginPasswordField;
-@property (nonatomic, weak) UIImageView * tipsImage;
+@property (nonatomic, weak) UIButton * tipsBtn;
 @property (nonatomic, weak) UIButton * loginBtn;
 @property (nonatomic, weak) UIButton * registerBtn;
-//@property (nonatomic, weak) UILabel * findPasswordLabel;
-
+@property (nonatomic, weak) UIButton * findPasswordBtn;
 @end
 @implementation SCLoginView
 
@@ -101,16 +100,22 @@
         make.height.mas_equalTo(40);
     }];
     
-    UIImageView * tipsImage = [[UIImageView alloc] init];
-    [self addSubview:tipsImage];
-    self.tipsImage = tipsImage;
-    tipsImage.hidden = YES;
-    [tipsImage mas_makeConstraints:^(MASConstraintMaker *make) {
+    //login_ico_error
+    UIButton * tipsBtn = [[UIButton alloc] init];
+    [self addSubview:tipsBtn];
+    self.tipsBtn = tipsBtn;
+    tipsBtn.hidden = YES;
+    [tipsBtn setImage:[UIImage imageNamed:@"login_ico_error"] forState:UIControlStateNormal];
+    [tipsBtn setTitle:@"手机号码位数错误" forState:UIControlStateNormal];
+    [tipsBtn setTitleColor:[UIColor sc_colorWithED1928] forState:UIControlStateNormal];
+    tipsBtn.titleLabel.font = [UIFont sy_font14];
+    [tipsBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(loginPasswordLabel.mas_left).with.offset(0);
         make.top.equalTo(loginPasswordField.mas_bottom).with.offset(15);
-        make.size.mas_equalTo(CGSizeMake(180, 25));
+        make.size.mas_equalTo(CGSizeMake(140, 25));
     }];
-    
+    [tipsBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 2.5)];
+    [tipsBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 5, 0, 0)];
     
     UIButton * loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self addSubview:loginBtn];
@@ -124,6 +129,8 @@
     loginBtn.titleLabel.font = [UIFont sy_boldFont16];
     loginBtn.backgroundColor = [UIColor sc_colorWith6C6DFD];
     [loginBtn addTarget:self action:@selector(loginBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    loginBtn.layer.masksToBounds = YES;
+    [loginBtn.layer setCornerRadius:4.0];
     
     UIButton * registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self addSubview:registerBtn];
@@ -137,13 +144,27 @@
     registerBtn.titleLabel.font = [UIFont sy_boldFont16];
     registerBtn.backgroundColor = [UIColor sc_colorWithFC8739];
     [registerBtn addTarget:self action:@selector(registerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    registerBtn.layer.masksToBounds = YES;
+    [registerBtn.layer setCornerRadius:4.0];
+    
+    UIButton * findPasswordBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self addSubview:findPasswordBtn];
+    self.findPasswordBtn = findPasswordBtn;
+    findPasswordBtn.backgroundColor = [UIColor redColor];
+    [findPasswordBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.mas_right).with.offset(-15);
+        make.bottom.equalTo(registerBtn.mas_top).with.offset(-25);
+        make.size.mas_equalTo(CGSizeMake(75, 44));
+    }];
+    [findPasswordBtn addTarget:self action:@selector(findPassword) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
 - (void)loginBtnClick:(UIButton *)sender
 {
     self.phoneNumberField.text = @"18210234591";
-    self.loginPasswordField.text = @"12341aaa";
+//    self.loginPasswordField.text = @"12341aaa";
+    self.loginPasswordField.text = @"12341";
     if ([self.phoneNumberField.text isPhoneNumber] && self.loginPasswordField.text.length > 0) {
         if ([_delegate respondsToSelector:@selector(loginViewLoginWithAccount:password:)]) {
             [self.delegate loginViewLoginWithAccount:self.phoneNumberField.text password:self.loginPasswordField.text];
@@ -166,7 +187,7 @@
     }
 }
 
-- (void)forgetPassword
+- (void)findPassword
 {
     if ([_delegate respondsToSelector:@selector(forgetPassword)]) {
         [self.delegate forgetPassword];
@@ -176,15 +197,17 @@
 -(BOOL)textField:(UITextField*)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
 {
     NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string]; //得到输入框的内容
-   
-    
     if (([toBeString length] > 11)&& textField.tag == 300) { //如果输入框内容大于20则弹出警告
-
         return NO;
     }else if (textField.tag == 400){
         
     }
     return YES;
+}
+
+- (void)setIsHideLoginTipsImageFlag:(BOOL)isHideLoginTipsImageFlag
+{
+    self.tipsBtn.hidden = isHideLoginTipsImageFlag;
 }
 
 @end

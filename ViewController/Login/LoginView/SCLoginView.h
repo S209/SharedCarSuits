@@ -17,4 +17,5 @@
 @interface SCLoginView : UIView
 @property (nonatomic, weak) id <SCLoginViewDelegate>delegate;
 - (instancetype)initWithFrame:(CGRect)frame;
+@property (nonatomic, assign) BOOL isHideLoginTipsImageFlag;
 @end

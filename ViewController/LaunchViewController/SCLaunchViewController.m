@@ -16,6 +16,7 @@
 #import "SCManager+RequestInterface.h"
 @interface SCLaunchViewController ()<SCLoginViewDelegate>
 @property (nonatomic , strong) SCHomeTabBarController * homeTabBarController;
+@property (nonatomic, weak) SCLoginView * loginView;
 @end
 
 @implementation SCLaunchViewController
@@ -38,6 +39,7 @@
 {
     SCLoginView * loginView = [[SCLoginView alloc] init];
     loginView.delegate = self;
+    self.loginView = loginView;
     [self.view addSubview:loginView];
     [loginView  mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
@@ -56,7 +58,12 @@
         SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
         [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-
+        NSInteger code = [[responseObject objectForKey:@"code"] integerValue];
+        if (code == 1001) {
+            self.loginView.isHideLoginTipsImageFlag = NO;
+        }else{
+            self.loginView.isHideLoginTipsImageFlag = YES;
+        }
     } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
 
     }];

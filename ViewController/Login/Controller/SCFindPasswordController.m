@@ -53,7 +53,7 @@
 - (void)nextStepWithSMSCode:(NSString *)smsCode
 {
     
-    [[SCManager shareInstance] verificationWithPhoneNum:self.phoneNumber code:smsCode success:^(NSURLSessionDataTask *serializer, id responseObject) {
+    [[SCManager shareInstance] verificationWithPhoneNum:[NSString stringWithFormat:@"%@",self.phoneNumber] code:smsCode success:^(NSURLSessionDataTask *serializer, id responseObject) {
         
         SCFindPasswordUpatePasswordController * updatePasswordController = [[SCFindPasswordUpatePasswordController alloc] init];
         [self.navigationController pushViewController:updatePasswordController animated:YES];

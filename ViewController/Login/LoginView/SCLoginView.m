@@ -163,8 +163,8 @@
 - (void)loginBtnClick:(UIButton *)sender
 {
     self.phoneNumberField.text = @"18210234591";
-//    self.loginPasswordField.text = @"12341aaa";
-    self.loginPasswordField.text = @"12341";
+    self.loginPasswordField.text = @"12341aaa";
+//    self.loginPasswordField.text = @"12341";
     if ([self.phoneNumberField.text isPhoneNumber] && self.loginPasswordField.text.length > 0) {
         if ([_delegate respondsToSelector:@selector(loginViewLoginWithAccount:password:)]) {
             [self.delegate loginViewLoginWithAccount:self.phoneNumberField.text password:self.loginPasswordField.text];

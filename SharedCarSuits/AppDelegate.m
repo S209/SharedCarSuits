@@ -18,10 +18,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     SCLaunchViewController * launchView = [[SCLaunchViewController alloc] init];
     
-    UINavigationController * rootViewController = [[UINavigationController alloc] initWithRootViewController:launchView];
+//    UINavigationController * rootViewController = [[UINavigationController alloc] initWithRootViewController:launchView];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = rootViewController;
+    self.window.rootViewController = launchView;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

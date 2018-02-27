@@ -8,6 +8,8 @@
 
 #import "SCExitShowTipsView.h"
 #import "SCManager+CommonMethods.h"
+#import "SCLaunchViewController.h"
+#import "AppDelegate.h"
 @implementation SCExitShowTipsView
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -95,8 +97,15 @@
             exitInfoLabel.textColor = [UIColor sc_colorWith999999];
         }else{
             exitInfoLabel.textColor = [UIColor sc_colorWithE81F1F];
-            UITapGestureRecognizer * tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestClick)];
-            [exitLabel addGestureRecognizer:tapGest];
+            UIButton * btnClickBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [tipView addSubview:btnClickBtn];
+            [btnClickBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(tipView.mas_left).with.offset(0);
+                make.right.equalTo(tipView.mas_right).with.offset(-0);
+                make.top.equalTo(segmentView.mas_bottom).with.offset(topY);
+                make.height.mas_equalTo(50);
+            }];
+            [btnClickBtn addTarget:self action:@selector(tapGestClick) forControlEvents:UIControlEventTouchUpInside];
         }
         exitInfoLabel.textAlignment = NSTextAlignmentCenter;
         exitInfoLabel.font = [UIFont sy_font14];
@@ -106,7 +115,9 @@
 #pragma mark 确认退出
 - (void)tapGestClick
 {
-    
+    [self diss];
+    SCLaunchViewController * launchView = [[SCLaunchViewController alloc] init];
+    [AppDelegate getAppDelegate].window.rootViewController = launchView;
 }
 
 - (void)diss

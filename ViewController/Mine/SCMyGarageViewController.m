@@ -10,8 +10,13 @@
 #import "SCMyGarageViewCell.h"
 #import "SCMyGarageViewDeletViewAlertView.h"
 #import "SCManager+RequestInterface.h"
-@interface SCMyGarageViewController ()<UITableViewDataSource,UITableViewDelegate,SCMyGarageViewCellDelegate>
-@property (nonatomic, strong)NSMutableArray * dataArray;
+#import "SCManager+CommonMethods.h"
+#import "SCMyGarageListPageModel.h"
+@interface SCMyGarageViewController ()<UITableViewDataSource,UITableViewDelegate,SCMyGarageViewCellDelegate,SCMyGarageViewDeletViewAlertViewDelegate>
+@property (nonatomic, strong) NSMutableArray * dataArray;
+@property (nonatomic, assign) NSInteger length;
+@property (nonatomic, weak) UITableView * tableView;
+@property (nonatomic, copy) NSString * deleteCarId;
 @end
 
 @implementation SCMyGarageViewController
@@ -29,10 +34,60 @@
     [self setupView];
 }
 
+- (void)loadNewData
+{
+    self.length = 10;
+    [self requestDataWithLength:@"10"];
+}
+
+- (void)loadMoreData
+{
+    self.length += 10;
+    [self requestDataWithLength:[NSString stringWithFormat:@"%zd",self.length]];
+}
+
+- (void)requestDataWithLength:(NSString *)length
+{
+    NSString * userId = [SCManager getUserId];
+    WEAKSELF
+    [[SCManager shareInstance] myGarageWithId:userId andLength:length success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        STRONGSELF
+        NSInteger hasMore = [[responseObject objectForKey:@"ifHave"] integerValue];
+      
+        if ([length integerValue] == 10) {
+            [strongSelf.dataArray removeAllObjects];
+            [strongSelf.tableView.mj_header endRefreshing];
+        }
+        if (hasMore) {
+            strongSelf.tableView.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+        }else{
+            strongSelf.tableView.mj_footer = nil;
+        }
+
+        NSArray * myGarageListArray = [responseObject objectForKey:@"list"];
+        if ([myGarageListArray isKindOfClass:[NSArray class]] && myGarageListArray.count > 0) {
+            for (NSDictionary * myGarageDict in myGarageListArray) {
+                SCMyGarageListPageModel * pageModel = [SCMyGarageListPageModel yy_modelWithDictionary:myGarageDict];
+                [strongSelf.dataArray addObject:pageModel];
+            }
+        }
+        [strongSelf.tableView reloadData];
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+          STRONGSELF
+        [strongSelf.tableView.mj_header endRefreshing];
+        [strongSelf.tableView.mj_footer endRefreshing];
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+          STRONGSELF
+        [strongSelf.tableView.mj_header endRefreshing];
+        [strongSelf.tableView.mj_footer endRefreshing];
+    }];
+}
+
 
 - (void)setupView
 {
     UITableView * tableView = [[UITableView alloc] init];
+    self.tableView = tableView;
     [self.view addSubview:tableView];
     tableView.delegate = self;
     tableView.dataSource = self;
@@ -40,10 +95,17 @@
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(-0);
-        make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight+10);
+        make.top.equalTo(self.view.mas_top).with.offset(0);
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
     }];
     tableView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    tableView.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    
+    UIView * tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10)];
+    tableHeaderView.backgroundColor = [UIColor sc_colorWithF4F4F4];
+    tableView.tableHeaderView = tableHeaderView;
+    [tableView.mj_header beginRefreshing];
 }
 
 #pragma mark
@@ -76,17 +138,54 @@
 }
 
 #pragma mark SCMyGarageViewCellDelegate
-- (void)myGarageViewCellClickEditor
+- (void)myGarageViewCellClickEditorWihtModel:(SCMyGarageListPageModel *)pageModel
+{
+    [[SCManager shareInstance] myGarageEditWithCarId:[NSString stringWithFormat:@"%zd",pageModel.carId ] carModel:pageModel.carModel carNum:pageModel.carNum success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        
+    }];
+}
+
+- (void)myGarageViewCellClickDefaultWithModel:(SCMyGarageListPageModel *)pageModel
+{
+    [[SCManager shareInstance] myGarageCarDefaultWithCarId:[NSString stringWithFormat:@"%zd",pageModel.carId] success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        
+    }];
+}
+
+- (void)myGarageViewCellClickDeleteWithModel:(SCMyGarageListPageModel *)pageModel
+{
+    SCMyGarageViewDeletViewAlertView * deleteView = [[SCMyGarageViewDeletViewAlertView alloc] init];
+    deleteView.delegate = self;
+    [deleteView showWithCarName:pageModel.carModel];
+    self.deleteCarId = [NSString stringWithFormat:@"%zd",pageModel.carId];
+}
+
+
+#pragma mark
+- (void)deleteCarInfo
+{
+    [[SCManager shareInstance] myGarageDeleteWithCarId:self.deleteCarId success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        
+    }];
+}
+
+#pragma mark addCar
+- (void)addCar
 {
    
 }
-
-- (void)myGarageViewCellClickDeleteWithCarName:(NSString *)carName
-{
-    SCMyGarageViewDeletViewAlertView * deleteView = [[SCMyGarageViewDeletViewAlertView alloc] init];
-    [deleteView showWithCarName:carName];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

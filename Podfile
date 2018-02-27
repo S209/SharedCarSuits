@@ -14,7 +14,8 @@ target 'SharedCarSuits' do
     pod 'CRGradientNavigationBar', '~> 0.3.2'
     pod 'MBProgressHUD', '~> 1.0.0'
     pod 'WMPageController', '~> 2.5.2'
-    pod 'FDFullscreenPopGesture', '1.1'
+#    pod 'FDFullscreenPopGesture', '1.1'
+    pod 'MJRefresh'
     # Pods for SharedCarSuits
     
     target 'SharedCarSuitsTests' do

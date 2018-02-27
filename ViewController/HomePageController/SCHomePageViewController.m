@@ -41,7 +41,7 @@
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(-0);
-        make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight);
+        make.top.equalTo(self.view.mas_top).with.offset(0);
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-10-SYTabBarHeight);
     }];
 }

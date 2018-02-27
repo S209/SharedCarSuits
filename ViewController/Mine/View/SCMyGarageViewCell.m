@@ -174,15 +174,15 @@
 
 - (void)editorBtnClick:(UIButton *)sender
 {
-    if ([_delegate respondsToSelector:@selector(myGarageViewCellClickEditor)]) {
-        [self.delegate myGarageViewCellClickEditor];
+    if ([_delegate respondsToSelector:@selector(myGarageViewCellClickEditorWihtModel:)]) {
+        [self.delegate myGarageViewCellClickEditorWihtModel:self.pageModel];
     }
 }
 
 - (void)deleteBtnClick:(UIButton *)sender
 {
-    if ([_delegate respondsToSelector:@selector(myGarageViewCellClickDeleteWithCarName:)]) {
-        [self.delegate myGarageViewCellClickDeleteWithCarName:@""];
+    if ([_delegate respondsToSelector:@selector(myGarageViewCellClickDeleteWithModel:)]) {
+        [self.delegate myGarageViewCellClickDeleteWithModel:self.pageModel];
     }
 }
 
@@ -197,12 +197,15 @@
         [self.checkImageView setImage:[UIImage imageNamed:@"mycar_choise_selected"]];
         sender.selected = YES;
     }
+    if ([_delegate respondsToSelector:@selector(myGarageViewCellClickDefaultWithModel:)]) {
+        [self.delegate myGarageViewCellClickDefaultWithModel:self.pageModel];
+    }
 }
 
 - (void)setPageModel:(SCMyGarageListPageModel *)pageModel
 {
     _pageModel = pageModel;
-    self.carNameLabel.text = pageModel.carModel;
+    self.carNameLabel.text = [NSString stringWithFormat:@" %@ ",pageModel.carModel];
     self.carNumberLabel.text = pageModel.carNum;
     if (pageModel.type == 0) {
         [self.checkImageView setImage:[UIImage imageNamed:@"mycar_choise_selected"]];

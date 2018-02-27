@@ -10,8 +10,9 @@
 @class SCMyGarageListPageModel;
 @protocol SCMyGarageViewCellDelegate<NSObject>
 @required
-- (void)myGarageViewCellClickEditor;
-- (void)myGarageViewCellClickDeleteWithCarName:(NSString *)carName;
+- (void)myGarageViewCellClickDefaultWithModel:(SCMyGarageListPageModel *)pageModel;
+- (void)myGarageViewCellClickEditorWihtModel:(SCMyGarageListPageModel *)pageModel;
+- (void)myGarageViewCellClickDeleteWithModel:(SCMyGarageListPageModel *)pageModel;
 @end
 @interface SCMyGarageViewCell : UITableViewCell
 + (instancetype)myGarageViewCellWithTable:(UITableView *)tableView;

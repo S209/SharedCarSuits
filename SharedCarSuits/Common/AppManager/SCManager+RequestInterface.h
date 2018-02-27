@@ -91,9 +91,9 @@
  我的车库删除
  /keleapp/car/carDelete.jspx
  */
-- (void)myGarageDeleteWithUserId:(NSString *)userId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+- (void)myGarageDeleteWithCarId:(NSString *)carId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 //keleapp/car/carDefault.jspx
-- (void)myGarageCarDefaultWithUserId:(NSString *)userId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+- (void)myGarageCarDefaultWithCarId:(NSString *)userId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 ///keleapp/car/carAdd.jspx
 - (void)myGarageCarAddWithCarNum:(NSString *)carNum carModel:(NSString *)carModel success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 ///keleapp/coupon/couponReceiveList.jspx

@@ -25,10 +25,8 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"门店";
+    [self setNavigationWithTitle:@"门店"];
     [self setupView];
-    
-  
 }
 
 - (void)setupView
@@ -42,7 +40,7 @@
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
-        make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight+10);
+        make.top.equalTo(self.view.mas_top).with.offset(10);
         make.right.equalTo(self.view.mas_right).with.offset(-0);
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-SYTabBarHeight);
     }];

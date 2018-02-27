@@ -105,10 +105,12 @@
     }
 }
 
-#pragma mark 确认退出
+#pragma mark 确认删除
 - (void)tapGestClick
 {
-    
+    if ([_delegate respondsToSelector:@selector(deleteCarInfo)]) {
+        [self.delegate deleteCarInfo];
+    }
 }
 
 - (void)diss

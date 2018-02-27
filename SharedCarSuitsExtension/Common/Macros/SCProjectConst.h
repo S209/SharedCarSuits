@@ -18,4 +18,6 @@ typedef enum {
     WPPasswordStrengthTypeModerate = 2,
     WPPasswordStrengthTypeStrong = 3,
 } WPPasswordStrengthType;
+#define WEAKSELF __weak typeof(self) weakSelf = self;
+#define STRONGSELF __strong typeof(weakSelf) strongSelf = weakSelf;
 #endif /* SCProjectConst_h */

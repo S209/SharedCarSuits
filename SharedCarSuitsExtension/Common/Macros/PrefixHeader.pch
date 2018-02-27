@@ -25,4 +25,5 @@
 #import <NSObject+YYModel.h>
 #import "SCNSUserDefaultsAndNotificConst.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <MJRefresh.h>
 #endif /* PrefixHeader_pch */

@@ -32,9 +32,9 @@
     if (self) {
         self.httpsRequestManager = [[AFHTTPSessionManager alloc] init];
         self.httpsRequestManager.requestSerializer = [AFJSONRequestSerializer serializer];
-        [self.httpsRequestManager.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] objectForKey:SCSessionId ]forHTTPHeaderField:@"Cookie"];
         self.httpsRequestManager.responseSerializer = [AFJSONResponseSerializer serializer];
         [self.httpsRequestManager.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html",@"text/plain", nil]];
+        [self.httpsRequestManager.requestSerializer setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
     }
     return self;
 }
@@ -44,8 +44,9 @@ parameters:(NSDictionary *)parameters
    success:(SuccessBlock)success
     notice:(OptionBlock)notice
    failure:(FailureBlock)failure{
+    NSString * cookieString = [NSString stringWithFormat:@"JSESSIONID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:SCSessionId]];
+     [self.httpsRequestManager.requestSerializer setValue:cookieString forHTTPHeaderField:@"Cookie"];
     AFHTTPSessionManager *requestManager = self.httpsRequestManager;
-
     return [requestManager POST:URLString parameters:[self finalParametersWithParams:parameters] progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

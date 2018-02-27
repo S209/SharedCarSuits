@@ -198,9 +198,9 @@
     }];
 }
 
-- (void)myGarageDeleteWithUserId:(NSString *)userId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+- (void)myGarageDeleteWithCarId:(NSString *)carId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
 {
-    NSDictionary * paramater = @{@"id":userId};
+    NSDictionary * paramater = @{@"id":carId};
     [self requestUrl:SCUrl_GarageDeleted andParamater:paramater success:^(NSURLSessionDataTask *serializer, id responseObject) {
         if (success) {
             success(serializer,responseObject);
@@ -216,7 +216,7 @@
     }];
 }
 
-- (void)myGarageCarDefaultWithUserId:(NSString *)userId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+- (void)myGarageCarDefaultWithCarId:(NSString *)userId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
 {
     NSDictionary * paramater = @{@"id":userId};
     [self requestUrl:SCUrl_MyGarageSetAsTheDefaultCar andParamater:paramater success:^(NSURLSessionDataTask *serializer, id responseObject) {
@@ -302,10 +302,10 @@
                 }
                 
                 if ([dataDict isKindOfClass:[NSDictionary class]] && dataDict.allKeys.count) {
-                    NSString * uIdString = [NSString stringWithFormat:@"%zd",[responseObject objectForKey:@"uId"]];
+                    NSString * uIdString = [NSString stringWithFormat:@"%@",[responseObject objectForKey:@"uId"]];
                     
                     [[SCManager shareInstance] setUserUid:uIdString];
-                    NSString * sessionIdString = [NSString stringWithFormat:@"%zd",[responseObject objectForKey:@"sessionId"]];
+                    NSString * sessionIdString = [NSString stringWithFormat:@"%@",[responseObject objectForKey:@"sessionId"]];
                     [[SCManager shareInstance] setSessionId:sessionIdString];
                     
                     success(serializer,dataDict);

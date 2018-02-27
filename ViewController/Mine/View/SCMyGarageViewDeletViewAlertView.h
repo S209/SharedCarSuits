@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol SCMyGarageViewDeletViewAlertViewDelegate<NSObject>
+@required
+- (void)deleteCarInfo;
+@end
 @interface SCMyGarageViewDeletViewAlertView : UIView
+@property (nonatomic, weak) id <SCMyGarageViewDeletViewAlertViewDelegate>delegate;
 - (void)showWithCarName:(NSString *)carName;
 - (void)diss;
 @end

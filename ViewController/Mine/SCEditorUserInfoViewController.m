@@ -28,6 +28,7 @@
 {
     UIImageView * iconImageView = [[UIImageView alloc] init];
     [self.view addSubview:iconImageView];
+    self.iconImageView = iconImageView;
     [iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(95, 95));
         make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight+60);

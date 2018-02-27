@@ -46,7 +46,7 @@
 #pragma mark 从相册获取图片或视频
 - (void)selectImageFromAlbum
 {
-    //NSLog(@"相册");
+
     self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     [self presentViewController:self.imagePickerController animated:YES completion:nil];
@@ -66,9 +66,9 @@
     //判断资源类型
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]){
         //如果是图片
-        //        self.imageView.image = info[UIImagePickerControllerEditedImage];
+                self.iconImageView .image = info[UIImagePickerControllerEditedImage];
         //        //压缩图片
-        //        NSData *fileData = UIImageJPEGRepresentation(self.imageView.image, 1.0);
+                NSData *fileData = UIImageJPEGRepresentation(self.iconImageView.image, 1.0);
         //        //保存图片至相册
         //        UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
         //        //上传图片

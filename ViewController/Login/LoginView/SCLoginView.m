@@ -147,10 +147,35 @@
     registerBtn.layer.masksToBounds = YES;
     [registerBtn.layer setCornerRadius:4.0];
     
+    UILabel * findPasswordLabel = [[UILabel alloc] init];
+    // 下划线
+    NSDictionary *attribtDic = @{NSUnderlineStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]};
+    NSMutableAttributedString *attribtStr = [[NSMutableAttributedString alloc]initWithString:@"找回密码" attributes:attribtDic];
+    [attribtStr addAttribute:NSFontAttributeName value:[UIFont sy_font14] range:NSMakeRange(0, 4)];
+    [attribtStr addAttribute:NSForegroundColorAttributeName value:[UIColor sc_colorWith666666] range:NSMakeRange(0, 4)];
+    
+    //赋值
+    findPasswordLabel.attributedText = attribtStr;
+    [self addSubview:findPasswordLabel];
+
+    [findPasswordLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.mas_right).with.offset(-15);
+        make.bottom.equalTo(registerBtn.mas_top).with.offset(-25);
+    }];
+    
+    
+    UIImageView * questImageView = [[UIImageView alloc] init];
+    [self addSubview:questImageView];
+    [questImageView setImage:[UIImage imageNamed:@"login_ico_noti"]];
+    [questImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(15.5, 15.5));
+        make.right.equalTo(findPasswordLabel.mas_left).with.offset(-5);
+        make.top.equalTo(findPasswordLabel.mas_top).with.offset(3);
+    }];
+    
     UIButton * findPasswordBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self addSubview:findPasswordBtn];
     self.findPasswordBtn = findPasswordBtn;
-    findPasswordBtn.backgroundColor = [UIColor redColor];
     [findPasswordBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.mas_right).with.offset(-15);
         make.bottom.equalTo(registerBtn.mas_top).with.offset(-25);
@@ -164,7 +189,6 @@
 {
     self.phoneNumberField.text = @"18210234591";
     self.loginPasswordField.text = @"12341aaa";
-//    self.loginPasswordField.text = @"12341";
     if ([self.phoneNumberField.text isPhoneNumber] && self.loginPasswordField.text.length > 0) {
         if ([_delegate respondsToSelector:@selector(loginViewLoginWithAccount:password:)]) {
             [self.delegate loginViewLoginWithAccount:self.phoneNumberField.text password:self.loginPasswordField.text];

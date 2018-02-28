@@ -12,6 +12,7 @@
 #import "SCManager+RequestInterface.h"
 #import "SCManager+CommonMethods.h"
 #import "SCMyGarageListPageModel.h"
+#import "SCDIYHeader.h"
 @interface SCMyGarageViewController ()<UITableViewDataSource,UITableViewDelegate,SCMyGarageViewCellDelegate,SCMyGarageViewDeletViewAlertViewDelegate>
 @property (nonatomic, strong) NSMutableArray * dataArray;
 @property (nonatomic, assign) NSInteger length;
@@ -99,7 +100,7 @@
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
     }];
     tableView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
-    tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    tableView.mj_header = [SCDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     tableView.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     
     UIView * tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10)];

@@ -150,6 +150,15 @@
         make.size.mas_equalTo(CGSizeMake(20.5, 17.5));
     }];
 
+    UIButton * myCouponBtn = [[UIButton alloc] init];
+    [bottomView addSubview:myCouponBtn];
+    [myCouponBtn addTarget:self action:@selector(myCouponBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [myCouponBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(bottomView.mas_left).with.offset(0);
+        make.right.equalTo(segmentView.mas_left).with.offset(-0);
+        make.top.equalTo(bottomView.mas_top).with.offset(0);
+        make.height.mas_equalTo(40);
+    }];
 
     //我的车库
     UILabel * myCarLabel = [[UILabel alloc] init];
@@ -228,6 +237,13 @@
 {
     if ([_delegate respondsToSelector:@selector(mineViewHeaderMyGarage)]) {
         [self.delegate mineViewHeaderMyGarage];
+    }
+}
+
+- (void)myCouponBtnClick
+{
+    if ([_delegate respondsToSelector:@selector(mineMyCoupon)]) {
+        [self.delegate mineMyCoupon];
     }
 }
 

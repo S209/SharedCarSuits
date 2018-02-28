@@ -15,6 +15,7 @@
 #import "SCUserModel.h"
 #import "SCMyMsgViewController.h"
 #import "SCOrderListViewController.h"
+#import "SCMyCouponViewController.h"
 @interface SCMineViewController()<UITableViewDelegate,UITableViewDataSource,SCMineViewHeaderViewDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, weak) SCMineViewHeaderView * headerView;
@@ -156,6 +157,12 @@
 {
     SCMyGarageViewController * myGarageViewController = [[SCMyGarageViewController alloc] init];
     [self.navigationController pushViewController:myGarageViewController animated:YES];
+}
+
+- (void)mineMyCoupon
+{
+    SCMyCouponViewController * couponViewController = [[SCMyCouponViewController alloc] init];
+    [self.navigationController pushViewController:couponViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

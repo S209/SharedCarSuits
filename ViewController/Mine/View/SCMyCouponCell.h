@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class SCCouponModel;
 @interface SCMyCouponCell : UITableViewCell
-
++ (instancetype)myCouponCellWithTableView:(UITableView *)tableView andObj:(SCCouponModel *)model;
++ (CGFloat)cellHeight;
 @end

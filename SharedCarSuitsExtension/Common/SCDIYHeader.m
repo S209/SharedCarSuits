@@ -16,9 +16,16 @@
 - (void)prepare
 {
     [super prepare];
-    self.mj_h = 50;
     
-    
+    // 设置普通状态的动画图片
+    NSMutableArray *idleImages = [NSMutableArray array];
+    for (NSUInteger i = 1; i<=8; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"loading_img_%zd", i]];
+        [idleImages addObject:image];
+    }
+    [self setImages:idleImages forState:MJRefreshStateRefreshing];
+    self.stateLabel.hidden = YES;
+    self.lastUpdatedTimeLabel.hidden = YES;
 }
 
 @end

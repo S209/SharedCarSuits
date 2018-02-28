@@ -6,8 +6,8 @@
 //  Copyright © 2018年 tuhaisheng. All rights reserved.
 //
 
-#import <MJRefresh/MJRefresh.h>
+#import "MJRefreshGifHeader.h"
 
-@interface SCDIYHeader : MJRefreshHeader
+@interface SCDIYHeader : MJRefreshGifHeader
 
 @end

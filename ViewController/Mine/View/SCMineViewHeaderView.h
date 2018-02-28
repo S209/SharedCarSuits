@@ -12,6 +12,7 @@
 @required
 - (void)mineViewHeaderViewClickEditor;
 - (void)mineViewHeaderMyGarage;
+- (void)mineMyCoupon;
 @end
 @interface SCMineViewHeaderView : UIView
 @property (nonatomic, weak) id <SCMineViewHeaderViewDelegate>delegate;

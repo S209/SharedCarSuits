@@ -91,6 +91,9 @@
 		05E94F832033317700210BE3 /* SCHomePageSectionOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E94F822033317700210BE3 /* SCHomePageSectionOneCell.m */; };
 		05E94F862033318500210BE3 /* SCHomePageSectionTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E94F852033318500210BE3 /* SCHomePageSectionTwoCell.m */; };
 		05F024D920456ADA00FE3794 /* SCDIYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F024D820456ADA00FE3794 /* SCDIYHeader.m */; };
+		05F024DF2046885400FE3794 /* SCMyMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F024DE2046885400FE3794 /* SCMyMsgViewController.m */; };
+		05F024E22046898900FE3794 /* SCMyMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F024E12046898900FE3794 /* SCMyMsgCell.m */; };
+		05F024E5204689E000FE3794 /* SCMyMsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F024E4204689E000FE3794 /* SCMyMsgModel.m */; };
 		A7A03487A480F79B5C5D8C66 /* libPods-SharedCarSuitsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B31BBBBF74AC20BFA0ECB8 /* libPods-SharedCarSuitsUITests.a */; };
 		B54ACDE8FDCE0F818429C677 /* libPods-SharedCarSuits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEC7B6670E2B583689B8B8C /* libPods-SharedCarSuits.a */; };
 		F0363A110D61A92361150273 /* libPods-SharedCarSuitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A4C0452F94898FC366DE15 /* libPods-SharedCarSuitsTests.a */; };
@@ -288,6 +291,12 @@
 		05E94F852033318500210BE3 /* SCHomePageSectionTwoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCHomePageSectionTwoCell.m; sourceTree = "<group>"; };
 		05F024D720456ADA00FE3794 /* SCDIYHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDIYHeader.h; sourceTree = "<group>"; };
 		05F024D820456ADA00FE3794 /* SCDIYHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDIYHeader.m; sourceTree = "<group>"; };
+		05F024DD2046885400FE3794 /* SCMyMsgViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMyMsgViewController.h; sourceTree = "<group>"; };
+		05F024DE2046885400FE3794 /* SCMyMsgViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMyMsgViewController.m; sourceTree = "<group>"; };
+		05F024E02046898900FE3794 /* SCMyMsgCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMyMsgCell.h; sourceTree = "<group>"; };
+		05F024E12046898900FE3794 /* SCMyMsgCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMyMsgCell.m; sourceTree = "<group>"; };
+		05F024E3204689E000FE3794 /* SCMyMsgModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMyMsgModel.h; sourceTree = "<group>"; };
+		05F024E4204689E000FE3794 /* SCMyMsgModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMyMsgModel.m; sourceTree = "<group>"; };
 		2395F901FF494BAEC814C9AA /* Pods-SharedCarSuitsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsUITests/Pods-SharedCarSuitsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		39F0ED9ACAE88E8ED7934748 /* Pods-SharedCarSuits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuits/Pods-SharedCarSuits.debug.xcconfig"; sourceTree = "<group>"; };
 		3FA8F58B19238B9921B044F9 /* Pods-SharedCarSuitsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedCarSuitsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharedCarSuitsTests/Pods-SharedCarSuitsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -355,6 +364,8 @@
 				05626CDD2043030600714531 /* SCChoiseBrandCarGroupModel.m */,
 				05626CDF204309FE00714531 /* SCUserModel.h */,
 				05626CE0204309FE00714531 /* SCUserModel.m */,
+				05F024E3204689E000FE3794 /* SCMyMsgModel.h */,
+				05F024E4204689E000FE3794 /* SCMyMsgModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -520,6 +531,8 @@
 				05626CF12044491000714531 /* SCCompleteOrderListViewController.m */,
 				05626CF32044492800714531 /* SCOrderCancelListViewController.h */,
 				05626CF42044492800714531 /* SCOrderCancelListViewController.m */,
+				05F024DD2046885400FE3794 /* SCMyMsgViewController.h */,
+				05F024DE2046885400FE3794 /* SCMyMsgViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -710,6 +723,8 @@
 				05626CD1204272FE00714531 /* SCOrderViewServeCell.m */,
 				05626CF620445A3500714531 /* SCOrderListCell.h */,
 				05626CF720445A3500714531 /* SCOrderListCell.m */,
+				05F024E02046898900FE3794 /* SCMyMsgCell.h */,
+				05F024E12046898900FE3794 /* SCMyMsgCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1077,6 +1092,7 @@
 				05C94285202EB3D100B78CA4 /* UIBarButtonItem+Spacing.m in Sources */,
 				05C94259202D7F3900B78CA4 /* UIColor+Additional.m in Sources */,
 				05626CC52041458700714531 /* SCMakeAnAppointmentprocessCell.m in Sources */,
+				05F024DF2046885400FE3794 /* SCMyMsgViewController.m in Sources */,
 				05626CDE2043030600714531 /* SCChoiseBrandCarGroupModel.m in Sources */,
 				05626CF52044492800714531 /* SCOrderCancelListViewController.m in Sources */,
 				0573B03A203FE27E0017D852 /* SCMyAppointmentViewCell.m in Sources */,
@@ -1114,6 +1130,7 @@
 				05DAD55C203098B3000E13C2 /* SCMineViewHeaderView.m in Sources */,
 				05C9426C202E8CE800B78CA4 /* SCLaunchViewController.m in Sources */,
 				0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */,
+				05F024E22046898900FE3794 /* SCMyMsgCell.m in Sources */,
 				05DAD5672031727C000E13C2 /* SCManager+Login.m in Sources */,
 				05E94F862033318500210BE3 /* SCHomePageSectionTwoCell.m in Sources */,
 				05626CC820419B7E00714531 /* SCAppointmentProcessViewController.m in Sources */,
@@ -1142,6 +1159,7 @@
 				0571C16E204120DC002781B4 /* SCLoginResponseObjectModel.m in Sources */,
 				05DAD56020316D6D000E13C2 /* NSString+Predicate.m in Sources */,
 				05626CC22041406900714531 /* SCMakeAnAppointmentprocessController.m in Sources */,
+				05F024E5204689E000FE3794 /* SCMyMsgModel.m in Sources */,
 				05C94277202EA1C700B78CA4 /* UIView+CDFFrame.m in Sources */,
 				05C94288202EB85000B78CA4 /* SCRetrieveThePasswordView.m in Sources */,
 				0573B02C203D53C50017D852 /* SCMyGarageListPageModel.m in Sources */,

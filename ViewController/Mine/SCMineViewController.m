@@ -13,6 +13,7 @@
 #import "SCEditorUserInfoViewController.h"
 #import "SCMyGarageViewController.h"
 #import "SCUserModel.h"
+#import "SCMyMsgViewController.h"
 #import "SCOrderListViewController.h"
 @interface SCMineViewController()<UITableViewDelegate,UITableViewDataSource,SCMineViewHeaderViewDelegate>
 @property (nonatomic, weak) UITableView * tableView;
@@ -131,6 +132,11 @@
         if (indexPath.row == 0) {
             SCOrderListViewController * orderListController = [[SCOrderListViewController alloc] init];
             [self.navigationController pushViewController:orderListController animated:YES];
+        }else if (indexPath.row == 1){
+            
+        }else if (indexPath.row == 2){
+            SCMyMsgViewController * msgController = [[SCMyMsgViewController alloc] init];
+            [self.navigationController pushViewController:msgController animated:YES];
         }
     }else if (indexPath.section == 1){
         SCSettingViewController * settingController = [[SCSettingViewController alloc] init];

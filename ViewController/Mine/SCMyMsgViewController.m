@@ -11,15 +11,49 @@
 #import "SCMyMsgCell.h"
 @interface SCMyMsgViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
+@property (nonatomic, strong) NSMutableArray * dataArray;
 @end
 
 @implementation SCMyMsgViewController
+
+- (NSMutableArray *)dataArray
+{
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavigationWithTitle:@"我的消息"];
     [self sy_leftBarButtonItem];
     [self setupView];
+    [self initWithData];
+}
+
+/*
+ imageName;
+ msgType;
+ lastMsg;
+ */
+- (void)initWithData
+{
+
+    SCMyMsgModel * model = [[SCMyMsgModel alloc] init];
+    model.imageName = @"";
+    model.msgType = @"系统消息";
+    [self.dataArray addObject:model];
+    
+    SCMyMsgModel * modelTwo = [[SCMyMsgModel alloc] init];
+    modelTwo.imageName = @"";
+    modelTwo.msgType = @"预约消息";
+    [self.dataArray addObject:modelTwo];
+    
+    SCMyMsgModel * modelThree = [[SCMyMsgModel alloc] init];
+    modelThree.imageName = @"";
+    modelThree.msgType = @"优惠券消息";
+    [self.dataArray addObject:modelThree];
 }
 
 - (void)setupView
@@ -47,11 +81,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SCMyMsgCell * cell = [SCMyMsgCell myMsgCellWithTabeleView:tableView];
+    SCMyMsgModel * model = [self.dataArray safeObjectAtIndex:indexPath.row];
+    SCMyMsgCell * cell = [SCMyMsgCell myMsgCellWithTabeleView:tableView withObj:model];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [SCMyMsgCell cellHeight];
 }

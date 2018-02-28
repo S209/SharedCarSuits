@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @protocol SCHomePageSectionOneCellDelegate<NSObject>
 @required
+- (void)homePageSectionOneCellReceiveCoupons;
 - (void)homePageSectionOneCellClickLoadMore;
 - (void)homePageDidSeleItemWitIndex:(NSInteger)index;
 @end

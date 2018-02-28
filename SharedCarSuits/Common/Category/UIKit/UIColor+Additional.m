@@ -109,4 +109,8 @@
 {
    return [self cdf_colorWithHexString:@"F64C38"];
 }
++ (UIColor *)sc_colorWithF97945
+{
+    return [self cdf_colorWithHexString:@"F97945"];
+}
 @end

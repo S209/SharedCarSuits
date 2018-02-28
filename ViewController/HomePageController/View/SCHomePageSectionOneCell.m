@@ -42,6 +42,9 @@
             make.top.equalTo(self.contentView.mas_top).with.offset(5);
             make.height.mas_equalTo(height);
         }];
+        advertisingImgView.userInteractionEnabled = YES;
+        UITapGestureRecognizer * tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick)];
+        [advertisingImgView addGestureRecognizer:tapGest];
         
         CGFloat carImgWidth = 54;
         CGFloat spaceWidth = ((SCREEN_WIDTH- 44)-4*54)/3;
@@ -160,6 +163,13 @@
     NSInteger tag = sender.tag-400;
     if ([_delegate respondsToSelector:@selector(homePageDidSeleItemWitIndex:)]) {
         [self.delegate homePageDidSeleItemWitIndex:tag];
+    }
+}
+
+- (void)tapClick
+{
+    if ([_delegate respondsToSelector:@selector(homePageSectionOneCellReceiveCoupons)]) {
+        [self.delegate homePageSectionOneCellReceiveCoupons];
     }
 }
 

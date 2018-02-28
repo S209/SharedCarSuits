@@ -15,6 +15,7 @@
 #import "SCMakeAnAppointmentprocessController.h"
 #import "SCAppointmentProcessViewController.h"
 #import "SCOrderListViewController.h"
+#import "SCReceiveCouponsViewConroller.h"
 @interface SCHomePageViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,SCHomePageSectionOneCellDelegate,SCHomePageSectionTwoCellDelegate>
 
 @end
@@ -103,6 +104,12 @@
     [self.navigationController pushViewController:listViewController animated:YES];
 }
 
+- (void)homePageSectionOneCellReceiveCoupons
+{
+    SCReceiveCouponsViewConroller * receiveCoupons = [[SCReceiveCouponsViewConroller alloc] init];
+    [self.navigationController pushViewController:receiveCoupons animated:YES];
+}
+
 #pragma mark 洗车美容、换油保养、钣金喷漆、施工直播
 - (void)homePageDidSeleItemWitIndex:(NSInteger)index
 {
@@ -120,7 +127,7 @@
 #pragma mark SCHomePageSectionTwoCellDelegate
 - (void)homePageSectionTwoCellClickWithObj:(id)obj
 {
-    
+ 
 }
 
 - (void)didReceiveMemoryWarning {

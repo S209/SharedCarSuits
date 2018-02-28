@@ -11,7 +11,6 @@
 		05626CC52041458700714531 /* SCMakeAnAppointmentprocessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CC42041458700714531 /* SCMakeAnAppointmentprocessCell.m */; };
 		05626CC820419B7E00714531 /* SCAppointmentProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CC720419B7E00714531 /* SCAppointmentProcessViewController.m */; };
 		05626CCB20419C8E00714531 /* SCTheirOwnSheetMetalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CCA20419C8E00714531 /* SCTheirOwnSheetMetalViewController.m */; };
-		05626CCF20426CC500714531 /* SCOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CCE20426CC500714531 /* SCOrderViewController.m */; };
 		05626CD2204272FE00714531 /* SCOrderViewServeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CD1204272FE00714531 /* SCOrderViewServeCell.m */; };
 		05626CD82043020700714531 /* SCChoiseBrandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CD72043020700714531 /* SCChoiseBrandViewController.m */; };
 		05626CDB204302C400714531 /* SCChoiseBrandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CDA204302C400714531 /* SCChoiseBrandModel.m */; };
@@ -123,8 +122,6 @@
 		05626CC720419B7E00714531 /* SCAppointmentProcessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAppointmentProcessViewController.m; sourceTree = "<group>"; };
 		05626CC920419C8E00714531 /* SCTheirOwnSheetMetalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCTheirOwnSheetMetalViewController.h; sourceTree = "<group>"; };
 		05626CCA20419C8E00714531 /* SCTheirOwnSheetMetalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCTheirOwnSheetMetalViewController.m; sourceTree = "<group>"; };
-		05626CCD20426CC500714531 /* SCOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOrderViewController.h; sourceTree = "<group>"; };
-		05626CCE20426CC500714531 /* SCOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOrderViewController.m; sourceTree = "<group>"; };
 		05626CD0204272FE00714531 /* SCOrderViewServeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOrderViewServeCell.h; sourceTree = "<group>"; };
 		05626CD1204272FE00714531 /* SCOrderViewServeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOrderViewServeCell.m; sourceTree = "<group>"; };
 		05626CD62043020700714531 /* SCChoiseBrandViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCChoiseBrandViewController.h; sourceTree = "<group>"; };
@@ -513,8 +510,6 @@
 				05E94F762032E4F800210BE3 /* SCMyGarageViewController.m */,
 				0573B035203FC72E0017D852 /* SCMyAppointmentViewController.h */,
 				0573B036203FC72E0017D852 /* SCMyAppointmentViewController.m */,
-				05626CCD20426CC500714531 /* SCOrderViewController.h */,
-				05626CCE20426CC500714531 /* SCOrderViewController.m */,
 				05626CE72044474100714531 /* SCOrderListViewController.h */,
 				05626CE82044474100714531 /* SCOrderListViewController.m */,
 				05626CEA204448B700714531 /* SCNoPayListViewController.h */,
@@ -1089,7 +1084,6 @@
 				05D34DC42031BF0A002AADA4 /* SCMineViewControllerSectionCell.m in Sources */,
 				05C94299202ED0E600B78CA4 /* SCRegisterViewCarInfoViewController.m in Sources */,
 				05626CF820445A3500714531 /* SCOrderListCell.m in Sources */,
-				05626CCF20426CC500714531 /* SCOrderViewController.m in Sources */,
 				05C94270202E8E3800B78CA4 /* SCLoginView.m in Sources */,
 				05626CEF204448FD00714531 /* SCPayedListViewController.m in Sources */,
 				05C9427C202EB1DC00B78CA4 /* SCFindPasswordController.m in Sources */,

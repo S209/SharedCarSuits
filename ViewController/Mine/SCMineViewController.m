@@ -13,6 +13,7 @@
 #import "SCEditorUserInfoViewController.h"
 #import "SCMyGarageViewController.h"
 #import "SCUserModel.h"
+#import "SCOrderListViewController.h"
 @interface SCMineViewController()<UITableViewDelegate,UITableViewDataSource,SCMineViewHeaderViewDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, weak) SCMineViewHeaderView * headerView;
@@ -120,11 +121,17 @@
     return 0.0;
 }
 
+/*
+ 我的订单 我的积分 我的消息
+ */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
  
     if (indexPath.section == 0) {
-        
+        if (indexPath.row == 0) {
+            SCOrderListViewController * orderListController = [[SCOrderListViewController alloc] init];
+            [self.navigationController pushViewController:orderListController animated:YES];
+        }
     }else if (indexPath.section == 1){
         SCSettingViewController * settingController = [[SCSettingViewController alloc] init];
         [self.navigationController pushViewController:settingController animated:YES];

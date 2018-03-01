@@ -9,9 +9,11 @@
 #import "SCMyCouponViewController.h"
 #import "SCMyCouponCell.h"
 #import "SCCouponModel.h"
+#import "SCManager+RequestInterface.h"
 @interface SCMyCouponViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
+@property (nonatomic, assign) NSInteger pageIndex;
 @end
 
 @implementation SCMyCouponViewController
@@ -29,12 +31,62 @@
     [self setNavigationWithTitle:@"我的优惠券"];
     [self sy_leftBarButtonItem];
     [self setupView];
+    [self loadNewData];
+}
+
+- (void)loadNewData
+{
+    self.pageIndex = 1;
+    [self loadDataWithPage:1];
+}
+
+- (void)loadMoreData
+{
+    self.pageIndex += 1;
+    [self loadDataWithPage:self.pageIndex];
+}
+
+- (void)loadDataWithPage:(NSInteger)page
+{
+    NSString * length = [NSString stringWithFormat:@"%zd",10*page];
+    NSString *  couponId;
+    SCCouponModel * couponModel = [self.dataArray lastObject];
+    if (couponModel.cpuponId > 0){
+        couponId = [NSString stringWithFormat:@"%zd",couponModel.cpuponId];
+    }else
+    {
+        couponId = @"0";
+    }
+    WEAKSELF
+    [[SCManager shareInstance] myCouponListWithId:couponId andLength:length success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        STRONGSELF
+        NSInteger ifHave = [[responseObject objectForKey:@"ifHave"] integerValue];
+        if (ifHave == 1){
+            strongSelf.tableView.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+        }else{
+            strongSelf.tableView.mj_footer = nil;
+        }
+        if (page == 1){
+            [strongSelf.dataArray removeAllObjects];
+            [strongSelf.tableView.mj_header endRefreshing];
+        }else{
+            [strongSelf.tableView.mj_footer endRefreshing];
+        }
+        NSArray * list = [responseObject objectForKey:@"list"];
+        strongSelf.dataArray = [[NSArray yy_modelArrayWithClass:[SCCouponModel class] json:list] mutableCopy];
+        [strongSelf.tableView reloadData];
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        
+    }];
 }
 
 - (void)setupView
 {
     UITableView * tableView = [[UITableView alloc] init];
     [self.view addSubview:tableView];
+    self.tableView = tableView;
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.backgroundColor = [UIColor sc_colorWithF4F4F4];
@@ -45,13 +97,14 @@
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
         make.top.equalTo(self.view.mas_top).with.offset(15);
     }];
+    tableView.mj_header = [SCDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    tableView.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
 #pragma mark
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    return self.dataArray.count;
-    return 5;
+   return self.dataArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

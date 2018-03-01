@@ -16,6 +16,7 @@
 @property (nonatomic, weak) UILabel * priceLabel;
 @property (nonatomic, weak) UIView * segmentView;
 @property (nonatomic, weak) UIButton * receiveBtn;
+@property (nonatomic, strong) SCCouponModel * couponModel;
 @end
 @implementation SCReceiveTableViewCell
 
@@ -36,6 +37,7 @@
     [tableView registerClass:[SCReceiveTableViewCell class] forCellReuseIdentifier:idDes];
     SCReceiveTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:idDes];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.couponModel = model;
     return cell;
 }
 
@@ -62,7 +64,7 @@
     self.couponNameLabel = couponNameLabel;
     couponNameLabel.textColor = [UIColor sc_colorWith444444];
     couponNameLabel.font = [UIFont sy_boldFont16];
-    couponNameLabel.text = @"自助洗车券";
+    
     
     
     UILabel * couponTimeLabel = [[UILabel alloc] init];
@@ -70,14 +72,14 @@
     self.couponTimeLabel = couponTimeLabel;
     couponTimeLabel.font = [UIFont sy_font12];
     couponTimeLabel.textColor = [UIColor sc_colorWith666666];
-    couponTimeLabel.text = @"有效期至 2017-07-02";
+    
     
     UILabel * couponTipsLabel = [[UILabel alloc] init];
     [bottomImageView addSubview:couponTipsLabel];
     self.couponTipsLabel = couponTipsLabel;
     couponTipsLabel.font = [UIFont sy_font12];
     couponTipsLabel.textColor = [UIColor sc_colorWithF64C38];
-    couponTipsLabel.text = @"新用户注册 自助洗车券";
+   
     
     UILabel * priceLabel = [[UILabel alloc] init];
     [bottomImageView addSubview:priceLabel];
@@ -161,9 +163,34 @@
     }
 }
 
+/*
+ cpuponId = 171;
+ createTime = "2018-02-19 20:15:58";
+ description = "\U94a3\U91d1\U55b7\U6f06\U94a3\U91d1\U55b7\U6f06";
+ endTime = "2018-04-29 20:00:00";
+ isUsed = 0;
+ name = "\U94a3\U91d1\U55b7\U6f06";
+ number = 50AE676024C218DA;
+ orderType = 3;
+ price = 22;
+ type = 1;
+ */
+- (void)setCouponModel:(SCCouponModel *)couponModel
+{
+    _couponModel = couponModel;
+    self.couponNameLabel.text = couponModel.name;
+    self.couponTimeLabel.text = couponModel.endTime;
+    self.couponTipsLabel.text = couponModel.descriptionString;
+    self.priceLabel.text = [NSString stringWithFormat:@"%zd",couponModel.price];
+
+}
+
 - (void)receiveBtnClick:(UIButton *)sender
 {
-    
+    if ([_delegate respondsToSelector:@selector(receiveCouponWithCouponModel:)]){
+        [self.delegate receiveCouponWithCouponModel:self
+                       .couponModel] ;
+    }
 }
 @end
 

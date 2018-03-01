@@ -8,9 +8,13 @@
 
 #import "SCReceiveCouponsViewConroller.h"
 #import "SCReceiveTableViewCell.h"
-@interface SCReceiveCouponsViewConroller ()<UITableViewDelegate,UITableViewDataSource>
+#import "SCManager+RequestInterface.h"
+#import "SCManager+CommonMethods.h"
+#import "SCCouponModel.h"
+@interface SCReceiveCouponsViewConroller ()<UITableViewDelegate,UITableViewDataSource,SCReceiveTableViewCellDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
+@property (nonatomic, assign) NSInteger page;
 @end
 
 @implementation SCReceiveCouponsViewConroller
@@ -26,9 +30,52 @@
     [super viewDidLoad];
     [self setNavigationWithTitle:@"领取优惠券"];
     [self setupView];
-
     [self sy_leftBarButtonItem];
+    [self loadNewData];
 }
+
+- (void)loadNewData
+{
+    self.page = 1;
+    [self loadDataWithPage:1];
+}
+
+- (void)loadMoreData
+{
+    self.page += 1;
+    [self loadDataWithPage:self.page];
+}
+
+- (void)loadDataWithPage:(NSInteger)page
+{
+    NSString * length = [NSString stringWithFormat:@"%zd",10*page];
+    NSString * couponsiD = @"0";
+    WEAKSELF
+    [[SCManager shareInstance] couponReceiveListWithLastCouponId:couponsiD length:length success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        STRONGSELF
+        
+        NSInteger ifHave = [[responseObject objectForKey:@"ifHave"] integerValue];
+        if (ifHave == 1){
+            strongSelf.tableView.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+        }else{
+            strongSelf.tableView.mj_footer = nil;
+        }
+        if (page == 1){
+            [strongSelf.dataArray removeAllObjects];
+            [strongSelf.tableView.mj_header endRefreshing];
+        }else{
+            [strongSelf.tableView.mj_footer endRefreshing];
+        }
+        NSArray * list = [responseObject objectForKey:@"list"];
+        strongSelf.dataArray = [[NSArray yy_modelArrayWithClass:[SCCouponModel class] json:list] mutableCopy];
+        [strongSelf.tableView reloadData];
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        
+    }];
+}
+
 
 - (void)setupView
 {
@@ -89,6 +136,7 @@
     [self.view addSubview:tableView];
     tableView.backgroundColor = [UIColor sc_colorWith6C6DFD];
     tableView.delegate = self;
+    self.tableView = tableView;
     tableView.dataSource = self;
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(15);
@@ -97,12 +145,14 @@
         make.top.equalTo(receiveCouponsLabel.mas_bottom).with.offset(20);
     }];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableView.mj_header = [SCDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    return self.dataArray.count;
-    return 5;
+    return self.dataArray.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -116,6 +166,7 @@
     SCReceiveTableViewCell * cell = [SCReceiveTableViewCell receiveTableViewCellWithTableView:tableView andObj:model];
     cell.backgroundColor = [UIColor sc_colorWith6C6DFD];
     cell.couponType = SCCouponTypeWithReceive;
+    cell.delegate = self;
     return cell;
 }
 
@@ -124,6 +175,18 @@
     return [SCReceiveTableViewCell cellHeight];
 }
 
+#pragma mark receiveCouponWithCouponDelegate
+- (void)receiveCouponWithCouponModel:(SCCouponModel *)model
+{
+    NSString * couponId = [NSString stringWithFormat:@"%zd",model.cpuponId];
+    [[SCManager shareInstance] couponReceiveWithCouponId:couponId success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

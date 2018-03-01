@@ -252,9 +252,9 @@
     }];
 }
 
-- (void)couponReceiveListWithUserId:(NSString *)userId length:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+- (void)couponReceiveListWithLastCouponId:(NSString *)lastCouponId length:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
 {
-    NSDictionary * paramater = @{@"id":userId,@"length":length};
+    NSDictionary * paramater = @{@"id":lastCouponId,@"length":length};
     [self requestUrl:SCUrl_GetCouponsList andParamater:paramater success:^(NSURLSessionDataTask *serializer, id responseObject) {
         if (success) {
             success(serializer,responseObject);
@@ -270,9 +270,9 @@
     }];
 }
 
-- (void)couponReceiveWithUserId:(NSString *)userId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+- (void)couponReceiveWithCouponId:(NSString *)couponId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
 {
-    NSDictionary * paramater = @{@"id":userId};
+    NSDictionary * paramater = @{@"id":couponId};
     [self requestUrl:SCUrl_ReceiveCouponsGet andParamater:paramater success:^(NSURLSessionDataTask *serializer, id responseObject) {
         if (success) {
             success(serializer,responseObject);

@@ -11,7 +11,7 @@
 @interface SCManager (RequestInterface)
 
 /**
- 注册获取验证码
+ 注册获取验证码(完)
  @param phoneNumber <#phoneNumber description#>
  */
 - (void)getRegisteredVerificationCodeWithPhoneNumber:(NSString *)phoneNumber success:(SuccessBlock)success
@@ -19,7 +19,7 @@
                                              failure:(FailureBlock)failure;
 
 /**
- 登录
+ 登录(完)
 
  @param loginName 账号
  @param passWord 密码
@@ -27,7 +27,7 @@
 - (void)logInWithLoginName:(NSString *)loginName passWord:(NSString *)passWord success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 
 /**
- 验证
+ 验证(完)
 
  @param phoneNum 手机号
  @param code 短信号码
@@ -92,14 +92,16 @@
  /keleapp/car/carDelete.jspx
  */
 - (void)myGarageDeleteWithCarId:(NSString *)carId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
 //keleapp/car/carDefault.jspx
 - (void)myGarageCarDefaultWithCarId:(NSString *)userId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
 ///keleapp/car/carAdd.jspx
 - (void)myGarageCarAddWithCarNum:(NSString *)carNum carModel:(NSString *)carModel success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 
-///keleapp/coupon/couponReceiveList.jspx
+//(完)
 - (void)couponReceiveListWithLastCouponId:(NSString *)lastCouponId length:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 
-///keleapp/coupon/couponReceive.jspx
+//(完)
 - (void)couponReceiveWithCouponId:(NSString *)couponId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 @end

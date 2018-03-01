@@ -75,12 +75,17 @@
     [self.msgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(20);
         make.centerY.mas_equalTo(self.mas_centerY);
-        make.size.mas_equalTo(CGSizeMake(20, 20));
+        make.size.mas_equalTo(CGSizeMake(40, 40));
     }];
     
     [self.msgTypeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.msgImageView.mas_right).with.offset(9.5);
-        make.top.equalTo(self.contentView.mas_top).with.offset(19);
+        make.top.equalTo(self.msgImageView.mas_top).with.offset(0);
+    }];
+     
+     [self.lastMsg mas_makeConstraints:^(MASConstraintMaker *make) {
+       make.left.equalTo(self.msgImageView.mas_right).with.offset(9.5);
+         make.bottom.equalTo(self.msgImageView.mas_bottom).with.offset(-0);
     }];
     
     [self.segmentView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -99,10 +104,9 @@
 - (void)setMsgModel:(SCMyMsgModel *)msgModel
 {
     _msgModel = msgModel;
-    
     self.lastMsg.text = msgModel.lastMsg;
     self.msgTypeLabel.text = msgModel.msgType;
-    [self.msgImageView sd_setImageWithURL:[NSURL URLWithString:msgModel.imageName] placeholderImage:[UIImage imageNamed:@""]];
+    [self.msgImageView setImage:[UIImage imageNamed:msgModel.imageName]];
     
 }
 @end

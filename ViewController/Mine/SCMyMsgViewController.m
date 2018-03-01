@@ -41,17 +41,17 @@
 {
 
     SCMyMsgModel * model = [[SCMyMsgModel alloc] init];
-    model.imageName = @"";
+    model.imageName = @"mynoti_list_icon_system";
     model.msgType = @"系统消息";
     [self.dataArray addObject:model];
     
     SCMyMsgModel * modelTwo = [[SCMyMsgModel alloc] init];
-    modelTwo.imageName = @"";
+    modelTwo.imageName = @"mynoti_list_icon_order";
     modelTwo.msgType = @"预约消息";
     [self.dataArray addObject:modelTwo];
     
     SCMyMsgModel * modelThree = [[SCMyMsgModel alloc] init];
-    modelThree.imageName = @"";
+    modelThree.imageName = @"mynoti_list_icon_coupon";
     modelThree.msgType = @"优惠券消息";
     [self.dataArray addObject:modelThree];
 }

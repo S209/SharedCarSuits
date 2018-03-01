@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "mycar_choise_selected.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "mynoti_list_icon_system.png",
       "scale" : "2x"
     },
     {

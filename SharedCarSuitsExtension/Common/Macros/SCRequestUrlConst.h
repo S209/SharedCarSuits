@@ -44,10 +44,10 @@
 //我的车库-添加车辆
 #define SCUrl_MyGarageAddACar GeneralUrl(@"/keleapp/car/carAdd.jspx")
 
-//领券优惠券列表
+//领券优惠券列表(完)
 #define SCUrl_GetCouponsList GeneralUrl(@"/keleapp/coupon/couponReceiveList.jspx")
 
-//领取优惠券-领取
+//领取优惠券-领取(完)
 #define SCUrl_ReceiveCouponsGet GeneralUrl(@"/keleapp/coupon/couponReceive.jspx")
 
 //我的 编辑个人信息

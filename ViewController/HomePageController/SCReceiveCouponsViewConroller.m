@@ -49,7 +49,16 @@
 - (void)loadDataWithPage:(NSInteger)page
 {
     NSString * length = [NSString stringWithFormat:@"%zd",10*page];
-    NSString * couponsiD = @"0";
+    
+    SCCouponModel * model = [self.dataArray lastObject];
+    NSString * couponsiD;
+    if (model.cpuponId > 0)
+    {
+        couponsiD = [NSString stringWithFormat:@"%zd",model.cpuponId];
+    }else
+    {
+        couponsiD = @"0";
+    }
     WEAKSELF
     [[SCManager shareInstance] couponReceiveListWithLastCouponId:couponsiD length:length success:^(NSURLSessionDataTask *serializer, id responseObject) {
         STRONGSELF

@@ -91,7 +91,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SCMineViewControllerSectionCell * cell = [SCMineViewControllerSectionCell mineWithTableView:tableView];
-    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     if (indexPath.section == 0) {
         [cell updateContentWithImageName:[self.contentImgArray safeObjectAtIndex:indexPath.row] content:[self.contentArray safeObjectAtIndex:indexPath.row]];
     }else{

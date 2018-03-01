@@ -26,7 +26,7 @@
 //找回密码
 #define SCUrl_RetrieveThePassword GeneralUrl(@"/keleapp/security/changePwd.jspx")
 
-//我的优惠券
+//我的优惠券(完)
 #define SCUrl_MyDiscountCoupon GeneralUrl(@"/keleapp/coupon/couponList.jspx")
 
 //我的车库列表

@@ -49,9 +49,16 @@
 
 - (void)requestDataWithLength:(NSString *)length
 {
-    NSString * userId = [SCManager getUserId];
+    SCMyGarageListPageModel * model = [self.dataArray lastObject];
+    NSString * carIdString;
+    if(model.carId){
+        carIdString = [NSString stringWithFormat:@"%zd",model.carId];
+    }else
+    {
+        carIdString = @"0";
+    }
     WEAKSELF
-    [[SCManager shareInstance] myGarageWithId:userId andLength:length success:^(NSURLSessionDataTask *serializer, id responseObject) {
+    [[SCManager shareInstance] myGarageWithId:carIdString andLength:length success:^(NSURLSessionDataTask *serializer, id responseObject) {
         STRONGSELF
         NSInteger hasMore = [[responseObject objectForKey:@"ifHave"] integerValue];
       

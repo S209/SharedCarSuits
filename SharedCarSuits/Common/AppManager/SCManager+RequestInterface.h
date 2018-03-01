@@ -65,16 +65,16 @@
 
 
 /**
- 我的优惠券
+ 我的优惠券(完)
 
- @param userId 用户ID
+ @param couponId 用户ID
  @param length 请求条数
  */
-- (void)myCouponListWithId:(NSString *)userId andLength:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+- (void)myCouponListWithId:(NSString *)couponId andLength:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 
 ///keleapp/car/carList.jspx
 /*
- 我的车库
+ 我的车库 (完)
  */
 - (void)myGarageWithId:(NSString *)userId andLength:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 

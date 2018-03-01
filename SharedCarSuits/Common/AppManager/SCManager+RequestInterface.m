@@ -89,9 +89,9 @@
 }
 
 
-- (void)myCouponListWithId:(NSString *)userId andLength:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+- (void)myCouponListWithId:(NSString *)couponId andLength:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
 {
-    NSDictionary * paramater = @{@"id":userId,@"length":length};
+    NSDictionary * paramater = @{@"id":couponId,@"length":length};
     [self requestUrl:SCUrl_MyDiscountCoupon andParamater:paramater success:^(NSURLSessionDataTask *serializer, id responseObject) {
         if (success) {
             success(serializer,responseObject);
@@ -107,9 +107,9 @@
     }];
 }
 
-- (void)myGarageWithId:(NSString *)userId andLength:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+- (void)myGarageWithId:(NSString *)carIdString andLength:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 {
-    NSDictionary * paramater = @{@"id":userId,@"length":length};
+    NSDictionary * paramater = @{@"id":carIdString,@"length":length};
     [self requestUrl:SCUrl_MyGarage andParamater:paramater success:^(NSURLSessionDataTask *serializer, id responseObject) {
         if (success) {
             success(serializer,responseObject);

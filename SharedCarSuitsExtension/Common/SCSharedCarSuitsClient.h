@@ -15,4 +15,8 @@ parameters:(NSDictionary *)parameters
     notice:(OptionBlock)notice
    failure:(FailureBlock)failure;
 
+- (id)get:(NSString *)URLString
+parameters:(NSDictionary *)parameters
+  success:(SuccessBlock)success
+  failure:(FailureBlock)failure;
 @end

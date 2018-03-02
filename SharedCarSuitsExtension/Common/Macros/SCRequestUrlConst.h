@@ -52,3 +52,5 @@
 
 //我的 编辑个人信息
 #define SCUrl_EditUserInfo GeneralUrl(@"/keleapp/userInfor/editUser.jspx")
+//我的汽车列表
+#define SCUrl_allCarBrand GeneralUrl(@"/keleapp/upload/data/allCarBrand.json")

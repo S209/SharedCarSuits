@@ -44,8 +44,20 @@
         make.height.mas_equalTo(40);
     }];
     choiseBrandLabel.backgroundColor = [UIColor sc_colorWihtf8f8f8];
-    UITapGestureRecognizer * tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(choiseBrandLabelClick)];
-    [choiseBrandLabel addGestureRecognizer:tapGest];
+//    UITapGestureRecognizer * tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(choiseBrandLabelClick)];
+//    [choiseBrandLabel addGestureRecognizer:tapGest];
+    UIButton * choiseLabelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self addSubview:choiseLabelBtn];
+    [choiseLabelBtn addTarget:self action:@selector(choiseBrandLabelClick) forControlEvents:UIControlEventTouchUpInside];
+    [choiseLabelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.mas_left).with.offset(15);
+        make.top.equalTo(brand.mas_bottom).with.offset(15);
+        make.right.equalTo(self.mas_right).with.offset(-15);
+        make.height.mas_equalTo(40);
+    }];
+    
+    
+    
     
     UILabel * carNumberLabel = [[UILabel alloc] init];
     [self addSubview:carNumberLabel];

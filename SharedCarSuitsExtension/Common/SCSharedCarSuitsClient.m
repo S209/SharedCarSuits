@@ -60,6 +60,27 @@ parameters:(NSDictionary *)parameters
     }];
 }
 
+
+- (id)get:(NSString *)URLString
+parameters:(NSDictionary *)parameters
+   success:(SuccessBlock)success
+   failure:(FailureBlock)failure{
+    NSString * cookieString = [NSString stringWithFormat:@"JSESSIONID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:SCSessionId]];
+    [self.httpsRequestManager.requestSerializer setValue:cookieString forHTTPHeaderField:@"Cookie"];
+    AFHTTPSessionManager *requestManager = self.httpsRequestManager;
+    
+    return [requestManager GET:URLString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (success) {
+            success(task,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failure) {
+            failure(task,error);
+        }
+    }];
+}
 #pragma mark 处理添加请求参数
 - (NSDictionary *)finalParametersWithParams:(NSDictionary *)params
 {

@@ -288,6 +288,26 @@
     }];
 }
 
+
+- (void)allCarBrandSuccess:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    [[SCSharedCarSuitsClient shareInstance] get:SCUrl_allCarBrand parameters:@{} success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        NSInteger code = [[responseObject objectForKey:@"code"] integerValue];
+        if (code == 200) {
+            if (success) {
+                NSArray * infoArray = [responseObject objectForKey:@"info"];
+                success(serializer,infoArray);
+            }
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer,error);
+        }
+    }];
+}
+
+
+
 - (void)requestUrl:(NSString *)url andParamater:(NSDictionary *)parameter success:(SuccessBlock)success
             notice:(OptionBlock)notice
            failure:(FailureBlock)failure

@@ -104,4 +104,8 @@
 
 //(完)
 - (void)couponReceiveWithCouponId:(NSString *)couponId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+/*
+ 嗯，数据文件放到服务器上了，http://115.29.214.90:8080/keleapp/upload/data/allCarBrand.json
+ */
+- (void)allCarBrandSuccess:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 @end

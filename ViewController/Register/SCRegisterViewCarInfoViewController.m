@@ -13,6 +13,7 @@
 #import "SCChoiseAreaView.h"
 #import "SCChoiseCarNumberView.h"
 #import "SCManager+RequestInterface.h"
+#import "SCChoiseBrandViewController.h"
 @interface SCRegisterViewCarInfoViewController ()<SCRegisterViewCarInfoViewDelegate,SCChoiseAreaViewDelegate,SCChoiseCarNumberViewDelegate>
 @property (nonatomic, weak) SCChoiseAreaView * areaView;
 @property (nonatomic, weak) SCRegisterViewCarInfoView * carInfo;
@@ -93,8 +94,8 @@
 
 - (void)choiseBrandLabelClick
 {
-    
-    
+    SCChoiseBrandViewController * brandViewController = [[SCChoiseBrandViewController alloc] init];
+    [self.navigationController pushViewController:brandViewController animated:YES];
 }
 
 #pragma mark choiseAreaViewDelegate

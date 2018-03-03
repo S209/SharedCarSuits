@@ -15,6 +15,12 @@
     NSPredicate *pwdPre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"\\w{6,20}"];
     return [pwdPre evaluateWithObject:self];
 }
+//密码是否合格
+- (BOOL)isQualified
+{
+    NSPredicate * qualified = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$"];
+    return [qualified evaluateWithObject:self];
+}
 //是否是手机号格式
 - (BOOL)isPhoneNumber
 {

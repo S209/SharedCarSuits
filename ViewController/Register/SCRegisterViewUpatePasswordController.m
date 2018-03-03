@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavigationWithTitle:@"注册"];
+    [self sy_leftBarButtonItem];
     [self setupView];
 }
 

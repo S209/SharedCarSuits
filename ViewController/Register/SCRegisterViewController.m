@@ -42,15 +42,15 @@
 - (void)nextStepWithSMSCode:(NSString *)smsCode
 {
   
-//    [[SCManager shareInstance] verificationWithPhoneNum:self.phoneNumber code:smsCode success:^(NSURLSessionDataTask *serializer, id responseObject) {
+    [[SCManager shareInstance] verificationWithPhoneNum:self.phoneNumber code:smsCode success:^(NSURLSessionDataTask *serializer, id responseObject) {
         SCRegisterViewUpatePasswordController * updatePassword = [[SCRegisterViewUpatePasswordController alloc] init];
         updatePassword.phoneNumber = self.phoneNumber;
         [self.navigationController pushViewController:updatePassword animated:YES];
-//    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-//
-//    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-//
-//    }];
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+
+    }];
 }
 
 

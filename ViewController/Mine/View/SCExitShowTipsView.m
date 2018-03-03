@@ -117,7 +117,8 @@
 {
     [self diss];
     SCLaunchViewController * launchView = [[SCLaunchViewController alloc] init];
-    [AppDelegate getAppDelegate].window.rootViewController = launchView;
+     UINavigationController * rootViewController = [[UINavigationController alloc] initWithRootViewController:launchView];
+    [AppDelegate getAppDelegate].window.rootViewController = rootViewController;
 }
 
 - (void)diss

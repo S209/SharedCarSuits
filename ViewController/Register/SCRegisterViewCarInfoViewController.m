@@ -14,6 +14,7 @@
 #import "SCChoiseCarNumberView.h"
 #import "SCManager+RequestInterface.h"
 #import "SCChoiseBrandViewController.h"
+#import "SCManager+MBProgressHUD.h"
 @interface SCRegisterViewCarInfoViewController ()<SCRegisterViewCarInfoViewDelegate,SCChoiseAreaViewDelegate,SCChoiseCarNumberViewDelegate>
 @property (nonatomic, weak) SCChoiseAreaView * areaView;
 @property (nonatomic, weak) SCRegisterViewCarInfoView * carInfo;
@@ -25,7 +26,7 @@
 @implementation SCRegisterViewCarInfoViewController
 - (void)dealloc
 {
-    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidLoad {
@@ -34,6 +35,8 @@
     [self sy_leftBarButtonItem];
     [self setupView];
     self.carNumberArray = [NSMutableArray arrayWithCapacity:6];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCarName:) name:SCSelectCarSuccess object:nil];
 }
 
 - (void)setupView
@@ -82,14 +85,18 @@
         [carNumberString appendString:[self.carNumberArray safeObjectAtIndex:i]];
     }
     
-    [[SCManager shareInstance] registeredWithPhoneNum:_phoneNumber passWord:_password carModel:self.content carNum:carNumberString success:^(NSURLSessionDataTask *serializer, id responseObject) {
-        SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
-        [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
-    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
-    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-        
-    }] ;
+    if (self.content.length > 0) {
+        [[SCManager shareInstance] registeredWithPhoneNum:_phoneNumber passWord:_password carModel:self.content carNum:carNumberString success:^(NSURLSessionDataTask *serializer, id responseObject) {
+            SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
+            [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
+        } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+            
+        }] ;
+    }else{
+        [SCManager dismissInfo:@"请选择品牌"];
+    }
 }
 
 - (void)choiseBrandLabelClick
@@ -133,6 +140,14 @@
 {
     [self.carNumberArray insertObject:content atIndex:index-1];
     [self.carInfo updateCarInfoWithInfo:content andIndex:index btnClickState:YES];
+}
+
+
+- (void)updateCarName:(NSNotification *)notific
+{
+    NSString * carName = notific.object;
+    self.content = carName;
+    [self.carInfo updateCarName:carName];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

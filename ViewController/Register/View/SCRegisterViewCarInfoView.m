@@ -8,6 +8,9 @@
 
 #import "SCRegisterViewCarInfoView.h"
 
+@interface SCRegisterViewCarInfoView()
+@property (nonatomic, weak) UILabel * choiseBrandLabel;
+@end
 @implementation SCRegisterViewCarInfoView
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -34,6 +37,7 @@
     
     UILabel * choiseBrandLabel = [[UILabel alloc] init];
     [self addSubview:choiseBrandLabel];
+    self.choiseBrandLabel = choiseBrandLabel;
     choiseBrandLabel.text = @"  请选择品牌";
     choiseBrandLabel.font = [UIFont sy_font16];
     choiseBrandLabel.textColor = [UIColor sc_colorWith282828];
@@ -152,6 +156,10 @@
     if ([_delegate respondsToSelector:@selector(choiseBrandLabelClick)]) {
         [self.delegate choiseBrandLabelClick];
     }
-    
+}
+
+- (void)updateCarName:(NSString *)carName
+{
+    self.choiseBrandLabel.text = [NSString stringWithFormat:@"  %@",carName];
 }
 @end

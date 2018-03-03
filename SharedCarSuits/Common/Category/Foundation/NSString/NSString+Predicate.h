@@ -11,6 +11,7 @@
 @interface NSString (Predicate)
 //是否是密码格式
 - (BOOL)isPassword;
+- (BOOL)isQualified;
 //是否是手机号格式
 - (BOOL)isPhoneNumber;
 //是否是邮箱格式

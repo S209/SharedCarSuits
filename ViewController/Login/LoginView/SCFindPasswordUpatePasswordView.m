@@ -137,12 +137,18 @@
 
 - (void)completeBtnClick
 {
-    if ([self.setupPasswordField.text isEqualToString:self.repeateInputField.text]) {
-        if ([_deleate respondsToSelector:@selector(completeWithPassword:)]) {
-            [self.deleate completeWithPassword:self.setupPasswordField.text];
+    
+    if ([self.setupPasswordField.text isQualified] && [self.repeateInputField.text isQualified])
+    {
+        if ([self.setupPasswordField.text isEqualToString:self.repeateInputField.text]) {
+            if ([_deleate respondsToSelector:@selector(completeWithPassword:)]) {
+                [self.deleate completeWithPassword:self.setupPasswordField.text];
+            }
+        }else{
+            [SCManager dismissInfo:@"两次密码不一样"];
         }
     }else{
-        [SCManager dismissInfo:@"两次密码不一样"];
+            [SCManager dismissInfo:@"密码是8-16位，英文+数字"];
     }
 }
 @end

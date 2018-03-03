@@ -94,7 +94,7 @@
 //设置分区
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//    return self.numberOfSection;
+
     return self.numberOfRowsInSectionArray.count;
 }
 
@@ -124,7 +124,9 @@
     [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:carModel.logoImg] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         
     } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
-        [cell.imageView setImage:image];
+        if (finished) {
+          [cell.imageView setImage:image];
+        }
     }];
     return cell;
 }
@@ -137,6 +139,18 @@
     
     //返回当前分区的数据中的title
     return model.title;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //找到当前分区的索引
+    SCChoiseBrandCarGroupModel * groupModel = self.numberOfRowsInSectionArray[indexPath.section];
+    //找到当前分区的行
+    SCChoiseBrandModel * carModel = groupModel.cars[indexPath.row];
+ 
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:SCSelectCarSuccess object:carModel.carCategoryName];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 //设置索引

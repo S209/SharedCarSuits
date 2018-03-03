@@ -9,3 +9,4 @@
 NSString * const SCUserId = @"SCUserId";
 NSString * const SCSessionId = @"SCSessionId";
 NSString * const SCLoginModelUserDict = @"SCLoginModelUserDict";
+NSString * const SCSelectCarSuccess = @"SCSelectCarSuccess";

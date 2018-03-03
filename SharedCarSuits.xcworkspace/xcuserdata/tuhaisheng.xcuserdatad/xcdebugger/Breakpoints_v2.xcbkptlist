@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SharedCarSuits/Common/AppManager/SCManager+RequestInterface.m"
-            timestampString = "541757293.5628639"
+            timestampString = "541761286.9971451"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "314"
@@ -26,7 +26,7 @@
                   moduleName = "SharedCarSuits"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Desktop/Work/SharedCarSuits/SharedCarSuits/Common/AppManager/SCManager+RequestInterface.m"
-                  timestampString = "541757038.799552"
+                  timestampString = "541760048.622553"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "315"
@@ -41,140 +41,12 @@
                   moduleName = "SharedCarSuits"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Desktop/Work/SharedCarSuits/SharedCarSuits/Common/AppManager/SCManager+RequestInterface.m"
-                  timestampString = "541757038.805236"
+                  timestampString = "541760048.626016"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "316"
                   endingLineNumber = "316"
                   offsetFromSymbolStart = "79">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SharedCarSuits/Common/AppManager/SCManager+RequestInterface.m"
-            timestampString = "541757293.562934"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
-            landmarkName = "-requestUrl:andParamater:success:notice:failure:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SCManager(RequestInterface) requestUrl:andParamater:success:notice:failure:]"
-                  moduleName = "SharedCarSuits"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/admin/Desktop/Work/SharedCarSuits/SharedCarSuits/Common/AppManager/SCManager+RequestInterface.m"
-                  timestampString = "541757038.81635"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "315"
-                  endingLineNumber = "315"
-                  offsetFromSymbolStart = "212">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__78-[SCManager(RequestInterface) requestUrl:andParamater:success:notice:failure:]_block_invoke"
-                  moduleName = "SharedCarSuits"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/admin/Desktop/Work/SharedCarSuits/SharedCarSuits/Common/AppManager/SCManager+RequestInterface.m"
-                  timestampString = "541757038.8190351"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "316"
-                  endingLineNumber = "316"
-                  offsetFromSymbolStart = "79">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SharedCarSuitsExtension/Common/SCSharedCarSuitsClient.m"
-            timestampString = "541753130.31134"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-post:parameters:success:notice:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SharedCarSuitsExtension/Common/SCSharedCarSuitsClient.m"
-            timestampString = "541753130.312075"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "-post:parameters:success:notice:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SharedCarSuitsExtension/Common/SCSharedCarSuitsClient.m"
-            timestampString = "541753130.312289"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "-post:parameters:success:notice:failure:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SCSharedCarSuitsClient post:parameters:success:notice:failure:]"
-                  moduleName = "SharedCarSuits"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/admin/Desktop/Work/SharedCarSuits/SharedCarSuitsExtension/Common/SCSharedCarSuitsClient.m"
-                  timestampString = "541757038.840147"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "588">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__65-[SCSharedCarSuitsClient post:parameters:success:notice:failure:]_block_invoke"
-                  moduleName = "SharedCarSuits"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/admin/Desktop/Work/SharedCarSuits/SharedCarSuitsExtension/Common/SCSharedCarSuitsClient.m"
-                  timestampString = "541757038.842893"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "52">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -186,12 +58,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViewController/HomePageController/SCHomePageViewController.m"
-            timestampString = "541757293.563036"
+            timestampString = "541761286.997327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "116"
             endingLineNumber = "116"
             landmarkName = "-homePageSectionOneCellClickLoadMore"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViewController/Register/SCRegisterViewCarInfoViewController.m"
+            timestampString = "541761286.997399"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "-sureBtnClick"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SCRegisterViewCarInfoViewController sureBtnClick]"
+                  moduleName = "SharedCarSuits"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Desktop/Work/SharedCarSuits/ViewController/Register/SCRegisterViewCarInfoViewController.m"
+                  timestampString = "541760048.646042"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "305">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__51-[SCRegisterViewCarInfoViewController sureBtnClick]_block_invoke"
+                  moduleName = "SharedCarSuits"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Desktop/Work/SharedCarSuits/ViewController/Register/SCRegisterViewCarInfoViewController.m"
+                  timestampString = "541760048.648868"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "69">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SharedCarSuits/Common/AppManager/SCManager+RequestInterface.m"
+            timestampString = "541761286.997474"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
+            landmarkName = "-requestUrl:andParamater:success:notice:failure:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -295,7 +295,7 @@
         NSInteger code = [[responseObject objectForKey:@"code"] integerValue];
         if (code == 200) {
             if (success) {
-                NSArray * infoArray = [responseObject objectForKey:@"info"];
+                NSArray * infoArray = [responseObject objectForKey:@"data"];
                 success(serializer,infoArray);
             }
         }

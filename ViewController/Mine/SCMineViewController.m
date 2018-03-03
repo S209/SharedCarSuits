@@ -46,7 +46,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSDictionary * userDict = [[NSUserDefaults standardUserDefaults] objectForKey:SCLoginModelUserDict];
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:SCLoginModelUserDict];
+    NSDictionary * userDict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     SCUserModel  * userModel = [SCUserModel yy_modelWithDictionary:userDict];
     self.userModel = userModel;
     [self setNavigationWithTitle:@"个人资料"];

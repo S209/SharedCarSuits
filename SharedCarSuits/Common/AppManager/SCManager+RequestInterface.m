@@ -37,8 +37,10 @@
     NSDictionary * parameterDictionary = @{@"loginName":loginName,@"passWord":passWord};
     [self requestUrl:SCUrl_Login andParamater:parameterDictionary success:^(NSURLSessionDataTask *serializer, id responseObject) {
         if (success) {
-            [[NSUserDefaults standardUserDefaults] setObject:responseObject forKey:SCLoginModelUserDict];
+            NSData * data = [NSKeyedArchiver archivedDataWithRootObject:responseObject];
+            [[NSUserDefaults standardUserDefaults] setObject:data forKey:SCLoginModelUserDict];
             [[NSUserDefaults standardUserDefaults] synchronize];
+            
             success(serializer,responseObject);
         }
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {

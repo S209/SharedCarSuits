@@ -10,6 +10,7 @@
 #import "SCFindPasswordUpatePasswordView.h"
 #import "SCHomeTabBarController.h"
 #import "AppDelegate.h"
+#import "SCManager+RequestInterface.h"
 @interface SCFindPasswordUpatePasswordController ()<SCFindPasswordUpatePasswordViewDelegate>
 
 @end
@@ -37,10 +38,20 @@
     }];
 }
 
-- (void)complete
+- (void)completeWithPassword:(NSString *)password
 {
-    SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
-    [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
+    if ([_loginName isPhoneNumber]) {
+        [[SCManager shareInstance] retrieveThePasswordWithloginName:_loginName passWord:password success:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+            SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
+            [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
+        } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+            
+        }];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -9,5 +9,5 @@
 #import "SCBaseViewController.h"
 
 @interface SCFindPasswordUpatePasswordController : SCBaseViewController
-
+@property (nonatomic, copy) NSString * loginName;
 @end

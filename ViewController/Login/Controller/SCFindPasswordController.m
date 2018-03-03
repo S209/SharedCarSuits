@@ -12,6 +12,7 @@
 #import "SCSharedCarSuitsClient.h"
 #import "SCManager+RequestInterface.h"
 #import "SCFindPasswordUpatePasswordController.h"
+#import "SCManager+MBProgressHUD.h"
 @interface SCFindPasswordController ()<SCRetrieveThePasswordViewDelegate>
 @property (nonatomic, copy) NSString * phoneNumber;
 @end
@@ -44,8 +45,8 @@
 - (void)nextStep
 {
     SCFindPasswordUpatePasswordController * updatePassword = [[SCFindPasswordUpatePasswordController alloc] init];
+  
     [self.navigationController pushViewController:updatePassword animated:YES];
-    
 }
 
 #pragma mark SCRetrieveThePasswordViewDelegate
@@ -53,15 +54,24 @@
 - (void)nextStepWithSMSCode:(NSString *)smsCode
 {
     
-    [[SCManager shareInstance] verificationWithPhoneNum:[NSString stringWithFormat:@"%@",self.phoneNumber] code:smsCode success:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
-        SCFindPasswordUpatePasswordController * updatePasswordController = [[SCFindPasswordUpatePasswordController alloc] init];
-        [self.navigationController pushViewController:updatePasswordController animated:YES];
-    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
-    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-        
-    }];
+    if ([self.phoneNumber isPhoneNumber]) {
+        if (smsCode.length == 0) {
+            [SCManager dismissInfo:@"短信验证码不正确"];
+            return;
+        }
+        [[SCManager shareInstance] verificationWithPhoneNum:[NSString stringWithFormat:@"%@",self.phoneNumber] code:smsCode success:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+            SCFindPasswordUpatePasswordController * updatePasswordController = [[SCFindPasswordUpatePasswordController alloc] init];
+            updatePasswordController.loginName = self.phoneNumber;
+            [self.navigationController pushViewController:updatePasswordController animated:YES];
+        } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+            
+        }];
+    }else{
+        [SCManager dismissInfo:@"先获取验证码"];
+    }
 }
 
 

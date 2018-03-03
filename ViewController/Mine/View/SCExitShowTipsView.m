@@ -10,6 +10,7 @@
 #import "SCManager+CommonMethods.h"
 #import "SCLaunchViewController.h"
 #import "AppDelegate.h"
+#import "SCManager+CommonMethods.h"
 @implementation SCExitShowTipsView
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -115,10 +116,8 @@
 #pragma mark 确认退出
 - (void)tapGestClick
 {
-    [self diss];
-    SCLaunchViewController * launchView = [[SCLaunchViewController alloc] init];
-     UINavigationController * rootViewController = [[UINavigationController alloc] initWithRootViewController:launchView];
-    [AppDelegate getAppDelegate].window.rootViewController = rootViewController;
+    [self diss];    
+    [SCManager exit];
 }
 
 - (void)diss

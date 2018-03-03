@@ -99,11 +99,11 @@ static const CGFloat KWMMenuViewhHeight = 45;
 
 - (CGRect)pageController:(WMPageController *)pageController preferredFrameForMenuView:(WMMenuView *)menuView {
     
-    return CGRectMake(0, SYNavigationBarHeight, SCREEN_WIDTH, KWMMenuViewhHeight);
+    return CGRectMake(0, 0, SCREEN_WIDTH, KWMMenuViewhHeight);
 }
 
 - (CGRect)pageController:(WMPageController *)pageController preferredFrameForContentView:(WMScrollView *)contentView {
-    CGFloat originY = SYNavigationBarHeight + KWMMenuViewhHeight;
+    CGFloat originY = KWMMenuViewhHeight;
     return CGRectMake(0, originY, SCREEN_WIDTH, self.view.frame.size.height - originY);
 }
 

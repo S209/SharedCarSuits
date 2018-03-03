@@ -13,6 +13,8 @@
 - (void)setUserUid:(NSString *)uId;
 - (void)setSessionId:(NSString *)sessionId;
 + (NSString *)getUserId;
++ (BOOL)isLogin;
++ (void)exit;
 + (NSString *)getSessionId;
 - (void)bezierPathLeftTopAndRightTopWithView:(UIView *)view;
 - (void)bezierPathLeftTopAndRightTopWithView:(UIView *)view withRadius:(CGFloat)radius;

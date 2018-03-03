@@ -15,6 +15,7 @@
 @property (nonatomic, weak) UILabel * couponTipsLabel;
 @property (nonatomic, weak) UILabel * priceLabel;
 @property (nonatomic, weak) UIView * segmentView;
+@property (nonatomic, weak) UILabel * moneyUnitLabel;
 @property (nonatomic, strong) SCCouponModel * couponModel;
 @end
 @implementation SCMyCouponCell
@@ -37,6 +38,7 @@
     SCMyCouponCell * cell = [tableView dequeueReusableCellWithIdentifier:idDes];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.couponModel = model;
+    cell.backgroundColor = [UIColor sc_colorWihtf8f8f8];
     return cell;
 }
 
@@ -64,14 +66,11 @@
     couponNameLabel.textColor = [UIColor sc_colorWith444444];
     couponNameLabel.font = [UIFont sy_boldFont16];
    
-    
-    
     UILabel * couponTimeLabel = [[UILabel alloc] init];
     [bottomImageView addSubview:couponTimeLabel];
     self.couponTimeLabel = couponTimeLabel;
     couponTimeLabel.font = [UIFont sy_font12];
     couponTimeLabel.textColor = [UIColor sc_colorWith666666];
-   
     
     UILabel * couponTipsLabel = [[UILabel alloc] init];
     [bottomImageView addSubview:couponTipsLabel];
@@ -82,12 +81,20 @@
     
     UILabel * priceLabel = [[UILabel alloc] init];
     [bottomImageView addSubview:priceLabel];
+    priceLabel.textAlignment = NSTextAlignmentCenter;
     self.priceLabel = priceLabel;
+    
+    UILabel * moneyUnitLabel = [[UILabel alloc] init];
+    [bottomImageView addSubview:moneyUnitLabel];
+    self.moneyUnitLabel = moneyUnitLabel;
+    moneyUnitLabel.text = @"¥";
+    moneyUnitLabel.textColor = [UIColor sc_colorWith6C6DFD];
+    moneyUnitLabel.font = [UIFont sy_font16];
     
     UIView * segmentView = [[UIView alloc] init];
     [self.contentView addSubview:segmentView];
     self.segmentView = segmentView;
-    segmentView.backgroundColor = [UIColor sc_colorWithF4F4F4];
+    segmentView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
 }
 
 - (void)layoutSubviews
@@ -99,48 +106,62 @@
         make.top.equalTo(self.contentView.mas_top).with.offset(0);
         make.height.mas_equalTo(100);
     }];
-    
+
     [self.couponNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.bottomImageView.mas_left).with.offset(30);
         make.top.equalTo(self.bottomImageView.mas_top).with.offset(18);
     }];
-    
+
     [self.couponTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.couponNameLabel.mas_left).with.offset(0);
-        make.top.equalTo(self.couponNameLabel.mas_bottom).with.offset(10);
+        make.top.equalTo(self.couponNameLabel.mas_bottom).with.offset(6);
     }];
-    
+
     [self.couponTipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.couponNameLabel.mas_left).with.offset(0);
-        make.bottom.equalTo(self.bottomImageView.mas_bottom).with.offset(-5);
+        make.bottom.equalTo(self.bottomImageView.mas_bottom).with.offset(-15);
+    }];
+    
+    [self.moneyUnitLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.priceLabel.mas_left).with.offset(-0);
+        make.top.equalTo(self.priceLabel.mas_top).with.offset(0);
     }];
     
     [self.priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.bottomImageView.mas_centerY);
-        make.size.mas_equalTo(CGSizeMake(90, 50));
-        make.right.equalTo(self.bottomImageView.mas_right).with.offset(-0);
+        make.right.equalTo(self.bottomImageView.mas_right).with.offset(-25);
+        make.height.mas_equalTo(30);
     }];
-    
+
+    [self.moneyUnitLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.priceLabel.mas_left).with.offset(-0);
+        make.top.equalTo(self.priceLabel.mas_top).with.offset(0);
+    }];
+
     [self.segmentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(0);
         make.right.equalTo(self.contentView.mas_right).with.offset(-0);
         make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-0);
-        make.height.mas_equalTo(10);
+        make.height.mas_equalTo(15);
     }];
 }
 
 + (CGFloat)cellHeight
 {
-    return 110;
+    return 115;
 }
 - (void)setCouponModel:(SCCouponModel *)couponModel
 {
     _couponModel = couponModel;
     self.couponNameLabel.text = couponModel.name;
-    self.couponTimeLabel.text = couponModel.endTime;
-    self.couponTipsLabel.text = couponModel.descriptionString;
-    self.priceLabel.text = [NSString stringWithFormat:@"%zd",couponModel.price];
+    self.couponTimeLabel.text = [NSString stringWithFormat:@"有效期至 %@",couponModel.endTime];
+    self.couponTipsLabel.text = [NSString stringWithFormat:@"限：%@",couponModel.descriptionString];
     
+    NSString * priceString = [NSString stringWithFormat:@"%zd",couponModel.price];
+    NSMutableAttributedString * priceAttributedString = [[NSMutableAttributedString alloc] initWithString:priceString];
+    [priceAttributedString addAttribute:NSFontAttributeName value:[UIFont pingfangFontOfSize:40] range:NSMakeRange(0, priceString.length)];
+    [priceAttributedString addAttribute:NSForegroundColorAttributeName value:[UIColor sc_colorWith6C6DFD] range:NSMakeRange(0, priceString.length)];
+    self.priceLabel.attributedText = priceAttributedString;
 }
 
 @end

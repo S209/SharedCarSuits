@@ -11,6 +11,8 @@
 #import <objc/runtime.h>
 #import "SCManager.h"
 #import "GSKeyChain.h"
+#import "SCLaunchViewController.h"
+#import "AppDelegate.h"
 static NSString * const KEY_IN_KEYCHAIN_UUID = @"唯一识别的KEY_UUID";
 static NSString * const KEY_UUID = @"唯一识别的key_uuid";
 @implementation SCManager (CommonMethods)
@@ -281,5 +283,23 @@ static NSString * const KEY_UUID = @"唯一识别的key_uuid";
 + (NSString *)getSessionId
 {
    return [[NSUserDefaults standardUserDefaults] objectForKey:SCSessionId];
+}
+
++ (BOOL)isLogin
+{
+    NSString * sessionId =[self getSessionId];
+    if (sessionId.length) {
+        return YES;
+    }
+    return NO;
+}
+
+
++ (void)exit
+{
+    [[self shareInstance] setSessionId:@""];
+    SCLaunchViewController * launchView = [[SCLaunchViewController alloc] init];
+    UINavigationController * rootViewController = [[UINavigationController alloc] initWithRootViewController:launchView];
+    [AppDelegate getAppDelegate].window.rootViewController = rootViewController;
 }
 @end

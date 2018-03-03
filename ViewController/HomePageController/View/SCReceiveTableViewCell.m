@@ -16,6 +16,7 @@
 @property (nonatomic, weak) UILabel * priceLabel;
 @property (nonatomic, weak) UIView * segmentView;
 @property (nonatomic, weak) UIButton * receiveBtn;
+@property (nonatomic, weak) UILabel * unitOfMoneyLabel;
 @property (nonatomic, strong) SCCouponModel * couponModel;
 @end
 @implementation SCReceiveTableViewCell
@@ -55,7 +56,7 @@
     UIImageView * bottomImageView = [[UIImageView alloc] init];
     [self.contentView addSubview:bottomImageView];
     self.bottomImageView = bottomImageView;
-    [bottomImageView setImage:[UIImage imageNamed:@"coupn_bg"]];
+    [bottomImageView setImage:[UIImage imageNamed:@"coupon_list_bg"]];
     bottomImageView.clipsToBounds = YES;
     bottomImageView.contentMode = UIViewContentModeScaleAspectFill;
     
@@ -66,13 +67,18 @@
     couponNameLabel.font = [UIFont sy_boldFont16];
     
     
+    UILabel * moneyUnitLabel = [[UILabel alloc] init];
+    [bottomImageView addSubview:moneyUnitLabel];
+    self.unitOfMoneyLabel = moneyUnitLabel;
+    moneyUnitLabel.text = @"¥";
+    moneyUnitLabel.textColor = [UIColor sc_colorWith6C6DFD];
+    moneyUnitLabel.font = [UIFont sy_font16];
     
     UILabel * couponTimeLabel = [[UILabel alloc] init];
     [bottomImageView addSubview:couponTimeLabel];
     self.couponTimeLabel = couponTimeLabel;
     couponTimeLabel.font = [UIFont sy_font12];
     couponTimeLabel.textColor = [UIColor sc_colorWith666666];
-    
     
     UILabel * couponTipsLabel = [[UILabel alloc] init];
     [bottomImageView addSubview:couponTipsLabel];
@@ -118,18 +124,23 @@
     
     [self.couponTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.couponNameLabel.mas_left).with.offset(0);
-        make.top.equalTo(self.couponNameLabel.mas_bottom).with.offset(10);
+        make.top.equalTo(self.couponNameLabel.mas_bottom).with.offset(6);
     }];
     
     [self.couponTipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.couponNameLabel.mas_left).with.offset(0);
-        make.bottom.equalTo(self.bottomImageView.mas_bottom).with.offset(-5);
+        make.bottom.equalTo(self.receiveBtn.mas_bottom).with.offset(-0);
+    }];
+        
+    [self.priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.receiveBtn.mas_top).with.offset(-14.5);
+        make.left.equalTo(self.receiveBtn.mas_left).with.offset(0);
+        make.height.mas_equalTo(35);
     }];
     
-    [self.priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(self.bottomImageView.mas_centerY);
-        make.size.mas_equalTo(CGSizeMake(90, 50));
-        make.right.equalTo(self.bottomImageView.mas_right).with.offset(-0);
+    [self.unitOfMoneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.priceLabel.mas_left).with.offset(-0);
+        make.top.equalTo(self.priceLabel.mas_top).with.offset(0);
     }];
     
     [self.segmentView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -163,26 +174,19 @@
     }
 }
 
-/*
- cpuponId = 171;
- createTime = "2018-02-19 20:15:58";
- description = "\U94a3\U91d1\U55b7\U6f06\U94a3\U91d1\U55b7\U6f06";
- endTime = "2018-04-29 20:00:00";
- isUsed = 0;
- name = "\U94a3\U91d1\U55b7\U6f06";
- number = 50AE676024C218DA;
- orderType = 3;
- price = 22;
- type = 1;
- */
 - (void)setCouponModel:(SCCouponModel *)couponModel
 {
     _couponModel = couponModel;
     self.couponNameLabel.text = couponModel.name;
-    self.couponTimeLabel.text = couponModel.endTime;
-    self.couponTipsLabel.text = couponModel.descriptionString;
-    self.priceLabel.text = [NSString stringWithFormat:@"%zd",couponModel.price];
+    self.couponTimeLabel.text = [NSString stringWithFormat:@"有效期至 %@",couponModel.endTime];
+    self.couponTipsLabel.text = [NSString stringWithFormat:@"限：%@",couponModel.descriptionString];
+    
+    NSString * priceString = [NSString stringWithFormat:@"%zd",couponModel.price];
+    NSMutableAttributedString * priceAttributedString = [[NSMutableAttributedString alloc] initWithString:priceString];
 
+    [priceAttributedString addAttribute:NSFontAttributeName value:[UIFont pingfangFontOfSize:40] range:NSMakeRange(0, priceString.length)];
+    [priceAttributedString addAttribute:NSForegroundColorAttributeName value:[UIColor sc_colorWith6C6DFD] range:NSMakeRange(0, priceString.length)];
+    self.priceLabel.attributedText = priceAttributedString;
 }
 
 - (void)receiveBtnClick:(UIButton *)sender

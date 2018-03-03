@@ -14,6 +14,7 @@
 #import "SCFindPasswordController.h"
 #import "SCRegisterViewController.h"
 #import "SCManager+RequestInterface.h"
+#import "SCManager+CommonMethods.h"
 @interface SCLaunchViewController ()<SCLoginViewDelegate>
 @property (nonatomic , strong) SCHomeTabBarController * homeTabBarController;
 @property (nonatomic, weak) SCLoginView * loginView;
@@ -23,16 +24,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadLoadingOrder];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self setNavigationWithTitle:@"登录验证"];
-    [self setupLoginView];
+ 
 }
 
-
+- (void)loadLoadingOrder
+{
+    BOOL flag = [SCManager isLogin];
+    if (flag) {
+        SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
+        [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
+    }else{
+         [self setupLoginView];
+    }
+}
 
 #pragma mark 加载登录页面
 - (void)setupLoginView

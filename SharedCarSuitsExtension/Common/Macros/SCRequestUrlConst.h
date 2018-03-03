@@ -32,16 +32,16 @@
 //我的车库列表(完)
 #define SCUrl_MyGarage GeneralUrl(@"/keleapp/car/carList.jspx")
 
-//我的车库编辑
+//我的车库编辑(完)
 #define SCUrl_GarageEditor GeneralUrl(@"/keleapp/car/carEdit.jspx")
 
-//我的车库删除
+//我的车库删除(完)
 #define SCUrl_GarageDeleted GeneralUrl(@"/keleapp/car/carDelete.jspx")
 
-//我的车库-设为默认车辆
+//我的车库-设为默认车辆(完)
 #define SCUrl_MyGarageSetAsTheDefaultCar GeneralUrl(@"/keleapp/car/carDefault.jspx")
 
-//我的车库-添加车辆
+//我的车库-添加车辆(完)
 #define SCUrl_MyGarageAddACar GeneralUrl(@"/keleapp/car/carAdd.jspx")
 
 //领券优惠券列表(完)

@@ -13,6 +13,7 @@
 #import "SCManager+CommonMethods.h"
 #import "SCMyGarageListPageModel.h"
 #import "SCDIYHeader.h"
+#import "SCEditorOrAddCarNumberViewController.h"
 @interface SCMyGarageViewController ()<UITableViewDataSource,UITableViewDelegate,SCMyGarageViewCellDelegate,SCMyGarageViewDeletViewAlertViewDelegate>
 @property (nonatomic, strong) NSMutableArray * dataArray;
 @property (nonatomic, assign) NSInteger length;
@@ -31,13 +32,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self sy_leftBarButtonItem];
+    [self setRightBarButtonItem];
     [self setNavigationWithTitle:@"我的车库"];
     [self setupView];
+}
+
+- (void)setRightBarButtonItem
+{
+    UIButton * addCarBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [addCarBtn setImage:[UIImage imageNamed:@"mycar_btn_add"] forState:UIControlStateNormal];
+    UIBarButtonItem * rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:addCarBtn];
+    addCarBtn.frame = CGRectMake(0, 0, 40, 40);
+    self.navigationItem.rightBarButtonItem = rightBarButton;
+    [addCarBtn addTarget:self action:@selector(addCarBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)addCarBtnClick:(UIButton *)sender
+{
+    SCEditorOrAddCarNumberViewController * editorOrAddController = [[SCEditorOrAddCarNumberViewController alloc] init];
+    editorOrAddController.excuteType = CarNumberExcuteTypeWithAdd;
+    [self.navigationController pushViewController:editorOrAddController animated:YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self loadNewData];
 }
 
 - (void)loadNewData
 {
     self.length = 10;
+    [self.dataArray removeAllObjects];
     [self requestDataWithLength:@"10"];
 }
 
@@ -113,7 +139,7 @@
     UIView * tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10)];
     tableHeaderView.backgroundColor = [UIColor sc_colorWithF4F4F4];
     tableView.tableHeaderView = tableHeaderView;
-    [tableView.mj_header beginRefreshing];
+
 }
 
 #pragma mark
@@ -148,14 +174,12 @@
 #pragma mark SCMyGarageViewCellDelegate
 - (void)myGarageViewCellClickEditorWihtModel:(SCMyGarageListPageModel *)pageModel
 {
-    [[SCManager shareInstance] myGarageEditWithCarId:[NSString stringWithFormat:@"%zd",pageModel.carId ] carModel:pageModel.carModel carNum:pageModel.carNum success:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
-    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
-    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-        
-    }];
+    SCEditorOrAddCarNumberViewController * editorOrAddController = [[SCEditorOrAddCarNumberViewController alloc] init];
+    editorOrAddController.excuteType = CarNumberExcuteTypeWithEditor;
+    editorOrAddController.pageModel = pageModel;
+    [self.navigationController pushViewController:editorOrAddController animated:YES];
 }
+
 
 - (void)myGarageViewCellClickDefaultWithModel:(SCMyGarageListPageModel *)pageModel
 {
@@ -174,6 +198,7 @@
     deleteView.delegate = self;
     [deleteView showWithCarName:pageModel.carModel];
     self.deleteCarId = [NSString stringWithFormat:@"%zd",pageModel.carId];
+    [self.tableView reloadData];
 }
 
 
@@ -181,7 +206,7 @@
 - (void)deleteCarInfo
 {
     [[SCManager shareInstance] myGarageDeleteWithCarId:self.deleteCarId success:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
+        [self.tableView reloadData];
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
         
     } failure:^(NSURLSessionDataTask *serializer, NSError *error) {

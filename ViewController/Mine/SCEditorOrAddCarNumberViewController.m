@@ -1,30 +1,30 @@
 //
-//  SCRegisterViewCarInfoViewController.m
+//  SCEditorOrAddCarNumberViewController.m
 //  SharedCarSuits
 //
-//  Created by tuhaisheng on 2018/2/10.
+//  Created by tuhaisheng on 2018/3/3.
 //  Copyright © 2018年 tuhaisheng. All rights reserved.
 //
 
-#import "SCRegisterViewCarInfoViewController.h"
+#import "SCEditorOrAddCarNumberViewController.h"
 #import "SCRegisterViewCarInfoView.h"
-#import "SCHomeTabBarController.h"
-#import "AppDelegate.h"
 #import "SCChoiseAreaView.h"
 #import "SCChoiseCarNumberView.h"
 #import "SCManager+RequestInterface.h"
-#import "SCChoiseBrandViewController.h"
 #import "SCManager+MBProgressHUD.h"
-@interface SCRegisterViewCarInfoViewController ()<SCRegisterViewCarInfoViewDelegate,SCChoiseAreaViewDelegate,SCChoiseCarNumberViewDelegate>
+#import "SCChoiseBrandViewController.h"
+#import "SCMyGarageListPageModel.h"
+@interface SCEditorOrAddCarNumberViewController ()<SCRegisterViewCarInfoViewDelegate,SCChoiseAreaViewDelegate,SCChoiseCarNumberViewDelegate>
 @property (nonatomic, weak) SCChoiseAreaView * areaView;
-@property (nonatomic, weak) SCRegisterViewCarInfoView * carInfo;
 @property (nonatomic, weak) SCChoiseCarNumberView * carNumberView;
-@property (nonatomic, copy) NSString * content;
+@property (nonatomic, weak) SCRegisterViewCarInfoView * carInfo;
 @property (nonatomic, strong) NSMutableArray * carNumberArray;
+@property (nonatomic, copy) NSString * content;
 @property (nonatomic, copy) NSString * regionString;
 @end
 
-@implementation SCRegisterViewCarInfoViewController
+@implementation SCEditorOrAddCarNumberViewController
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -32,11 +32,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNavigationWithTitle:@"注册"];
+    [self setNavigationWithTitle:@"编辑/添加车牌"];
     [self sy_leftBarButtonItem];
     [self setupView];
-    self.carNumberArray = [NSMutableArray arrayWithCapacity:6];
-    
+    self.carNumberArray = [NSMutableArray arrayWithCapacity:7];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCarName:) name:SCSelectCarSuccess object:nil];
 }
 
@@ -44,6 +43,7 @@
 {
     SCRegisterViewCarInfoView * carInfo = [[SCRegisterViewCarInfoView alloc] init];
     self.carInfo = carInfo;
+     carInfo.pageModel = self.pageModel;
     carInfo.delegate = self;
     [self.view addSubview:carInfo];
     [carInfo mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -86,18 +86,23 @@
     for (NSUInteger i = 0; i < self.carNumberArray.count; i++) {
         [carNumberString appendString:[self.carNumberArray safeObjectAtIndex:i]];
     }
-    
-    if (self.content.length > 0) {
-        [[SCManager shareInstance] registeredWithPhoneNum:_phoneNumber passWord:_password carModel:self.content carNum:carNumberString success:^(NSURLSessionDataTask *serializer, id responseObject) {
-            SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
-            [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
+
+    if (_excuteType == CarNumberExcuteTypeWithEditor) {
+        [[SCManager shareInstance]myGarageEditWithCarId:[NSString stringWithFormat:@"%zd",_pageModel.carId] carModel:self.content carNum:carNumberString success:^(NSURLSessionDataTask *serializer, id responseObject) {
+              [self.navigationController popViewControllerAnimated:YES];
         } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
             
         } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
             
-        }] ;
+        }];
     }else{
-        [SCManager dismissInfo:@"请选择品牌"];
+        [[SCManager shareInstance] myGarageCarAddWithCarNum:carNumberString carModel:self.content success:^(NSURLSessionDataTask *serializer, id responseObject) {
+            [self.navigationController popViewControllerAnimated:YES];
+        } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+            
+        }];
     }
 }
 
@@ -107,6 +112,12 @@
     [self.navigationController pushViewController:brandViewController animated:YES];
 }
 
+
+- (void)setPageModel:(SCMyGarageListPageModel *)pageModel
+{
+    _pageModel = pageModel;
+   
+}
 #pragma mark choiseAreaViewDelegate
 - (void)choiseAreaViewClickCancelBtn
 {
@@ -136,13 +147,15 @@
 
 - (void)choiseCarNumberViewDidSure
 {
-     self.carNumberView.hidden = YES;
+    self.carNumberView.hidden = YES;
 }
 
 - (void)choiseCarNumberViewDidItemWithContent:(NSString *)content andIndex:(NSInteger)index
 {
-    [self.carNumberArray insertObject:content atIndex:index-1];
-    [self.carInfo updateCarInfoWithInfo:content andIndex:index btnClickState:YES];
+    if (index > 1 && index <= 6) {
+        [self.carNumberArray insertObject:content atIndex:index-1];
+        [self.carInfo updateCarInfoWithInfo:content andIndex:index btnClickState:YES];
+    }
 }
 
 
@@ -152,6 +165,9 @@
     self.content = carName;
     [self.carInfo updateCarName:carName];
 }
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

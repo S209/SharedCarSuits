@@ -11,25 +11,25 @@
 //#define GeneralUrl(relativeUrl) [NSString stringWithFormat:@"http://115.29.214.90:8080%@&v=%ld", relativeUrl,version]
 #define GeneralUrl(relativeUrl) [NSString stringWithFormat:@"http://115.29.214.90:8080%@", relativeUrl]
 
-//登录
+//登录(完)
 #define SCUrl_Login GeneralUrl(@"/keleapp/security/login.jspx")
 
-//获取验证码(注册和找回密码时获取验证码)
+//获取验证码(注册和找回密码时获取验证码)(完)
 #define SCUrl_GetVerificationCode GeneralUrl(@"/keleapp/security/getVerCode.jspx")
 
-//验证(验证验证码，验证码超时判断)
+//验证(验证验证码，验证码超时判断)(完)
 #define SCUrl_VerificationCodeTimeoutJudgment GeneralUrl(@"/keleapp/security/verifyVerCode.jspx")
 
-//注册
+//注册(完)
 #define SCUrl_Registered GeneralUrl(@"/keleapp/security/appRegister.jspx")
 
-//找回密码
+//找回密码(完)
 #define SCUrl_RetrieveThePassword GeneralUrl(@"/keleapp/security/changePwd.jspx")
 
 //我的优惠券(完)
 #define SCUrl_MyDiscountCoupon GeneralUrl(@"/keleapp/coupon/couponList.jspx")
 
-//我的车库列表
+//我的车库列表(完)
 #define SCUrl_MyGarage GeneralUrl(@"/keleapp/car/carList.jspx")
 
 //我的车库编辑
@@ -52,5 +52,5 @@
 
 //我的 编辑个人信息
 #define SCUrl_EditUserInfo GeneralUrl(@"/keleapp/userInfor/editUser.jspx")
-//我的汽车列表
+//我的汽车列表 (完)
 #define SCUrl_allCarBrand GeneralUrl(@"/keleapp/upload/data/allCarBrand.json")

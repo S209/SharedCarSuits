@@ -147,8 +147,6 @@
     SCChoiseBrandCarGroupModel * groupModel = self.numberOfRowsInSectionArray[indexPath.section];
     //找到当前分区的行
     SCChoiseBrandModel * carModel = groupModel.cars[indexPath.row];
- 
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:SCSelectCarSuccess object:carModel.carCategoryName];
     [self.navigationController popViewControllerAnimated:YES];
 }

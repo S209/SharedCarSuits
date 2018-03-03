@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class SCMyGarageListPageModel;
 @protocol SCRegisterViewCarInfoViewDelegate<NSObject>
 @required
 - (void)carNumberBtnClickWithIndex:(NSInteger)index;
@@ -16,6 +16,8 @@
 @end
 @interface SCRegisterViewCarInfoView : UIView
 @property (nonatomic, weak) id <SCRegisterViewCarInfoViewDelegate>delegate;
+@property (nonatomic, strong) SCMyGarageListPageModel * pageModel;
 - (void)updateCarInfoWithInfo:(NSString *)info andIndex:(NSInteger)index btnClickState:(BOOL)flag;
 - (void)updateCarName:(NSString *)carName;
+
 @end

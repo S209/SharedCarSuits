@@ -7,7 +7,7 @@
 //
 
 #import "SCRegisterViewCarInfoView.h"
-
+#import "SCMyGarageListPageModel.h"
 @interface SCRegisterViewCarInfoView()
 @property (nonatomic, weak) UILabel * choiseBrandLabel;
 @end
@@ -161,5 +161,19 @@
 - (void)updateCarName:(NSString *)carName
 {
     self.choiseBrandLabel.text = [NSString stringWithFormat:@"  %@",carName];
+}
+
+- (void)setPageModel:(SCMyGarageListPageModel *)pageModel
+{
+    _pageModel = pageModel;
+    self.choiseBrandLabel.text = [NSString stringWithFormat:@"  %@",pageModel.carModel];
+    for (NSUInteger i = 0; i < 7; i++) {
+        UIButton * areaBtn = (UIButton *)[self viewWithTag:300+i];
+        [areaBtn setTitleColor:[UIColor sc_colorWith6C6DFD] forState:UIControlStateNormal];
+        NSString *characterAtIndexString = [pageModel.carNum substringWithRange:NSMakeRange(i,1)];
+        [areaBtn setTitle:characterAtIndexString forState:UIControlStateNormal];
+        [areaBtn.layer setBorderColor: [[UIColor sc_colorWith6C6DFD]CGColor]];
+        [areaBtn.layer setBorderWidth:1.0];
+    }
 }
 @end

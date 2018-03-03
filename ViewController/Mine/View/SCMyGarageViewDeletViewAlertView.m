@@ -97,8 +97,15 @@
             exitInfoLabel.textColor = [UIColor sc_colorWith999999];
         }else{
             exitInfoLabel.textColor = [UIColor sc_colorWithE81F1F];
-            UITapGestureRecognizer * tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestClick)];
-            [exitLabel addGestureRecognizer:tapGest];
+            UIButton * deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [deleteBtn addTarget:self action:@selector(tapGestClick) forControlEvents:UIControlEventTouchUpInside];
+            [tipView addSubview:deleteBtn];
+            [deleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(tipView.mas_left).with.offset(0);
+                make.right.equalTo(tipView.mas_right).with.offset(-0);
+                make.top.equalTo(segmentView.mas_bottom).with.offset(topY);
+                make.height.mas_equalTo(50);
+            }];
         }
         exitInfoLabel.textAlignment = NSTextAlignmentCenter;
         exitInfoLabel.font = [UIFont sy_font14];
@@ -111,6 +118,7 @@
     if ([_delegate respondsToSelector:@selector(deleteCarInfo)]) {
         [self.delegate deleteCarInfo];
     }
+    [self diss];
 }
 
 - (void)diss

@@ -11,6 +11,8 @@
 #import "SCLoginResponseObjectModel.h"
 #import "SCManager+MBProgressHUD.h"
 #import "SCManager+CommonMethods.h"
+#import "SCLaunchViewController.h"
+#import "AppDelegate.h"
 @implementation SCManager (RequestInterface)
 - (void)getRegisteredVerificationCodeWithPhoneNumber:(NSString *)phoneNumber success:(SuccessBlock)success
                                               notice:(OptionBlock)notice
@@ -349,6 +351,13 @@
                 if (notice) {
                     notice(serializer,responseObject);
                 }
+            }else if (code == 900){
+                SCLaunchViewController * launchView = [[SCLaunchViewController alloc] init];
+                UINavigationController * rootViewController = [[UINavigationController alloc] initWithRootViewController:launchView];
+                [AppDelegate getAppDelegate].window.rootViewController = rootViewController;
+            }
+            if (failure) {
+                failure(serializer,nil);
             }
         }
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {

@@ -72,7 +72,7 @@
  */
 - (void)myCouponListWithId:(NSString *)couponId andLength:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 
-///keleapp/car/carList.jspx
+
 /*
  我的车库 (完)
  */
@@ -87,8 +87,12 @@
  @param carNum <#carNum description#>
  */
 - (void)myGarageEditWithCarId:(NSString *)carId carModel:(NSString *)carModel carNum:(NSString *)carNum success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
+///keleapp/car/carAdd.jspx
+- (void)myGarageCarAddWithCarNum:(NSString *)carNum carModel:(NSString *)carModel success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
 /**
- 我的车库删除
+ 我的车库删除(完)
  /keleapp/car/carDelete.jspx
  */
 - (void)myGarageDeleteWithCarId:(NSString *)carId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
@@ -96,8 +100,6 @@
 //keleapp/car/carDefault.jspx
 - (void)myGarageCarDefaultWithCarId:(NSString *)userId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 
-///keleapp/car/carAdd.jspx
-- (void)myGarageCarAddWithCarNum:(NSString *)carNum carModel:(NSString *)carModel success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 
 //(完)
 - (void)couponReceiveListWithLastCouponId:(NSString *)lastCouponId length:(NSString *)length success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;

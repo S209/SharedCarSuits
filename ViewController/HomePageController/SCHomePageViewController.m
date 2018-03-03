@@ -22,8 +22,21 @@
 
 @implementation SCHomePageViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+  
     self.view.backgroundColor = [UIColor sc_colorWihtf8f8f8];
     [self setupView];
 }
@@ -130,6 +143,10 @@
  
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

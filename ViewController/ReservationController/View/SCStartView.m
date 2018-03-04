@@ -20,24 +20,12 @@
             [imageViewNormal setImage:[UIImage imageNamed:@"setting_ico_star_normal"]];
             imageViewNormal.tag = 300 +i;
             
-//            UIImageView * startSelectImageView = [[UIImageView alloc] init];
-//            [self addSubview:startSelectImageView];
-//
-//            [startSelectImageView setImage:[UIImage imageNamed:@"setting_ico_star_selcted"]];
-//            startSelectImageView.hidden = YES;
-            
             startX = (15.5 + 5)*i;
             [imageViewNormal mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.size.mas_equalTo(CGSizeMake(15.5, 15));
                 make.left.equalTo(self.mas_left).with.offset(startX);
                 make.top.equalTo(self.mas_top).with.offset(0);
             }];
-            
-//            [startSelectImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//                make.size.mas_equalTo(CGSizeMake(15.5, 15));
-//                make.left.equalTo(self.mas_left).with.offset(startX);
-//                make.top.equalTo(self.mas_top).with.offset(0);
-//            }];
         }
         
         UILabel * evaluateLabel = [[UILabel alloc] init];

@@ -94,7 +94,7 @@ parameters:(NSDictionary *)parameters
     NSString * deviceName = [[SCManager shareInstance]iphoneType];
     [mutableParams setValue:deviceName forKey:@"deviceName"];
     NSString * deviceTokenString;
-#warning 真机测试
+
     if ([SCManager readUUID].length > 0) {
         deviceTokenString = [SCManager readUUID];
     }else{

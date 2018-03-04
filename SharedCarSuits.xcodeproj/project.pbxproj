@@ -12,6 +12,7 @@
 		050710A320490230004B8F35 /* SCEvaluationViewSectionOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 050710A220490230004B8F35 /* SCEvaluationViewSectionOneCell.m */; };
 		050710A6204904BC004B8F35 /* SCStartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 050710A5204904BC004B8F35 /* SCStartView.m */; };
 		050710A9204AB79B004B8F35 /* SCEditorOrAddCarNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 050710A8204AB79B004B8F35 /* SCEditorOrAddCarNumberViewController.m */; };
+		050710AC204BAB1B004B8F35 /* SCShopListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 050710AB204BAB1B004B8F35 /* SCShopListModel.m */; };
 		05626CC22041406900714531 /* SCMakeAnAppointmentprocessController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CC12041406900714531 /* SCMakeAnAppointmentprocessController.m */; };
 		05626CC52041458700714531 /* SCMakeAnAppointmentprocessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CC42041458700714531 /* SCMakeAnAppointmentprocessCell.m */; };
 		05626CC820419B7E00714531 /* SCAppointmentProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05626CC720419B7E00714531 /* SCAppointmentProcessViewController.m */; };
@@ -135,6 +136,8 @@
 		050710A5204904BC004B8F35 /* SCStartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCStartView.m; sourceTree = "<group>"; };
 		050710A7204AB79B004B8F35 /* SCEditorOrAddCarNumberViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCEditorOrAddCarNumberViewController.h; sourceTree = "<group>"; };
 		050710A8204AB79B004B8F35 /* SCEditorOrAddCarNumberViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCEditorOrAddCarNumberViewController.m; sourceTree = "<group>"; };
+		050710AA204BAB1B004B8F35 /* SCShopListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCShopListModel.h; sourceTree = "<group>"; };
+		050710AB204BAB1B004B8F35 /* SCShopListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCShopListModel.m; sourceTree = "<group>"; };
 		05626CC02041406900714531 /* SCMakeAnAppointmentprocessController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMakeAnAppointmentprocessController.h; sourceTree = "<group>"; };
 		05626CC12041406900714531 /* SCMakeAnAppointmentprocessController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMakeAnAppointmentprocessController.m; sourceTree = "<group>"; };
 		05626CC32041458700714531 /* SCMakeAnAppointmentprocessCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMakeAnAppointmentprocessCell.h; sourceTree = "<group>"; };
@@ -392,6 +395,8 @@
 				05F024E4204689E000FE3794 /* SCMyMsgModel.m */,
 				0507109B20485818004B8F35 /* SCChoiseBrandModel.h */,
 				0507109C20485818004B8F35 /* SCChoiseBrandModel.m */,
+				050710AA204BAB1B004B8F35 /* SCShopListModel.h */,
+				050710AB204BAB1B004B8F35 /* SCShopListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1029,6 +1034,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SharedCarSuits/Pods-SharedCarSuits-resources.sh",
+				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1187,6 +1193,7 @@
 				05E94F742032DC3600210BE3 /* SCEditorUserInfoViewController+ImagePickerController.m in Sources */,
 				05DAD55820307ED7000E13C2 /* SCChoiseCarNumberView.m in Sources */,
 				050710A9204AB79B004B8F35 /* SCEditorOrAddCarNumberViewController.m in Sources */,
+				050710AC204BAB1B004B8F35 /* SCShopListModel.m in Sources */,
 				050710A6204904BC004B8F35 /* SCStartView.m in Sources */,
 				05D34DCA2032C043002AADA4 /* SCEditorUserInfoViewController.m in Sources */,
 				05626CE92044474100714531 /* SCOrderListViewController.m in Sources */,

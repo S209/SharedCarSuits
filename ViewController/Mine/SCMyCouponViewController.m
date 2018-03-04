@@ -74,7 +74,8 @@
             [strongSelf.tableView.mj_footer endRefreshing];
         }
         NSArray * list = [responseObject objectForKey:@"list"];
-        strongSelf.dataArray = [[NSArray yy_modelArrayWithClass:[SCCouponModel class] json:list] mutableCopy];
+        NSArray * listArray = [[NSArray yy_modelArrayWithClass:[SCCouponModel class] json:list] copy];
+        [strongSelf.dataArray addObjectsFromArray:listArray];
         [strongSelf.tableView reloadData];
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
         

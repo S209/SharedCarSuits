@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SCStartView : UIView
+//self.size = CGSizeMake(80, 25);
 - (instancetype)initWithFrame:(CGRect)frame;
 @property (nonatomic, weak) UILabel * evaluateLabel;
 @property (nonatomic, assign) NSInteger numberOfScore;

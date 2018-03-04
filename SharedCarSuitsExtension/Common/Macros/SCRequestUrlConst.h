@@ -54,3 +54,12 @@
 #define SCUrl_EditUserInfo GeneralUrl(@"/keleapp/userInfor/editUser.jspx")
 //我的汽车列表 (完)
 #define SCUrl_allCarBrand GeneralUrl(@"/keleapp/upload/data/allCarBrand.json")
+
+//我的门店列表
+#define SCUrl_ShopList GeneralUrl(@"/keleapp/shop/shopList.jspx")
+
+//门店 设置默认门店
+#define SCUrl_ShopDefault GeneralUrl(@"/keleapp/shop/shopDefault.jspx")
+
+
+

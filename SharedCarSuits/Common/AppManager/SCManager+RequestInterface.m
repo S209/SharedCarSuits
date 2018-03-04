@@ -310,7 +310,43 @@
     }];
 }
 
+- (void)shopListWithId:(NSString *)shopId length:(NSString *)length location:(NSString *)location
+               success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    NSDictionary * paramaterDict = @{@"id":shopId,@"length":length,@"location":location};
+    [self requestUrl:SCUrl_ShopList andParamater:paramaterDict success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (notice) {
+            notice(serializer,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer,error);
+        }
+    }];
+}
 
+- (void)shopDefaultWithId:(NSString *)shopId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    NSDictionary * parameterDict = @{@"id":shopId};
+    
+    [self requestUrl:SCUrl_ShopDefault andParamater:parameterDict success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (notice) {
+            notice(serializer,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer,error);
+        }
+    }];
+}
 
 - (void)requestUrl:(NSString *)url andParamater:(NSDictionary *)parameter success:(SuccessBlock)success
             notice:(OptionBlock)notice
@@ -352,9 +388,7 @@
                     notice(serializer,responseObject);
                 }
             }else if (code == 900){
-                SCLaunchViewController * launchView = [[SCLaunchViewController alloc] init];
-                UINavigationController * rootViewController = [[UINavigationController alloc] initWithRootViewController:launchView];
-                [AppDelegate getAppDelegate].window.rootViewController = rootViewController;
+                [SCManager exit];
             }
             if (failure) {
                 failure(serializer,nil);

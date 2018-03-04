@@ -108,4 +108,22 @@
 - (void)couponReceiveWithCouponId:(NSString *)couponId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 //(完)
 - (void)allCarBrandSuccess:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
+
+
+/**
+ 门店列表
+ @param shopId 门店id
+ @param length 长度 10
+ @param location 经纬度
+ */
+- (void)shopListWithId:(NSString *)shopId length:(NSString *)length location:(NSString *)location
+success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
+
+
+/**
+ 默认门店
+ */
+- (void)shopDefaultWithId:(NSString *)shopId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 @end

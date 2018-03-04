@@ -16,6 +16,7 @@ target 'SharedCarSuits' do
     pod 'WMPageController', '~> 2.5.2'
     pod 'FDFullscreenPopGesture', '1.1'
     pod 'MJRefresh'
+    pod 'BaiduMapKit'
     # Pods for SharedCarSuits
     
     target 'SharedCarSuitsTests' do

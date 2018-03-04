@@ -53,7 +53,7 @@
     phoneNumberField.tag = 300;
     self.phoneNumberField = phoneNumberField;
     phoneNumberField.textColor = [UIColor sc_colorWith444444];
-    phoneNumberField.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    phoneNumberField.backgroundColor = [UIColor sc_colorWithf8f8f8];
     UIView * leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 16, 40)];
     leftView.backgroundColor = [UIColor clearColor];
     phoneNumberField.leftViewMode = UITextFieldViewModeAlways;    //此句代码较容易忽略
@@ -87,7 +87,7 @@
     loginPasswordField.secureTextEntry = YES;
     
     
-    loginPasswordField.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    loginPasswordField.backgroundColor = [UIColor sc_colorWithf8f8f8];
     UIView * loginPasswordView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 16, 40)];
     loginPasswordView.backgroundColor = [UIColor clearColor];
     loginPasswordField.leftViewMode = UITextFieldViewModeAlways;    //此句代码较容易忽略

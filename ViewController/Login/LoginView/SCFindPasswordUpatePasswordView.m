@@ -44,7 +44,7 @@
     UITextField * setupPasswordField = [[UITextField alloc] init];
     [self addSubview:setupPasswordField];
     self.setupPasswordField = setupPasswordField;
-    setupPasswordField.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    setupPasswordField.backgroundColor = [UIColor sc_colorWithf8f8f8];
     NSString * setupPasswordString = @"请输入密码";
     setupPasswordField.keyboardType = UIKeyboardTypeNumberPad;
     setupPasswordField.placeholder = setupPasswordString;
@@ -91,7 +91,7 @@
     repeateInputField.leftViewMode = UITextFieldViewModeAlways;    //此句代码较容易忽略
     repeateInputField.leftView = repeateInputView;
     
-    repeateInputField.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    repeateInputField.backgroundColor = [UIColor sc_colorWithf8f8f8];
     
     
     UIButton * completeBtn = [UIButton buttonWithType:UIButtonTypeCustom];

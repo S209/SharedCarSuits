@@ -28,7 +28,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self setupView];
-        self.contentView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+        self.contentView.backgroundColor = [UIColor sc_colorWithf8f8f8];
     }
     return self;
 }

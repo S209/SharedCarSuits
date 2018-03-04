@@ -40,8 +40,20 @@ static const CGFloat KWMMenuViewhHeight = 45;
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = label;
     self.menuView.style = WMMenuViewStyleLine;
+    
+
+    UIButton * leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftBtn.frame = CGRectMake(0, 0, 30, 44);
+    [leftBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [leftBtn setImage:[UIImage imageNamed:@"title_btn_back"] forState:UIControlStateNormal];
+    UIBarButtonItem * leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
 }
 
+- (void)leftBtnClick
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 #pragma mark - Datasource & Delegate
 - (NSInteger)numbersOfChildControllersInPageController:(WMPageController *)pageController
 {
@@ -70,11 +82,11 @@ static const CGFloat KWMMenuViewhHeight = 45;
 
 - (CGRect)pageController:(WMPageController *)pageController preferredFrameForMenuView:(WMMenuView *)menuView {
 
-    return CGRectMake(0, SYNavigationBarHeight, SCREEN_WIDTH, KWMMenuViewhHeight);
+    return CGRectMake(0, 0, SCREEN_WIDTH, KWMMenuViewhHeight);
 }
 
 - (CGRect)pageController:(WMPageController *)pageController preferredFrameForContentView:(WMScrollView *)contentView {
-    CGFloat originY = SYNavigationBarHeight + KWMMenuViewhHeight;
+    CGFloat originY = KWMMenuViewhHeight;
     return CGRectMake(0, originY, SCREEN_WIDTH, self.view.frame.size.height - originY);
 }
 

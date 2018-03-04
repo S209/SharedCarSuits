@@ -47,7 +47,7 @@
         make.right.equalTo(self.mas_right).with.offset(-15);
         make.height.mas_equalTo(40);
     }];
-    choiseBrandLabel.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    choiseBrandLabel.backgroundColor = [UIColor sc_colorWithf8f8f8];
 //    UITapGestureRecognizer * tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(choiseBrandLabelClick)];
 //    [choiseBrandLabel addGestureRecognizer:tapGest];
     UIButton * choiseLabelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -90,7 +90,7 @@
         carNumberBtn.layer.masksToBounds = YES;
         [carNumberBtn.layer setCornerRadius:4.0];
         carNumberBtn.tag = 300+i;
-        carNumberBtn.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+        carNumberBtn.backgroundColor = [UIColor sc_colorWithf8f8f8];
     }
     
     UIButton * sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];

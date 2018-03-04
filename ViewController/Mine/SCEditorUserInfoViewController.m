@@ -75,7 +75,7 @@
     
     UITextField * nameField = [[UITextField alloc] init];
     [self.view addSubview:nameField];
-    nameField.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    nameField.backgroundColor = [UIColor sc_colorWithf8f8f8];
     [nameField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(nameLabel.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(-15);
@@ -85,7 +85,7 @@
     UIView * leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0,15, 40)];
     nameField.leftView = leftView;
     nameField.leftViewMode = UITextFieldViewModeAlways;
-    leftView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    leftView.backgroundColor = [UIColor sc_colorWithf8f8f8];
     nameField.placeholder = @"请输入真实姓名";
     nameField.text = _userModel.realName;
     
@@ -100,7 +100,7 @@
     
     UITextField * phoneField = [[UITextField alloc] init];
     [self.view addSubview:phoneField];
-    phoneField.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    phoneField.backgroundColor = [UIColor sc_colorWithf8f8f8];
     [phoneField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(nameLabel.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(-15);

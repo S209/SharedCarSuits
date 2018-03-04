@@ -48,7 +48,7 @@
     phoneNumberField.placeholder = @"请输入11位手机号";
     self.phoneNumberField = phoneNumberField;
     phoneNumberField.textColor = [UIColor sc_colorWith444444];
-    phoneNumberField.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    phoneNumberField.backgroundColor = [UIColor sc_colorWithf8f8f8];
     UIView * leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 16, 40)];
     leftView.backgroundColor = [UIColor clearColor];
     phoneNumberField.leftViewMode = UITextFieldViewModeAlways;    //此句代码较容易忽略
@@ -65,7 +65,7 @@
     UITextField * smsVerification = [[UITextField alloc] init];
     [self addSubview:smsVerification];
     self.smsVerification = smsVerification;
-    smsVerification.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    smsVerification.backgroundColor = [UIColor sc_colorWithf8f8f8];
     NSString * smsVerificationString = @"请输入验证码";
     smsVerification.keyboardType = UIKeyboardTypeNumberPad;
     smsVerification.placeholder = smsVerificationString;

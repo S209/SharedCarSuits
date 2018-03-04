@@ -11,7 +11,7 @@
 @interface UIColor (Additional)
 //f8f8f8
 + (UIColor *)sc_colorWith282828;
-+ (UIColor *)sc_colorWihtf8f8f8;
++ (UIColor *)sc_colorWithf8f8f8;
 + (UIColor *)sc_colorWith444444;
 + (UIColor *)sc_colorWith6C6DFD;
 + (UIColor *)sc_colorWith6162e3;
@@ -35,4 +35,5 @@
 + (UIColor *)sc_colorWithF97945;
 + (UIColor *)sc_colorWithED1928;
 + (UIColor *)sc_colorWithF64C38;
++ (UIColor *)sc_colorWithFFF8DC;
 @end

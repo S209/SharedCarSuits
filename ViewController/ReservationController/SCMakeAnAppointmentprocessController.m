@@ -8,6 +8,7 @@
 
 #import "SCMakeAnAppointmentprocessController.h"
 #import "SCMakeAnAppointmentprocessCell.h"
+#import "SCMyAppointmentViewController.h"
 @interface SCMakeAnAppointmentprocessController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @end
@@ -17,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavigationWithTitle:@"保险钣金"];
+    [self sy_leftBarButtonItem];
     [self setupView];
 }
 
@@ -112,7 +114,8 @@
 #pragma mark
 - (void)makeAppointmentBtnClick:(UIButton *)sender
 {
-    
+    SCMyAppointmentViewController * myAppointmentViewController = [[SCMyAppointmentViewController alloc] init];
+    [self.navigationController pushViewController:myAppointmentViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

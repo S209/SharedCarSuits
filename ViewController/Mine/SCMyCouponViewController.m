@@ -30,7 +30,7 @@
     [super viewDidLoad];
     [self setNavigationWithTitle:@"我的优惠券"];
     [self sy_leftBarButtonItem];
-    self.view.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    self.view.backgroundColor = [UIColor sc_colorWithf8f8f8];
     [self setupView];
     [self loadNewData];
 }
@@ -91,7 +91,7 @@
     self.tableView = tableView;
     tableView.delegate = self;
     tableView.dataSource = self;
-    tableView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    tableView.backgroundColor = [UIColor sc_colorWithf8f8f8];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);

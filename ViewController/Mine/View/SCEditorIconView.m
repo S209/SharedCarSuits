@@ -57,7 +57,7 @@
     
     UIView * segmentView = [[UIView alloc] init];
     [tipView addSubview:segmentView];
-    segmentView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    segmentView.backgroundColor = [UIColor sc_colorWithf8f8f8];
     [segmentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(tipView.mas_left).with.offset(0);
         make.top.equalTo(exitLabel.mas_bottom).with.offset(0);
@@ -100,7 +100,7 @@
                 make.top.equalTo(exitInfoLabel.mas_bottom).with.offset(50);
                 make.height.mas_equalTo(0.5);
             }];
-            segmentView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+            segmentView.backgroundColor = [UIColor sc_colorWithf8f8f8];
         }
         exitInfoLabel.text = [tipsArray safeObjectAtIndex:i];
         exitInfoLabel.textColor = [UIColor sc_colorWith999999];

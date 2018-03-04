@@ -59,7 +59,7 @@
     
     UIView * segmentView = [[UIView alloc] init];
     [tipView addSubview:segmentView];
-    segmentView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    segmentView.backgroundColor = [UIColor sc_colorWithf8f8f8];
     [segmentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(tipView.mas_left).with.offset(0);
         make.top.equalTo(carInfoLabel.mas_bottom).with.offset(0);

@@ -37,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
-    self.view.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    self.view.backgroundColor = [UIColor sc_colorWithf8f8f8];
     [self setupView];
 }
 
@@ -110,11 +110,11 @@
 //    SCMakeAnAppointmentprocessController * makeAnAppoint = [[SCMakeAnAppointmentprocessController alloc] init];
 //    [self.navigationController pushViewController:makeAnAppoint animated:YES];
     
-//    SCAppointmentProcessViewController * processViewController = [[SCAppointmentProcessViewController alloc] init];
-//    [self.navigationController pushViewController:processViewController animated:YES];
+    SCAppointmentProcessViewController * processViewController = [[SCAppointmentProcessViewController alloc] init];
+    [self.navigationController pushViewController:processViewController animated:YES];
 
-    SCOrderListViewController * listViewController = [[SCOrderListViewController alloc] init];
-    [self.navigationController pushViewController:listViewController animated:YES];
+//    SCOrderListViewController * listViewController = [[SCOrderListViewController alloc] init];
+//    [self.navigationController pushViewController:listViewController animated:YES];
 }
 
 - (void)homePageSectionOneCellReceiveCoupons

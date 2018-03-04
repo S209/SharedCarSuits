@@ -31,7 +31,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    self.view.backgroundColor = [UIColor sc_colorWithf8f8f8];
     [self setNavigationWithTitle:@"门店"];
     [self setupView];
 //    [self loadNewData];
@@ -80,30 +80,16 @@
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
         
     } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-        
+        self.networkNerrorImageView.hidden = NO;
+        self.networkNerrorLabel.hidden = NO;
     }];
 }
 
 - (void)setupView
 {
-//    UITableView * tableView = [[UITableView alloc] init];
-//    [self.view addSubview:tableView];
-//    tableView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
-//    self.tableView = tableView;
-//    tableView.delegate = self;
-//    tableView.dataSource = self;
-//    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.view.mas_left).with.offset(0);
-//        make.top.equalTo(self.view.mas_top).with.offset(10);
-//        make.right.equalTo(self.view.mas_right).with.offset(-0);
-//        make.bottom.equalTo(self.view.mas_bottom).with.offset(-SYTabBarHeight);
-//    }];
-//    tableView.mj_header = [SCDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-
-    
     UIImageView * networkNerrorImageView = [[UIImageView alloc] init];
     [self.view addSubview:networkNerrorImageView];
+    networkNerrorImageView.hidden = YES;
     [networkNerrorImageView setImage:[UIImage imageNamed:@"default_no_network"]];
     self.networkNerrorImageView = networkNerrorImageView;
     [self.networkNerrorImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -112,21 +98,36 @@
         make.centerY.mas_equalTo(self.view.mas_centerY).with.offset(-5);
     }];
     
-    
     UILabel * networkNerrorLabel = [[UILabel alloc] init];
     [self.view addSubview:networkNerrorLabel];
+    networkNerrorLabel.hidden = YES;
     networkNerrorLabel.numberOfLines = 2;
     networkNerrorLabel.textAlignment = NSTextAlignmentCenter;
     self.networkNerrorLabel = networkNerrorLabel;
     networkNerrorLabel.text = @"网络请求失败\n请点击空白位置重试";
     networkNerrorLabel.font = [UIFont sy_font14];
     networkNerrorLabel.textColor = [UIColor sc_colorWith999999];
-    [self.networkNerrorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.networkNerrorImageView.mas_bottom).with.offset(-50);
+    [networkNerrorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.networkNerrorImageView.mas_bottom).with.offset(-45);
         make.centerX.mas_equalTo(self.view.mas_centerX);
         make.width.mas_equalTo(250);
     }];
     
+    
+    UITableView * tableView = [[UITableView alloc] init];
+    [self.view addSubview:tableView];
+    tableView.backgroundColor = [UIColor sc_colorWithf8f8f8];
+    self.tableView = tableView;
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).with.offset(0);
+        make.top.equalTo(self.view.mas_top).with.offset(10);
+        make.right.equalTo(self.view.mas_right).with.offset(-0);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-SYTabBarHeight);
+    }];
+    tableView.mj_header = [SCDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
 }
 
 #pragma mark

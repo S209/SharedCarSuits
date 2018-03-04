@@ -47,7 +47,7 @@
         UIView * bottomView = [[UIView alloc] init];
         [self.contentView addSubview:bottomView];
         self.bottomView = bottomView;
-        bottomView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+        bottomView.backgroundColor = [UIColor sc_colorWithf8f8f8];
         bottomView.layer.masksToBounds = YES;
         [bottomView.layer setCornerRadius:4.0];
         

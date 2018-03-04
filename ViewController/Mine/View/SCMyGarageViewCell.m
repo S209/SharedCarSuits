@@ -105,7 +105,7 @@
         UIView * bottomSegmentView = [[UIView alloc] init];
         [self.contentView addSubview:bottomSegmentView];
         self.bottomSegmentView = bottomSegmentView;
-        bottomSegmentView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+        bottomSegmentView.backgroundColor = [UIColor sc_colorWithf8f8f8];
     }
     return self;
     

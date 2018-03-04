@@ -38,7 +38,7 @@
     SCMyCouponCell * cell = [tableView dequeueReusableCellWithIdentifier:idDes];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.couponModel = model;
-    cell.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    cell.backgroundColor = [UIColor sc_colorWithf8f8f8];
     return cell;
 }
 
@@ -94,7 +94,7 @@
     UIView * segmentView = [[UIView alloc] init];
     [self.contentView addSubview:segmentView];
     self.segmentView = segmentView;
-    segmentView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    segmentView.backgroundColor = [UIColor sc_colorWithf8f8f8];
 }
 
 - (void)layoutSubviews

@@ -35,7 +35,7 @@
 {
     UITableView * tableView = [[UITableView alloc] init];
     [self.view addSubview:tableView];
-    tableView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    tableView.backgroundColor = [UIColor sc_colorWithf8f8f8];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -175,11 +175,11 @@
 {
     if (section == 0 || section == 1) {
         UIView * footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10)];
-        footView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+        footView.backgroundColor = [UIColor sc_colorWithf8f8f8];
         return footView;
     }else if (section == 2){
         UIView * footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 60)];
-        footView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+        footView.backgroundColor = [UIColor sc_colorWithf8f8f8];
         return footView;
     }
     return nil;

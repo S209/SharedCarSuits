@@ -52,6 +52,20 @@
         make.width.mas_equalTo(72);
         make.centerX.mas_equalTo(self.view.mas_centerX);
     }];
+    
+    UIButton * makeAppointmentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:makeAppointmentBtn];
+    [makeAppointmentBtn setTitle:@"我要预约" forState:UIControlStateNormal];
+    [makeAppointmentBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    makeAppointmentBtn.backgroundColor = [UIColor sc_colorWith6C6DFD];
+    makeAppointmentBtn.titleLabel.font = [UIFont sy_boldFont16];
+    [makeAppointmentBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).with.offset(0);
+        make.right.equalTo(self.view.mas_right).with.offset(-0);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
+        make.height.mas_equalTo(44);
+    }];
+    [makeAppointmentBtn addTarget:self action:@selector(makeAppointmentBtnClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -60,7 +74,10 @@
     self.pageControl.currentPage = page;
 }
 
-
+- (void)makeAppointmentBtnClick:(UIButton *)sender
+{
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

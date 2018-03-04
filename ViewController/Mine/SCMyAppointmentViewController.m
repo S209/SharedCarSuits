@@ -26,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavigationWithTitle:@"预约流程"];
+    [self sy_leftBarButtonItem];
     [self setupView];
 }
 
@@ -34,7 +35,7 @@
     UIImageView * timeImageView = [[UIImageView alloc] init];
     [self.view addSubview:timeImageView];
     [timeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight+30);
+        make.top.equalTo(self.view.mas_top).with.offset(30);
         make.left.equalTo(self.view.mas_left).with.offset(15);
         make.size.mas_equalTo(CGSizeMake(13, 13));
     }];
@@ -45,7 +46,7 @@
     choiseTimeLabel.text = @"请选择预约时间";
     [choiseTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(timeImageView.mas_right).with.offset(5);
-        make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight+25);
+        make.top.equalTo(self.view.mas_top).with.offset(25);
         make.width.mas_equalTo(200);
     }];
     choiseTimeLabel.font = [UIFont sy_boldFont16];
@@ -86,10 +87,10 @@
     for (NSUInteger i = 0; i < timeArray.count; i++) {
         wrap = i%column;
         pieceX = 15 + (pieceSize + 9)*wrap;
-        pieceY = (25 + 25 + 16 + SYNavigationBarHeight) + i/column * (pieceSize * 0.5 + 7);
+        pieceY = (25 + 25 + 16) + i/column * (pieceSize * 0.5 + 7);
         UIButton * timeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.view addSubview:timeBtn];
-        timeBtn.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+        timeBtn.backgroundColor = [UIColor sc_colorWithf8f8f8];
         timeBtn.layer.masksToBounds = YES;
         [timeBtn.layer setCornerRadius:4.0];
         [timeBtn setTitleColor:[UIColor sc_colorWithCCCCCC] forState:UIControlStateNormal];
@@ -99,7 +100,7 @@
         timeBtn.titleLabel.font = [UIFont sy_font12];
     }
 
-    CGFloat timeHeight = 4 * pieceSize * 0.5 + 7*3 +SYNavigationBarHeight + 65 + 25;
+    CGFloat timeHeight = 4 * pieceSize * 0.5 + 7*3 + 65 + 25;
     UIImageView * serviceImageView = [[UIImageView alloc] init];
     [self.view addSubview:serviceImageView];
     [serviceImageView mas_makeConstraints:^(MASConstraintMaker *make) {

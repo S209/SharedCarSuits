@@ -57,7 +57,7 @@
 - (void)setupView
 {
     UITableView * tableView = [[UITableView alloc] init];
-    tableView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    tableView.backgroundColor = [UIColor sc_colorWithf8f8f8];
     [self.view addSubview:tableView];
     self.tableView = tableView;
     tableView.delegate = self;
@@ -110,7 +110,7 @@
 {
     if (section == 0) {
         UIView * footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10)];
-        footView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+        footView.backgroundColor = [UIColor sc_colorWithf8f8f8];
         return footView;
     }
     return nil;

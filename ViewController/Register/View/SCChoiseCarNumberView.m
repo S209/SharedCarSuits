@@ -78,7 +78,7 @@
         make.top.equalTo(topView.mas_bottom).with.offset(0);
         make.height.mas_equalTo(5);
     }];
-    segmentView.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+    segmentView.backgroundColor = [UIColor sc_colorWithf8f8f8];
     
     UIView * bottomView = [[UIView alloc] init];
     [self addSubview:bottomView];
@@ -107,7 +107,7 @@
         
         UIButton * areaBtn = [[UIButton alloc] init];
         [bottomView addSubview:areaBtn];
-        areaBtn.backgroundColor = [UIColor sc_colorWihtf8f8f8];
+        areaBtn.backgroundColor = [UIColor sc_colorWithf8f8f8];
         [areaBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(bottomView.mas_left).with.offset(areaX);
             make.top.equalTo(bottomView.mas_top).with.offset(areaY);

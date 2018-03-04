@@ -61,5 +61,13 @@
 //门店 设置默认门店
 #define SCUrl_ShopDefault GeneralUrl(@"/keleapp/shop/shopDefault.jspx")
 
+//订单 预约订单-今日时间+服务项目
+#define SCUrl_AppointmentOrder GeneralUrl(@"/keleapp/order/appointmentOrder.jspx")
+
+//订单 预约订单-今日/明日时间列表
+#define SCUrl_AppointmentOrderTime GeneralUrl(@"/keleapp/coupon/appointmentOrderTime.jspx")
+
+//预约订单-我要预约
+#define SCUrl_CreateOrder GeneralUrl(@"/keleapp/coupon/ createOrder.jspx")
 
 

@@ -43,7 +43,7 @@
         make.top.equalTo(self.mas_top).with.offset(53);
     }];
     userIconImg.layer.masksToBounds = YES;
-    [userIconImg.layer setCornerRadius:70];
+    [userIconImg.layer setCornerRadius:35];
     
   
     UILabel * userNameLabel = [[UILabel alloc] init];

@@ -100,7 +100,7 @@
         make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight);
         make.height.mas_equalTo(0.5);
     }];
-    segmentView.backgroundColor = [UIColor sc_colorWithF4F4F4];
+    segmentView.backgroundColor = [UIColor sc_colorWithe5e5e5];
     
     BOOL flag = [SCManager isLogin];
     if (flag) {

@@ -9,6 +9,7 @@
 #import "SCMyAppointmentViewController.h"
 #import "SCMyAppointmentViewCell.h"
 #import "SCReservationAlertView.h"
+#import "SCOrderConfirmationViewController.h"
 @interface SCMyAppointmentViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
@@ -202,7 +203,8 @@
 
 - (void)makeAnAppointmentBtnClick:(UIButton *)sender
 {
-    
+    SCOrderConfirmationViewController * orderConfirmation = [[SCOrderConfirmationViewController alloc] init];
+    [self.navigationController pushViewController:orderConfirmation animated:YES];
 }
 
 

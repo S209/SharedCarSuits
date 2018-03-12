@@ -88,7 +88,7 @@
  */
 - (void)myGarageEditWithCarId:(NSString *)carId carModel:(NSString *)carModel carNum:(NSString *)carNum success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 
-///keleapp/car/carAdd.jspx
+///keleapp/car/carAdd.jspx (完)
 - (void)myGarageCarAddWithCarNum:(NSString *)carNum carModel:(NSString *)carModel success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 
 /**
@@ -126,4 +126,19 @@ success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)f
  默认门店
  */
 - (void)shopDefaultWithId:(NSString *)shopId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
+/**
+ 我要预约
+ */
+- (void)makeAnAppointmentWithShopId:(NSString *)shopId orderType:(NSString *)orderType projectIds:(NSString *)projectIds carId:(NSString *)carId date:(NSString *)date success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
+/**
+ 预约订单-今日/明日时间列表
+ */
+- (void)appointmentOrderTodayOrTodayListWithShopId:(NSString *)shopId orderType:(NSString *)orderType carId:(NSString *)carId timeType:(NSString *)timeType success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
+/**
+  预约订单—今日时间+ 服务项目
+ */
+- (void)appointmentOrderWithShopId:(NSString *)shopId orderType:(NSString *)orderType carId:(NSString *)carId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 @end

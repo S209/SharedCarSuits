@@ -220,7 +220,7 @@
 - (void)setUserModel:(SCUserModel *)userModel
 {
     _userModel = userModel;
-    [self.userIconImg sd_setImageWithURL:[NSURL URLWithString:userModel.headUrl] placeholderImage:[UIImage imageNamed:@""]];
+    [self.userIconImg sd_setImageWithURL:[NSURL URLWithString:userModel.headUrl] placeholderImage:[UIImage imageNamed:@"default_profile"]];
     self.userNameLabel.text = userModel.realName;
     self.userNumberLabel.text = userModel.loginName;
 }

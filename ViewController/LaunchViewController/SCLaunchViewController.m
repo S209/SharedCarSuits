@@ -15,27 +15,93 @@
 #import "SCRegisterViewController.h"
 #import "SCManager+RequestInterface.h"
 #import "SCManager+CommonMethods.h"
-@interface SCLaunchViewController ()<SCLoginViewDelegate>
+@interface SCLaunchViewController ()<SCLoginViewDelegate,UIScrollViewDelegate>
 @property (nonatomic , strong) SCHomeTabBarController * homeTabBarController;
 @property (nonatomic, weak) SCLoginView * loginView;
+@property (nonatomic, weak) UIView * segmentView;
+@property (nonatomic, weak) UIScrollView * guideMapScrollView;
 @end
 
 @implementation SCLaunchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadLoadingOrder];
+    self.navigationController.navigationBar.hidden = YES;
+    [self setupGuideMap];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self setNavigationWithTitle:@"登录验证"];
- 
+}
+
+- (void)setupGuideMap{
+    BOOL IsTheAppInstalledForTheFirstTime = [[[NSUserDefaults standardUserDefaults] objectForKey:SCIsTheAppInstalledForTheFirstTime] boolValue];
+    if (!IsTheAppInstalledForTheFirstTime) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:SCIsTheAppInstalledForTheFirstTime];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        UIScrollView * guideMapScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        [self.view addSubview:guideMapScrollView];
+        self.guideMapScrollView = guideMapScrollView;
+        guideMapScrollView.delegate = self;
+        guideMapScrollView.pagingEnabled = YES;
+        NSArray * guideMapArray = @[@"guideMapOne",@"guideMapTwo",@"guideMapThree",@"guideMapFour"];
+        CGFloat guideMapImageViewX = 0;
+        for (NSUInteger i = 0; i < guideMapArray.count; i++) {
+            guideMapImageViewX = SCREEN_WIDTH * i;
+            UIImageView * guideMapImageView = [[UIImageView alloc] init];
+            guideMapImageView.frame = CGRectMake(guideMapImageViewX, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+            [guideMapImageView setImage:[UIImage imageNamed:[guideMapArray safeObjectAtIndex:i]]];
+            [guideMapScrollView addSubview:guideMapImageView];
+            if (i == guideMapArray.count - 1) {
+                guideMapImageView.userInteractionEnabled = YES;
+                UIButton * guideMapBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                [guideMapImageView addSubview:guideMapBtn];
+                [guideMapBtn addTarget:self action:@selector(guideMapBtnClick) forControlEvents:UIControlEventTouchUpInside];
+                CGFloat guideMapBtnX = (SCREEN_WIDTH-160)*0.5;
+                guideMapBtn.frame = CGRectMake(guideMapBtnX, SCREEN_HEIGHT-93, 160, 40);
+            }
+        }
+        guideMapScrollView.contentSize = CGSizeMake(guideMapArray.count * SCREEN_WIDTH, 0);
+        guideMapScrollView.showsHorizontalScrollIndicator = NO;
+        
+    }else{
+        [self loadLoadingOrder];
+    }
+}
+
+
+- (void)guideMapBtnClick{
+    [self.guideMapScrollView removeFromSuperview];
+    [self loadLoadingOrder];
 }
 
 - (void)loadLoadingOrder
 {
+    UILabel * titleLabel = [[UILabel alloc] init];
+    titleLabel.font = [UIFont sy_boldFont17];
+    titleLabel.textColor = [UIColor sc_colorWith444444];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:titleLabel];
+    titleLabel.text = @"登录验证";
+    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).with.offset(0);
+        make.right.equalTo(self.view.mas_right).with.offset(-0);
+        make.top.equalTo(self.view.mas_top).with.offset(20);
+    }];
+
+    UIView * segmentView = [[UIView alloc] init];
+    [self.view addSubview:segmentView];
+    self.segmentView = segmentView;
+    [segmentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).with.offset(0);
+        make.right.equalTo(self.view.mas_right).with.offset(-0);
+        make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight);
+        make.height.mas_equalTo(0.5);
+    }];
+    segmentView.backgroundColor = [UIColor sc_colorWithF4F4F4];
+    
     BOOL flag = [SCManager isLogin];
     if (flag) {
         SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
@@ -56,8 +122,13 @@
         make.left.equalTo(self.view.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(-0);
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
-        make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight);
+        make.top.equalTo(self.segmentView.mas_bottom).with.offset(0);
     }];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
 }
 
 
@@ -89,6 +160,11 @@
 {
     SCFindPasswordController * findPassword = [[SCFindPasswordController alloc] init];
     [self.navigationController pushViewController:findPassword animated:YES];
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

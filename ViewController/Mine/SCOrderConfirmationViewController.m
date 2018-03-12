@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self sy_leftBarButtonItem];
+    [self setNavigationWithTitle:@"订单确认"];
 }
 
 - (void)didReceiveMemoryWarning {

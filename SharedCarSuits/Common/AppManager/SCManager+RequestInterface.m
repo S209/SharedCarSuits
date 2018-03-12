@@ -348,6 +348,56 @@
     }];
 }
 
+
+- (void)makeAnAppointmentWithShopId:(NSString *)shopId orderType:(NSString *)orderType projectIds:(NSString *)projectIds carId:(NSString *)carId date:(NSString *)date success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    NSDictionary * parameterDict = @{@"shopId":shopId,@"orderType":orderType,@"projectIds":projectIds,@"carId":carId,@"date":date};
+    [self requestUrl:SCUrl_CreateOrder andParamater:parameterDict success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (notice) {
+            notice(serializer,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer,error);
+        }
+    }];
+}
+
+- (void)appointmentOrderTodayOrTodayListWithShopId:(NSString *)shopId orderType:(NSString *)orderType carId:(NSString *)carId timeType:(NSString *)timeType success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    NSDictionary * parameterDict = @{@"shopId":shopId,@"orderType":orderType,@"carId":carId,@"timeType":timeType};
+    [self requestUrl:SCUrl_AppointmentOrderTime andParamater:parameterDict success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (notice) {
+            notice(serializer,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer,error);
+        }
+    }];
+}
+
+- (void)appointmentOrderWithShopId:(NSString *)shopId orderType:(NSString *)orderType carId:(NSString *)carId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    NSDictionary * parameterDict = @{@"shopId":shopId,@"orderType":orderType,@"carId":carId};
+    [self requestUrl:SCUrl_AppointmentOrder andParamater:parameterDict success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        
+    }];
+}
+
+
 - (void)requestUrl:(NSString *)url andParamater:(NSDictionary *)parameter success:(SuccessBlock)success
             notice:(OptionBlock)notice
            failure:(FailureBlock)failure

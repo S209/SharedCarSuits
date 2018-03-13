@@ -34,7 +34,7 @@
     self.view.backgroundColor = [UIColor sc_colorWithf8f8f8];
     [self setNavigationWithTitle:@"门店"];
     [self setupView];
-//    [self loadNewData];
+ 
 }
 
 - (void)loadNewData
@@ -128,6 +128,7 @@
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-SYTabBarHeight);
     }];
     tableView.mj_header = [SCDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    [tableView.mj_header beginRefreshing];
 }
 
 #pragma mark

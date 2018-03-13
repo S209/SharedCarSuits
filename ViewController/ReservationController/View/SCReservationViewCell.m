@@ -20,7 +20,7 @@
 @property (nonatomic, weak) UIView * segmentSecondView;
 @property (nonatomic, weak) UIButton * callBtn;//拨打电话
 @property (nonatomic, weak) UIView * segmentThirdView;
-@property (nonatomic, weak) UIImageView * navigationImageView;
+@property (nonatomic, weak) UIButton * navigationBtn;
 @property (nonatomic, weak) UIImageView * whetherToConfirmImageView;
 @property (nonatomic, weak) UILabel * distanceLabel;
 @property (nonatomic, weak) UIView * bottomViewSegment;
@@ -68,9 +68,11 @@
         [self.contentView addSubview:startView];
         self.startView = startView;
 
+       
         UIImageView * whetherToConfirmImageView = [[UIImageView alloc] init];
         self.whetherToConfirmImageView = whetherToConfirmImageView;
         [self.contentView addSubview:whetherToConfirmImageView];
+        
         
         
         UILabel * distanceLabel = [[UILabel alloc] init];
@@ -117,14 +119,15 @@
         segmentThirdView.backgroundColor = [UIColor sc_colorWithe5e5e5];
         
         
-        UIImageView * navigationImageView = [[UIImageView alloc] init];
-        [self.contentView addSubview:navigationImageView];
-        self.navigationImageView = navigationImageView;
-        navigationImageView.backgroundColor = [UIColor redColor];
-        navigationImageView.userInteractionEnabled = YES;
+        UIButton * navigationBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.contentView addSubview:navigationBtn];
+        self.navigationBtn = navigationBtn;
+
         
-        UITapGestureRecognizer * navigationImageTapGest = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(navigationImageTap)];
-        [navigationImageView addGestureRecognizer:navigationImageTapGest];
+        [navigationBtn setImage:[UIImage imageNamed:@"store_list_btn_navigation_ios"] forState:UIControlStateNormal];
+        navigationBtn.userInteractionEnabled = YES;
+        [navigationBtn addTarget:self action:@selector(navigationImageTap) forControlEvents:UIControlEventTouchUpInside];
+        
    
         UIView * bottomViewSegment = [[UIView alloc] init];
         [self.contentView addSubview:bottomViewSegment];
@@ -221,7 +224,7 @@
     }];
 
 
-    [self.navigationImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.navigationBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentView.mas_right).with.offset(-0);
         make.top.equalTo(self.segmentView.mas_bottom).with.offset(0);
         make.bottom.equalTo(self.bottomViewSegment.mas_top).with.offset(-0);
@@ -229,14 +232,14 @@
     }];
 
     [self.segmentThirdView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.navigationImageView.mas_left).with.offset(-0);
+        make.right.equalTo(self.navigationBtn.mas_left).with.offset(-0);
         make.size.mas_equalTo(CGSizeMake(0.5, 30));
         make.centerY.mas_equalTo(self.checkStoreInfoBtn.mas_centerY);
     }];
     
     [self.callBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.segmentSecondView.mas_right).with.offset(10);
-        make.right.equalTo(self.navigationImageView.mas_left).with.offset(-0);
+        make.right.equalTo(self.navigationBtn.mas_left).with.offset(-0);
         make.bottom.equalTo(self.bottomViewSegment.mas_top).with.offset(-0);
          make.top.equalTo(self.segmentView.mas_bottom).with.offset(0);
     }];

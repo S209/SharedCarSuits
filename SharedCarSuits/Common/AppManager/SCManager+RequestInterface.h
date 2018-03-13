@@ -112,7 +112,7 @@
 
 
 /**
- 门店列表
+ 门店列表(完)
  @param shopId 门店id
  @param length 长度 10
  @param location 经纬度

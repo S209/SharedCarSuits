@@ -59,34 +59,54 @@
     }else{
         shopIdString = @"0";
     }
-    NSString * locationString = [[SCManager shareInstance] getPosition];
-    [[SCManager shareInstance] shopListWithId:shopIdString length:@"10" location:@"117.319621;31.881049" success:^(NSURLSessionDataTask *serializer, id responseObject) {
-        NSInteger ifHave = [[responseObject objectForKey:@"ifHave"] integerValue];
-        if (ifHave) {
-            self.tableView.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-        }else{
-            self.tableView.mj_footer = nil;
-        }
-        if (page == 1) {
+    [[SCManager shareInstance] getPositionWithGetPositionBlock:^(NSString *latitudeAndLongitude) {
+        
+        [[SCManager shareInstance] shopListWithId:shopIdString length:@"10" location:latitudeAndLongitude success:^(NSURLSessionDataTask *serializer, id responseObject) {
+            NSInteger ifHave = [[responseObject objectForKey:@"ifHave"] integerValue];
+            if (ifHave) {
+                self.tableView.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+            }else{
+                self.tableView.mj_footer = nil;
+            }
+            if (page == 1) {
+                [self.tableView.mj_header endRefreshing];
+            }else{
+                [self.tableView.mj_footer endRefreshing];
+            }
+            
+            NSArray * listJSONArray = [responseObject objectForKey:@"list"];
+            NSArray * listDataArray = [NSArray yy_modelArrayWithClass:[SCShopListModel class] json:listJSONArray];
+            [self.dataArray addObjectsFromArray:listDataArray];
+            [self.tableView reloadData];
+        } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
             [self.tableView.mj_header endRefreshing];
-        }else{
             [self.tableView.mj_footer endRefreshing];
-        }
-        
-        NSArray * listJSONArray = [responseObject objectForKey:@"list"];
-        NSArray * listDataArray = [NSArray yy_modelArrayWithClass:[SCShopListModel class] json:listJSONArray];
-        [self.dataArray addObjectsFromArray:listDataArray];
-        [self.tableView reloadData];
-    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
-    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-        self.networkNerrorImageView.hidden = NO;
-        self.networkNerrorLabel.hidden = NO;
+            self.networkNerrorImageView.hidden = NO;
+            self.networkNerrorLabel.hidden = NO;
+        }];
     }];
 }
 
 - (void)setupView
 {
+    UITableView * tableView = [[UITableView alloc] init];
+    [self.view addSubview:tableView];
+    tableView.backgroundColor = [UIColor sc_colorWithf8f8f8];
+    self.tableView = tableView;
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).with.offset(0);
+        make.top.equalTo(self.view.mas_top).with.offset(10);
+        make.right.equalTo(self.view.mas_right).with.offset(-0);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-SYTabBarHeight);
+    }];
+    tableView.mj_header = [SCDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    [tableView.mj_header beginRefreshing];
+    
     UIImageView * networkNerrorImageView = [[UIImageView alloc] init];
     [self.view addSubview:networkNerrorImageView];
     networkNerrorImageView.hidden = YES;
@@ -112,23 +132,6 @@
         make.centerX.mas_equalTo(self.view.mas_centerX);
         make.width.mas_equalTo(250);
     }];
-    
-    
-    UITableView * tableView = [[UITableView alloc] init];
-    [self.view addSubview:tableView];
-    tableView.backgroundColor = [UIColor sc_colorWithf8f8f8];
-    self.tableView = tableView;
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).with.offset(0);
-        make.top.equalTo(self.view.mas_top).with.offset(10);
-        make.right.equalTo(self.view.mas_right).with.offset(-0);
-        make.bottom.equalTo(self.view.mas_bottom).with.offset(-SYTabBarHeight);
-    }];
-    tableView.mj_header = [SCDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-    [tableView.mj_header beginRefreshing];
 }
 
 #pragma mark

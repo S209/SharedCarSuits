@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
+@property (nonatomic, copy) NSString * latitudeAndLongitude;
 @property (strong, nonatomic) UIWindow *window;
 + (AppDelegate *)getAppDelegate;
 @end

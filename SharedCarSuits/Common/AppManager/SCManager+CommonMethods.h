@@ -7,9 +7,8 @@
 //
 
 #import "SCManager.h"
-#import <CoreLocation/CoreLocation.h>
-@interface SCManager (CommonMethods)<CLLocationManagerDelegate>
-@property (nonatomic, copy) NSString * positionString;
+typedef void(^GetPositionBlock)(NSString * latitudeAndLongitude);
+@interface SCManager (CommonMethods)
 - (void)setUserUid:(NSString *)uId;
 - (void)setSessionId:(NSString *)sessionId;
 + (NSString *)getUserId;
@@ -20,7 +19,8 @@
 - (void)bezierPathLeftTopAndRightTopWithView:(UIView *)view withRadius:(CGFloat)radius;
 - (void)countDownWithView:(UIButton *)codeButton;
 - (NSString*)iphoneType;
-- (NSString*)getPosition;
+- (NSString*)getPositionWithGetPositionBlock:(GetPositionBlock)getPositionBlock;
+
 /**
  *   存储 UUID
  *

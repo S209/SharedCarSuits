@@ -194,9 +194,11 @@
     }
     
     if (![self.phoneNumberField.text isPhoneNumber]) {
+        self.isHideLoginTipsImageFlag = NO;
         [SCManager dismissInfo:@"请输入正确的电话号码"];
     }else
     if (self.loginPasswordField.text.length == 0) {
+        self.isHideLoginTipsImageFlag = YES;
         [SCManager dismissInfo:@"请输入密码"];
     }
 }

@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "SCManager+CommonMethods.h"
 #import <AFNetworkReachabilityManager.h>
+#import "AppDelegate.h"
 @interface SCSharedCarSuitsClient()
 @property (nonatomic, strong) AFHTTPSessionManager *httpsRequestManager;
 @end
@@ -116,16 +117,11 @@ parameters:(NSDictionary *)parameters
     }else{
        [mutableParams setObject:@"" forKey:@"uId"];
     }
-    
-    
     NSInteger status = [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
     [mutableParams setValue:[NSString stringWithFormat:@"%zd",status] forKey:@"netType"];
-    NSString * locationString = [[SCManager shareInstance] getPosition];
-    if (locationString.length > 0) {
-        [mutableParams setValue:locationString forKey:@"location"];
-    }else{
-        [mutableParams setValue:@"" forKey:@"location"];
-    }
+    
+    NSString * latitudeAndLongitude = [AppDelegate getAppDelegate].latitudeAndLongitude;
+    [mutableParams setValue:latitudeAndLongitude forKey:@"location"];
     return mutableParams;
 }
 

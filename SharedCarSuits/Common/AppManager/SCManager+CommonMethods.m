@@ -13,16 +13,10 @@
 #import "GSKeyChain.h"
 #import "SCLaunchViewController.h"
 #import "AppDelegate.h"
+#import <TZLocationManager.h>
 static NSString * const KEY_IN_KEYCHAIN_UUID = @"唯一识别的KEY_UUID";
 static NSString * const KEY_UUID = @"唯一识别的key_uuid";
 @implementation SCManager (CommonMethods)
-
-+ (void)load
-{
-    CLLocationManager * locationManager = [[CLLocationManager alloc] init];     //创建CLLocationManager对象
-    locationManager.delegate = [self shareInstance];                        //设置代理，这样函数didUpdateLocations才会被回调
-    [locationManager startUpdatingLocation];
-}
 
 - (void)bezierPathLeftTopAndRightTopWithView:(UIView *)view
 {
@@ -219,31 +213,8 @@ static NSString * const KEY_UUID = @"唯一识别的key_uuid";
     return platform;
 }
 
-- (NSString*)getPosition
-{
-    return self.positionString;
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{  //定位服务回调函数
-    CLLocation *location = [locations lastObject];    //当前位置信息
-    self.positionString = [NSString stringWithFormat:@"%f%f",location.coordinate.longitude,location.coordinate.latitude];
-}
-
-
-- (void)setPositionString:(NSString *)positionString
-{
-    objc_setAssociatedObject(self, @"nameWithSetterGetterKey", positionString, OBJC_ASSOCIATION_COPY);
-}
-
-- (NSString *)positionString
-{
-     return objc_getAssociatedObject(self, @"nameWithSetterGetterKey");
-}
-
-
 
 +(void)saveUUID:(NSString *)UUID{
-    
     NSMutableDictionary *usernamepasswordKVPairs = [NSMutableDictionary dictionary];
     [usernamepasswordKVPairs setObject:UUID forKey:KEY_UUID];
     
@@ -301,5 +272,26 @@ static NSString * const KEY_UUID = @"唯一识别的key_uuid";
     SCLaunchViewController * launchView = [[SCLaunchViewController alloc] init];
     UINavigationController * rootViewController = [[UINavigationController alloc] initWithRootViewController:launchView];
     [AppDelegate getAppDelegate].window.rootViewController = rootViewController;
+}
+
+- (NSString*)getPositionWithGetPositionBlock:(GetPositionBlock)getPositionBlock
+{
+    
+    [[TZLocationManager manager] startLocationWithSuccessBlock:^(CLLocation *location, CLLocation *oldLocation) {
+        NSString * locationString = [NSString stringWithFormat:@"%f;%f",location.coordinate.latitude,location.coordinate.longitude];
+        if (getPositionBlock) {
+            getPositionBlock(locationString);
+        }
+    } failureBlock:^(NSError *error) {
+        if (getPositionBlock) {
+            NSString * locationString = @"0;0";
+            if (getPositionBlock) {
+                getPositionBlock(locationString);
+            }
+        }
+    } geocoderBlock:^(NSArray *geocoderArray) {
+        
+    }];
+    return nil;
 }
 @end

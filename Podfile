@@ -17,6 +17,7 @@ target 'SharedCarSuits' do
     pod 'FDFullscreenPopGesture', '1.1'
     pod 'MJRefresh'
     pod 'BaiduMapKit'
+    pod 'TZImagePickerController'
     # Pods for SharedCarSuits
     
     target 'SharedCarSuitsTests' do

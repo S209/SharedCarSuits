@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SCLaunchViewController.h"
+#import "SCManager+CommonMethods.h"
 @interface AppDelegate ()
 
 @end
@@ -16,10 +17,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[SCManager shareInstance] getPositionWithGetPositionBlock:^(NSString *latitudeAndLongitude) {
+        self.latitudeAndLongitude = latitudeAndLongitude;
+    }];
+    
+    
+    
     SCLaunchViewController * launchView = [[SCLaunchViewController alloc] init];
-    
     UINavigationController * rootViewController = [[UINavigationController alloc] initWithRootViewController:launchView];
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = rootViewController;
     self.window.backgroundColor = [UIColor whiteColor];

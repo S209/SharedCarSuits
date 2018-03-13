@@ -50,6 +50,9 @@
 //领取优惠券-领取(完)
 #define SCUrl_ReceiveCouponsGet GeneralUrl(@"/keleapp/coupon/couponReceive.jspx")
 
+//轮播广告
+#define SCUrl_BannerList GeneralUrl(@"/keleapp/banner/bannerList.jspx")
+
 //我的 编辑个人信息
 #define SCUrl_EditUserInfo GeneralUrl(@"/keleapp/userInfor/editUser.jspx")
 //我的汽车列表 (完)
@@ -70,4 +73,15 @@
 //预约订单-我要预约
 #define SCUrl_CreateOrder GeneralUrl(@"/keleapp/coupon/ createOrder.jspx")
 
+//我的订单-列表+详细页
+#define SCUrl_OrderList GeneralUrl(@"/keleapp/coupon/ orderList.jspx")
+
+//5.2  我的订单-取消订单
+#define SCUrl_CancelOrder GeneralUrl(@"/keleapp/coupon/cancelOrder.jspx")
+
+//5.3  立即下单
+#define SCUrl_PayOrder GeneralUrl(@"/keleapp/orderpay/payOrder.jspx")
+
+//5.4  有效优惠券
+#define SCUrl_OrderCoupon GeneralUrl(@"/keleapp/coupon/orderCoupon.jspx")
 

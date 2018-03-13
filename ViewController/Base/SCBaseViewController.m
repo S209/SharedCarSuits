@@ -17,7 +17,6 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
-
 }
 
 
@@ -29,8 +28,8 @@
     label.font = [UIFont sy_boldFont17];
     label.textColor = [UIColor sc_colorWith444444];
     label.textAlignment = NSTextAlignmentCenter;
+    label.frame = CGRectMake((SCREEN_WIDTH-200)*0.5, SYStatusBarHeight, 200, 44);
     
-    label.frame = CGRectMake((SCREEN_WIDTH-300)*0.5, SYStatusBarHeight, 300, 44);
     self.navigationItem.titleView = label;
 }
 - (BOOL)prefersStatusBarHidden

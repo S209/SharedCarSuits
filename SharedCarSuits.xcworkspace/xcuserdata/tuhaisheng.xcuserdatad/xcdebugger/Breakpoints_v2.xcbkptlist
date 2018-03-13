@@ -9,44 +9,76 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ViewController/ReservationController/SCReservationViewController.m"
-            timestampString = "542620972.643339"
+            filePath = "ViewController/ReservationController/View/SCReservationViewCell.m"
+            timestampString = "542651137.170957"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "-loadDataWithPage:"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
+            landmarkName = "-setShopModel:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViewController/ReservationController/View/SCReservationViewCell.m"
+            timestampString = "542651137.171062"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
+            landmarkName = "-checkStoreInfoBtnClick"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViewController/ReservationController/View/SCReservationViewCell.m"
+            timestampString = "542651137.171155"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "-layoutSubviews"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__48-[SCReservationViewController loadDataWithPage:]_block_invoke"
+                  symbolName = "-[SCReservationViewCell layoutSubviews]"
                   moduleName = "SharedCarSuits"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/admin/Desktop/Work/ShareCarSuitsByGitLab/ViewController/ReservationController/SCReservationViewController.m"
-                  timestampString = "542620972.769856"
+                  urlString = "file:///Users/admin/Desktop/Work/ShareCarSuitsByGitLab/ViewController/ReservationController/View/SCReservationViewCell.m"
+                  timestampString = "542651137.281998"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
-                  offsetFromSymbolStart = "80">
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "78">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__48-[SCReservationViewController loadDataWithPage:]_block_invoke_2"
+                  symbolName = "__39-[SCReservationViewCell layoutSubviews]_block_invoke"
                   moduleName = "SharedCarSuits"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/admin/Desktop/Work/ShareCarSuitsByGitLab/ViewController/ReservationController/SCReservationViewController.m"
-                  timestampString = "542620972.772688"
+                  urlString = "file:///Users/admin/Desktop/Work/ShareCarSuitsByGitLab/ViewController/ReservationController/View/SCReservationViewCell.m"
+                  timestampString = "542651137.289677"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "88">
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "19">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -57,13 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ViewController/ReservationController/SCReservationViewController.m"
-            timestampString = "542620990.4983439"
+            filePath = "ViewController/HomePageController/SCHomePageViewController.m"
+            timestampString = "542651287.794588"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "-loadDataWithPage:"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-loadNewData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

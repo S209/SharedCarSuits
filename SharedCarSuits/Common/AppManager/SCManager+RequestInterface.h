@@ -141,4 +141,11 @@ success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)f
   预约订单—今日时间+ 服务项目
  */
 - (void)appointmentOrderWithShopId:(NSString *)shopId orderType:(NSString *)orderType carId:(NSString *)carId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
+
+/**
+ 获取首页的Banner
+ */
+- (void)getHomeBannerListWithSuccess:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
 @end

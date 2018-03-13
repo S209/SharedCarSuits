@@ -16,11 +16,23 @@
 #import "SCAppointmentProcessViewController.h"
 #import "SCOrderListViewController.h"
 #import "SCReceiveCouponsViewConroller.h"
+#import "SCManager+RequestInterface.h"
+#import "SCHomeBannerModel.h"
 @interface SCHomePageViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,SCHomePageSectionOneCellDelegate,SCHomePageSectionTwoCellDelegate>
-
+@property (nonatomic, weak) UITableView * tableView;
+@property (nonatomic, strong) NSMutableArray * headerImageArray;
+@property (nonatomic, weak) SDCycleScrollView * cycleScrollView;
 @end
 
 @implementation SCHomePageViewController
+
+- (NSMutableArray *)headerImageArray
+{
+    if (!_headerImageArray) {
+        _headerImageArray = [NSMutableArray array];
+    }
+    return _headerImageArray;
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -36,7 +48,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
     self.view.backgroundColor = [UIColor sc_colorWithf8f8f8];
     [self setupView];
 }
@@ -44,10 +55,12 @@
 - (void)setupView
 {
     SDCycleScrollView * cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 180) delegate:self placeholderImage:nil];
-    cycleScrollView.imageURLStringsGroup = @[];
+    self.cycleScrollView = cycleScrollView;
+    cycleScrollView.delegate = self;
     
     UITableView * tableView = [[UITableView alloc] init];
     [self.view addSubview:tableView];
+    self.tableView = tableView;
     tableView.tableHeaderView = cycleScrollView;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.delegate = self;
@@ -57,6 +70,26 @@
         make.right.equalTo(self.view.mas_right).with.offset(-0);
         make.top.equalTo(self.view.mas_top).with.offset(0);
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-10-SYTabBarHeight);
+    }];
+    tableView.mj_header = [SCDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    [tableView.mj_header beginRefreshing];
+}
+
+- (void)loadNewData
+{
+    [self.headerImageArray removeAllObjects];
+    [[SCManager shareInstance] getHomeBannerListWithSuccess:^(NSURLSessionDataTask *serializer, id responseObject) {
+        NSArray * bannerArray = [NSArray yy_modelArrayWithClass:[SCHomeBannerModel class] json:responseObject];
+        for (SCHomeBannerModel * model in bannerArray) {
+            [self.headerImageArray addObject:model.imgName];
+        }
+        self.cycleScrollView.imageURLStringsGroup = self.headerImageArray;
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        [self.tableView.mj_header endRefreshing];
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        [self.tableView.mj_header endRefreshing];
     }];
 }
 
@@ -146,6 +179,12 @@
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
+}
+
+#pragma mark SDCycleScrollViewDelegate
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
+{
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

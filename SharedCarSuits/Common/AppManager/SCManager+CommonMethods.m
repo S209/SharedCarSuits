@@ -274,7 +274,7 @@ static NSString * const KEY_UUID = @"唯一识别的key_uuid";
     [AppDelegate getAppDelegate].window.rootViewController = rootViewController;
 }
 
-- (NSString*)getPositionWithGetPositionBlock:(GetPositionBlock)getPositionBlock
+- (NSString*)getPositionWithGetPositionBlock:(GetPositionBlock)getPositionBlock getGeocoderBlock:(GetGeocoderBlock)getGeocoderBlock
 {
     
     [[TZLocationManager manager] startLocationWithSuccessBlock:^(CLLocation *location, CLLocation *oldLocation) {
@@ -290,7 +290,10 @@ static NSString * const KEY_UUID = @"唯一识别的key_uuid";
             }
         }
     } geocoderBlock:^(NSArray *geocoderArray) {
-        
+        CLPlacemark * placeMark = [geocoderArray safeObjectAtIndex:0];
+        if (getGeocoderBlock) {
+            getGeocoderBlock(placeMark.subLocality);
+        }
     }];
     return nil;
 }

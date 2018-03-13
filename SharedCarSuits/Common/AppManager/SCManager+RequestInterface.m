@@ -389,11 +389,35 @@
 {
     NSDictionary * parameterDict = @{@"shopId":shopId,@"orderType":orderType,@"carId":carId};
     [self requestUrl:SCUrl_AppointmentOrder andParamater:parameterDict success:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
+        if (success) {
+            success(serializer,responseObject);
+        }
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
+        if (notice) {
+            notice(serializer,responseObject);
+        }
     } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-        
+        if (failure) {
+            failure(serializer,error);
+        }
+    }];
+}
+
+- (void)getHomeBannerListWithSuccess:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    NSDictionary * parameterDict = @{};
+    [self requestUrl:SCUrl_BannerList andParamater:parameterDict success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (notice) {
+            notice(serializer,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer,error);
+        }
     }];
 }
 
@@ -406,22 +430,24 @@
         NSInteger code = [[responseObject objectForKey:@"code"] integerValue];
         if (code == 200) {
             if (success) {
-               NSDictionary * dataDict = [responseObject objectForKey:@"data"];
+               id dataDict = [responseObject objectForKey:@"data"];
                 if ([NSString stringWithFormat:@"%@",[responseObject objectForKey:@"message"]].length>0) {
                     [SCManager dismissInfo:[responseObject objectForKey:@"message"]];
                 }
                 
-                if ([dataDict isKindOfClass:[NSDictionary class]] && dataDict.allKeys.count) {
+                if ([dataDict isKindOfClass:[NSDictionary class]]) {
                     NSString * uIdString = [NSString stringWithFormat:@"%@",[responseObject objectForKey:@"uId"]];
                     
                     [[SCManager shareInstance] setUserUid:uIdString];
                     NSString * sessionIdString = [NSString stringWithFormat:@"%@",[responseObject objectForKey:@"sessionId"]];
                     [[SCManager shareInstance] setSessionId:sessionIdString];
-                    
+                    success(serializer,dataDict);
+                }else if ([dataDict isKindOfClass:[NSArray class]]) {
                     success(serializer,dataDict);
                 }else{
                     success(serializer,responseObject);
                 }
+                
             }else{
                 if (notice) {
                     notice(serializer,responseObject);

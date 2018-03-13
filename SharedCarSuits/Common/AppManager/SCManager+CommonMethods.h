@@ -8,6 +8,7 @@
 
 #import "SCManager.h"
 typedef void(^GetPositionBlock)(NSString * latitudeAndLongitude);
+typedef void(^GetGeocoderBlock)(NSString * geocoderString);
 @interface SCManager (CommonMethods)
 - (void)setUserUid:(NSString *)uId;
 - (void)setSessionId:(NSString *)sessionId;
@@ -19,7 +20,7 @@ typedef void(^GetPositionBlock)(NSString * latitudeAndLongitude);
 - (void)bezierPathLeftTopAndRightTopWithView:(UIView *)view withRadius:(CGFloat)radius;
 - (void)countDownWithView:(UIButton *)codeButton;
 - (NSString*)iphoneType;
-- (NSString*)getPositionWithGetPositionBlock:(GetPositionBlock)getPositionBlock;
+- (NSString*)getPositionWithGetPositionBlock:(GetPositionBlock)getPositionBlock getGeocoderBlock:(GetGeocoderBlock)getGeocoderBlock;
 
 /**
  *   存储 UUID

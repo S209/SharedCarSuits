@@ -51,7 +51,6 @@
         storeImageView.clipsToBounds = YES;
         storeImageView.contentMode = UIViewContentModeScaleAspectFill;
      
-        
         UILabel * storeNameLabel = [[UILabel alloc] init];
         [self.contentView addSubview:storeNameLabel];
         self.storeNameLabel = storeNameLabel;
@@ -68,12 +67,9 @@
         [self.contentView addSubview:startView];
         self.startView = startView;
 
-       
         UIImageView * whetherToConfirmImageView = [[UIImageView alloc] init];
         self.whetherToConfirmImageView = whetherToConfirmImageView;
         [self.contentView addSubview:whetherToConfirmImageView];
-        
-        
         
         UILabel * distanceLabel = [[UILabel alloc] init];
         self.distanceLabel = distanceLabel;
@@ -98,7 +94,6 @@
         checkStoreInfoBtn.backgroundColor = [UIColor sc_colorWith6C6DFD];
         [checkStoreInfoBtn addTarget:self action:@selector(checkStoreInfoBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
-        
         UIView * segmentSecondView = [[UIView alloc] init];
         [self.contentView addSubview:segmentSecondView];
         self.segmentSecondView = segmentSecondView;
@@ -118,12 +113,11 @@
         self.segmentThirdView = segmentThirdView;
         segmentThirdView.backgroundColor = [UIColor sc_colorWithe5e5e5];
         
-        
+
         UIButton * navigationBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.contentView addSubview:navigationBtn];
         self.navigationBtn = navigationBtn;
 
-        
         [navigationBtn setImage:[UIImage imageNamed:@"store_list_btn_navigation_ios"] forState:UIControlStateNormal];
         navigationBtn.userInteractionEnabled = YES;
         [navigationBtn addTarget:self action:@selector(navigationImageTap) forControlEvents:UIControlEventTouchUpInside];
@@ -133,6 +127,7 @@
         [self.contentView addSubview:bottomViewSegment];
         self.bottomViewSegment = bottomViewSegment;
         bottomViewSegment.backgroundColor = [UIColor sc_colorWithf8f8f8];
+    
     }
     return self;
 }
@@ -272,6 +267,7 @@
 
     self.startView.numberOfScore = shopModel.assess;
     self.startView.evaluateLabel.hidden = YES;
+    [self.contentView updateConstraintsIfNeeded];
 }
 
 #pragma mark 打电话

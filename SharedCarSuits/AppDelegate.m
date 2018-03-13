@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "SCLaunchViewController.h"
 #import "SCManager+CommonMethods.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,8 +18,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     [[SCManager shareInstance] getPositionWithGetPositionBlock:^(NSString *latitudeAndLongitude) {
         self.latitudeAndLongitude = latitudeAndLongitude;
+    } getGeocoderBlock:^(NSString *geocoderString) {
+        
     }];
     
     

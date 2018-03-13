@@ -12,6 +12,8 @@
 #import "SCManager+RequestInterface.h"
 #import "SCShopListModel.h"
 #import "SCManager+CommonMethods.h"
+#import "SCViewStorePicturesView.h"
+#import "SCNavigationController.h"
 @interface SCReservationViewController () <UITableViewDelegate,UITableViewDataSource,SCReservationViewCellDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
@@ -34,8 +36,11 @@
     self.view.backgroundColor = [UIColor sc_colorWithf8f8f8];
     [self setNavigationWithTitle:@"门店"];
     [self setupView];
- 
+    
+    
 }
+
+
 
 - (void)loadNewData
 {
@@ -59,8 +64,8 @@
     }else{
         shopIdString = @"0";
     }
+    
     [[SCManager shareInstance] getPositionWithGetPositionBlock:^(NSString *latitudeAndLongitude) {
-        
         [[SCManager shareInstance] shopListWithId:shopIdString length:@"10" location:latitudeAndLongitude success:^(NSURLSessionDataTask *serializer, id responseObject) {
             NSInteger ifHave = [[responseObject objectForKey:@"ifHave"] integerValue];
             if (ifHave) {
@@ -86,7 +91,24 @@
             self.networkNerrorImageView.hidden = NO;
             self.networkNerrorLabel.hidden = NO;
         }];
+    } getGeocoderBlock:^(NSString *geocoderString) {
+        UIButton * rightItemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        rightItemBtn.frame = CGRectMake(0, 0, 60, 44);
+        [rightItemBtn addTarget:self action:@selector(rightItemBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightItemBtn];
+        self.navigationItem.rightBarButtonItem = rightBarItem;
+        [rightItemBtn setTitle:geocoderString forState:UIControlStateNormal];
+        rightItemBtn.titleLabel.font = [UIFont sy_font13];
+        [rightItemBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 5, 0, 0)];
+        [rightItemBtn setTitleColor:[UIColor sc_colorWith6C6DFD] forState:UIControlStateNormal];
+        [rightItemBtn setImage:[UIImage imageNamed:@"title_btn_location"] forState:UIControlStateNormal];
     }];
+    
+}
+
+- (void)rightItemBtnClick
+{
+    
 }
 
 - (void)setupView
@@ -173,15 +195,20 @@
 //查看门店信息
 - (void)reservationViewCellCheckStoreInfoWithModel:(SCShopListModel *)listModel
 {
+    SCViewStorePicturesView * picturesView = [[SCViewStorePicturesView alloc] init];
+    [picturesView show];
     
 }
 //导航
 - (void)reservationViewCellNavigationWithModel:(SCShopListModel *)listModel
 {
-    NSString * location = listModel.location;
-    
-    
+   
+    SCNavigationController * controller = [[SCNavigationController alloc] init];
+    controller.listModel = listModel;
+    [self.navigationController pushViewController:controller animated:YES];
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

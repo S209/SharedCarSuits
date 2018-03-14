@@ -10,7 +10,7 @@
 
 @interface SCViewStorePicturesView : UIView
 - (instancetype)initWithFrame:(CGRect)frame;
-@property (nonatomic, copy) NSArray * imageArray;
+@property (nonatomic, copy) NSString * panorama;
 - (void)show;
 - (void)dismiss;
 @end

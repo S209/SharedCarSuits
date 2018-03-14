@@ -36,8 +36,6 @@
     self.view.backgroundColor = [UIColor sc_colorWithf8f8f8];
     [self setNavigationWithTitle:@"门店"];
     [self setupView];
-    
-    
 }
 
 
@@ -197,7 +195,7 @@
 {
     SCViewStorePicturesView * picturesView = [[SCViewStorePicturesView alloc] init];
     [picturesView show];
-    
+    picturesView.panorama = listModel.panorama;
 }
 //导航
 - (void)reservationViewCellNavigationWithModel:(SCShopListModel *)listModel

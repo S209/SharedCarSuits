@@ -10,6 +10,8 @@
 
 @interface SCViewStorePicturesView()<UIScrollViewDelegate>
 @property (nonatomic, weak) UIScrollView * pictureScrollView;
+@property (nonatomic, copy) NSArray * imageArray;
+@property (nonatomic, weak) UIImageView * bigImageView;
 @end
 @implementation SCViewStorePicturesView
 - (instancetype)initWithFrame:(CGRect)frame
@@ -17,6 +19,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        self.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.84];
         UIWindow * window = [UIApplication sharedApplication].windows.lastObject;
         [window addSubview:self];
        
@@ -29,7 +32,7 @@
     UIButton * deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self addSubview:deleteBtn];
     [deleteBtn setImage:[UIImage imageNamed:@"title_btn_close_white"] forState:UIControlStateNormal];
-    deleteBtn.backgroundColor = [UIColor redColor];
+  
     [deleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.mas_right).with.offset(-18);
         make.top.equalTo(self.mas_top).with.offset(20);
@@ -40,7 +43,9 @@
     
     UIImageView * bigImageView = [[UIImageView alloc] init];
     [self addSubview:bigImageView];
+    self.bigImageView = bigImageView;
     bigImageView.contentMode = UIViewContentModeScaleAspectFill;
+    bigImageView.clipsToBounds = YES;
     [bigImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).with.offset(15);
         make.right.equalTo(self.mas_right).with.offset(-15);
@@ -69,7 +74,21 @@
     NSInteger pictureBtnX = 0;
     for (NSUInteger i = 0; i < imageArray.count; i++) {
         pictureBtnX = (90+10)*i;
-        UIButton * pictureBtn = [[UIButton alloc] init];
+        UIImageView * pictureImageView = [[UIImageView alloc] init];
+        [self.pictureScrollView addSubview:pictureImageView];
+        pictureImageView.contentMode = UIViewContentModeScaleAspectFill;
+        pictureImageView.clipsToBounds = YES;
+        [pictureImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(90, 60));
+            make.left.equalTo(self.pictureScrollView.mas_left).with.offset(pictureBtnX);
+            make.top.equalTo(self.pictureScrollView.mas_top).with.offset(0);
+        }];
+        NSString * imageUrlString = [imageArray safeObjectAtIndex:i];
+        if (i == 0) {
+            [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:imageUrlString] placeholderImage:nil];
+        }
+        [pictureImageView sd_setImageWithURL:[NSURL URLWithString:imageUrlString] placeholderImage:nil];
+        UIButton * pictureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.pictureScrollView addSubview:pictureBtn];
         [pictureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(90, 60));
@@ -96,7 +115,14 @@
 - (void)pictureBtnClick:(UIButton *)sender
 {
     NSInteger tag = sender.tag-300;
-    
-    
+    NSString * imageUrl = [self.imageArray safeObjectAtIndex:tag];
+    [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil];
+}
+
+- (void)setPanorama:(NSString *)panorama
+{
+    _panorama = panorama;
+    NSArray * imageArray = [panorama componentsSeparatedByString:@";"];
+    self.imageArray = imageArray;
 }
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "SCHomeBannerViewController.h"
-
+#import "SCHomeBannerModel.h"
 @interface SCHomeBannerViewController ()
 
 @end

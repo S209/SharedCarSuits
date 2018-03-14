@@ -7,7 +7,7 @@
 //
 
 #import "SCBaseViewController.h"
-
+@class SCHomeBannerModel;
 @interface SCHomeBannerViewController : SCBaseViewController
-
+@property (nonatomic,strong) SCHomeBannerModel * bannerModel;
 @end

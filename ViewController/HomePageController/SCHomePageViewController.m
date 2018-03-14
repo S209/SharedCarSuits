@@ -18,6 +18,7 @@
 #import "SCReceiveCouponsViewConroller.h"
 #import "SCManager+RequestInterface.h"
 #import "SCHomeBannerModel.h"
+#import "SCHomeBannerViewController.h"
 @interface SCHomePageViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,SCHomePageSectionOneCellDelegate,SCHomePageSectionTwoCellDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * headerImageArray;
@@ -184,7 +185,9 @@
 #pragma mark SDCycleScrollViewDelegate
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
 {
-    
+    SCHomeBannerViewController * homeBannerViewController = [[SCHomeBannerViewController alloc] init];
+    homeBannerViewController.bannerModel = [self.headerImageArray safeObjectAtIndex:index];
+    [self.navigationController pushViewController:homeBannerViewController animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

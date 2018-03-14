@@ -137,8 +137,11 @@
 {
     NSDictionary * paramaterDict = [[NSDictionary alloc] init];
     [[SCSharedCarSuitsClient shareInstance] request:SCUrl_EditUserInfo parameters:paramaterDict constructingBodyWithBlock:block success:^(NSURLSessionDataTask *serializer, id responseObject) {
-        if (success) {
-            success(serializer,responseObject);
+       NSInteger code = [[responseObject objectForKey:@"code"] integerValue];
+        if (code == 200) {
+            if (success) {
+                success(serializer,responseObject);
+            }
         }
     } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
         if (failure) {

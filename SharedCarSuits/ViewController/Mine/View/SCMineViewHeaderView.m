@@ -220,7 +220,18 @@
 - (void)setUserModel:(SCUserModel *)userModel
 {
     _userModel = userModel;
-    [self.userIconImg sd_setImageWithURL:[NSURL URLWithString:userModel.headUrl] placeholderImage:[UIImage imageNamed:@"default_profile"]];
+//    NSString* userModelHeadUrl = [userModel.headUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:userModel.headUrl] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        NSLog(@"===%ld===",receivedSize);
+    } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+        if (finished && image) {
+            [self.userIconImg setImage:image];
+        }else{
+            [self.userIconImg setImage:[UIImage imageNamed:@"default_profile"]];
+        }
+    }];
+    
     self.userNameLabel.text = userModel.realName;
     self.userNumberLabel.text = userModel.loginName;
 }

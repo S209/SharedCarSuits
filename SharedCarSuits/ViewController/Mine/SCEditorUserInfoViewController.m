@@ -57,7 +57,10 @@
     }];
     iconImageView.layer.masksToBounds = YES;
     [iconImageView.layer setCornerRadius:47.5];
-    [iconImageView sd_setImageWithURL:[NSURL URLWithString:_userModel.headUrl] placeholderImage:[UIImage imageNamed:@""]];
+    
+//    NSString* userModelHeadUrl = [_userModel.headUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    [iconImageView sd_setImageWithURL:[NSURL URLWithString:_userModel.headUrl] placeholderImage:[UIImage imageNamed:@"default_profile"]];
     
     
     UILabel * editorImgLabel = [[UILabel alloc] init];
@@ -176,22 +179,19 @@
 
 - (void)completeClick
 {
-    NSString * userNamePath = [NSString stringWithFormat:@"%@_userName",NSStringFromClass([self class])];
-    [[WPFileManager shareCacheFileInstance] writeString:self.nameField.text atPath:userNamePath];
-   NSString * userNameFilePath = [[WPFileManager shareCacheFileInstance] absolutePathWithPath:userNamePath];
+    NSString * userNameString = [NSString stringWithFormat:@"%@_userName.txt",NSStringFromClass([self class])];
+    [[WPFileManager shareCacheFileInstance] writeString:self.nameField.text atPath:userNameString];
     
-    NSString * iconPath = [NSString stringWithFormat:@"%@_userIcon",NSStringFromClass([self class])];
-    NSString * iconFilePath = [[WPFileManager shareCacheFileInstance] absolutePathWithPath:iconPath];
+    NSString * userNameFilePath = [[WPFileManager shareCacheFileInstance] absolutePathWithPath:userNameString];
     
-    NSData * fileData = [[WPFileManager shareCacheFileInstance] readDataAtPath:iconPath];
-//    NSData * userNameData = [[WPFileManager shareCacheFileInstance] readDataAtPath:userNamePath];
+    
+    NSString * iconName = [NSString stringWithFormat:@"%@_userIcon.png",NSStringFromClass([self class])];
+    NSString * iconFilePath = [[WPFileManager shareCacheFileInstance] absolutePathWithPath:iconName];
+    NSData * fileData = [[WPFileManager shareCacheFileInstance] readDataAtPath:iconName];
     
     
     [self.nameField resignFirstResponder];
     [[SCManager shareInstance] editUserInfoWithConstructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        if (fileData) {
-           [formData appendPartWithFileURL:[NSURL fileURLWithPath:iconFilePath] name:@"File" error:nil];
-        }
         if (self.nameField.text)
         {
             if(![[NSFileManager defaultManager] fileExistsAtPath:userNameFilePath])
@@ -199,16 +199,30 @@
                 NSLog(@"%@: 上传的文件路径不存在", NSStringFromClass([self class]));
                 return ;
             }
-            
-           [formData appendPartWithFileURL:[NSURL fileURLWithPath:userNameFilePath] name:@"Text" fileName:userNamePath mimeType:@"application/octet-stream" error:nil];
-
+            NSURL * fileURL = [NSURL fileURLWithPath:userNameFilePath];
+            BOOL uploadNameFlag = [formData appendPartWithFileURL:fileURL name:@"realName" error:nil];
+            if (!uploadNameFlag) {
+                NSLog(@"上传名字错误");
+            }
+        }
+        
+        if (fileData)
+        {
+            BOOL uploadheadUrlFlag = [formData appendPartWithFileURL:[NSURL fileURLWithPath:iconFilePath] name:@"headUrl" fileName:iconName mimeType:@"image/png" error:nil];
+            if (!uploadheadUrlFlag) {
+                NSLog(@"上传用户头像");
+            }
         }
     } success:^(NSURLSessionDataTask *serializer, id responseObject) {
-        NSLog(@"===%@==",responseObject);
+        NSLog(@"===%@===",responseObject);
     } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-         NSLog(@"===%@==",error);
+        NSLog(@"===%@==",error);
     }];
 }
+
+
+
+
 
 //- (void)keyboardWillShow:(NSNotification *)notification {
 //    NSDictionary *userInfo = [notification userInfo];

@@ -73,7 +73,7 @@ constructingBodyWithBlock:(NetworkRequestFormDataBlock)block
     [self.httpsRequestManager.requestSerializer setValue:cookieString forHTTPHeaderField:@"Cookie"];
     AFHTTPSessionManager *requestManager = self.httpsRequestManager;
     
-    return [requestManager POST:URLString parameters:parameters constructingBodyWithBlock:block progress:^(NSProgress * _Nonnull uploadProgress) {
+    return [requestManager POST:URLString parameters:[self finalParametersWithParams:parameters] constructingBodyWithBlock:block progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (success) {

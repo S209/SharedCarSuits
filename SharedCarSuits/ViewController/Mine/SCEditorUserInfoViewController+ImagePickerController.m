@@ -69,7 +69,7 @@
         UIImage * newIconImage = info[UIImagePickerControllerEditedImage];
         self.iconImageView.image = newIconImage;
         NSData * fileData = UIImagePNGRepresentation(self.iconImageView.image);
-        NSString * path = [NSString stringWithFormat:@"%@_userIcon",NSStringFromClass([self class])];
+        NSString * path = [NSString stringWithFormat:@"%@_userIcon.png",NSStringFromClass([self class])];
         [[WPFileManager shareCacheFileInstance] writeData:fileData atPath:path];
     }
     [self dismissViewControllerAnimated:YES completion:nil];

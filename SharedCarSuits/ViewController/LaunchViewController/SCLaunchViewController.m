@@ -149,7 +149,7 @@
         SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
         [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-        NSInteger code = [[responseObject objectForKey:@"code"] integerValue];
+//        NSInteger code = [[responseObject objectForKey:@"code"] integerValue];
       
     } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
 

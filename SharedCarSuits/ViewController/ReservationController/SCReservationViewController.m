@@ -181,7 +181,15 @@
 //设置默认
 - (void)reservationViewCellDefaultWithModel:(SCShopListModel *)listModel
 {
+    
     [[SCManager shareInstance] shopDefaultWithId:[NSString stringWithFormat:@"%zd",listModel.shopId] success:^(NSURLSessionDataTask *serializer, id responseObject) {
+
+        if (listModel.ifDefault == 1) {
+            listModel.ifDefault = 0;
+        }else{
+            listModel.ifDefault = 1;
+        }
+
         [self.tableView reloadData];
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
         

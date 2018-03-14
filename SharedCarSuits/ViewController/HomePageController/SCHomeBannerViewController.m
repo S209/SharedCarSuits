@@ -16,7 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    [self sy_leftBarButtonItem];
+    [self setupView];
+}
+
+- (void)setupView
+{
+ [self.wkWbView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_bannerModel.src]]];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -6,8 +6,8 @@
 //  Copyright © 2018年 tuhaisheng. All rights reserved.
 //
 
-#import "SCBaseViewController.h"
+#import "SCBaseWebViewController.h"
 @class SCHomeBannerModel;
-@interface SCHomeBannerViewController : SCBaseViewController
+@interface SCHomeBannerViewController : SCBaseWebViewController
 @property (nonatomic,strong) SCHomeBannerModel * bannerModel;
 @end

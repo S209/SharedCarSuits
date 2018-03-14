@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SCHomePageSectionTwoCellItemView : UIView
-
+@property (nonatomic, copy) NSString * goodsNameString;
+@property (nonatomic, copy) NSString * goodsPricString;
+@property (nonatomic, copy) NSString * goodsImageUrl;
 @end

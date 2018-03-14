@@ -48,11 +48,9 @@
     }];
     goodsNameLabel.font = [UIFont sy_font14];
     goodsNameLabel.textColor = [UIColor sc_colorWith444444];
-    goodsNameLabel.text = @"奥迪17款新A4L脚垫新";
     
     UILabel * goodsPriceLabel = [[UILabel alloc] init];
     [self addSubview:goodsPriceLabel];
-    goodsPriceLabel.text = @"¥138.0";
     self.goodsPriceLabel = goodsPriceLabel;
     goodsPriceLabel.font = [UIFont sy_font14];
     goodsPriceLabel.textColor = [UIColor sc_colorWith6C6DFD];
@@ -61,5 +59,24 @@
         make.top.equalTo(goodsNameLabel.mas_bottom).with.offset(14);
         make.right.equalTo(self.mas_right).with.offset(-0);
     }];
+}
+
+- (void)setGoodsImageUrl:(NSString *)goodsImageUrl
+{
+    _goodsImageUrl = goodsImageUrl;
+//    [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:goodsImageUrl] placeholderImage:[UIImage imageNamed:@""]];
+    [self.goodsImageView setImage:[UIImage imageNamed:goodsImageUrl]];
+}
+
+- (void)setGoodsNameString:(NSString *)goodsNameString
+{
+    _goodsNameString = goodsNameString;
+    self.goodsNameLabel.text = goodsNameString;
+}
+
+- (void)setGoodsPricString:(NSString *)goodsPricString
+{
+    _goodsPricString = goodsPricString;
+    self.goodsPriceLabel.text = [NSString stringWithFormat:@"¥%@",goodsPricString];
 }
 @end

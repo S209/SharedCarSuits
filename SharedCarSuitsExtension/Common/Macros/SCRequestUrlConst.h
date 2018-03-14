@@ -50,15 +50,13 @@
 //领取优惠券-领取(完)
 #define SCUrl_ReceiveCouponsGet GeneralUrl(@"/keleapp/coupon/couponReceive.jspx")
 
-//轮播广告
+//轮播广告(完)
 #define SCUrl_BannerList GeneralUrl(@"/keleapp/banner/bannerList.jspx")
 
-//我的 编辑个人信息
-#define SCUrl_EditUserInfo GeneralUrl(@"/keleapp/userInfor/editUser.jspx")
 //我的汽车列表 (完)
 #define SCUrl_allCarBrand GeneralUrl(@"/keleapp/upload/data/allCarBrand.json")
 
-//我的门店列表
+//我的门店列表(差导航)
 #define SCUrl_ShopList GeneralUrl(@"/keleapp/shop/shopList.jspx")
 
 //门店 设置默认门店
@@ -85,3 +83,5 @@
 //5.4  有效优惠券
 #define SCUrl_OrderCoupon GeneralUrl(@"/keleapp/coupon/orderCoupon.jspx")
 
+//我的 编辑个人信息
+#define SCUrl_EditUserInfo GeneralUrl(@"/keleapp/userInfor/editUser.jspx")

@@ -18,6 +18,7 @@ target 'SharedCarSuits' do
     pod 'MJRefresh'
     pod 'BaiduMapKit'
     pod 'TZImagePickerController'
+    pod 'WebViewJavascriptBridge', '~> 6.0'
     # Pods for SharedCarSuits
     
     target 'SharedCarSuitsTests' do

@@ -24,6 +24,7 @@
 @property (nonatomic, weak) UIImageView * whetherToConfirmImageView;
 @property (nonatomic, weak) UILabel * distanceLabel;
 @property (nonatomic, weak) UIView * bottomViewSegment;
+@property (nonatomic, weak) UIButton * whetherToConfirmBtn;
 @end
 @implementation SCReservationViewCell
 
@@ -70,6 +71,13 @@
         UIImageView * whetherToConfirmImageView = [[UIImageView alloc] init];
         self.whetherToConfirmImageView = whetherToConfirmImageView;
         [self.contentView addSubview:whetherToConfirmImageView];
+        whetherToConfirmImageView.userInteractionEnabled = YES;
+        
+        UIButton * whetherToConfirmBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.contentView addSubview:whetherToConfirmBtn];
+        self.whetherToConfirmBtn = whetherToConfirmBtn;
+        [whetherToConfirmBtn addTarget:self action:@selector(whetherToConfirmImageViewClick) forControlEvents:UIControlEventTouchUpInside];
+        
         
         UILabel * distanceLabel = [[UILabel alloc] init];
         self.distanceLabel = distanceLabel;
@@ -145,6 +153,12 @@
         make.right.equalTo(self.contentView.mas_right).with.offset(-0);
         make.top.equalTo(self.storeImageView.mas_top).with.offset(0);
         make.size.mas_equalTo(CGSizeMake(37.5, 33));
+    }];
+    
+    [self.whetherToConfirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.contentView.mas_right).with.offset(-0);
+        make.top.equalTo(self.storeImageView.mas_top).with.offset(0);
+        make.size.mas_equalTo(CGSizeMake(40, 40));
     }];
     
     [self.storeNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -292,9 +306,17 @@
     }
 }
 
+#pragma mark 服务项目
 - (void)serviceItemsBtnClick:(UIButton *)sender
 {
     
+}
+
+- (void)whetherToConfirmImageViewClick
+{
+    if ([_delegate respondsToSelector:@selector(reservationViewCellDefaultWithModel:)]) {
+        [self.delegate reservationViewCellDefaultWithModel:self.shopModel];
+    }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

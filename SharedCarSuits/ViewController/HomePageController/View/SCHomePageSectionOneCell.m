@@ -113,13 +113,13 @@
         [dictLeftImgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(hotRecommendLabel.mas_left).with.offset(-5);
             make.size.mas_equalTo(CGSizeMake(8.5, 9));
-            make.top.equalTo(hotRecommendLabel.mas_top).with.offset(0);
+            make.centerY.equalTo(hotRecommendLabel.mas_centerY);
         }];
         
         [dictRightImgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(hotRecommendLabel.mas_right).with.offset(5);
             make.size.mas_equalTo(CGSizeMake(8.5, 9));
-            make.top.equalTo(hotRecommendLabel.mas_top).with.offset(0);
+            make.centerY.equalTo(hotRecommendLabel.mas_centerY);
         }];
         
         

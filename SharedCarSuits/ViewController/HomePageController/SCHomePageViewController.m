@@ -23,6 +23,7 @@
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * headerImageArray;
 @property (nonatomic, weak) SDCycleScrollView * cycleScrollView;
+@property (nonatomic, copy) NSArray * bannerArray;
 @end
 
 @implementation SCHomePageViewController
@@ -81,6 +82,7 @@
     [self.headerImageArray removeAllObjects];
     [[SCManager shareInstance] getHomeBannerListWithSuccess:^(NSURLSessionDataTask *serializer, id responseObject) {
         NSArray * bannerArray = [NSArray yy_modelArrayWithClass:[SCHomeBannerModel class] json:responseObject];
+        self.bannerArray = [bannerArray copy];
         for (SCHomeBannerModel * model in bannerArray) {
             [self.headerImageArray addObject:model.imgName];
         }
@@ -186,7 +188,7 @@
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
 {
     SCHomeBannerViewController * homeBannerViewController = [[SCHomeBannerViewController alloc] init];
-    homeBannerViewController.bannerModel = [self.headerImageArray safeObjectAtIndex:index];
+    homeBannerViewController.bannerModel = [self.bannerArray safeObjectAtIndex:index];
     [self.navigationController pushViewController:homeBannerViewController animated:YES];
 }
 - (void)didReceiveMemoryWarning {

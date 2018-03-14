@@ -40,6 +40,17 @@
     for (NSUInteger i = 0; i < 2; i++) {
         leftX = 10 + (width + 10)*i;
         SCHomePageSectionTwoCellItemView * itemView = [[SCHomePageSectionTwoCellItemView alloc] init];
+    
+        if (i == 0) {
+            itemView.goodsImageUrl = @"ex_img_index_ goods_1";
+            itemView.goodsPricString = @"138.0";
+            itemView.goodsNameString = @"奥迪17款新A4L脚垫新";
+        }else{
+            itemView.goodsImageUrl = @"ex_img_index_ goods_2";
+            itemView.goodsPricString = @"980.0";
+            itemView.goodsNameString = @"德国爱德龙 机油4L装";
+        }
+        
         [self.contentView addSubview:itemView];
         [itemView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left).with.offset(leftX);

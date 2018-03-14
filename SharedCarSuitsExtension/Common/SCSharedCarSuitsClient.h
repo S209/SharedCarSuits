@@ -19,4 +19,10 @@ parameters:(NSDictionary *)parameters
 parameters:(NSDictionary *)parameters
   success:(SuccessBlock)success
   failure:(FailureBlock)failure;
+
+- (id)request:(NSString *)URLString
+    parameters:(NSDictionary *)parameters
+constructingBodyWithBlock:(NetworkRequestFormDataBlock)block
+       success:(SuccessBlock)success
+       failure:(FailureBlock)failure;
 @end

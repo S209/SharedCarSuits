@@ -7,7 +7,7 @@
 //
 
 #import "SCManager.h"
-
+@class SCNetworkMultiDataObj;
 @interface SCManager (RequestInterface)
 
 /**
@@ -57,11 +57,8 @@
 #pragma mark 我的
 /**
  编辑个人信息
-
- @param realNameString 用户姓名
- @param headUrlData 用户头像
  */
-- (void)editUserInfoWithRealName:(NSString *)realNameString HeadUrl:(NSData *)headUrlData success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+- (void)editUserInfoWithConstructingBodyWithBlock:(NetworkRequestFormDataBlock)block success:(SuccessBlock)success failure:(FailureBlock)failure;
 
 
 /**

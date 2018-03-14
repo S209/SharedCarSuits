@@ -7,7 +7,7 @@
 //
 
 #import "SCEditorUserInfoViewController+ImagePickerController.h"
-
+#import "WPFileManager.h"
 @implementation SCEditorUserInfoViewController (ImagePickerController)
 - (void)initWithUIImagePickerController
 {
@@ -66,14 +66,11 @@
     //判断资源类型
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]){
         //如果是图片
-                self.iconImageView .image = info[UIImagePickerControllerEditedImage];
-        //        //压缩图片
-                NSData *fileData = UIImageJPEGRepresentation(self.iconImageView.image, 1.0);
-        //        //保存图片至相册
-        //        UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
-        //        //上传图片
-        //        [self uploadImageWithData:fileData];
-        
+        UIImage * newIconImage = info[UIImagePickerControllerEditedImage];
+        self.iconImageView.image = newIconImage;
+        NSData * fileData = UIImagePNGRepresentation(self.iconImageView.image);
+        NSString * path = [NSString stringWithFormat:@"%@_userIcon",NSStringFromClass([self class])];
+        [[WPFileManager shareCacheFileInstance] writeData:fileData atPath:path];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }

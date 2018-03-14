@@ -10,18 +10,39 @@
 #import "SCEditorIconView.h"
 #import "SCEditorUserInfoViewController+ImagePickerController.h"
 #import "SCUserModel.h"
-@interface SCEditorUserInfoViewController ()<SCEditorIconViewDelegate>
-
+#import "SCNetworkMultiDataObj.h"
+#import "SCManager+RequestInterface.h"
+#import "WPFileManager.h"
+@interface SCEditorUserInfoViewController ()<SCEditorIconViewDelegate,UITextFieldDelegate>
+@property (nonatomic, weak) UITextField * nameField;
+@property (nonatomic, weak) UITextField * phoneField;
 @end
 
 @implementation SCEditorUserInfoViewController
-
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavigationWithTitle:@"编辑个人资料"];
     [self sy_leftBarButtonItem];
     [self setupView];
     [self initWithUIImagePickerController];
+    UITapGestureRecognizer * tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick)];
+    [self.view addGestureRecognizer:tapGest];
+//    [self addNotific];
+}
+
+//- (void)addNotific
+//{
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+//}
+
+- (void)tapClick
+{
+    [self.nameField resignFirstResponder];
 }
 
 - (void)setupView
@@ -75,6 +96,8 @@
     
     UITextField * nameField = [[UITextField alloc] init];
     [self.view addSubview:nameField];
+    nameField.delegate = self;
+    self.nameField = nameField;
     nameField.backgroundColor = [UIColor sc_colorWithf8f8f8];
     [nameField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(nameLabel.mas_left).with.offset(0);
@@ -100,6 +123,7 @@
     
     UITextField * phoneField = [[UITextField alloc] init];
     [self.view addSubview:phoneField];
+    phoneField.userInteractionEnabled = NO;
     phoneField.backgroundColor = [UIColor sc_colorWithf8f8f8];
     [phoneField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(nameLabel.mas_left).with.offset(0);
@@ -128,6 +152,8 @@
     [completeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     completeBtn.titleLabel.font = [UIFont sy_boldFont16];
     [completeBtn addTarget:self action:@selector(completeClick) forControlEvents:UIControlEventTouchUpInside];
+    completeBtn.layer.masksToBounds = YES;
+    [completeBtn.layer setCornerRadius:4.0];
 }
 
 #pragma mark 编辑
@@ -150,9 +176,56 @@
 
 - (void)completeClick
 {
+    NSString * userNamePath = [NSString stringWithFormat:@"%@_userName",NSStringFromClass([self class])];
+    [[WPFileManager shareCacheFileInstance] writeString:self.nameField.text atPath:userNamePath];
+   NSString * userNameFilePath = [[WPFileManager shareCacheFileInstance] absolutePathWithPath:userNamePath];
+    
+    NSString * iconPath = [NSString stringWithFormat:@"%@_userIcon",NSStringFromClass([self class])];
+    NSString * iconFilePath = [[WPFileManager shareCacheFileInstance] absolutePathWithPath:iconPath];
+    
+    NSData * fileData = [[WPFileManager shareCacheFileInstance] readDataAtPath:iconPath];
+//    NSData * userNameData = [[WPFileManager shareCacheFileInstance] readDataAtPath:userNamePath];
+    
+    
+    [self.nameField resignFirstResponder];
+    [[SCManager shareInstance] editUserInfoWithConstructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        if (fileData) {
+           [formData appendPartWithFileURL:[NSURL fileURLWithPath:iconFilePath] name:@"File" error:nil];
+        }
+        if (self.nameField.text)
+        {
+            if(![[NSFileManager defaultManager] fileExistsAtPath:userNameFilePath])
+            {
+                NSLog(@"%@: 上传的文件路径不存在", NSStringFromClass([self class]));
+                return ;
+            }
+            
+           [formData appendPartWithFileURL:[NSURL fileURLWithPath:userNameFilePath] name:@"Text" fileName:userNamePath mimeType:@"application/octet-stream" error:nil];
 
+        }
+    } success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        NSLog(@"===%@==",responseObject);
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+         NSLog(@"===%@==",error);
+    }];
 }
 
+//- (void)keyboardWillShow:(NSNotification *)notification {
+//    NSDictionary *userInfo = [notification userInfo];
+//    // 获取键盘的frame
+//    CGRect keyboardFrame = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//    // 获取键盘的动画时间
+//    NSTimeInterval animationDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+//    // do something
+//    self.view.frame = CGRectMake(0, -keyboardFrame.size.height, SCREEN_WIDTH, SCREEN_HEIGHT);
+    
+//}
+
+
+//- (void)keyboardWillHide:(NSNotification *)notification {
+//    self.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

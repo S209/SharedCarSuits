@@ -59,7 +59,7 @@
 //我的门店列表(差导航)
 #define SCUrl_ShopList GeneralUrl(@"/keleapp/shop/shopList.jspx")
 
-//门店 设置默认门店
+//门店 设置默认门店(完)
 #define SCUrl_ShopDefault GeneralUrl(@"/keleapp/shop/shopDefault.jspx")
 
 //订单 预约订单-今日时间+服务项目

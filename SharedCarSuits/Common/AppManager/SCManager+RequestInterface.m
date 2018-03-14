@@ -13,6 +13,7 @@
 #import "SCManager+CommonMethods.h"
 #import "SCLaunchViewController.h"
 #import "AppDelegate.h"
+#import "SCNetworkMultiDataObj.h"
 @implementation SCManager (RequestInterface)
 - (void)getRegisteredVerificationCodeWithPhoneNumber:(NSString *)phoneNumber success:(SuccessBlock)success
                                               notice:(OptionBlock)notice
@@ -132,16 +133,12 @@
 
 
 
-- (void)editUserInfoWithRealName:(NSString *)realNameString HeadUrl:(NSData *)headUrlData success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+- (void)editUserInfoWithConstructingBodyWithBlock:(NetworkRequestFormDataBlock)block success:(SuccessBlock)success failure:(FailureBlock)failure
 {
-    NSDictionary * paramaterDict = @{@"realName":realNameString,@"headUrl":headUrlData};
-    [self requestUrl:SCUrl_EditUserInfo andParamater:paramaterDict success:^(NSURLSessionDataTask *serializer, id responseObject) {
+    NSDictionary * paramaterDict = [[NSDictionary alloc] init];
+    [[SCSharedCarSuitsClient shareInstance] request:SCUrl_EditUserInfo parameters:paramaterDict constructingBodyWithBlock:block success:^(NSURLSessionDataTask *serializer, id responseObject) {
         if (success) {
             success(serializer,responseObject);
-        }
-    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-        if (notice) {
-            notice(serializer,responseObject);
         }
     } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
         if (failure) {

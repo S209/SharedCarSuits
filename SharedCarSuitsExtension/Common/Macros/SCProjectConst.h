@@ -13,6 +13,7 @@
 typedef void (^SuccessBlock)(NSURLSessionDataTask *serializer, id responseObject);
 typedef void (^OptionBlock)(NSURLSessionDataTask *serializer, id responseObject);
 typedef void (^FailureBlock)(NSURLSessionDataTask *serializer, NSError *error);
+typedef void (^NetworkRequestFormDataBlock)(id<AFMultipartFormData> formData);
 typedef enum {
     WPPasswordStrengthTypeWeak = 1,
     WPPasswordStrengthTypeModerate = 2,

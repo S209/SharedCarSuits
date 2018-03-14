@@ -10,6 +10,6 @@
 @class UIImagePickerController,SCUserModel;
 @interface SCEditorUserInfoViewController : SCBaseViewController
 @property (nonatomic, strong) UIImagePickerController * imagePickerController;
-@property (nonatomic, weak) UIImageView * iconImageView ;
+@property (nonatomic, weak) UIImageView * iconImageView;
 @property (nonatomic, strong) SCUserModel * userModel;
 @end

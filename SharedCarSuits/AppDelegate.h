@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class SCUserModel;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 @property (nonatomic, copy) NSString * latitudeAndLongitude;
+@property (nonatomic, strong) SCUserModel * userModel;
 @property (strong, nonatomic) UIWindow *window;
 + (AppDelegate *)getAppDelegate;
 @end

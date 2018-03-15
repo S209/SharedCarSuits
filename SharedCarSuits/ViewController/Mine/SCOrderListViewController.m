@@ -41,7 +41,7 @@ static const CGFloat KWMMenuViewhHeight = 45;
     label.font = [UIFont sy_boldFont17];
     label.textColor = [UIColor sc_colorWith444444];
     label.textAlignment = NSTextAlignmentCenter;
-    label.frame = CGRectMake(0, SYStatusBarHeight, SCREEN_WIDTH, 44);
+    label.frame = CGRectMake((SCREEN_WIDTH-200)*0.5, SYStatusBarHeight, 200, 44);
     
     UIButton * leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     leftBtn.frame = CGRectMake(0, 0, 30, 44);

@@ -8,6 +8,7 @@
 
 #import "SCNoPayListViewController.h"
 #import "SCOrderListCell.h"
+#import "SCManager+RequestInterface.h"
 @interface SCNoPayListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @end
@@ -43,6 +44,42 @@
     }];
     tableView.delegate = self;
     tableView.dataSource = self;
+    tableView.mj_header = [SCDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    [tableView.mj_header beginRefreshing];
+}
+
+- (void)loadData
+{
+    NSDate * date = [NSDate date];
+    //实例化一个NSDateFormatter对象
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //设定时间格式,这里可以设置成自己需要的格式
+   
+    [dateFormatter setDateFormat:@"yyyy-MM-dd+HH:mm:ss"];
+    //用[NSDate date]可以获取系统当前时间
+    NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
+
+
+    
+    
+    [self loadNewDataWithOrderState:1 createTime:currentDateStr];
+}
+- (void)loadNewDataWithOrderState:(NSInteger)orderState createTime:(NSString *)time
+{
+  
+    [[SCManager shareInstance] getOrderListWithOrderState:1 length:10 createTime:time success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        [self.tableView.mj_header endRefreshing];
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        
+    }];
+    
+}
+
+- (void)loadMoreData
+{
+    
 }
 
 #pragma mark

@@ -145,4 +145,7 @@ success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)f
  */
 - (void)getHomeBannerListWithSuccess:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 
+
+//SCUrl_OrderList
+- (void)getOrderListWithOrderState:(NSInteger)orderstate length:(NSInteger)length createTime:(NSString *)createTime success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 @end

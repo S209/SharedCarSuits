@@ -421,6 +421,24 @@
     }];
 }
 
+//SCUrl_OrderList
+- (void)getOrderListWithOrderState:(NSInteger)orderstate length:(NSInteger)length createTime:(NSString *)createTime success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    NSDictionary * parameterDict = @{@"orderState":[NSString stringWithFormat:@"%zd",orderstate],@"length":[NSString stringWithFormat:@"%zd",length],@"createTime":createTime};
+    [self requestUrl:SCUrl_OrderList andParamater:parameterDict success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (notice) {
+            notice(serializer,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer,error);
+        }
+    }];
+}
 
 - (void)requestUrl:(NSString *)url andParamater:(NSDictionary *)parameter success:(SuccessBlock)success
             notice:(OptionBlock)notice

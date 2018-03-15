@@ -44,12 +44,17 @@
     return _contentImgArray;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:SCLoginModelUserDict];
     NSDictionary * userDict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     SCUserModel  * userModel = [SCUserModel yy_modelWithDictionary:userDict];
     self.userModel = userModel;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     [self setNavigationWithTitle:@"个人资料"];
     [self setupView];
 }
@@ -71,7 +76,10 @@
     }];
     
     SCMineViewHeaderView * headerView = [[SCMineViewHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 282)];
-    headerView.userModel = self.userModel;
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:SCLoginModelUserDict];
+    NSDictionary * userDict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    SCUserModel  * userModel = [SCUserModel yy_modelWithDictionary:userDict];
+    headerView.userModel = userModel;
     tableView.tableHeaderView = headerView;
     headerView.delegate = self;
 }

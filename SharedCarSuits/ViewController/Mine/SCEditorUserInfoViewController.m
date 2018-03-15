@@ -179,10 +179,27 @@
 
 - (void)completeClick
 {
-    NSString * userNameString = [NSString stringWithFormat:@"%@_userName.txt",NSStringFromClass([self class])];
-    [[WPFileManager shareCacheFileInstance] writeString:self.nameField.text atPath:userNameString];
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:SCLoginModelUserDict];
+    NSDictionary * userDict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    SCUserModel  * userModel = [SCUserModel yy_modelWithDictionary:userDict];
     
-    NSString * userNameFilePath = [[WPFileManager shareCacheFileInstance] absolutePathWithPath:userNameString];
+    
+    
+    [self.nameField resignFirstResponder];
+    if (![self.userModel.realName isEqualToString:self.nameField.text] && self.nameField.text.length) {
+        [[SCManager shareInstance] editUserInfoWithUserName:self.nameField.text success:^(NSURLSessionDataTask *serializer, id responseObject) {
+            NSString * realNameString = [responseObject objectForKey:@"realName"];
+            self.nameField.text = realNameString;
+            userModel.realName = realNameString;
+            NSData * data = [userModel yy_modelToJSONData];
+            [[NSUserDefaults standardUserDefaults] setObject:data forKey:SCLoginModelUserDict];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+            
+        }];
+    }
     
     
     NSString * iconName = [NSString stringWithFormat:@"%@_userIcon.png",NSStringFromClass([self class])];
@@ -190,34 +207,26 @@
     NSData * fileData = [[WPFileManager shareCacheFileInstance] readDataAtPath:iconName];
     
     
-    [self.nameField resignFirstResponder];
-    [[SCManager shareInstance] editUserInfoWithConstructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        if (self.nameField.text)
-        {
-            if(![[NSFileManager defaultManager] fileExistsAtPath:userNameFilePath])
+    if (self.updateIconImage) {
+        [[SCManager shareInstance] editUserInfoWithConstructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+            if (fileData)
             {
-                NSLog(@"%@: 上传的文件路径不存在", NSStringFromClass([self class]));
-                return ;
+                BOOL uploadheadUrlFlag = [formData appendPartWithFileURL:[NSURL fileURLWithPath:iconFilePath] name:@"headUrl" fileName:iconName mimeType:@"image/png" error:nil];
+                if (!uploadheadUrlFlag) {
+                    NSLog(@"上传用户头像");
+                }
             }
-            NSURL * fileURL = [NSURL fileURLWithPath:userNameFilePath];
-            BOOL uploadNameFlag = [formData appendPartWithFileURL:fileURL name:@"realName" error:nil];
-            if (!uploadNameFlag) {
-                NSLog(@"上传名字错误");
-            }
-        }
-        
-        if (fileData)
-        {
-            BOOL uploadheadUrlFlag = [formData appendPartWithFileURL:[NSURL fileURLWithPath:iconFilePath] name:@"headUrl" fileName:iconName mimeType:@"image/png" error:nil];
-            if (!uploadheadUrlFlag) {
-                NSLog(@"上传用户头像");
-            }
-        }
-    } success:^(NSURLSessionDataTask *serializer, id responseObject) {
-        NSLog(@"===%@===",responseObject);
-    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-        NSLog(@"===%@==",error);
-    }];
+        } success:^(NSURLSessionDataTask *serializer, id responseObject) {
+            NSString * headUrl = [NSString stringWithFormat:@"%@",[responseObject objectForKey:@"headUrl"]];
+            userModel.headUrl = headUrl;
+            NSData * data = [userModel yy_modelToJSONData];
+            [[NSUserDefaults standardUserDefaults] setObject:data forKey:SCLoginModelUserDict];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+        } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+            
+        }];
+    }
 }
 
 

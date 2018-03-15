@@ -85,3 +85,6 @@
 
 //我的 编辑个人信息(差用户名字)
 #define SCUrl_EditUserInfo GeneralUrl(@"/keleapp/userInfor/editUser.jspx")
+
+//keleapp/userInfor/editUserPhoto.jspx
+#define SCUrl_editUserPhoto GeneralUrl(@"keleapp/userInfor/editUserPhoto.jspx")

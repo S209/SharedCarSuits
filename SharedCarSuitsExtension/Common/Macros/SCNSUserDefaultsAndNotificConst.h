@@ -10,3 +10,4 @@ extern NSString * const SCSessionId;
 extern NSString * const SCLoginModelUserDict;//字典
 extern NSString * const SCSelectCarSuccess;
 extern NSString * const SCIsTheAppInstalledForTheFirstTime;
+extern NSString * const SCHasNeedLogin;

@@ -265,9 +265,17 @@ static NSString * const KEY_UUID = @"唯一识别的key_uuid";
     return NO;
 }
 
++ (BOOL)hasNeedLogin
+{
+    BOOL flag = [[[NSUserDefaults standardUserDefaults] objectForKey:SCHasNeedLogin] boolValue];
+    return flag;
+}
 
 + (void)exit
 {
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:SCHasNeedLogin];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     [[self shareInstance] setSessionId:@""];
     SCLaunchViewController * launchView = [[SCLaunchViewController alloc] init];
     UINavigationController * rootViewController = [[UINavigationController alloc] initWithRootViewController:launchView];

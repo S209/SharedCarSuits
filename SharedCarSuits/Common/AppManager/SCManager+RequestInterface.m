@@ -40,10 +40,12 @@
     NSDictionary * parameterDictionary = @{@"loginName":loginName,@"passWord":passWord};
     [self requestUrl:SCUrl_Login andParamater:parameterDictionary success:^(NSURLSessionDataTask *serializer, id responseObject) {
         if (success) {
+            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:SCHasNeedLogin];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
             NSData * data = [NSKeyedArchiver archivedDataWithRootObject:responseObject];
             [[NSUserDefaults standardUserDefaults] setObject:data forKey:SCLoginModelUserDict];
             [[NSUserDefaults standardUserDefaults] synchronize];
-            
             success(serializer,responseObject);
         }
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
@@ -131,12 +133,28 @@
 }
 
 
-
+- (void)editUserInfoWithUserName:(NSString *)name success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    NSDictionary * paramater = @{@"str":name};
+    [self requestUrl:SCUrl_EditUserInfo andParamater:paramater success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (notice) {
+            notice(serializer,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer,error);
+        }
+    }];
+}
 
 - (void)editUserInfoWithConstructingBodyWithBlock:(NetworkRequestFormDataBlock)block success:(SuccessBlock)success failure:(FailureBlock)failure
 {
     NSDictionary * paramaterDict = [[NSDictionary alloc] init];
-    [[SCSharedCarSuitsClient shareInstance] request:SCUrl_EditUserInfo parameters:paramaterDict constructingBodyWithBlock:block success:^(NSURLSessionDataTask *serializer, id responseObject) {
+    [[SCSharedCarSuitsClient shareInstance] request:SCUrl_editUserPhoto parameters:paramaterDict constructingBodyWithBlock:block success:^(NSURLSessionDataTask *serializer, id responseObject) {
        NSInteger code = [[responseObject objectForKey:@"code"] integerValue];
         if (code == 200) {
             if (success) {
@@ -171,6 +189,8 @@
     NSDictionary * paramater = @{@"phoneNum":phoneNum,@"passWord":passWord,@"carModel":carModel,@"carNum":carNum};
     [self requestUrl:SCUrl_Registered andParamater:paramater success:^(NSURLSessionDataTask *serializer, id responseObject) {
         if (success) {
+            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:SCHasNeedLogin];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             success(serializer,responseObject);
         }
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
@@ -455,7 +475,6 @@
                 
                 if ([dataDict isKindOfClass:[NSDictionary class]]) {
                     NSString * uIdString = [NSString stringWithFormat:@"%@",[responseObject objectForKey:@"uId"]];
-                    
                     [[SCManager shareInstance] setUserUid:uIdString];
                     NSString * sessionIdString = [NSString stringWithFormat:@"%@",[responseObject objectForKey:@"sessionId"]];
                     [[SCManager shareInstance] setSessionId:sessionIdString];

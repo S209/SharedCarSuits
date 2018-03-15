@@ -62,6 +62,12 @@
 
 
 /**
+ 编辑个人的名字
+ */
+- (void)editUserInfoWithUserName:(NSString *)name success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
+
+/**
  我的优惠券(完)
 
  @param couponId 用户ID

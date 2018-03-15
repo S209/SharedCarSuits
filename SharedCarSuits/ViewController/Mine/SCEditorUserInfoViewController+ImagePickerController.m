@@ -67,6 +67,7 @@
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]){
         //如果是图片
         UIImage * newIconImage = info[UIImagePickerControllerEditedImage];
+        self.updateIconImage = newIconImage;
         self.iconImageView.image = newIconImage;
         NSData * fileData = UIImagePNGRepresentation(self.iconImageView.image);
         NSString * path = [NSString stringWithFormat:@"%@_userIcon.png",NSStringFromClass([self class])];

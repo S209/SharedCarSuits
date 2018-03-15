@@ -33,7 +33,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-     self.navigationController.navigationBar.hidden = YES;
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -72,18 +72,26 @@
         }
         guideMapScrollView.contentSize = CGSizeMake(guideMapArray.count * SCREEN_WIDTH, 0);
         guideMapScrollView.showsHorizontalScrollIndicator = NO;
-        
     }else{
-        [self loadLoadingOrder];
+        BOOL flag = [[[NSUserDefaults standardUserDefaults] objectForKey:SCHasNeedLogin] boolValue];
+        if (flag) {
+            [self loadLoadingOrder];
+        }else{
+            SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
+            [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
+        }
     }
 }
 
 
 - (void)guideMapBtnClick{
     [self.guideMapScrollView removeFromSuperview];
-    [self loadLoadingOrder];
+
+    SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
+    [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
 }
 
+#pragma mark
 - (void)loadLoadingOrder
 {
     UILabel * titleLabel = [[UILabel alloc] init];
@@ -114,7 +122,7 @@
         SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
         [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;
     }else{
-         [self setupLoginView];
+        [self setupLoginView];
     }
 }
 

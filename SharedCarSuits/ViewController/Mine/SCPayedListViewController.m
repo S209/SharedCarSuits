@@ -94,14 +94,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SCOrderListCell * cell = [SCOrderListCell orderListCellWithTableView:tableView orderType:3];
+    SCOrderListCell * cell = [SCOrderListCell orderListCellWithTableView:tableView orderType:2];
     cell.listModel = [self.dataArray safeObjectAtIndex:indexPath.row];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [SCOrderListCell cellHeightWithOrderType:1];
+    return [SCOrderListCell cellHeightWithOrderType:2];
 }
 
 

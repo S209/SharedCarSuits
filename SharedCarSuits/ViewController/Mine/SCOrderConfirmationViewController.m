@@ -18,7 +18,6 @@
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
 @property (nonatomic, weak) UILabel * paymentTimeLabel;
-@property (nonatomic, strong) SCOrderListModel * listModel;
 @end
 
 @implementation SCOrderConfirmationViewController
@@ -34,8 +33,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self sy_leftBarButtonItem];
+    self.view.backgroundColor = [UIColor sc_colorWithf8f8f8];
     [self setNavigationWithTitle:@"订单确认"];
     [self setupView];
+    
 }
 
 - (void)setupView
@@ -46,23 +47,42 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).with.offset(0);
-        make.right.equalTo(self.view.mas_right).with.offset(-0);
-        make.top.equalTo(self.view.mas_top).with.offset(0);
-        make.bottom.equalTo(self.view.mas_bottom).with.offset(44);
-    }];
-    tableView.mj_header = [SCDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-    [tableView.mj_header beginRefreshing];
-    tableView.tableHeaderView = [self setupTableHeaderView];
     
+    tableView.tableHeaderView = [self setupTableHeaderView];
+    if (_orderType == 1) {
+        [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.view.mas_left).with.offset(0);
+            make.right.equalTo(self.view.mas_right).with.offset(-0);
+            make.top.equalTo(self.view.mas_top).with.offset(0);
+            make.bottom.equalTo(self.view.mas_bottom).with.offset(-44);
+        }];
+        [self setupBottomView];
+    }else if (_orderType == 2){
+        [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.view.mas_left).with.offset(0);
+            make.right.equalTo(self.view.mas_right).with.offset(-0);
+            make.top.equalTo(self.view.mas_top).with.offset(0);
+            make.bottom.equalTo(self.view.mas_bottom).with.offset(-44);
+        }];
+        [self setupCancelBottomView];
+    }else{
+        [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.view.mas_left).with.offset(0);
+            make.right.equalTo(self.view.mas_right).with.offset(-0);
+            make.top.equalTo(self.view.mas_top).with.offset(0);
+            make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
+        }];
+    }
+}
+
+- (void)setupBottomView{
     UIView * bottomView = [[UIView alloc] init];
     [self.view addSubview:bottomView];
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(-0);
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
-        make.top.equalTo(tableView.mas_bottom).with.offset(0);
+        make.top.equalTo(self.tableView.mas_bottom).with.offset(0);
     }];
     
     UILabel * paymentMoneyLabel = [[UILabel alloc] init];
@@ -88,15 +108,37 @@
     [orderNowBtn addTarget:self action:@selector(orderNowBtnClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)orderNowBtnClick:(UIButton *)sender
+
+- (void)setupCancelBottomView
+{
+    UIButton * cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:cancelBtn];
+    [cancelBtn setTitle:@"取消预约" forState:UIControlStateNormal];
+    cancelBtn.titleLabel.font = [UIFont sy_font15];
+    [cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).with.offset(0);
+        make.right.equalTo(self.view.mas_right).with.offset(-0);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
+        make.height.mas_equalTo(45);
+    }];
+    [cancelBtn addTarget:self action:@selector(cancelClick:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)cancelClick:(UIButton *)sender
 {
     
+}
+
+- (void)orderNowBtnClick:(UIButton *)sender
+{
+  
 }
 
 - (UIView *)setupTableHeaderView
 {
     UIView * headerView = [[UIView alloc] init];
-    headerView.size = CGSizeMake(SCREEN_WIDTH, 60);
+    headerView.size = CGSizeMake(SCREEN_WIDTH, 120);
     UILabel * orderTitleLabel = [[UILabel alloc] init];
     [headerView addSubview:orderTitleLabel];
     orderTitleLabel.text = @"待支付";
@@ -105,7 +147,7 @@
     [orderTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(headerView.mas_left).with.offset(0);
         make.right.equalTo(headerView.mas_right).with.offset(-0);
-        make.height.mas_equalTo(55);
+        make.top.equalTo(headerView.mas_top).with.offset(20);
     }];
     
     UIView * leftView = [[UIView alloc] init];
@@ -128,6 +170,8 @@
     
     UILabel * paymentTimeLabel = [[UILabel alloc] init];
     [headerView addSubview:paymentTimeLabel];
+    paymentTimeLabel.text= @"支付剩余时间：";
+    paymentTimeLabel.textAlignment = NSTextAlignmentCenter;
     self.paymentTimeLabel = paymentTimeLabel;
     [paymentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(headerView.mas_left).with.offset(0);
@@ -139,6 +183,7 @@
     UILabel * tipsLabel = [[UILabel alloc] init];
     tipsLabel.text = @"超过付款时限，订单将自动关闭";
     [headerView addSubview:tipsLabel];
+    tipsLabel.textAlignment = NSTextAlignmentCenter;
     [tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(headerView.mas_left).with.offset(0);
         make.right.equalTo(headerView.mas_right).with.offset(-0);
@@ -146,32 +191,6 @@
     }];
     headerView.backgroundColor = [UIColor sc_colorWithF9F4DE];
     return headerView;
-}
-
-- (void)loadNewData
-{
-    if (_createTime.length == 0) {
-        //实例化一个NSDateFormatter对象
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        //设定时间格式,这里可以设置成自己需要的格式
-        [dateFormatter setDateFormat:@"yyyy-MM-dd+HH:mm:ss"];
-        //用[NSDate date]可以获取系统当前时间
-        NSString * currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
-        _createTime = currentDateStr;
-    }
-    
-    [[SCManager shareInstance] getOrderListWithOrderState:_orderType length:10 createTime:_createTime success:^(NSURLSessionDataTask *serializer, id responseObject) {
-        [self.tableView.mj_header endRefreshing];
-        NSArray * listArray = [responseObject objectForKey:@"list"];
-        NSArray * dataArray = [NSArray yy_modelArrayWithClass:[SCOrderListModel class] json:listArray];
-        self.dataArray = [dataArray mutableCopy];
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView reloadData];
-    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
-    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-        [self.tableView.mj_header endRefreshing];
-    }];
 }
 
 
@@ -190,7 +209,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        SCOrderDetailServiceNameViewCell * cell = [SCOrderDetailServiceNameViewCell orderDetailServiceNameViewCellWithTableView:tableView price:self.listModel.price];
+        SCOrderDetailServiceNameViewCell * cell = [SCOrderDetailServiceNameViewCell orderDetailServiceNameViewCellWithTableView:tableView];
+        cell.listModel = self.listModel;
         return cell;
     }else if (indexPath.section == 1){
         SCOrderDetailReservationViewCell * cell = [SCOrderDetailReservationViewCell orderDetailReservationViewCellWithTableView:tableView];
@@ -217,7 +237,7 @@
     }else if (indexPath.section == 1){
         return [SCOrderDetailReservationViewCell cellHeight];
     }else if (indexPath.section == 2){
-        return [SCOrderDetailOrderInfoViewCell cellHeight];
+        return [SCOrderDetailOrderInfoViewCell cellHeightWithOrderType:_orderType];
     }else if (indexPath.section == 3){
         return [SCOrderDetailPaymentWayViewCell cellHeight];
     }else{

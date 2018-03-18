@@ -11,5 +11,6 @@
 @interface SCOrderDetailOrderInfoViewCell : UITableViewCell
 + (instancetype)orderDetailOrderInfoViewCellWithTableView:(UITableView *)tableView;
 @property (nonatomic, strong) SCOrderListModel * listModel;
-+ (CGFloat)cellHeight;
+@property (nonatomic, assign) NSInteger orderType; //1,2,3,4
++ (CGFloat)cellHeightWithOrderType:(NSInteger)orderType;
 @end

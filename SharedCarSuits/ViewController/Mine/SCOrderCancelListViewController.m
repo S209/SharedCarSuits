@@ -101,7 +101,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [SCOrderListCell cellHeightWithOrderType:3];
+    return [SCOrderListCell cellHeightWithOrderType:4];
 }
 
 
@@ -109,7 +109,7 @@
 {
     SCOrderConfirmationViewController * confirmationViewController = [[SCOrderConfirmationViewController alloc] init];
     confirmationViewController.orderType = 4;
-    
+    confirmationViewController.listModel = [self.dataArray safeObjectAtIndex:indexPath.row];
     [self.navigationController pushViewController:confirmationViewController animated:YES];
 }
 

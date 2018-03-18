@@ -41,7 +41,7 @@
     UILabel * reservationInformationLabel = [[UILabel alloc] init];
     [self.contentView addSubview:reservationInformationLabel];
     reservationInformationLabel.text = @"预约信息";
-    reservationInformationLabel.font = [UIFont sy_font8];
+    reservationInformationLabel.font = [UIFont sy_boldFont15];
     reservationInformationLabel.textColor = [UIColor sc_colorWith444444];
     [reservationInformationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(15);
@@ -54,22 +54,27 @@
     [segmentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(15);
         make.right.equalTo(self.contentView.mas_right).with.offset(-0);
-        make.top.equalTo(self.contentView.mas_top).with.offset(22);
+        make.top.equalTo(self.contentView.mas_top).with.offset(45);
         make.height.mas_equalTo(0.5);
     }];
     
     UILabel * carInfoLabel = [[UILabel alloc] init];
     [self.contentView addSubview:carInfoLabel];
     self.carInfoLabel = carInfoLabel;
-    
-    UILabel * reservationStoreLabel = [[UILabel alloc] init];
-    [self.contentView addSubview:reservationStoreLabel];
-    self.reservationStoreLabel = reservationStoreLabel;
+    carInfoLabel.font = [UIFont sy_font13];
+    [carInfoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left).with.offset(15);
+        make.top.equalTo(segmentView.mas_bottom).with.offset(20);
+    }];
     
     UILabel * appointmentLabel = [[UILabel alloc] init];
     [self.contentView addSubview:appointmentLabel];
     self.appointmentLabel = appointmentLabel;
     appointmentLabel.font = [UIFont sy_font8];
+    [appointmentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left).with.offset(15);
+        make.top.equalTo(carInfoLabel.mas_bottom).with.offset(20);;
+    }];
     
     UIView * bottomSegmentView = [[UIView alloc] init];
     [self.contentView addSubview:bottomSegmentView];
@@ -89,13 +94,12 @@
 {
     _listModel = listModel;
     self.carInfoLabel.text = [NSString stringWithFormat:@"车辆信息：%@",listModel.carNum];
-    self.reservationStoreLabel.text = [NSString stringWithFormat:@"预约门店：%@",listModel.shopName];
     self.reservationStoreLabel.text = [NSString stringWithFormat:@"预约时间：%@",listModel.appointTime];
 }
 
 + (CGFloat)cellHeight
 {
-    return 82;
+    return 140;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

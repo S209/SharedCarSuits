@@ -120,7 +120,7 @@
     [self.contentView addSubview:bottomImageView];
     self.bottomImageView = bottomImageView;
     [bottomImageView setImage:[UIImage imageNamed:@"bg_footer"]];
-   
+    bottomImageView.backgroundColor = [UIColor redColor];
     
     UIView * bottomSegmentView = [[UIView alloc] init];
     [self.contentView addSubview:bottomSegmentView];
@@ -221,25 +221,29 @@
         [self.paymentBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.contentView.mas_right).with.offset(-15);
             make.top.equalTo(self.segmentTwoView.mas_bottom).with.offset(12);
-            make.size.mas_equalTo(CGSizeMake(35, 13.5));
+            make.size.mas_equalTo(CGSizeMake(70, 27));
         }];
+        self.bottomSegmentView.hidden = NO;
     }else if (orderType == OrderTypePayed) {
         self.completeLabel.hidden = YES;
         [self.completeLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(0, 0));
         }];
         [self.paymentBtn setTitle:@"取消预约" forState:UIControlStateNormal];
+        self.paymentBtn.titleLabel.font = [UIFont sy_font12];
          self.paymentBtn.hidden = NO;
         [self.paymentBtn setTitleColor:[UIColor sc_colorWith999999] forState:UIControlStateNormal];
-        [self.paymentBtn.layer setBorderColor:[[UIColor sc_colorWith6C6DFD] CGColor]];
+        [self.paymentBtn.layer setBorderColor:[[UIColor sc_colorWith999999] CGColor]];
         [self.paymentBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self.contentView.mas_right).with.offset(-15);
+   make.right.equalTo(self.contentView.mas_right).with.offset(-15);
             make.top.equalTo(self.segmentTwoView.mas_bottom).with.offset(12);
-            make.size.mas_equalTo(CGSizeMake(35, 13.5));
+            make.size.mas_equalTo(CGSizeMake(70, 27));
         }];
+        self.bottomSegmentView.hidden = NO;
     }else if (orderType== OrderTypeComplete || orderType == OrderTypeCancel){
         self.paymentBtn.hidden = YES;
         self.completeLabel.hidden = NO;
+        self.bottomSegmentView.hidden = YES;
         [self.completeLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left).with.offset(15);
             make.top.equalTo(self.timeLabel.mas_bottom).with.offset(10);
@@ -275,8 +279,6 @@
     self.carInfoLabel.text = [NSString stringWithFormat:@"车辆信息：%@",listModel.carNum];
     self.moneyLabel.text = listModel.price;
     self.timeLabel.text = [NSString stringWithFormat:@"预约时间：%@",listModel.appointTime];
-    
-    
 }
 
 + (CGFloat)cellHeightWithOrderType:(OrderType)orderType

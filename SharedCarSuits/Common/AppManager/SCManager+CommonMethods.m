@@ -258,8 +258,8 @@ static NSString * const KEY_UUID = @"唯一识别的key_uuid";
 
 + (BOOL)isLogin
 {
-    NSString * sessionId =[self getSessionId];
-    if (sessionId.length) {
+    NSString * userId =[self getUserId];
+    if (userId.length) {
         return YES;
     }
     return NO;

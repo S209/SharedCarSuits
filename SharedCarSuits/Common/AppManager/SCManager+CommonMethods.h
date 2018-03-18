@@ -16,7 +16,7 @@ typedef void(^GetGeocoderBlock)(NSString * geocoderString);
 + (BOOL)isLogin;
 + (BOOL)hasNeedLogin;
 + (void)exit;
-+ (NSString *)getSessionId;
++ (NSString *)getSessfionId;
 - (void)bezierPathLeftTopAndRightTopWithView:(UIView *)view;
 - (void)bezierPathLeftTopAndRightTopWithView:(UIView *)view withRadius:(CGFloat)radius;
 - (void)countDownWithView:(UIButton *)codeButton;

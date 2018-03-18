@@ -33,11 +33,11 @@
         UILabel * paymentWayLabel = [[UILabel alloc] init];
         [self.contentView addSubview:paymentWayLabel];
         paymentWayLabel.text = @"支付方式";
-        paymentWayLabel.font = [UIFont sy_font8];
+        paymentWayLabel.font = [UIFont sy_font16];
         paymentWayLabel.textColor = [UIColor blackColor];
         [paymentWayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left).with.offset(15);
-            make.top.equalTo(self.contentView.mas_top).with.offset(7);
+            make.top.equalTo(self.contentView.mas_top).with.offset(13);
         }];
         
         UIImageView * payWayImageView = [[UIImageView alloc] init];
@@ -54,7 +54,7 @@
             make.left.equalTo(self.contentView.mas_left).with.offset(0);
             make.right.equalTo(self.contentView.mas_right).with.offset(-0);
             make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-0);
-            make.height.mas_equalTo(2.5);
+            make.height.mas_equalTo(5);
         }];
         segmentView.backgroundColor = [UIColor sc_colorWithf8f8f8];
     }
@@ -63,7 +63,7 @@
 
 + (CGFloat)cellHeight
 {
-    return 24;
+    return 50;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

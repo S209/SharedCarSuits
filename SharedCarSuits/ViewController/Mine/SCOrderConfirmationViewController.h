@@ -8,7 +8,8 @@
 
 #import "SCBaseViewController.h"
 //待支付页面
+@class SCOrderListModel;
 @interface SCOrderConfirmationViewController : SCBaseViewController
 @property (nonatomic, assign) NSInteger orderType;
-@property (nonatomic, copy) NSString * createTime;
+@property (nonatomic, strong) SCOrderListModel * listModel;
 @end

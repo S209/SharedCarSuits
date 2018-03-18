@@ -7,7 +7,7 @@
 //
 
 #import "SCOrderDetailServiceNameViewCell.h"
-
+#import "SCOrderListModel.h"
 @interface SCOrderDetailServiceNameViewCell()
 @property (nonatomic, weak) UILabel * servieceNameLabel;
 @property (nonatomic, weak) UIView * segmentView;
@@ -21,7 +21,7 @@
     [super awakeFromNib];
     // Initialization code
 }
-+ (instancetype)orderDetailServiceNameViewCellWithTableView:(UITableView *)tableView price:(NSString *)price
++ (instancetype)orderDetailServiceNameViewCellWithTableView:(UITableView *)tableView
 {
     static NSString * idDes = @"SCOrderDetailServiceNameViewCellIDdes";
     [tableView registerClass:[SCOrderDetailServiceNameViewCell class] forCellReuseIdentifier:idDes];
@@ -42,10 +42,9 @@
 {
     UILabel * servieceNameLabel = [[UILabel alloc] init];
     [self.contentView addSubview:servieceNameLabel];
-    servieceNameLabel.font = [UIFont sy_boldFont9];
+    servieceNameLabel.font = [UIFont sy_boldFont17];
     servieceNameLabel.textColor = [UIColor sc_colorWith282828];
     self.servieceNameLabel = servieceNameLabel;
-    servieceNameLabel.text = @"洗车美容";
     [servieceNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(15);
         make.top.equalTo(self.contentView.mas_top).with.offset(20);
@@ -64,14 +63,12 @@
     
     UILabel * serviceNameLabel = [[UILabel alloc] init];
     [self.contentView addSubview:serviceNameLabel];
-    serviceNameLabel.text = @"镀膜洗车 | 车室清洗 | 车室护理";
-    serviceNameLabel.font = [UIFont sy_font17];
+    serviceNameLabel.font = [UIFont sy_font14];
     serviceNameLabel.textColor = [UIColor sc_colorWith666666];
     self.serviceNameLabel = serviceNameLabel;
     [serviceNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(15);
         make.right.equalTo(self.contentView.mas_right).with.offset(-15);
-        make.height.mas_equalTo(0.5);
         make.top.equalTo(segmentView.mas_bottom).with.offset(9);
     }];
     
@@ -99,24 +96,43 @@
     
     UIView * bottomSegmentView = [[UIView alloc] init];
     [self.contentView addSubview:bottomSegmentView];
+    bottomSegmentView.backgroundColor = [UIColor sc_colorWithf8f8f8];
     [bottomSegmentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(0);
         make.right.equalTo(self.contentView.mas_right).with.offset(-0);
         make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-0);
-        make.height.mas_equalTo(2.5);
+        make.height.mas_equalTo(5);
     }];
-}
-
-
-- (void)setPriceString:(NSString *)priceString
-{
-    _priceString = priceString;
-    self.priceLabel.text = priceString;
 }
 
 + (CGFloat)cellHeight
 {
-    return 68;
+    return 135;
+}
+
+- (void)setListModel:(SCOrderListModel *)listModel
+{
+    _listModel = listModel;
+    //1：洗车美容 //2：换油保养 //3：钣金喷漆
+    if (listModel.orderType == 1) {
+        self.servieceNameLabel.text = @"洗车美容";
+    }else if(listModel.orderType == 1){
+        self.servieceNameLabel.text = @"换油保养";
+    }else if (listModel.orderType == 1){
+        self.servieceNameLabel.text = @"钣金喷漆";
+    }
+   
+    NSArray * servieceArray = [listModel.orderProjectName componentsSeparatedByString:@";"];
+    NSMutableString * mutableString = [[NSMutableString alloc] init];
+    for (NSUInteger i = 0;i < servieceArray.count ;i++) {
+        [mutableString appendString:[servieceArray safeObjectAtIndex:i]];
+        if (i != servieceArray.count-1) {
+            [mutableString appendString:@"| "];
+        }
+    }
+    self.serviceNameLabel.text = mutableString;
+    self.priceLabel.text = listModel.price;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

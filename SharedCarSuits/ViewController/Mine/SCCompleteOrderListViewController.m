@@ -101,7 +101,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [SCOrderListCell cellHeightWithOrderType:2];
+    return [SCOrderListCell cellHeightWithOrderType:3];
 }
 
 

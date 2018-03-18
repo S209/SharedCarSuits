@@ -31,7 +31,7 @@
         UILabel * paymentWayLabel = [[UILabel alloc] init];
         [self.contentView addSubview:paymentWayLabel];
         paymentWayLabel.text = @"使用优惠券";
-        paymentWayLabel.font = [UIFont sy_font8];
+        paymentWayLabel.font = [UIFont sy_font16];
         paymentWayLabel.textColor = [UIColor blackColor];
         [paymentWayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left).with.offset(15);
@@ -43,7 +43,7 @@
 
 + (CGFloat)cellHeight
 {
-    return 24;
+    return 50;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class SCOrderListModel;
 @interface SCOrderDetailServiceNameViewCell : UITableViewCell
-+ (instancetype)orderDetailServiceNameViewCellWithTableView:(UITableView *)tableView price:(NSString *)price;
+@property (nonatomic, strong) SCOrderListModel * listModel;
++ (instancetype)orderDetailServiceNameViewCellWithTableView:(UITableView *)tableView;
 + (CGFloat)cellHeight;
 @end

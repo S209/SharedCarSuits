@@ -27,6 +27,7 @@
 + (UIFont *)sy_pingFangSCLightFontOfSize:(CGFloat)fontSize;
 
 #pragma mark - 快捷
++ (UIFont *)sy_font7;
 /** 苹方细体8号字体 */
 + (UIFont *)sy_font8;
 /** 苹方细体9号字体 */

@@ -65,6 +65,9 @@
     return font;
 }
 
++ (UIFont *)sy_font7{
+ return [self pingfangFontOfSize:7];
+}
 + (UIFont *)sy_font8 {
     return [self pingfangFontOfSize:8];
 }

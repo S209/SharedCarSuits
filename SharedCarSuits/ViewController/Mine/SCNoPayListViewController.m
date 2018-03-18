@@ -8,9 +8,11 @@
 
 #import "SCNoPayListViewController.h"
 #import "SCOrderListCell.h"
+#import "SCOrderListModel.h"
 #import "SCManager+RequestInterface.h"
-@interface SCNoPayListViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface SCNoPayListViewController ()
 @property (nonatomic, weak) UITableView * tableView;
+@property (nonatomic, strong) NSMutableArray * dataArray;
 @end
 
 @implementation SCNoPayListViewController
@@ -50,29 +52,30 @@
 
 - (void)loadData
 {
-    NSDate * date = [NSDate date];
+    [self loadNewDataWithOrderState:1];
+}
+
+- (void)loadNewDataWithOrderState:(NSInteger)orderState
+{
     //实例化一个NSDateFormatter对象
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     //设定时间格式,这里可以设置成自己需要的格式
-   
     [dateFormatter setDateFormat:@"yyyy-MM-dd+HH:mm:ss"];
     //用[NSDate date]可以获取系统当前时间
     NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
-
-
+    currentDateStr = @"";
     
-    
-    [self loadNewDataWithOrderState:1 createTime:currentDateStr];
-}
-- (void)loadNewDataWithOrderState:(NSInteger)orderState createTime:(NSString *)time
-{
-  
-    [[SCManager shareInstance] getOrderListWithOrderState:1 length:10 createTime:time success:^(NSURLSessionDataTask *serializer, id responseObject) {
+    [[SCManager shareInstance] getOrderListWithOrderState:orderState length:10 createTime:currentDateStr success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        NSArray * listArray = [responseObject objectForKey:@"list"];
+        NSArray * dataArray = [NSArray yy_modelArrayWithClass:[SCOrderListModel class] json:listArray];
+        self.dataArray = [dataArray mutableCopy];
         [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
+  
     } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-        
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
     }];
     
 }
@@ -92,17 +95,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SCOrderListCell * cell = [SCOrderListCell orderListCellWithTableView:tableView];
+    SCOrderListCell * cell = [SCOrderListCell orderListCellWithTableView:tableView orderType:1];
+    cell.listModel = [self.dataArray safeObjectAtIndex:indexPath.row];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [SCOrderListCell cellHeight];
+    return [SCOrderListCell cellHeightWithOrderType:0];
 }
 
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
 
 
 - (void)didReceiveMemoryWarning {

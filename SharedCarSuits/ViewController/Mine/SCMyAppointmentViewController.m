@@ -216,9 +216,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    return self.dataArray.count;
-    return 10;
+    return self.dataArray.count;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SCMyAppointmentViewCell * cell = [SCMyAppointmentViewCell myAppointmentViewCellWithTabeleView:tableView];

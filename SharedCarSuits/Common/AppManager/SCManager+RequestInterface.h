@@ -154,4 +154,8 @@ success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)f
 
 //SCUrl_OrderList
 - (void)getOrderListWithOrderState:(NSInteger)orderstate length:(NSInteger)length createTime:(NSString *)createTime success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
+//SCUrl_OrderCoupon
+- (void)getOrderCouponListWithOrderType:(NSString *)orderType shopId:(NSString *)shopId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
 @end

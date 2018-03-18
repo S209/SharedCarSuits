@@ -8,7 +8,5 @@
 
 #import "SCBaseViewController.h"
 
-@interface SCNoPayListViewController : SCBaseViewController
-- (void)loadNewDataWithOrderState:(NSInteger)orderState createTime:(NSString *)time;
-@property (nonatomic, strong) NSMutableArray * dataArray;
+@interface SCNoPayListViewController : SCBaseViewController<UITableViewDelegate,UITableViewDataSource>
 @end

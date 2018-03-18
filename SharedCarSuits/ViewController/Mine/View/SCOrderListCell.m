@@ -7,7 +7,7 @@
 //
 
 #import "SCOrderListCell.h"
-
+#import "SCOrderListModel.h"
 @interface SCOrderListCell()
 @property (nonatomic, weak) UILabel * serviceLabel;
 @property (nonatomic, weak) UIView * segmentView;
@@ -16,9 +16,11 @@
 @property (nonatomic, weak) UILabel * moneyLabel;
 @property (nonatomic, weak) UILabel * carInfoLabel;
 @property (nonatomic, weak) UILabel * timeLabel;
+@property (nonatomic, weak) UILabel * completeLabel;
 @property (nonatomic, weak) UIButton * paymentBtn;
 @property (nonatomic, weak) UIImageView * bottomImageView;
 @property (nonatomic, weak) UIView * bottomSegmentView;
+@property (nonatomic, assign) OrderType orderType;
 @end
 @implementation SCOrderListCell
 
@@ -33,12 +35,13 @@
     // Configure the view for the selected state
 }
 
-+ (instancetype)orderListCellWithTableView:(UITableView *)tableView
++ (instancetype)orderListCellWithTableView:(UITableView *)tableView  orderType:(OrderType)orderTyp
 {
     static NSString * idDes = @"SCOrderListCellIDdes";
     [tableView registerClass:[SCOrderListCell class] forCellReuseIdentifier:idDes];
     SCOrderListCell * cell = [tableView dequeueReusableCellWithIdentifier:idDes];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.orderType = orderTyp;
     return cell;
 }
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -57,9 +60,7 @@
     self.serviceLabel = serviceLabel;
     serviceLabel.font = [UIFont sy_boldFont16];
     serviceLabel.textColor = [UIColor sc_colorWith282828];
-    serviceLabel.text = @"洗车美容";
-    
-    
+
     UIView * segmentView = [[UIView alloc] init];
     [self.contentView addSubview:segmentView];
     self.segmentView = segmentView;
@@ -70,7 +71,7 @@
     self.projectLabel = projectLabel;
     projectLabel.font = [UIFont sy_font14];
     projectLabel.textColor = [UIColor sc_colorWith666666];
-    projectLabel.text = @"镀膜洗车 | 车室清洗 | 车室护理";
+
     
     UILabel * moneyLabel = [[UILabel alloc] init];
     [self.contentView addSubview:moneyLabel];
@@ -81,14 +82,19 @@
     self.carInfoLabel = carInfoLabel;
     carInfoLabel.font = [UIFont sy_font12];
     carInfoLabel.textColor = [UIColor sc_colorWith444444];
-    carInfoLabel.text = @"车辆信息：皖A KL466";
+
     
     UILabel * timeLabel = [[UILabel alloc] init];
     [self.contentView addSubview:timeLabel];
     self.timeLabel = timeLabel;
     timeLabel.font = [UIFont sy_font12];
     timeLabel.textColor = [UIColor sc_colorWith444444];
-    timeLabel.text = @"预约时间：2018年02月17日 上午10：00";
+    
+    UILabel * completeLabel = [[UILabel alloc] init];
+    [self.contentView addSubview:completeLabel];
+    self.completeLabel = completeLabel;
+    completeLabel.font = [UIFont sy_font12];
+    completeLabel.textColor = [UIColor sc_colorWith444444];
     
     UIView * segmentTwoView = [[UIView alloc] init];
     self.segmentTwoView = segmentTwoView;
@@ -98,14 +104,17 @@
     UIButton * paymentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.contentView addSubview:paymentBtn];
     self.paymentBtn = paymentBtn;
-    [paymentBtn setTitle:@"立即支付" forState:UIControlStateNormal];
-    [paymentBtn setTitleColor:[UIColor sc_colorWith6C6DFD] forState:UIControlStateNormal];
     paymentBtn.titleLabel.font = [UIFont sy_font12];
     paymentBtn.layer.masksToBounds = YES;
     [paymentBtn.layer setCornerRadius:2.0];
-    [paymentBtn.layer setBorderColor:[[UIColor sc_colorWith6C6DFD] CGColor]];
     [paymentBtn.layer setBorderWidth:1.0];
     [paymentBtn addTarget:self action:@selector(paymentBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    [paymentBtn setTitle:@"立即支付" forState:UIControlStateNormal];
+    [paymentBtn setTitleColor:[UIColor sc_colorWith6C6DFD] forState:UIControlStateNormal];
+    [paymentBtn.layer setBorderColor:[[UIColor sc_colorWith6C6DFD] CGColor]];
+   
     
     UIImageView * bottomImageView = [[UIImageView alloc] init];
     [self.contentView addSubview:bottomImageView];
@@ -157,6 +166,14 @@
         make.top.equalTo(self.carInfoLabel.mas_bottom).with.offset(10);
         make.right.equalTo(self.contentView.mas_right).with.offset(-0);
     }];
+
+    
+    [self.completeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left).with.offset(15);
+        make.top.equalTo(self.timeLabel.mas_bottom).with.offset(10);
+        make.right.equalTo(self.contentView.mas_right).with.offset(-0);
+    }];
+    
     
     [self.segmentTwoView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(15);
@@ -165,12 +182,7 @@
         make.height.mas_equalTo(0.5);
     }];
     
-    [self.paymentBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.contentView.mas_right).with.offset(-15);
-        make.top.equalTo(self.segmentTwoView.mas_bottom).with.offset(12);
-        make.size.mas_equalTo(CGSizeMake(69, 27));
-    }];
-    
+
     [self.bottomSegmentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(0);
         make.right.equalTo(self.contentView.mas_right).with.offset(-0);
@@ -192,8 +204,88 @@
     
 }
 
-+ (CGFloat)cellHeight
+- (void)setOrderType:(OrderType)orderType
 {
-    return 255;
+    _orderType = orderType;
+    
+    if (orderType == OrderTypeNoPay) {
+        self.completeLabel.hidden = YES;
+        [self.completeLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(0, 0));
+        }];
+        
+        [self.paymentBtn setTitle:@"立即支付" forState:UIControlStateNormal];
+        self.paymentBtn.hidden = NO;
+        [self.paymentBtn setTitleColor:[UIColor sc_colorWith999999] forState:UIControlStateNormal];
+        [self.paymentBtn.layer setBorderColor:[[UIColor sc_colorWith6C6DFD] CGColor]];
+        [self.paymentBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.contentView.mas_right).with.offset(-15);
+            make.top.equalTo(self.segmentTwoView.mas_bottom).with.offset(12);
+            make.size.mas_equalTo(CGSizeMake(35, 13.5));
+        }];
+    }else if (orderType == OrderTypePayed) {
+        self.completeLabel.hidden = YES;
+        [self.completeLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(0, 0));
+        }];
+        [self.paymentBtn setTitle:@"取消预约" forState:UIControlStateNormal];
+         self.paymentBtn.hidden = NO;
+        [self.paymentBtn setTitleColor:[UIColor sc_colorWith999999] forState:UIControlStateNormal];
+        [self.paymentBtn.layer setBorderColor:[[UIColor sc_colorWith6C6DFD] CGColor]];
+        [self.paymentBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.contentView.mas_right).with.offset(-15);
+            make.top.equalTo(self.segmentTwoView.mas_bottom).with.offset(12);
+            make.size.mas_equalTo(CGSizeMake(35, 13.5));
+        }];
+    }else if (orderType== OrderTypeComplete || orderType == OrderTypeCancel){
+        self.paymentBtn.hidden = YES;
+        self.completeLabel.hidden = NO;
+        [self.completeLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView.mas_left).with.offset(15);
+            make.top.equalTo(self.timeLabel.mas_bottom).with.offset(10);
+            make.right.equalTo(self.contentView.mas_right).with.offset(-0);
+        }];
+        [self.paymentBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.contentView.mas_right).with.offset(-15);
+            make.top.equalTo(self.segmentTwoView.mas_bottom).with.offset(12);
+            make.size.mas_equalTo(CGSizeMake(0, 0));
+        }];
+    }
+}
+
+- (void)setListModel:(SCOrderListModel *)listModel
+{
+    _listModel = listModel;
+//1：洗车美容 //2：换油保养 //3：钣金喷漆
+    if (listModel.orderType == 1) {
+        self.serviceLabel.text = @"洗车美容";
+    }else if (listModel.orderType == 2){
+        self.serviceLabel.text = @"换油保养";
+    }else if(listModel.orderType == 3){
+        self.serviceLabel.text = @"钣金喷漆";
+    }
+    
+    NSArray * projectArray = [listModel.orderProjectName componentsSeparatedByString:@";"];
+    
+    NSMutableString * mutableString = [[NSMutableString alloc] init];
+    for (NSString * string in projectArray) {
+        [mutableString appendString:string];
+    }
+    self.projectLabel.text = mutableString;
+    self.carInfoLabel.text = [NSString stringWithFormat:@"车辆信息：%@",listModel.carNum];
+    self.moneyLabel.text = listModel.price;
+    self.timeLabel.text = [NSString stringWithFormat:@"预约时间：%@",listModel.appointTime];
+    
+    
+}
+
++ (CGFloat)cellHeightWithOrderType:(OrderType)orderType
+{
+    if (orderType == OrderTypeNoPay||
+        orderType == OrderTypePayed) {
+        return 255;
+    }else{
+       return 255-47-15;
+    }
 }
 @end

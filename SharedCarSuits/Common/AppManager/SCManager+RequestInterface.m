@@ -460,6 +460,24 @@
     }];
 }
 
+- (void)getOrderCouponListWithOrderType:(NSString *)orderType shopId:(NSString *)shopId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    NSDictionary * parameterDict = @{@"orderType":orderType,@"shopId":shopId};
+    [self requestUrl:SCUrl_OrderCoupon andParamater:parameterDict success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (notice) {
+            notice(serializer,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer,error);
+        }
+    }];
+}
+
 - (void)requestUrl:(NSString *)url andParamater:(NSDictionary *)parameter success:(SuccessBlock)success
             notice:(OptionBlock)notice
            failure:(FailureBlock)failure

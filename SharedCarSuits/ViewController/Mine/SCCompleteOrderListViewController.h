@@ -6,8 +6,8 @@
 //  Copyright © 2018年 tuhaisheng. All rights reserved.
 //
 
-#import "SCNoPayListViewController.h"
+#import "SCBaseViewController.h"
 
-@interface SCCompleteOrderListViewController : SCNoPayListViewController
+@interface SCCompleteOrderListViewController : SCBaseViewController
 
 @end

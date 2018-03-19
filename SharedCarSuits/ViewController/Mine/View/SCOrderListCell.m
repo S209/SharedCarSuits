@@ -216,7 +216,7 @@
         
         [self.paymentBtn setTitle:@"立即支付" forState:UIControlStateNormal];
         self.paymentBtn.hidden = NO;
-        [self.paymentBtn setTitleColor:[UIColor sc_colorWith999999] forState:UIControlStateNormal];
+        [self.paymentBtn setTitleColor:[UIColor sc_colorWith6C6DFD] forState:UIControlStateNormal];
         [self.paymentBtn.layer setBorderColor:[[UIColor sc_colorWith6C6DFD] CGColor]];
         [self.paymentBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.contentView.mas_right).with.offset(-15);
@@ -224,6 +224,7 @@
             make.size.mas_equalTo(CGSizeMake(70, 27));
         }];
         self.bottomSegmentView.hidden = NO;
+        self.segmentTwoView.hidden = NO;
     }else if (orderType == OrderTypePayed) {
         self.completeLabel.hidden = YES;
         [self.completeLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -239,11 +240,11 @@
             make.top.equalTo(self.segmentTwoView.mas_bottom).with.offset(12);
             make.size.mas_equalTo(CGSizeMake(70, 27));
         }];
-        self.bottomSegmentView.hidden = NO;
+        self.segmentTwoView.hidden = NO;
     }else if (orderType== OrderTypeComplete || orderType == OrderTypeCancel){
         self.paymentBtn.hidden = YES;
         self.completeLabel.hidden = NO;
-        self.bottomSegmentView.hidden = YES;
+        self.segmentTwoView.hidden = YES;
         [self.completeLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left).with.offset(15);
             make.top.equalTo(self.timeLabel.mas_bottom).with.offset(10);

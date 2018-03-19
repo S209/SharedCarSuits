@@ -127,6 +127,12 @@
     }else{
         self.orderPaymentTimeLabel.hidden = NO;
         self.orderCompleteLabel.hidden = NO;
+        [self.orderPaymentTimeLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(0, 0));
+        }];
+        [self.orderCompleteLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(0, 0));
+        }];
     }
     
 }

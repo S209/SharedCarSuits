@@ -11,6 +11,7 @@
 #import "SCOrderListModel.h"
 #import "SCManager+RequestInterface.h"
 #import "SCOrderConfirmationViewController.h"
+#import "SCOrderDetailViewController.h"
 @interface SCOrderCancelListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
@@ -107,11 +108,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SCOrderConfirmationViewController * confirmationViewController = [[SCOrderConfirmationViewController alloc] init];
-    confirmationViewController.orderType = 4;
-    confirmationViewController.listModel = [self.dataArray safeObjectAtIndex:indexPath.row];
-    [self.navigationController pushViewController:confirmationViewController animated:YES];
+    SCOrderDetailViewController * detailViewController = [[SCOrderDetailViewController alloc] init];
+    detailViewController.OrderType = 4;
+    detailViewController.listModel = [self.dataArray safeObjectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
+
 
 
 - (void)didReceiveMemoryWarning {

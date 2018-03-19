@@ -49,7 +49,7 @@
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     tableView.tableHeaderView = [self setupTableHeaderView];
-    if (_orderType == 1) {
+//    if (_orderType == 1) {
         [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.view.mas_left).with.offset(0);
             make.right.equalTo(self.view.mas_right).with.offset(-0);
@@ -57,27 +57,28 @@
             make.bottom.equalTo(self.view.mas_bottom).with.offset(-44);
         }];
         [self setupBottomView];
-    }else if (_orderType == 2){
-        [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.view.mas_left).with.offset(0);
-            make.right.equalTo(self.view.mas_right).with.offset(-0);
-            make.top.equalTo(self.view.mas_top).with.offset(0);
-            make.bottom.equalTo(self.view.mas_bottom).with.offset(-44);
-        }];
-        [self setupCancelBottomView];
-    }else{
-        [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.view.mas_left).with.offset(0);
-            make.right.equalTo(self.view.mas_right).with.offset(-0);
-            make.top.equalTo(self.view.mas_top).with.offset(0);
-            make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
-        }];
-    }
+//    }else if (_orderType == 2){
+//        [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.equalTo(self.view.mas_left).with.offset(0);
+//            make.right.equalTo(self.view.mas_right).with.offset(-0);
+//            make.top.equalTo(self.view.mas_top).with.offset(0);
+//            make.bottom.equalTo(self.view.mas_bottom).with.offset(-44);
+//        }];
+//        [self setupCancelBottomView];
+//    }else{
+//        [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.equalTo(self.view.mas_left).with.offset(0);
+//            make.right.equalTo(self.view.mas_right).with.offset(-0);
+//            make.top.equalTo(self.view.mas_top).with.offset(0);
+//            make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
+//        }];
+//    }
 }
 
 - (void)setupBottomView{
     UIView * bottomView = [[UIView alloc] init];
     [self.view addSubview:bottomView];
+    bottomView.backgroundColor = [UIColor sc_colorWith6C6DFD];
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(-0);
@@ -87,6 +88,7 @@
     
     UILabel * paymentMoneyLabel = [[UILabel alloc] init];
     [bottomView addSubview:paymentMoneyLabel];
+    paymentMoneyLabel.textColor = [UIColor whiteColor];
     paymentMoneyLabel.font = [UIFont sy_font7];
     [paymentMoneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(10);
@@ -144,6 +146,7 @@
     orderTitleLabel.text = @"待支付";
     orderTitleLabel.textAlignment = NSTextAlignmentCenter;
     orderTitleLabel.textColor = [UIColor sc_colorWith444444];
+    orderTitleLabel.font = [UIFont sy_boldFont18];
     [orderTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(headerView.mas_left).with.offset(0);
         make.right.equalTo(headerView.mas_right).with.offset(-0);
@@ -171,6 +174,7 @@
     UILabel * paymentTimeLabel = [[UILabel alloc] init];
     [headerView addSubview:paymentTimeLabel];
     paymentTimeLabel.text= @"支付剩余时间：";
+    paymentTimeLabel.font = [UIFont sy_font14];
     paymentTimeLabel.textAlignment = NSTextAlignmentCenter;
     self.paymentTimeLabel = paymentTimeLabel;
     [paymentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -183,6 +187,8 @@
     UILabel * tipsLabel = [[UILabel alloc] init];
     tipsLabel.text = @"超过付款时限，订单将自动关闭";
     [headerView addSubview:tipsLabel];
+    tipsLabel.textColor = [UIColor sc_colorWith6C6DFD];
+    tipsLabel.font = [UIFont sy_font13];
     tipsLabel.textAlignment = NSTextAlignmentCenter;
     [tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(headerView.mas_left).with.offset(0);
@@ -219,12 +225,15 @@
     }else if (indexPath.section == 2){
         SCOrderDetailOrderInfoViewCell * cell = [SCOrderDetailOrderInfoViewCell orderDetailOrderInfoViewCellWithTableView:tableView];
         cell.listModel = self.listModel;
+        cell.orderType = 1;
         return cell;
     }else if (indexPath.section == 3){
         SCOrderDetailPaymentWayViewCell * cell = [SCOrderDetailPaymentWayViewCell orderDetailPaymentWayViewCellWithTabeleView:tableView];
+         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
     }else {
         SCOrderDetailUseACouponCell * cell = [SCOrderDetailUseACouponCell orderDetailUseACouponCellWithTabeleView:tableView];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
     }
 }

@@ -9,29 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SharedCarSuits/ViewController/LaunchViewController/SCLaunchViewController.m"
-            timestampString = "543139701.169667"
+            filePath = "SharedCarSuits/ViewController/Mine/View/SCOrderDetailOrderInfoViewCell.m"
+            timestampString = "543159892.916093"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "-loadLoadingOrder"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SharedCarSuits/ViewController/LaunchViewController/SCLaunchViewController.m"
-            timestampString = "543139701.169773"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "-setupGuideMap"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "-setOrderType:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

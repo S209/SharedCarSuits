@@ -10,6 +10,7 @@
 #import "SCOrderListCell.h"
 #import "SCOrderListModel.h"
 #import "SCManager+RequestInterface.h"
+#import "SCOrderConfirmationViewController.h"
 @interface SCNoPayListViewController ()
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
@@ -108,7 +109,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    SCOrderConfirmationViewController * confirmationViewController = [[SCOrderConfirmationViewController alloc] init];
+    confirmationViewController.orderType = 1;
+    confirmationViewController.listModel = [self.dataArray safeObjectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:confirmationViewController animated:YES];
 }
 
 

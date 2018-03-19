@@ -158,4 +158,12 @@ success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)f
 //SCUrl_OrderCoupon
 - (void)getOrderCouponListWithOrderType:(NSString *)orderType shopId:(NSString *)shopId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
 
+//SCUrl_CancelOrder
+/*
+ "orderType": "1",
+ "orderId": "422"
+ */
+//取消订单
+- (void)cancenOrderWithOrderType:(NSString *)orderType orderId:(NSString *)orderId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure;
+
 @end

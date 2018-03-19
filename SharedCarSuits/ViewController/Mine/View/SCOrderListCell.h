@@ -14,8 +14,14 @@ typedef NS_ENUM(NSInteger, OrderType){
     OrderTypeCancel = 4,
 };
 @class SCOrderListModel;
+@protocol SCOrderListCellDelegate<NSObject>
+@optional
+- (void)orderlistCellCancenOrderWithListModel:(SCOrderListModel *)listModel;
+@end
+@class SCOrderListModel;
 @interface SCOrderListCell : UITableViewCell
-+ (instancetype)orderListCellWithTableView:(UITableView *)tableView  orderType:(OrderType)orderTyp;
-+ (CGFloat)cellHeightWithOrderType:(OrderType)orderType;
+@property (nonatomic, weak) id <SCOrderListCellDelegate>delegate;
 @property (nonatomic, strong) SCOrderListModel * listModel;
++ (instancetype)orderListCellWithTableView:(UITableView *)tableView orderType:(OrderType)orderTyp;
++ (CGFloat)cellHeightWithOrderType:(OrderType)orderType;
 @end

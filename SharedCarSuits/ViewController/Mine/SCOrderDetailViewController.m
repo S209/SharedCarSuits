@@ -10,6 +10,8 @@
 #import "SCOrderDetailServiceNameViewCell.h"
 #import "SCOrderDetailReservationViewCell.h"
 #import "SCOrderDetailOrderInfoViewCell.h"
+#import "SCManager+RequestInterface.h"
+#import "SCOrderListModel.h"
 @interface SCOrderDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @end
@@ -21,6 +23,7 @@
     [self sy_leftBarButtonItem];
     [self setNavigationWithTitle:@"我的订单"];
     [self setupView];
+    [self setUpBottomView];
 }
 
 - (void)setupView
@@ -94,7 +97,13 @@
 
 - (void)btnClick
 {
-    
+    [[SCManager shareInstance] cancenOrderWithOrderType:[NSString stringWithFormat:@"%zd",_OrderType] orderId:self.listModel.orderId success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        
+    }];
 }
 
 

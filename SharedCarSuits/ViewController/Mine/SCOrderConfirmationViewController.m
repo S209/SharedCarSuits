@@ -111,27 +111,6 @@
 }
 
 
-- (void)setupCancelBottomView
-{
-    UIButton * cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.view addSubview:cancelBtn];
-    [cancelBtn setTitle:@"取消预约" forState:UIControlStateNormal];
-    cancelBtn.titleLabel.font = [UIFont sy_font15];
-    [cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).with.offset(0);
-        make.right.equalTo(self.view.mas_right).with.offset(-0);
-        make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
-        make.height.mas_equalTo(45);
-    }];
-    [cancelBtn addTarget:self action:@selector(cancelClick:) forControlEvents:UIControlEventTouchUpInside];
-}
-
-- (void)cancelClick:(UIButton *)sender
-{
-    
-}
-
 - (void)orderNowBtnClick:(UIButton *)sender
 {
   

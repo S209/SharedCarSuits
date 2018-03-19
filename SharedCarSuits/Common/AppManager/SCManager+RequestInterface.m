@@ -478,6 +478,24 @@
     }];
 }
 
+- (void)cancenOrderWithOrderType:(NSString *)orderType orderId:(NSString *)orderId success:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
+{
+    NSDictionary * paramaterDict = @{@"orderType":orderType,@"orderId":orderId};
+    [self requestUrl:SCUrl_CancelOrder andParamater:paramaterDict success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (success) {
+            success(serializer,responseObject);
+        }
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        if (notice) {
+            notice(serializer,responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        if (failure) {
+            failure(serializer,error);
+        }
+    }];
+}
+
 - (void)requestUrl:(NSString *)url andParamater:(NSDictionary *)parameter success:(SuccessBlock)success
             notice:(OptionBlock)notice
            failure:(FailureBlock)failure

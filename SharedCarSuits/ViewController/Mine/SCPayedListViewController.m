@@ -11,7 +11,8 @@
 #import "SCOrderListModel.h"
 #import "SCManager+RequestInterface.h"
 #import "SCOrderDetailViewController.h"
-@interface SCPayedListViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@interface SCPayedListViewController ()<UITableViewDelegate, UITableViewDataSource,SCOrderListCellDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
 @end
@@ -97,6 +98,7 @@
 {
     SCOrderListCell * cell = [SCOrderListCell orderListCellWithTableView:tableView orderType:2];
     cell.listModel = [self.dataArray safeObjectAtIndex:indexPath.row];
+    cell.delegate = self;
     return cell;
 }
 
@@ -114,6 +116,17 @@
     [self.navigationController pushViewController:orderDetailViewController animated:YES];
 }
 
+#pragma mark SCOrderListCellDelegate
+- (void)orderlistCellCancenOrderWithListModel:(SCOrderListModel *)listModel
+{
+    [[SCManager shareInstance] cancenOrderWithOrderType:@"2" orderId:listModel.orderId success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -201,7 +201,9 @@
 
 - (void)paymentBtnClick:(UIButton *)sender
 {
-    
+    if ([_delegate respondsToSelector:@selector(orderlistCellCancenOrderWithListModel:)]) {
+        [self.delegate orderlistCellCancenOrderWithListModel:self.listModel];
+    }
 }
 
 - (void)setOrderType:(OrderType)orderType

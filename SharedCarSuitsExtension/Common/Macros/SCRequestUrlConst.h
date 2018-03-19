@@ -71,7 +71,7 @@
 //预约订单-我要预约
 #define SCUrl_CreateOrder GeneralUrl(@"/keleapp/coupon/ createOrder.jspx")
 
-//我的订单-列表+详细页(列表页完)
+//我的订单-列表+详细页(完)
 #define SCUrl_OrderList GeneralUrl(@"/keleapp/order/orderList.jspx")
 
 //5.2  我的订单-取消订单
@@ -86,5 +86,5 @@
 //我的 编辑个人信息(完)
 #define SCUrl_EditUserInfo GeneralUrl(@"/keleapp/userInfor/editUser.jspx")
 
-//keleapp/userInfor/editUserPhoto.jspx
+//keleapp/userInfor/editUserPhoto.jspx(完)
 #define SCUrl_editUserPhoto GeneralUrl(@"keleapp/userInfor/editUserPhoto.jspx")

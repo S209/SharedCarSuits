@@ -277,6 +277,7 @@ static NSString * const KEY_UUID = @"唯一识别的key_uuid";
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [[self shareInstance] setSessionId:@""];
+    [[self shareInstance] setUserUid:@""];
     SCLaunchViewController * launchView = [[SCLaunchViewController alloc] init];
     UINavigationController * rootViewController = [[UINavigationController alloc] initWithRootViewController:launchView];
     [AppDelegate getAppDelegate].window.rootViewController = rootViewController;

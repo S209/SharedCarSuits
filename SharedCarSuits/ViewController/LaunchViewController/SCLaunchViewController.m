@@ -54,12 +54,17 @@
         guideMapScrollView.delegate = self;
         guideMapScrollView.pagingEnabled = YES;
         NSArray * guideMapArray = @[@"guideMapOne",@"guideMapTwo",@"guideMapThree",@"guideMapFour"];
+        NSArray * guideMapXArray = @[@"guideMapOneX",@"guideMapTwoX",@"guideMapThreeX",@"guideMapFourX"];
         CGFloat guideMapImageViewX = 0;
         for (NSUInteger i = 0; i < guideMapArray.count; i++) {
             guideMapImageViewX = SCREEN_WIDTH * i;
             UIImageView * guideMapImageView = [[UIImageView alloc] init];
             guideMapImageView.frame = CGRectMake(guideMapImageViewX, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-            [guideMapImageView setImage:[UIImage imageNamed:[guideMapArray safeObjectAtIndex:i]]];
+            if (IS_IPHONE_X) {
+                [guideMapImageView setImage:[UIImage imageNamed:[guideMapXArray safeObjectAtIndex:i]]];
+            }else{
+                [guideMapImageView setImage:[UIImage imageNamed:[guideMapArray safeObjectAtIndex:i]]];
+            }
             [guideMapScrollView addSubview:guideMapImageView];
             if (i == guideMapArray.count - 1) {
                 guideMapImageView.userInteractionEnabled = YES;

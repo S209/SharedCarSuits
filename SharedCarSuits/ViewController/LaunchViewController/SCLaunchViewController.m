@@ -69,6 +69,7 @@
             if (i == guideMapArray.count - 1) {
                 guideMapImageView.userInteractionEnabled = YES;
                 UIButton * guideMapBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                [guideMapBtn setBackgroundImage:[UIImage imageNamed:@"guide_btn_go"] forState:UIControlStateNormal];
                 [guideMapImageView addSubview:guideMapBtn];
                 [guideMapBtn addTarget:self action:@selector(guideMapBtnClick) forControlEvents:UIControlEventTouchUpInside];
                 CGFloat guideMapBtnX = (SCREEN_WIDTH-160)*0.5;

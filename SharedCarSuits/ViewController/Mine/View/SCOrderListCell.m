@@ -120,7 +120,7 @@
     [self.contentView addSubview:bottomImageView];
     self.bottomImageView = bottomImageView;
     [bottomImageView setImage:[UIImage imageNamed:@"bg_footer"]];
-    bottomImageView.backgroundColor = [UIColor redColor];
+    bottomImageView.backgroundColor = [UIColor sc_colorWithF4F4F4];
     
     UIView * bottomSegmentView = [[UIView alloc] init];
     [self.contentView addSubview:bottomSegmentView];

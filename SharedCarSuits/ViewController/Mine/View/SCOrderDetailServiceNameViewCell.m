@@ -78,20 +78,22 @@
     self.priceLabel = priceLabel;
     priceLabel.font = [UIFont sy_font9];
     priceLabel.textColor = [UIColor sc_colorWith6C6DFD];
-    [priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView.mas_left).with.offset(13);
-        make.right.equalTo(self.contentView.mas_right).with.offset(-0);
-        make.top.equalTo(serviceNameLabel.mas_bottom).with.offset(10);
-    }];
+    
     
     UILabel * unitLabel = [[UILabel alloc] init];
     [self.contentView addSubview:unitLabel];
     unitLabel.text = @"¥";
+    unitLabel.font = [UIFont sy_font10];
     unitLabel.textColor = [UIColor sc_colorWith6C6DFD];
     [unitLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(priceLabel.mas_bottom).with.offset(0);
-        make.right.equalTo(priceLabel.mas_left).with.offset(-5);
-        make.size.mas_equalTo(CGSizeMake(4, 5));
+        make.left.equalTo(serviceNameLabel.mas_left).with.offset(0);
+
+    }];
+    
+    [priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(unitLabel.mas_right).with.offset(-0);
+        make.top.equalTo(serviceNameLabel.mas_bottom).with.offset(10);
     }];
     
     UIView * bottomSegmentView = [[UIView alloc] init];

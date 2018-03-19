@@ -10,7 +10,6 @@
 #import "SCOrderListModel.h"
 @interface SCOrderDetailReservationViewCell()
 @property (nonatomic, weak) UILabel * carInfoLabel;
-@property (nonatomic, weak) UILabel * reservationStoreLabel;
 @property (nonatomic, weak) UILabel * appointmentLabel;
 @end
 @implementation SCOrderDetailReservationViewCell
@@ -24,6 +23,7 @@
     static NSString * idDes = @"SCOrderDetailReservationViewCellIDdes";
     [tableView registerClass:[SCOrderDetailReservationViewCell class] forCellReuseIdentifier:idDes];
     SCOrderDetailReservationViewCell * cell = [tableView dequeueReusableCellWithIdentifier:idDes];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -70,11 +70,13 @@
     UILabel * appointmentLabel = [[UILabel alloc] init];
     [self.contentView addSubview:appointmentLabel];
     self.appointmentLabel = appointmentLabel;
-    appointmentLabel.font = [UIFont sy_font8];
+    appointmentLabel.font = [UIFont sy_font13];
     [appointmentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(15);
         make.top.equalTo(carInfoLabel.mas_bottom).with.offset(20);;
     }];
+    
+    
     
     UIView * bottomSegmentView = [[UIView alloc] init];
     [self.contentView addSubview:bottomSegmentView];
@@ -94,7 +96,7 @@
 {
     _listModel = listModel;
     self.carInfoLabel.text = [NSString stringWithFormat:@"车辆信息：%@",listModel.carNum];
-    self.reservationStoreLabel.text = [NSString stringWithFormat:@"预约时间：%@",listModel.appointTime];
+    self.appointmentLabel.text = [NSString stringWithFormat:@"预约时间：%@",listModel.appointTime];
 }
 
 + (CGFloat)cellHeight

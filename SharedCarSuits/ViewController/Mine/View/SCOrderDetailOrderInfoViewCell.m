@@ -113,7 +113,7 @@
 - (void)setListModel:(SCOrderListModel *)listModel
 {
     _listModel = listModel;
-    self.orderNumLabel.text = [NSString stringWithFormat:@"订单号：%@",listModel.carNum];
+    self.orderNumLabel.text = [NSString stringWithFormat:@"订单号：%@",listModel.orderNo];
     self.orderTimeLabel.text = [NSString stringWithFormat:@"下单时间：%@",listModel.createTime];
     self.orderPaymentTimeLabel.text = [NSString stringWithFormat:@"付款时间：%@",listModel.payTime];
     self.orderCompleteLabel.text = [NSString stringWithFormat:@"完成时间：%@",listModel.finishTime];
@@ -122,11 +122,11 @@
 {
     _orderType = orderType;
     if (orderType == 3 || orderType == 4) {
-        self.orderPaymentTimeLabel.hidden = YES;
-        self.orderCompleteLabel.hidden = YES;
-    }else{
         self.orderPaymentTimeLabel.hidden = NO;
         self.orderCompleteLabel.hidden = NO;
+    }else{
+        self.orderPaymentTimeLabel.hidden = YES;
+        self.orderCompleteLabel.hidden = YES;
         [self.orderPaymentTimeLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(0, 0));
         }];

@@ -35,7 +35,7 @@
         paymentWayLabel.textColor = [UIColor blackColor];
         [paymentWayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left).with.offset(15);
-            make.top.equalTo(self.contentView.mas_top).with.offset(7);
+            make.centerY.mas_equalTo(self.contentView.mas_centerY);
         }];
     }
     return self;

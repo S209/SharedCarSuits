@@ -19,6 +19,7 @@
 #import "SCManager+RequestInterface.h"
 #import "SCHomeBannerModel.h"
 #import "SCHomeBannerViewController.h"
+#import "SCMyAppointmentViewController.h"
 @interface SCHomePageViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,SCHomePageSectionOneCellDelegate,SCHomePageSectionTwoCellDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * headerImageArray;
@@ -140,14 +141,12 @@
 //    SCCityListController * cityListController = [[SCCityListController alloc] init];
 //    [self.navigationController pushViewController:cityListController animated:YES];
 
-//    SCMyAppointmentViewController * appointmentView = [[SCMyAppointmentViewController alloc] init];
-//    [self.navigationController pushViewController:appointmentView animated:YES];
 
 //    SCMakeAnAppointmentprocessController * makeAnAppoint = [[SCMakeAnAppointmentprocessController alloc] init];
 //    [self.navigationController pushViewController:makeAnAppoint animated:YES];
     
-    SCAppointmentProcessViewController * processViewController = [[SCAppointmentProcessViewController alloc] init];
-    [self.navigationController pushViewController:processViewController animated:YES];
+//    SCAppointmentProcessViewController * processViewController = [[SCAppointmentProcessViewController alloc] init];
+//    [self.navigationController pushViewController:processViewController animated:YES];
 
 //    SCOrderListViewController * listViewController = [[SCOrderListViewController alloc] init];
 //    [self.navigationController pushViewController:listViewController animated:YES];
@@ -163,11 +162,14 @@
 - (void)homePageDidSeleItemWitIndex:(NSInteger)index
 {
     if (index == 0) {
-        
+        SCMyAppointmentViewController * appointmentView = [[SCMyAppointmentViewController alloc] init];
+        [self.navigationController pushViewController:appointmentView animated:YES];
     }else if (index == 1){
-        
+        SCMyAppointmentViewController * appointmentView = [[SCMyAppointmentViewController alloc] init];
+        [self.navigationController pushViewController:appointmentView animated:YES];
     }else if (index == 2){
-        
+        SCAppointmentProcessViewController * processViewController = [[SCAppointmentProcessViewController alloc] init];
+        [self.navigationController pushViewController:processViewController animated:YES];
     }else if (index == 3){
         
     }

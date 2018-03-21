@@ -91,6 +91,7 @@
     }];
     [btn setTitle:@"取消预约" forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont sy_font16];
+   
     [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
 }
 

@@ -10,6 +10,7 @@
 #import "SCMyAppointmentViewCell.h"
 #import "SCReservationAlertView.h"
 #import "SCOrderConfirmationViewController.h"
+#import "SCManager+RequestInterface.h"
 @interface SCMyAppointmentViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
@@ -184,6 +185,38 @@
     
 }
 
+
+#pragma mark
+- (void)loadNewData
+{
+   
+    
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_group_async(group, dispatch_get_global_queue(0,0), ^{
+        // 并行执行的线程一
+        [[SCManager shareInstance] appointmentOrderTodayOrTodayListWithShopId:@"" orderType:@"" carId:@"" timeType:@"" success:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+            
+        }];
+    });
+//    dispatch_group_async(group, dispatch_get_global_queue(0,0), ^{
+//        // 并行执行的线程二 SCUrl_AppointmentOrderTime
+//       
+//    });
+    dispatch_group_notify(group, dispatch_get_global_queue(0,0), ^{
+        // 汇总结果
+        [[SCManager shareInstance] appointmentOrderWithShopId:@"" orderType:@"" carId:@"" success:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+            
+        }];
+    });
+}
 
 #pragma mark todayBtnClick
 - (void)todayBtnClick:(UIButton *)sender

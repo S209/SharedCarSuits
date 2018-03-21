@@ -84,12 +84,14 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle"
+  install_resource "${PODS_ROOT}/AMap3DMap-NO-IDFA/MAMapKit.framework/AMap.bundle"
+  install_resource "${PODS_ROOT}/AMapNavi-NO-IDFA/AMapNaviKit.framework/AMapNavi.bundle"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle"
+  install_resource "${PODS_ROOT}/AMap3DMap-NO-IDFA/MAMapKit.framework/AMap.bundle"
+  install_resource "${PODS_ROOT}/AMapNavi-NO-IDFA/AMapNaviKit.framework/AMapNavi.bundle"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle"
 fi

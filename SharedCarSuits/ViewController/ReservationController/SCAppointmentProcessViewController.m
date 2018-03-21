@@ -38,6 +38,8 @@ static const CGFloat KWMMenuViewhHeight = 45;
     label.font = [UIFont sy_boldFont17];
     label.textColor = [UIColor sc_colorWith444444];
     label.textAlignment = NSTextAlignmentCenter;
+    label.frame = CGRectMake((SCREEN_WIDTH-200)*0.5,20,200,44);
+
     self.navigationItem.titleView = label;
     self.menuView.style = WMMenuViewStyleLine;
     

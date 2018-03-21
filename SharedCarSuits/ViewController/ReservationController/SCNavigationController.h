@@ -10,4 +10,6 @@
 @class SCShopListModel;
 @interface SCNavigationController : SCBaseViewController
 @property (nonatomic, strong) SCShopListModel * listModel;
+@property (nonatomic, assign) CGFloat startlat;//起点经度
+@property (nonatomic, assign) CGFloat startlng;//起点维度
 @end

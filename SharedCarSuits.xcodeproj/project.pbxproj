@@ -94,6 +94,7 @@
 		0573B029203D516D0017D852 /* SCCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B028203D516D0017D852 /* SCCouponModel.m */; };
 		0573B02C203D53C50017D852 /* SCMyGarageListPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B02B203D53C50017D852 /* SCMyGarageListPageModel.m */; };
 		0573B02E203E70B90017D852 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0573B02D203E70B90017D852 /* citydict.plist */; };
+		058846852062A983004693CF /* SCNavigationDetailsPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 058846842062A983004693CF /* SCNavigationDetailsPageView.m */; };
 		0589FFDF205FA88700E73C2A /* SCOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0589FFDE205FA88700E73C2A /* SCOrderDetailViewController.m */; };
 		0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597251A201EF3DD00E7EFFB /* AppDelegate.m */; };
 		05972523201EF3DD00E7EFFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05972522201EF3DD00E7EFFB /* Assets.xcassets */; };
@@ -316,6 +317,8 @@
 		0573B02A203D53C50017D852 /* SCMyGarageListPageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMyGarageListPageModel.h; sourceTree = "<group>"; };
 		0573B02B203D53C50017D852 /* SCMyGarageListPageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMyGarageListPageModel.m; sourceTree = "<group>"; };
 		0573B02D203E70B90017D852 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
+		058846832062A983004693CF /* SCNavigationDetailsPageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCNavigationDetailsPageView.h; sourceTree = "<group>"; };
+		058846842062A983004693CF /* SCNavigationDetailsPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCNavigationDetailsPageView.m; sourceTree = "<group>"; };
 		0589FFDD205FA88700E73C2A /* SCOrderDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOrderDetailViewController.h; sourceTree = "<group>"; };
 		0589FFDE205FA88700E73C2A /* SCOrderDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOrderDetailViewController.m; sourceTree = "<group>"; };
 		05972516201EF3DD00E7EFFB /* SharedCarSuits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharedCarSuits.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -660,6 +663,8 @@
 				055D4CA62058D078009DE091 /* SCStartView.m */,
 				055D4CA72058D078009DE091 /* SCViewStorePicturesView.h */,
 				055D4CA82058D078009DE091 /* SCViewStorePicturesView.m */,
+				058846832062A983004693CF /* SCNavigationDetailsPageView.h */,
+				058846842062A983004693CF /* SCNavigationDetailsPageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1130,7 +1135,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SharedCarSuits/Pods-SharedCarSuits-resources.sh",
-				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle",
+				"${PODS_ROOT}/AMap3DMap-NO-IDFA/MAMapKit.framework/AMap.bundle",
+				"${PODS_ROOT}/AMapNavi-NO-IDFA/AMapNaviKit.framework/AMapNavi.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
 			);
@@ -1255,6 +1261,7 @@
 				055D4CBE2058D078009DE091 /* SCEditorUserInfoViewController+ImagePickerController.m in Sources */,
 				05675B73205E435400E821A5 /* SCOrderDetailReservationViewCell.m in Sources */,
 				055D4CB62058D078009DE091 /* SCLaunchViewController.m in Sources */,
+				058846852062A983004693CF /* SCNavigationDetailsPageView.m in Sources */,
 				055D4CDF2058D078009DE091 /* SCEvaluationViewController.m in Sources */,
 				055D4CBA2058D078009DE091 /* SCLoginView.m in Sources */,
 				05DAD56420317223000E13C2 /* SCManager.m in Sources */,

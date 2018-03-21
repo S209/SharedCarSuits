@@ -16,7 +16,11 @@ target 'SharedCarSuits' do
     pod 'WMPageController', '~> 2.5.2'
     pod 'FDFullscreenPopGesture', '1.1'
     pod 'MJRefresh'
-    pod 'BaiduMapKit'
+    #高德地图
+    pod 'AMapNavi-NO-IDFA'
+    pod 'AMapSearch-NO-IDFA'
+    pod 'AMapLocation-NO-IDFA'
+    
     pod 'TZImagePickerController'
     pod 'WebViewJavascriptBridge', '~> 6.0'
     # Pods for SharedCarSuits

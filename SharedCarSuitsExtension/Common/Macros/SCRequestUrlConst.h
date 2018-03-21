@@ -74,7 +74,7 @@
 //我的订单-列表+详细页(完)
 #define SCUrl_OrderList GeneralUrl(@"/keleapp/order/orderList.jspx")
 
-//5.2  我的订单-取消订单
+//5.2  我的订单-取消订单(完)
 #define SCUrl_CancelOrder GeneralUrl(@"/keleapp/coupon/cancelOrder.jspx")
 
 //5.3  立即下单

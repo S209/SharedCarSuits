@@ -205,10 +205,10 @@
     [picturesView show];
     picturesView.panorama = listModel.panorama;
 }
+
 //导航
 - (void)reservationViewCellNavigationWithModel:(SCShopListModel *)listModel
 {
-   
     SCNavigationController * controller = [[SCNavigationController alloc] init];
     controller.listModel = listModel;
     [self.navigationController pushViewController:controller animated:YES];

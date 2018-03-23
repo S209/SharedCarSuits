@@ -7,7 +7,7 @@
 //
 
 #import "SCBaseViewController.h"
-
+@class SCOrderListModel;
 @interface SCEvaluationViewController : SCBaseViewController
-
+@property (nonatomic, strong) SCOrderListModel * listModel;
 @end

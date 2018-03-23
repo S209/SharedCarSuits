@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0507109D20485818004B8F35 /* SCChoiseBrandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0507109C20485818004B8F35 /* SCChoiseBrandModel.m */; };
 		050710AC204BAB1B004B8F35 /* SCShopListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 050710AB204BAB1B004B8F35 /* SCShopListModel.m */; };
+		0553FF272065422600A3EEA8 /* XHMessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553FF252065422600A3EEA8 /* XHMessageTextView.m */; };
 		055D4C1520582D8C009DE091 /* SCHomeBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 055D4C1420582D8C009DE091 /* SCHomeBannerModel.m */; };
 		055D4CA92058D078009DE091 /* SCBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 055D4C1C2058D078009DE091 /* SCBaseNavigationController.m */; };
 		055D4CAA2058D078009DE091 /* SCBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 055D4C1E2058D078009DE091 /* SCBaseTableViewController.m */; };
@@ -95,6 +96,8 @@
 		0573B02C203D53C50017D852 /* SCMyGarageListPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B02B203D53C50017D852 /* SCMyGarageListPageModel.m */; };
 		0573B02E203E70B90017D852 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0573B02D203E70B90017D852 /* citydict.plist */; };
 		058846852062A983004693CF /* SCNavigationDetailsPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 058846842062A983004693CF /* SCNavigationDetailsPageView.m */; };
+		0588468E2064A2B1004693CF /* SCEvaluateRowOneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588468D2064A2B1004693CF /* SCEvaluateRowOneTableViewCell.m */; };
+		058846912064A2C0004693CF /* SCEvaluateRowTwoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 058846902064A2C0004693CF /* SCEvaluateRowTwoTableViewCell.m */; };
 		0589FFDF205FA88700E73C2A /* SCOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0589FFDE205FA88700E73C2A /* SCOrderDetailViewController.m */; };
 		0597251B201EF3DD00E7EFFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0597251A201EF3DD00E7EFFB /* AppDelegate.m */; };
 		05972523201EF3DD00E7EFFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05972522201EF3DD00E7EFFB /* Assets.xcassets */; };
@@ -147,6 +150,8 @@
 		0507109C20485818004B8F35 /* SCChoiseBrandModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCChoiseBrandModel.m; sourceTree = "<group>"; };
 		050710AA204BAB1B004B8F35 /* SCShopListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCShopListModel.h; sourceTree = "<group>"; };
 		050710AB204BAB1B004B8F35 /* SCShopListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCShopListModel.m; sourceTree = "<group>"; };
+		0553FF252065422600A3EEA8 /* XHMessageTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHMessageTextView.m; sourceTree = "<group>"; };
+		0553FF262065422600A3EEA8 /* XHMessageTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHMessageTextView.h; sourceTree = "<group>"; };
 		055D4C1320582D8C009DE091 /* SCHomeBannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCHomeBannerModel.h; sourceTree = "<group>"; };
 		055D4C1420582D8C009DE091 /* SCHomeBannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCHomeBannerModel.m; sourceTree = "<group>"; };
 		055D4C1B2058D078009DE091 /* SCBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBaseNavigationController.h; sourceTree = "<group>"; };
@@ -319,6 +324,10 @@
 		0573B02D203E70B90017D852 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
 		058846832062A983004693CF /* SCNavigationDetailsPageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCNavigationDetailsPageView.h; sourceTree = "<group>"; };
 		058846842062A983004693CF /* SCNavigationDetailsPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCNavigationDetailsPageView.m; sourceTree = "<group>"; };
+		0588468C2064A2B1004693CF /* SCEvaluateRowOneTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCEvaluateRowOneTableViewCell.h; sourceTree = "<group>"; };
+		0588468D2064A2B1004693CF /* SCEvaluateRowOneTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCEvaluateRowOneTableViewCell.m; sourceTree = "<group>"; };
+		0588468F2064A2C0004693CF /* SCEvaluateRowTwoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCEvaluateRowTwoTableViewCell.h; sourceTree = "<group>"; };
+		058846902064A2C0004693CF /* SCEvaluateRowTwoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCEvaluateRowTwoTableViewCell.m; sourceTree = "<group>"; };
 		0589FFDD205FA88700E73C2A /* SCOrderDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOrderDetailViewController.h; sourceTree = "<group>"; };
 		0589FFDE205FA88700E73C2A /* SCOrderDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOrderDetailViewController.m; sourceTree = "<group>"; };
 		05972516201EF3DD00E7EFFB /* SharedCarSuits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharedCarSuits.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -665,6 +674,10 @@
 				055D4CA82058D078009DE091 /* SCViewStorePicturesView.m */,
 				058846832062A983004693CF /* SCNavigationDetailsPageView.h */,
 				058846842062A983004693CF /* SCNavigationDetailsPageView.m */,
+				0588468C2064A2B1004693CF /* SCEvaluateRowOneTableViewCell.h */,
+				0588468D2064A2B1004693CF /* SCEvaluateRowOneTableViewCell.m */,
+				0588468F2064A2C0004693CF /* SCEvaluateRowTwoTableViewCell.h */,
+				058846902064A2C0004693CF /* SCEvaluateRowTwoTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -853,6 +866,8 @@
 		05C9425F202D84F800B78CA4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0553FF262065422600A3EEA8 /* XHMessageTextView.h */,
+				0553FF252065422600A3EEA8 /* XHMessageTextView.m */,
 				05C94263202D899200B78CA4 /* Macros */,
 				05C94260202D854E00B78CA4 /* SCSharedCarSuitsClient.h */,
 				05C94261202D854E00B78CA4 /* SCSharedCarSuitsClient.m */,
@@ -1237,6 +1252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0553FF272065422600A3EEA8 /* XHMessageTextView.m in Sources */,
 				055D4CD02058D078009DE091 /* SCMyCouponCell.m in Sources */,
 				05C94285202EB3D100B78CA4 /* UIBarButtonItem+Spacing.m in Sources */,
 				055D4CC62058D078009DE091 /* SCOrderCancelListViewController.m in Sources */,
@@ -1252,6 +1268,7 @@
 				055D4CD62058D078009DE091 /* SCChoiseBrandViewController.m in Sources */,
 				055D4CFD2059207B009DE091 /* WPFileManager.m in Sources */,
 				055D4CE42058D078009DE091 /* SCTheirOwnSheetMetalViewController.m in Sources */,
+				0588468E2064A2B1004693CF /* SCEvaluateRowOneTableViewCell.m in Sources */,
 				055D4CF32058D37D009DE091 /* SCBaseWebViewController.m in Sources */,
 				05C94262202D854E00B78CA4 /* SCSharedCarSuitsClient.m in Sources */,
 				05C9425C202D7F4700B78CA4 /* UIColor+CDF.m in Sources */,
@@ -1290,6 +1307,7 @@
 				05C94273202E907800B78CA4 /* UIFont+Addition.m in Sources */,
 				055D4CCF2058D078009DE091 /* SCMyAppointmentViewCell.m in Sources */,
 				05D34DC12031BCC3002AADA4 /* SCManager+CommonMethods.m in Sources */,
+				058846912064A2C0004693CF /* SCEvaluateRowTwoTableViewCell.m in Sources */,
 				055D4CDD2058D078009DE091 /* SCRegisterViewCarInfoView.m in Sources */,
 				05DAD56A203172E8000E13C2 /* SCManager+AppInfo.m in Sources */,
 				055D4CD32058D078009DE091 /* SCMyMsgCell.m in Sources */,

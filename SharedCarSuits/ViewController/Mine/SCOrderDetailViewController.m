@@ -12,6 +12,7 @@
 #import "SCOrderDetailOrderInfoViewCell.h"
 #import "SCManager+RequestInterface.h"
 #import "SCOrderListModel.h"
+#import "SCEvaluationViewController.h"
 @interface SCOrderDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @end
@@ -23,7 +24,10 @@
     [self sy_leftBarButtonItem];
     [self setNavigationWithTitle:@"我的订单"];
     [self setupView];
-    [self setUpBottomView];
+    self.view.backgroundColor = [UIColor sc_colorWithF4F4F4];
+    if (_OrderType == 3 || _OrderType == 2) {//已完成
+        [self setUpBottomView];
+    }
 }
 
 - (void)setupView
@@ -31,6 +35,7 @@
     UITableView * tableView = [[UITableView alloc] init];
     [self.view addSubview:tableView];
     self.tableView = tableView;
+    tableView.backgroundColor = [UIColor sc_colorWithF4F4F4];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -83,28 +88,42 @@
 {
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:btn];
+    btn.backgroundColor = [UIColor whiteColor];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(-0);
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
-        make.height.mas_equalTo(-45);
+        make.height.mas_equalTo(45);
     }];
-    [btn setTitle:@"取消预约" forState:UIControlStateNormal];
+   
     btn.titleLabel.font = [UIFont sy_font16];
    
+    if (_OrderType == 3) {//已完成
+        [btn setTitle:@"我要评价" forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor sc_colorWithFC8739] forState:UIControlStateNormal];
+    }else if(_OrderType == 2){//已取消
+        [btn setTitleColor:[UIColor sc_colorWith666666] forState:UIControlStateNormal];
+        [btn setTitle:@"取消预约" forState:UIControlStateNormal];
+    }
     [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
 - (void)btnClick
 {
-    [[SCManager shareInstance] cancenOrderWithOrderType:[NSString stringWithFormat:@"%zd",_OrderType] orderId:self.listModel.orderId success:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
-    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
-    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-        
-    }];
+    if (_OrderType == 3) {
+        SCEvaluationViewController * evaluationViewController = [[SCEvaluationViewController alloc] init];
+        evaluationViewController.listModel = self.listModel;
+        [self.navigationController pushViewController:evaluationViewController animated:YES];
+    }else if(_OrderType == 2){
+        [[SCManager shareInstance] cancenOrderWithOrderType:[NSString stringWithFormat:@"%zd",_OrderType] orderId:self.listModel.orderId success:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+            
+        }];
+    }
 }
 
 

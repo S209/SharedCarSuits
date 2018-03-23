@@ -115,8 +115,16 @@
     _listModel = listModel;
     self.orderNumLabel.text = [NSString stringWithFormat:@"订单号：%@",listModel.orderNo];
     self.orderTimeLabel.text = [NSString stringWithFormat:@"下单时间：%@",listModel.createTime];
-    self.orderPaymentTimeLabel.text = [NSString stringWithFormat:@"付款时间：%@",listModel.payTime];
-    self.orderCompleteLabel.text = [NSString stringWithFormat:@"完成时间：%@",listModel.finishTime];
+    if (listModel.payTime.length) {
+       self.orderPaymentTimeLabel.text = [NSString stringWithFormat:@"付款时间：%@",listModel.payTime];
+    }else{
+        self.orderPaymentTimeLabel.text = @"付款时间：";
+    }
+    if (listModel.finishTime.length) {
+        self.orderCompleteLabel.text = [NSString stringWithFormat:@"完成时间：%@",listModel.finishTime];
+    }else{
+        self.orderCompleteLabel.text = @"完成时间：";
+    }
 }
 - (void)setOrderType:(NSInteger)orderType
 {

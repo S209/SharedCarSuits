@@ -43,6 +43,16 @@
             make.left.equalTo(self.mas_left).with.offset(startX);
             make.top.equalTo(self.mas_top).with.offset(0);
         }];
+        
+        
+        UIButton * imageBtn = [[UIButton alloc] init];
+        [self addSubview:imageBtn];
+        [imageBtn addTarget:self action:@selector(imageBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [imageBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(15.5, 15));
+            make.left.equalTo(self.mas_left).with.offset(startX);
+            make.top.equalTo(self.mas_top).with.offset(0);
+        }];
     }
     
     UILabel * evaluateLabel = [[UILabel alloc] init];
@@ -83,6 +93,19 @@
 - (void)setNumberOfScore:(NSInteger)numberOfScore
 {
     _numberOfScore = numberOfScore;
-  
 }
+
+- (void)imageBtnClick:(UIButton *)sender
+{
+    if (self.startCanClick) {
+        
+    }
+}
+
+- (void)setStartCanClick:(BOOL)startCanClick
+{
+    _startCanClick = startCanClick;
+    
+}
+
 @end

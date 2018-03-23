@@ -11,6 +11,7 @@
 @interface SCStartView : UIView
 //self.size = CGSizeMake(80, 25);
 - (instancetype)initWithFrame:(CGRect)frame;
+@property (nonatomic, assign) BOOL startCanClick;
 @property (nonatomic, weak) UILabel * evaluateLabel;
 @property (nonatomic, assign) NSInteger numberOfScore;
 @end

@@ -7,7 +7,8 @@
 //
 
 #import "SCEvaluationViewController.h"
-
+#import "SCEvaluateRowOneTableViewCell.h"
+#import "SCEvaluateRowTwoTableViewCell.h"
 @interface SCEvaluationViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @end
@@ -26,17 +27,17 @@
     UITableView * tableView = [[UITableView alloc] init];
     [self.view addSubview:tableView];
     self.tableView = tableView;
+    tableView.backgroundColor = [UIColor sc_colorWithf8f8f8];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
-        make.right.equalTo(self.view.mas_right).width.offset(-0);
+        make.right.equalTo(self.view.mas_right).with.offset(-0);
         make.top.equalTo(self.view.mas_top).with.offset(10);
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-45);
     }];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
     UIButton * submitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:submitBtn];
     [submitBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -47,8 +48,6 @@
     }];
     [submitBtn setTitle:@"提交" forState:UIControlStateNormal];
     [submitBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    
-    
 }
 
 #pragma mark
@@ -56,15 +55,26 @@
 {
     return 2;
 }
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    
-//}
-//
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    
-//}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        SCEvaluateRowOneTableViewCell * cell = [SCEvaluateRowOneTableViewCell evaluateRowOneTableViewCellWithTableView:tableView];
+        cell.listModel = self.listModel;
+        return cell;
+    }else{
+        SCEvaluateRowTwoTableViewCell * cell = [SCEvaluateRowTwoTableViewCell evaluateRowTwoTableViewCellWithTableView:tableView];
+        return cell;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return [SCEvaluateRowOneTableViewCell cellHeight];
+    }else{
+        return [SCEvaluateRowTwoTableViewCell cellHeight];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

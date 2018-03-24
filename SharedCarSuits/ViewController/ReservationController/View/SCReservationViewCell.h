@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class SCShopListModel;
 @protocol SCReservationViewCellDelegate<NSObject>
-@required
+@optional
 //设置默认
 - (void)reservationViewCellDefaultWithModel:(SCShopListModel *)listModel;
 //查看门店信息

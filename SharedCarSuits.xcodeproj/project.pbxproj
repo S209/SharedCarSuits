@@ -10,6 +10,7 @@
 		0507109D20485818004B8F35 /* SCChoiseBrandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0507109C20485818004B8F35 /* SCChoiseBrandModel.m */; };
 		050710AC204BAB1B004B8F35 /* SCShopListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 050710AB204BAB1B004B8F35 /* SCShopListModel.m */; };
 		0553FF272065422600A3EEA8 /* XHMessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553FF252065422600A3EEA8 /* XHMessageTextView.m */; };
+		0553FF2A20655C8D00A3EEA8 /* SCStoreDetailsAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553FF2920655C8D00A3EEA8 /* SCStoreDetailsAlertView.m */; };
 		055D4C1520582D8C009DE091 /* SCHomeBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 055D4C1420582D8C009DE091 /* SCHomeBannerModel.m */; };
 		055D4CA92058D078009DE091 /* SCBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 055D4C1C2058D078009DE091 /* SCBaseNavigationController.m */; };
 		055D4CAA2058D078009DE091 /* SCBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 055D4C1E2058D078009DE091 /* SCBaseTableViewController.m */; };
@@ -152,6 +153,8 @@
 		050710AB204BAB1B004B8F35 /* SCShopListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCShopListModel.m; sourceTree = "<group>"; };
 		0553FF252065422600A3EEA8 /* XHMessageTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHMessageTextView.m; sourceTree = "<group>"; };
 		0553FF262065422600A3EEA8 /* XHMessageTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHMessageTextView.h; sourceTree = "<group>"; };
+		0553FF2820655C8D00A3EEA8 /* SCStoreDetailsAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCStoreDetailsAlertView.h; sourceTree = "<group>"; };
+		0553FF2920655C8D00A3EEA8 /* SCStoreDetailsAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCStoreDetailsAlertView.m; sourceTree = "<group>"; };
 		055D4C1320582D8C009DE091 /* SCHomeBannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCHomeBannerModel.h; sourceTree = "<group>"; };
 		055D4C1420582D8C009DE091 /* SCHomeBannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCHomeBannerModel.m; sourceTree = "<group>"; };
 		055D4C1B2058D078009DE091 /* SCBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBaseNavigationController.h; sourceTree = "<group>"; };
@@ -602,6 +605,8 @@
 				05675B78205E527A00E821A5 /* SCOrderDetailPaymentWayViewCell.m */,
 				05675B7A205E561500E821A5 /* SCOrderDetailUseACouponCell.h */,
 				05675B7B205E561500E821A5 /* SCOrderDetailUseACouponCell.m */,
+				0553FF2820655C8D00A3EEA8 /* SCStoreDetailsAlertView.h */,
+				0553FF2920655C8D00A3EEA8 /* SCStoreDetailsAlertView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1252,6 +1257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0553FF2A20655C8D00A3EEA8 /* SCStoreDetailsAlertView.m in Sources */,
 				0553FF272065422600A3EEA8 /* XHMessageTextView.m in Sources */,
 				055D4CD02058D078009DE091 /* SCMyCouponCell.m in Sources */,
 				05C94285202EB3D100B78CA4 /* UIBarButtonItem+Spacing.m in Sources */,

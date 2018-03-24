@@ -17,6 +17,11 @@
 {
    return [self cdf_colorWithHexString:@"f8f8f8"];
 }
+
++ (UIColor *)sc_colorWith356CF8
+{
+  return [self cdf_colorWithHexString:@"356CF8"];
+}
 + (UIColor *)sc_colorWith444444
 {
     return [self cdf_colorWithHexString:@"444444"];

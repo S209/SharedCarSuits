@@ -36,4 +36,5 @@
 + (UIColor *)sc_colorWithED1928;
 + (UIColor *)sc_colorWithF64C38;
 + (UIColor *)sc_colorWithFFF8DC;
++ (UIColor *)sc_colorWith356CF8;
 @end

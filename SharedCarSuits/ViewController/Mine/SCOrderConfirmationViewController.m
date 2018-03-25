@@ -39,18 +39,6 @@
     
 }
 
-- (void)loadNewData
-{
-    //getOrderListWithOrderState
-    [[SCManager shareInstance] getOrderListWithOrderState:@"" length:@"10" createTime:@"" success:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
-    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
-    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-        
-    }];
-}
-
 - (void)setupView
 {
     UITableView * tableView = [[UITableView alloc] init];

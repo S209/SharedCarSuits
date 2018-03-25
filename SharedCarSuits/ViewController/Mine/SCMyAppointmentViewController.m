@@ -13,6 +13,7 @@
 #import "SCManager+RequestInterface.h"
 #import "SCAppointmentModel.h"
 #import "SCAppointmentServiceModel.h"
+#import "SCOrderInfoModel.h"
 @interface SCMyAppointmentViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
@@ -357,7 +358,9 @@
 //    currentDateStr = @"";
     
     [[SCManager shareInstance] makeAnAppointmentWithShopId:@"1" orderType:[NSString stringWithFormat:@"%zd",_serviceType] projectIds:projectString carId:@"0" date:currentDateStr success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        SCOrderInfoModel * infoModel = [SCOrderInfoModel yy_modelWithDictionary:responseObject];
         SCOrderConfirmationViewController * orderConfirmation = [[SCOrderConfirmationViewController alloc] init];
+        orderConfirmation.infoModel = infoModel;
         orderConfirmation.orderType = 1;
         orderConfirmation.listArray = self.selectServiceArray;
         [self.navigationController pushViewController:orderConfirmation animated:YES];

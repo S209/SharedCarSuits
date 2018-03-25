@@ -12,4 +12,5 @@
 @interface SCOrderConfirmationViewController : SCBaseViewController
 @property (nonatomic, assign) NSInteger orderType;
 @property (nonatomic, strong) SCOrderListModel * listModel;
+@property (nonatomic, strong) NSArray <SCOrderListModel *> * listArray;
 @end

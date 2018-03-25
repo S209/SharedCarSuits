@@ -11,6 +11,8 @@
 		050710AC204BAB1B004B8F35 /* SCShopListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 050710AB204BAB1B004B8F35 /* SCShopListModel.m */; };
 		0553FF272065422600A3EEA8 /* XHMessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553FF252065422600A3EEA8 /* XHMessageTextView.m */; };
 		0553FF2A20655C8D00A3EEA8 /* SCStoreDetailsAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553FF2920655C8D00A3EEA8 /* SCStoreDetailsAlertView.m */; };
+		0553FF2D20677EA500A3EEA8 /* SCAppointmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553FF2C20677EA400A3EEA8 /* SCAppointmentModel.m */; };
+		0553FF3320678A3B00A3EEA8 /* SCAppointmentServiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553FF3220678A3B00A3EEA8 /* SCAppointmentServiceModel.m */; };
 		055D4C1520582D8C009DE091 /* SCHomeBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 055D4C1420582D8C009DE091 /* SCHomeBannerModel.m */; };
 		055D4CA92058D078009DE091 /* SCBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 055D4C1C2058D078009DE091 /* SCBaseNavigationController.m */; };
 		055D4CAA2058D078009DE091 /* SCBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 055D4C1E2058D078009DE091 /* SCBaseTableViewController.m */; };
@@ -155,6 +157,10 @@
 		0553FF262065422600A3EEA8 /* XHMessageTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHMessageTextView.h; sourceTree = "<group>"; };
 		0553FF2820655C8D00A3EEA8 /* SCStoreDetailsAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCStoreDetailsAlertView.h; sourceTree = "<group>"; };
 		0553FF2920655C8D00A3EEA8 /* SCStoreDetailsAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCStoreDetailsAlertView.m; sourceTree = "<group>"; };
+		0553FF2B20677EA400A3EEA8 /* SCAppointmentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAppointmentModel.h; sourceTree = "<group>"; };
+		0553FF2C20677EA400A3EEA8 /* SCAppointmentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAppointmentModel.m; sourceTree = "<group>"; };
+		0553FF3120678A3B00A3EEA8 /* SCAppointmentServiceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAppointmentServiceModel.h; sourceTree = "<group>"; };
+		0553FF3220678A3B00A3EEA8 /* SCAppointmentServiceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAppointmentServiceModel.m; sourceTree = "<group>"; };
 		055D4C1320582D8C009DE091 /* SCHomeBannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCHomeBannerModel.h; sourceTree = "<group>"; };
 		055D4C1420582D8C009DE091 /* SCHomeBannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCHomeBannerModel.m; sourceTree = "<group>"; };
 		055D4C1B2058D078009DE091 /* SCBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBaseNavigationController.h; sourceTree = "<group>"; };
@@ -730,6 +736,10 @@
 				055D4C1420582D8C009DE091 /* SCHomeBannerModel.m */,
 				055D4D40205AC2DC009DE091 /* SCOrderListModel.h */,
 				055D4D41205AC2DC009DE091 /* SCOrderListModel.m */,
+				0553FF2B20677EA400A3EEA8 /* SCAppointmentModel.h */,
+				0553FF2C20677EA400A3EEA8 /* SCAppointmentModel.m */,
+				0553FF3120678A3B00A3EEA8 /* SCAppointmentServiceModel.h */,
+				0553FF3220678A3B00A3EEA8 /* SCAppointmentServiceModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1268,6 +1278,7 @@
 				055D4D42205AC2DD009DE091 /* SCOrderListModel.m in Sources */,
 				055D4CC02058D078009DE091 /* SCMineViewController.m in Sources */,
 				055D4CC12058D078009DE091 /* SCMyAppointmentViewController.m in Sources */,
+				0553FF3320678A3B00A3EEA8 /* SCAppointmentServiceModel.m in Sources */,
 				0573B025203C09F60017D852 /* GSKeyChain.m in Sources */,
 				055D4CE32058D078009DE091 /* SCReservationViewController.m in Sources */,
 				05C94235202D69CC00B78CA4 /* NSMutableArray+Category.m in Sources */,
@@ -1356,6 +1367,7 @@
 				05675B79205E527A00E821A5 /* SCOrderDetailPaymentWayViewCell.m in Sources */,
 				055D4CB42058D078009DE091 /* SCHomePageSectionTwoCellItemView.m in Sources */,
 				055D4CDE2058D078009DE091 /* SCAppointmentProcessViewController.m in Sources */,
+				0553FF2D20677EA500A3EEA8 /* SCAppointmentModel.m in Sources */,
 				055D4CDB2058D078009DE091 /* SCChoiseBrandViewCell.m in Sources */,
 				05C94282202EB3C800B78CA4 /* UIButton+Navigation.m in Sources */,
 				055D4CA92058D078009DE091 /* SCBaseNavigationController.m in Sources */,

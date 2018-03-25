@@ -11,12 +11,84 @@
 #import "SCReservationAlertView.h"
 #import "SCOrderConfirmationViewController.h"
 #import "SCManager+RequestInterface.h"
+#import "SCAppointmentModel.h"
+#import "SCAppointmentServiceModel.h"
 @interface SCMyAppointmentViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
+@property (nonatomic, strong) NSMutableArray * timeArray;
+@property (nonatomic, assign) NSInteger lastNumberOfTimeItemArrayCount;
+@property (nonatomic, assign) NSInteger timeType;//0 今 1 明
+@property (nonatomic, weak) UILabel * choiseServiceContentLabel;
+@property (nonatomic, weak) UIView * bottomView;
+@property (nonatomic, weak) UIImageView * serviceImageView;
+@property (nonatomic, weak) UIButton * todayBtn;
+@property (nonatomic, weak) UIButton * tomorrowBtn;
+@property (nonatomic, strong) NSMutableArray * selectServiceArray;
+@property (nonatomic, weak) UILabel * numberOfServiceLabel;
 @end
 
 @implementation SCMyAppointmentViewController
+- (NSMutableArray *)selectServiceArray
+{
+    if (!_selectServiceArray) {
+        _selectServiceArray = [NSMutableArray array];
+    }
+    return _selectServiceArray;
+}
+
+- (void)setTimeArray:(NSMutableArray *)timeArray
+{
+    _timeArray = timeArray;
+    for (NSUInteger i = 0; i < self.lastNumberOfTimeItemArrayCount; i++) {
+        UIButton * timeBtn = (UIButton *)[self.view viewWithTag:300+i];
+        [timeBtn removeFromSuperview];
+    }
+    self.lastNumberOfTimeItemArrayCount  = timeArray.count;
+    NSInteger column = 6;
+    NSInteger pieceSize = (SCREEN_WIDTH - 30-5*9)/column;
+    CGFloat pieceX = 0;
+    CGFloat pieceY = 0;
+    NSInteger wrap = 0;
+    for (NSUInteger i = 0; i < timeArray.count; i++) {
+        wrap = i%column;
+        pieceX = 15 + (pieceSize + 9)*wrap;
+        pieceY = (25 + 25 + 16) + i/column * (pieceSize * 0.5 + 7);
+        UIButton * timeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.view addSubview:timeBtn];
+        timeBtn.tag = 300+i;
+        timeBtn.backgroundColor = [UIColor sc_colorWithf8f8f8];
+        timeBtn.layer.masksToBounds = YES;
+        [timeBtn.layer setCornerRadius:4.0];
+        [timeBtn setTitleColor:[UIColor sc_colorWithCCCCCC] forState:UIControlStateNormal];
+        timeBtn.frame = CGRectMake(pieceX, pieceY, pieceSize, 0.5*pieceSize);
+        [timeBtn addTarget:self action:@selector(timeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        SCAppointmentModel * mentModel = [timeArray safeObjectAtIndex:i];
+        [timeBtn setTitle:mentModel.time forState:UIControlStateNormal];
+        timeBtn.titleLabel.font = [UIFont sy_font12];
+    }
+    
+    CGFloat timeHeight = 4 * pieceSize * 0.5 + 7*3 + 65 + 25;
+    [self.serviceImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).with.offset(15);
+        make.top.equalTo(self.view.mas_top).with.offset(timeHeight);
+        make.size.mas_equalTo(CGSizeMake(15, 15));
+    }];
+    
+    [self.choiseServiceContentLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.serviceImageView.mas_right).with.offset(6);
+        make.centerY.mas_equalTo(self.serviceImageView.mas_centerY);
+    }];
+    
+    [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).with.offset(0);
+        make.right.equalTo(self.view.mas_right).with.offset(-0);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-44);
+        make.top.equalTo(self.choiseServiceContentLabel.mas_bottom).with.offset(20);
+    }];
+    [self.view updateConstraintsIfNeeded];
+}
+
 - (NSMutableArray *)dataArray
 {
     if (!_dataArray) {
@@ -25,11 +97,16 @@
     return _dataArray;
 }
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavigationWithTitle:@"预约流程"];
     [self sy_leftBarButtonItem];
     [self setupView];
+    [self loadNewDataWithTime];
+    self.timeType = 0;
+    [self loadSerVice];
 }
 
 - (void)setupView
@@ -54,9 +131,9 @@
     choiseTimeLabel.font = [UIFont sy_boldFont16];
     choiseTimeLabel.textColor = [UIColor sc_colorWith444444];
     
-    
     UIButton * tomorrowBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:tomorrowBtn];
+    self.tomorrowBtn = tomorrowBtn;
     [tomorrowBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.view.mas_right).with.offset(-25);
         make.top.equalTo(choiseTimeLabel.mas_top).with.offset(-10);
@@ -69,6 +146,7 @@
 
     UIButton * todayBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:todayBtn];
+    self.todayBtn = todayBtn;
     [todayBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.view.mas_right).with.offset(-78);
         make.top.equalTo(choiseTimeLabel.mas_top).with.offset(-10);
@@ -85,26 +163,28 @@
     CGFloat pieceX = 0;
     CGFloat pieceY = 0;
     NSInteger wrap = 0;
-    NSArray * timeArray = @[@"7:00",@"7:30",@"8:00",@"8:30",@"9:00",@"9:30",@"10:00",@"10:30",@"11:00",@"11:30",@"12:00",@"12:30",@"13:00",@"13:30",@"14:00",@"14:30",@"15:00",@"15:30",@"16:00",@"16:30",@"17:00",@"17:30",@"18:00",@"18:30"];
-    for (NSUInteger i = 0; i < timeArray.count; i++) {
+    for (NSUInteger i = 0; i < self.timeArray.count; i++) {
         wrap = i%column;
         pieceX = 15 + (pieceSize + 9)*wrap;
         pieceY = (25 + 25 + 16) + i/column * (pieceSize * 0.5 + 7);
         UIButton * timeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.view addSubview:timeBtn];
+        timeBtn.tag = 300+i;
         timeBtn.backgroundColor = [UIColor sc_colorWithf8f8f8];
         timeBtn.layer.masksToBounds = YES;
         [timeBtn.layer setCornerRadius:4.0];
         [timeBtn setTitleColor:[UIColor sc_colorWithCCCCCC] forState:UIControlStateNormal];
         timeBtn.frame = CGRectMake(pieceX, pieceY, pieceSize, 0.5*pieceSize);
         [timeBtn addTarget:self action:@selector(timeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [timeBtn setTitle:[timeArray safeObjectAtIndex:i] forState:UIControlStateNormal];
+        [timeBtn setTitle:[self.timeArray safeObjectAtIndex:i] forState:UIControlStateNormal];
         timeBtn.titleLabel.font = [UIFont sy_font12];
     }
 
     CGFloat timeHeight = 4 * pieceSize * 0.5 + 7*3 + 65 + 25;
     UIImageView * serviceImageView = [[UIImageView alloc] init];
     [self.view addSubview:serviceImageView];
+    self.serviceImageView = serviceImageView;
+    [serviceImageView setImage:[UIImage imageNamed:@"coupon_type_icon_content"]];
     [serviceImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(15);
         make.top.equalTo(self.view.mas_top).with.offset(timeHeight);
@@ -112,18 +192,20 @@
     }];
 
     UILabel * choiseServiceContentLabel = [[UILabel alloc] init];
+    self.choiseServiceContentLabel = choiseServiceContentLabel;
     [self.view addSubview:choiseServiceContentLabel];
     choiseServiceContentLabel.text = @"请选择服务内容";
     choiseServiceContentLabel.font = [UIFont sy_boldFont16];
     choiseServiceContentLabel.textColor = [UIColor sc_colorWith444444];
     [choiseServiceContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(serviceImageView.mas_right).with.offset(6);
-        make.top.equalTo(serviceImageView.mas_top).with.offset(0);
+        make.centerY.mas_equalTo(serviceImageView.mas_centerY);
     }];
     
     UITableView * tableView = [[UITableView alloc] init];
     [self.view addSubview:tableView];
     self.tableView = tableView;
+    tableView.showsVerticalScrollIndicator = NO;
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -136,6 +218,7 @@
     
     UIView * bottomView = [[UIView alloc] init];
     [self.view addSubview:bottomView];
+    self.bottomView = bottomView;
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(-0);
@@ -146,12 +229,13 @@
     
     UILabel * numberOfServiceLabel = [[UILabel alloc] init];
     [bottomView addSubview:numberOfServiceLabel];
+    self.numberOfServiceLabel = numberOfServiceLabel;
     numberOfServiceLabel.textColor = [UIColor whiteColor];
     [numberOfServiceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(bottomView.mas_left).with.offset(20);
         make.centerY.mas_equalTo(bottomView.mas_centerY);
     }];
-    numberOfServiceLabel.text = [NSString stringWithFormat:@"共%zd项，总计¥%@",2,@"1167"];
+//    numberOfServiceLabel.text = [NSString stringWithFormat:@"共%zd项，总计¥%@",2,@"1167"];
     
     UILabel * makeAnAppointmentLabel = [[UILabel alloc] init];
     [bottomView addSubview:makeAnAppointmentLabel];
@@ -165,13 +249,11 @@
     UIButton * makeAnAppointmentBtn = [[UIButton alloc] init];
     [bottomView addSubview:makeAnAppointmentBtn];
     [makeAnAppointmentBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(bottomView.mas_centerY);
         make.right.equalTo(bottomView.mas_right).with.offset(-0);
         make.top.equalTo(bottomView.mas_top).with.offset(0);
         make.bottom.equalTo(bottomView.mas_bottom).with.offset(-0);
-        make.width.mas_equalTo(44);
+        make.width.mas_equalTo(150);
     }];
-    makeAnAppointmentBtn.backgroundColor = [UIColor clearColor];
     [makeAnAppointmentBtn addTarget:self action:@selector(makeAnAppointmentBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     UIView * segmentView = [[UIView alloc] init];
@@ -187,46 +269,66 @@
 
 
 #pragma mark
-- (void)loadNewData
+- (void)loadNewDataWithTime
 {
-   
-    
-    dispatch_group_t group = dispatch_group_create();
-    dispatch_group_async(group, dispatch_get_global_queue(0,0), ^{
-        // 并行执行的线程一
-        [[SCManager shareInstance] appointmentOrderTodayOrTodayListWithShopId:@"" orderType:@"" carId:@"" timeType:@"" success:^(NSURLSessionDataTask *serializer, id responseObject) {
-            
-        } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-            
-        } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-            
-        }];
-    });
+//    dispatch_group_t group = dispatch_group_create();
 //    dispatch_group_async(group, dispatch_get_global_queue(0,0), ^{
-//        // 并行执行的线程二 SCUrl_AppointmentOrderTime
-//       
-//    });
-    dispatch_group_notify(group, dispatch_get_global_queue(0,0), ^{
-        // 汇总结果
-        [[SCManager shareInstance] appointmentOrderWithShopId:@"" orderType:@"" carId:@"" success:^(NSURLSessionDataTask *serializer, id responseObject) {
-            
+        // 并行执行的线程一
+        [[SCManager shareInstance] appointmentOrderTodayOrTodayListWithShopId:@"1" orderType:@"1" carId:@"0" timeType:[NSString stringWithFormat:@"%zd",self.timeType] success:^(NSURLSessionDataTask *serializer, id responseObject) {
+            NSArray * responseArray = [NSArray yy_modelArrayWithClass:[SCAppointmentModel class] json:responseObject];
+            self.timeArray = [responseArray mutableCopy];
         } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
             
         } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
             
         }];
-    });
+//    });
+    
+//    dispatch_group_async(group, dispatch_get_global_queue(0,0), ^{
+        // 并行执行的线程二 SCUrl_AppointmentOrderTime
+    
+//    });
+//    dispatch_group_notify(group, dispatch_get_global_queue(0,0), ^{
+//        // 汇总结果
+//        [self.tableView reloadData];
+//    });
 }
+
+
+- (void)loadSerVice
+{
+    [[SCManager shareInstance] appointmentOrderWithShopId:@"1" orderType:@"1" carId:@"0" success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        NSLog(@"===%@===",responseObject);
+        NSDictionary * projectDict =  [responseObject safeObjectAtIndex:0];
+        NSArray * projectArray = [projectDict objectForKey:@"project"];
+        NSArray * dataArray = [NSArray yy_modelArrayWithClass:[SCAppointmentServiceModel class] json:projectArray];
+        
+        self.dataArray = [dataArray mutableCopy];
+        [self.tableView reloadData];
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        
+    }];
+}
+
+
 
 #pragma mark todayBtnClick
 - (void)todayBtnClick:(UIButton *)sender
 {
-    
+    [self.tomorrowBtn setTitleColor:[UIColor cdf_colorWithHexString:@"999999" alpha:0.99] forState:UIControlStateNormal];
+    [sender setTitleColor:[UIColor sc_colorWithFC8739] forState:UIControlStateNormal];
+     self.timeType = 0;
+    [self loadNewDataWithTime];
 }
 
 - (void)tomorrowBtnClick:(UIButton *)sender
 {
-    
+    [sender setTitleColor:[UIColor sc_colorWithFC8739] forState:UIControlStateNormal];
+    [self.todayBtn setTitleColor:[UIColor cdf_colorWithHexString:@"999999" alpha:0.99] forState:UIControlStateNormal];
+    self.timeType = 1;
+    [self loadNewDataWithTime];
 }
 
 - (void)timeBtnClick:(UIButton *)sender
@@ -237,6 +339,8 @@
 - (void)makeAnAppointmentBtnClick:(UIButton *)sender
 {
     SCOrderConfirmationViewController * orderConfirmation = [[SCOrderConfirmationViewController alloc] init];
+    orderConfirmation.orderType = 1;
+    orderConfirmation.listArray = self.selectServiceArray;
     [self.navigationController pushViewController:orderConfirmation animated:YES];
 }
 
@@ -255,8 +359,36 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SCMyAppointmentViewCell * cell = [SCMyAppointmentViewCell myAppointmentViewCellWithTabeleView:tableView];
+    cell.serviceModel = [self.dataArray safeObjectAtIndex:indexPath.row];
+    WEAKSELF
+    cell.deleteBlock = ^(SCAppointmentServiceModel * serviceModel){
+        STRONGSELF
+        if (strongSelf) {
+            [strongSelf.selectServiceArray removeObject:serviceModel];
+             [strongSelf updateServiceInfo];
+        }
+    };
+    
+    cell.selectedBlock = ^(SCAppointmentServiceModel *serviceModel) {
+        STRONGSELF
+        if (strongSelf) {
+            [strongSelf.selectServiceArray addObject:serviceModel];
+            [strongSelf updateServiceInfo];
+        }
+    };
+    
     return cell;
 }
+
+- (void)updateServiceInfo
+{
+    CGFloat price = 0;
+    for (SCAppointmentServiceModel * model in self.selectServiceArray) {
+       price += [model.price floatValue];
+    }
+    self.numberOfServiceLabel.text = [NSString stringWithFormat:@"共%zd项，总计¥%.2f",self.selectServiceArray.count,price];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     

@@ -83,7 +83,7 @@
 #define SCUrl_AppointmentOrder GeneralUrl(@"/keleapp/order/appointmentOrder.jspx")
 
 //订单 预约订单-今日/明日时间列表
-#define SCUrl_AppointmentOrderTime GeneralUrl(@"/keleapp/coupon/appointmentOrderTime.jspx")
+#define SCUrl_AppointmentOrderTime GeneralUrl(@"/keleapp/order/appointmentOrderTime.jspx")
 
 //预约订单-我要预约
 #define SCUrl_CreateOrder GeneralUrl(@"/keleapp/coupon/ createOrder.jspx")

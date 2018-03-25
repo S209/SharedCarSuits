@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class SCAppointmentServiceModel;
+typedef void (^MyAppointmentViewCellSelectedService)(SCAppointmentServiceModel * serviceModel);
+typedef void (^MyAppointmentViewCelldeleteService)(SCAppointmentServiceModel * serviceModel);
 @interface SCMyAppointmentViewCell : UITableViewCell
+@property (nonatomic, copy) MyAppointmentViewCellSelectedService selectedBlock;
+@property (nonatomic, copy) MyAppointmentViewCelldeleteService deleteBlock;
+@property (nonatomic, strong) SCAppointmentServiceModel * serviceModel;
 + (instancetype)myAppointmentViewCellWithTabeleView:(UITableView *)tableView;
 + (CGFloat)cellHeight;
 @end

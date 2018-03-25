@@ -7,7 +7,7 @@
 //
 
 #import "SCMyAppointmentViewCell.h"
-
+#import "SCAppointmentServiceModel.h"
 @interface SCMyAppointmentViewCell()
 @property (nonatomic, weak) UIView * bottomView;
 @property (nonatomic, weak) UIImageView * carImageView;
@@ -15,6 +15,7 @@
 @property (nonatomic, weak) UIImageView * checkImageView;
 @property (nonatomic, weak) UILabel * consumptionTimeLabel;
 @property (nonatomic, weak) UIImageView * timeImgeView;
+@property (nonatomic, weak) UILabel * unitLabel;
 @property (nonatomic, weak) UILabel * priceLabel;
 @property (nonatomic, weak) UIView * segmentView;
 @property (nonatomic, weak) UIButton * checkBtn;
@@ -64,12 +65,14 @@
         serviceNameLabel.font = [UIFont sy_font16];
         serviceNameLabel.textColor = [UIColor sc_colorWith444444];
 
-        
+        //store_list_selected
         UIImageView * checkImageView = [[UIImageView alloc] init];
         [bottomView addSubview:checkImageView];
         self.checkImageView = checkImageView;
         [checkImageView setImage:[UIImage imageNamed:@"store_list_normal"]];
         checkImageView.userInteractionEnabled = YES;
+        
+        
         
         UIButton * checkBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [bottomView addSubview:checkBtn];
@@ -90,13 +93,21 @@
         consumptionTimeLabel.textColor = [UIColor sc_colorWithFC8739];
         self.consumptionTimeLabel = consumptionTimeLabel;
 
-        
         UILabel * priceLabel = [[UILabel alloc] init];
         [self.contentView addSubview: priceLabel];
         self.priceLabel = priceLabel;
         [bottomView addSubview:priceLabel];
         priceLabel.font = [UIFont sy_font10];
         priceLabel.textColor = [UIColor sc_colorWith444444];
+        
+        //unitLabel
+        UILabel * unitLabel = [[UILabel alloc] init];
+        [self.contentView addSubview: unitLabel];
+        self.unitLabel = unitLabel;
+        unitLabel.text =@"¥";
+        [bottomView addSubview:unitLabel];
+        unitLabel.font = [UIFont sy_font8];
+        unitLabel.textColor = [UIColor sc_colorWith444444];
         
         UIView * segmentView = [[UIView alloc] init];
         [self.contentView addSubview:segmentView];
@@ -157,9 +168,14 @@
         make.size.mas_equalTo(CGSizeMake(37.5, 32.5));
     }];
     
+    
     [self.priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.checkImageView.mas_left).with.offset(-0);
         make.top.equalTo(self.serviceNameLabel.mas_bottom).with.offset(0);
+    }];
+    [self.unitLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.priceLabel.mas_left).with.offset(-0);
+        make.top.equalTo(self.serviceNameLabel.mas_bottom).with.offset(1);
     }];
 }
 
@@ -174,10 +190,26 @@
     if (sender.selected) {
         sender.selected = NO;
         [self.checkImageView setImage:[UIImage imageNamed:@"store_list_normal"]];
+        if (self.deleteBlock) {
+            self.deleteBlock(self.serviceModel);
+        }
     }else{
         sender.selected = YES;
         [self.checkImageView setImage:[UIImage imageNamed:@"store_list_selected"]];
+        if (self.selectedBlock) {
+            self.selectedBlock(self.serviceModel);
+        }
     }
 }
 
+- (void)setServiceModel:(SCAppointmentServiceModel *)serviceModel
+{
+    _serviceModel = serviceModel;
+    [self.carImageView sd_setImageWithURL:[NSURL URLWithString:serviceModel.url] placeholderImage:[UIImage imageNamed:@""]];
+    
+    self.consumptionTimeLabel.text = [NSString stringWithFormat:@"工时约%zd分钟",serviceModel.taskTime];
+    self.serviceNameLabel.text = serviceModel.name;
+    self.priceLabel.text = [NSString stringWithFormat:@"%@/辆",serviceModel.price];
+    
+}
 @end

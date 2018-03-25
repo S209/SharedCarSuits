@@ -16,7 +16,7 @@
 @property (nonatomic, copy) NSString * descriptionString;
 @property (nonatomic, assign) NSInteger shopId;
 @property (nonatomic, copy) NSString * name;
-@property (nonatomic, assign) NSInteger ifDefault;
+@property (nonatomic, assign) NSInteger ifDefault;//0 是默认
 @property (nonatomic, assign) NSInteger assess;
 @property (nonatomic, copy) NSString * logoUrl;
 @property (nonatomic, copy) NSString * panorama;

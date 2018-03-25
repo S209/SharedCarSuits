@@ -38,8 +38,6 @@
     [self setupView];
 }
 
-
-
 - (void)loadNewData
 {
     self.currentPage = 1;
@@ -183,14 +181,9 @@
 {
     
     [[SCManager shareInstance] shopDefaultWithId:[NSString stringWithFormat:@"%zd",listModel.shopId] success:^(NSURLSessionDataTask *serializer, id responseObject) {
-
-        if (listModel.ifDefault == 1) {
-            listModel.ifDefault = 0;
-        }else{
-            listModel.ifDefault = 1;
-        }
-
-        [self.tableView reloadData];
+//dataArray
+        
+        [self loadNewData];
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
         
     } failure:^(NSURLSessionDataTask *serializer, NSError *error) {

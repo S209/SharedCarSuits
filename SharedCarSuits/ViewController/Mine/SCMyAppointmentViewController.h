@@ -7,7 +7,10 @@
 //
 
 #import "SCBaseViewController.h"
-
+typedef NS_ENUM(NSInteger, ServiceType){
+    ServiceTypeCarBeauty = 1,
+    ServiceTypeOilChangeMaintenance = 2,
+};
 @interface SCMyAppointmentViewController : SCBaseViewController
-
+@property (nonatomic, assign) ServiceType serviceType;
 @end

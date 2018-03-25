@@ -274,7 +274,7 @@
 //    dispatch_group_t group = dispatch_group_create();
 //    dispatch_group_async(group, dispatch_get_global_queue(0,0), ^{
         // 并行执行的线程一
-        [[SCManager shareInstance] appointmentOrderTodayOrTodayListWithShopId:@"1" orderType:@"1" carId:@"0" timeType:[NSString stringWithFormat:@"%zd",self.timeType] success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        [[SCManager shareInstance] appointmentOrderTodayOrTodayListWithShopId:@"1" orderType:[NSString stringWithFormat:@"%zd",_serviceType] carId:@"0" timeType:[NSString stringWithFormat:@"%zd",self.timeType] success:^(NSURLSessionDataTask *serializer, id responseObject) {
             NSArray * responseArray = [NSArray yy_modelArrayWithClass:[SCAppointmentModel class] json:responseObject];
             self.timeArray = [responseArray mutableCopy];
         } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
@@ -297,7 +297,7 @@
 
 - (void)loadSerVice
 {
-    [[SCManager shareInstance] appointmentOrderWithShopId:@"1" orderType:@"1" carId:@"0" success:^(NSURLSessionDataTask *serializer, id responseObject) {
+    [[SCManager shareInstance] appointmentOrderWithShopId:@"1" orderType:[NSString stringWithFormat:@"%zd",_serviceType] carId:@"0" success:^(NSURLSessionDataTask *serializer, id responseObject) {
         NSLog(@"===%@===",responseObject);
         NSDictionary * projectDict =  [responseObject safeObjectAtIndex:0];
         NSArray * projectArray = [projectDict objectForKey:@"project"];
@@ -338,10 +338,36 @@
 
 - (void)makeAnAppointmentBtnClick:(UIButton *)sender
 {
-    SCOrderConfirmationViewController * orderConfirmation = [[SCOrderConfirmationViewController alloc] init];
-    orderConfirmation.orderType = 1;
-    orderConfirmation.listArray = self.selectServiceArray;
-    [self.navigationController pushViewController:orderConfirmation animated:YES];
+    NSMutableString * projectString = [NSMutableString string];
+    for (NSUInteger i = 0; i < self.selectServiceArray.count; i++) {
+        SCAppointmentServiceModel * model = [self.selectServiceArray safeObjectAtIndex:i];
+        [projectString appendString:[NSString stringWithFormat:@"%zd",model.idDes]];
+        if (i < self.selectServiceArray.count-1) {
+            [projectString appendString:@";"];
+        }
+    }
+    
+    //2018-02-26+15:00:00
+//    NSDate
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //设定时间格式,这里可以设置成自己需要的格式
+    [dateFormatter setDateFormat:@"yyyy-MM-dd+HH:mm:ss"];
+    //用[NSDate date]可以获取系统当前时间
+    NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
+//    currentDateStr = @"";
+    
+    [[SCManager shareInstance] makeAnAppointmentWithShopId:@"1" orderType:[NSString stringWithFormat:@"%zd",_serviceType] projectIds:projectString carId:@"0" date:currentDateStr success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        SCOrderConfirmationViewController * orderConfirmation = [[SCOrderConfirmationViewController alloc] init];
+        orderConfirmation.orderType = 1;
+        orderConfirmation.listArray = self.selectServiceArray;
+        [self.navigationController pushViewController:orderConfirmation animated:YES];
+        
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        
+    }];
+    
 }
 
 

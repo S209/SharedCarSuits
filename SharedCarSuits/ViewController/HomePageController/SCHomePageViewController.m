@@ -19,7 +19,7 @@
 #import "SCManager+RequestInterface.h"
 #import "SCHomeBannerModel.h"
 #import "SCHomeBannerViewController.h"
-#import "SCMyAppointmentViewController.h"
+
 @interface SCHomePageViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,SCHomePageSectionOneCellDelegate,SCHomePageSectionTwoCellDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * headerImageArray;
@@ -163,9 +163,11 @@
 {
     if (index == 0) {
         SCMyAppointmentViewController * appointmentView = [[SCMyAppointmentViewController alloc] init];
+        appointmentView.serviceType = ServiceTypeCarBeauty;
         [self.navigationController pushViewController:appointmentView animated:YES];
     }else if (index == 1){
         SCMyAppointmentViewController * appointmentView = [[SCMyAppointmentViewController alloc] init];
+        appointmentView.serviceType = ServiceTypeOilChangeMaintenance;
         [self.navigationController pushViewController:appointmentView animated:YES];
     }else if (index == 2){
         SCAppointmentProcessViewController * processViewController = [[SCAppointmentProcessViewController alloc] init];

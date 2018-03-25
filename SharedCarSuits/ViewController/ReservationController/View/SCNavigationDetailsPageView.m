@@ -260,7 +260,7 @@
     
     self.distanceLabel.text = shopModel.distance;
     
-    if (shopModel.ifDefault) {
+    if (shopModel.ifDefault != 0) {
         [self.whetherToConfirmImageView setImage:[UIImage imageNamed:@"store_list_selected"]];
     }else{
         [self.whetherToConfirmImageView setImage:[UIImage imageNamed:@"store_list_normal"]];

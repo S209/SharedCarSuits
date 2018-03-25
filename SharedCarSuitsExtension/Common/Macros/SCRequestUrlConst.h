@@ -79,15 +79,17 @@
 #define SCUrl_editUserPhoto GeneralUrl(@"keleapp/userInfor/editUserPhoto.jspx")
 
 
-//订单 预约订单-今日时间+服务项目
+//订单 预约订单-今日时间+服务项目(完)
 #define SCUrl_AppointmentOrder GeneralUrl(@"/keleapp/order/appointmentOrder.jspx")
 
-//订单 预约订单-今日/明日时间列表
+//订单 预约订单-今日/明日时间列表(完)
 #define SCUrl_AppointmentOrderTime GeneralUrl(@"/keleapp/order/appointmentOrderTime.jspx")
 
-//预约订单-我要预约
-#define SCUrl_CreateOrder GeneralUrl(@"/keleapp/coupon/ createOrder.jspx")
+//预约订单-我要预约(完)
+#define SCUrl_CreateOrder GeneralUrl(@"/keleapp/order/createOrder.jspx")
 
 //5.3  立即下单
 #define SCUrl_PayOrder GeneralUrl(@"/keleapp/orderpay/payOrder.jspx")
+
+
 

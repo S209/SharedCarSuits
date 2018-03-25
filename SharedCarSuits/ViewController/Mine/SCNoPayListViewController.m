@@ -64,6 +64,7 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd+HH:mm:ss"];
     //用[NSDate date]可以获取系统当前时间
     NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
+#warning
     currentDateStr = @"";
     
     [[SCManager shareInstance] getOrderListWithOrderState:orderState length:10 createTime:currentDateStr success:^(NSURLSessionDataTask *serializer, id responseObject) {

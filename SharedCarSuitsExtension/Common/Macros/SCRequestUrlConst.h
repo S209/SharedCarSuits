@@ -62,23 +62,12 @@
 //门店 设置默认门店(完)
 #define SCUrl_ShopDefault GeneralUrl(@"/keleapp/shop/shopDefault.jspx")
 
-//订单 预约订单-今日时间+服务项目
-#define SCUrl_AppointmentOrder GeneralUrl(@"/keleapp/order/appointmentOrder.jspx")
-
-//订单 预约订单-今日/明日时间列表
-#define SCUrl_AppointmentOrderTime GeneralUrl(@"/keleapp/coupon/appointmentOrderTime.jspx")
-
-//预约订单-我要预约
-#define SCUrl_CreateOrder GeneralUrl(@"/keleapp/coupon/ createOrder.jspx")
-
 //我的订单-列表+详细页(完)
 #define SCUrl_OrderList GeneralUrl(@"/keleapp/order/orderList.jspx")
 
 //5.2  我的订单-取消订单(完)
 #define SCUrl_CancelOrder GeneralUrl(@"/keleapp/coupon/cancelOrder.jspx")
 
-//5.3  立即下单
-#define SCUrl_PayOrder GeneralUrl(@"/keleapp/orderpay/payOrder.jspx")
 
 //5.4  有效优惠券
 #define SCUrl_OrderCoupon GeneralUrl(@"/keleapp/coupon/orderCoupon.jspx")
@@ -88,3 +77,17 @@
 
 //keleapp/userInfor/editUserPhoto.jspx(完)
 #define SCUrl_editUserPhoto GeneralUrl(@"keleapp/userInfor/editUserPhoto.jspx")
+
+
+//订单 预约订单-今日时间+服务项目
+#define SCUrl_AppointmentOrder GeneralUrl(@"/keleapp/order/appointmentOrder.jspx")
+
+//订单 预约订单-今日/明日时间列表
+#define SCUrl_AppointmentOrderTime GeneralUrl(@"/keleapp/coupon/appointmentOrderTime.jspx")
+
+//预约订单-我要预约
+#define SCUrl_CreateOrder GeneralUrl(@"/keleapp/coupon/ createOrder.jspx")
+
+//5.3  立即下单
+#define SCUrl_PayOrder GeneralUrl(@"/keleapp/orderpay/payOrder.jspx")
+

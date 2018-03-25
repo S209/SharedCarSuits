@@ -213,11 +213,8 @@
     if ([scheme isEqualToString:kBaiDuMapPathHost]){
         NSMutableDictionary *baiduMapDic = [NSMutableDictionary dictionary];
         baiduMapDic[@"title"] = @"百度地图";
-        NSString *urlString = [[NSString stringWithFormat:@"baidumap://map/direction?origin={{我的位置}}&destination=latlng:%f,%f|name=目的地&mode=walking&coord_type=gcj02",endLocation.latitude,endLocation.longitude] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString * urlString = [NSString stringWithFormat:@"baidumap://map/direction?origin={{我的位置}}&destination=%@&mode=driving",self.listModel.descriptionString];
         baiduMapDic[@"url"] = urlString;
-        if (self.listModel.descriptionString.length) {
-            [baiduMapDic setValue:self.listModel.descriptionString forKey:@"dname"];
-        }
         return baiduMapDic;
     }
 #warning 这个地方有问题 数据写死
@@ -237,7 +234,7 @@
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"qqmap://"]]) {
         NSMutableDictionary *qqMapDic = [NSMutableDictionary dictionary];
         qqMapDic[@"title"] = @"腾讯地图";
-        NSString *urlString =[[NSString stringWithFormat:@"qqmap://map/routeplan?type=drive&from=我的位置&to=%@&tocoord=%lf,%lf&policy=1&referer=tengxun",self.listModel.descriptionString,endLocation.latitude,endLocation.longitude] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *urlString = [[NSString stringWithFormat:@"qqmap://map/routeplan?from=我的位置&type=walk&tocoord=%f,%f&to=%@&coord_type=1&policy=0",endLocation.latitude, endLocation.longitude ,self.listModel.descriptionString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
          qqMapDic[@"url"] = urlString;
         return qqMapDic;
     }

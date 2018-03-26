@@ -14,10 +14,12 @@
  orderNo = "5-1521990412861-425";
  restTime = 30;
  */
+@class SCOrderListModel;
 @interface SCOrderInfoModel : NSObject
 @property (nonatomic, copy) NSString * appointTime;
 @property (nonatomic, copy) NSString * createTime;
 @property (nonatomic, copy) NSString * orderId;
 @property (nonatomic, copy) NSString * orderNo;
 @property (nonatomic, assign) NSInteger restTime;
+@property (nonatomic, strong) SCOrderListModel * listModel;
 @end

@@ -536,7 +536,8 @@
                 if (notice) {
                     notice(serializer,responseObject);
                 }
-            }else if (code == 900){
+            }else if (code == 900){               
+
                 [SCManager exit];
             }
             if (failure) {

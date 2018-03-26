@@ -20,7 +20,8 @@ target 'SharedCarSuits' do
     pod 'AMapNavi-NO-IDFA'
     pod 'AMapSearch-NO-IDFA'
     pod 'AMapLocation-NO-IDFA'
-    
+    pod 'JPush', '3.0.2'
+    pod 'MTDates', '~> 1.0.3'
     pod 'TZImagePickerController'
     pod 'WebViewJavascriptBridge', '~> 6.0'
     # Pods for SharedCarSuits

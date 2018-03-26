@@ -39,10 +39,8 @@ static const CGFloat KWMMenuViewhHeight = 45;
     label.textColor = [UIColor sc_colorWith444444];
     label.textAlignment = NSTextAlignmentCenter;
     label.frame = CGRectMake((SCREEN_WIDTH-200)*0.5,20,200,44);
-
     self.navigationItem.titleView = label;
     self.menuView.style = WMMenuViewStyleLine;
-    
 
     UIButton * leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     leftBtn.frame = CGRectMake(0, 0, 30, 44);
@@ -70,7 +68,6 @@ static const CGFloat KWMMenuViewhHeight = 45;
         SCMakeAnAppointmentprocessController * processController = [[SCMakeAnAppointmentprocessController alloc] init];
         return processController;
     }
-    
 }
 
 - (NSString *)pageController:(WMPageController *)pageController titleAtIndex:(NSInteger)index

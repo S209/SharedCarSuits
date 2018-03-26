@@ -5,7 +5,7 @@
 //  Created by tuhaisheng on 2018/1/29.
 //  Copyright © 2018年 tuhaisheng. All rights reserved.
 //
-
+#import <Bugly/Bugly.h>
 #import "AppDelegate.h"
 #import "SCLaunchViewController.h"
 #import "SCManager+CommonMethods.h"
@@ -18,9 +18,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-     [AMapServices sharedServices].apiKey = @"13520659338";
-    
-    
+     [AMapServices sharedServices].apiKey = @"abf3b0e0c1ef6061e3e55c89d939a53b";
+    [Bugly startWithAppId:@"a09e5cdc70"];
     [[SCManager shareInstance] getPositionWithGetPositionBlock:^(NSString *latitudeAndLongitude) {
         self.latitudeAndLongitude = latitudeAndLongitude;
     } getGeocoderBlock:^(NSString *geocoderString) {

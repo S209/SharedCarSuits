@@ -7,6 +7,8 @@
 //
 extern NSString * const SCUserId;
 extern NSString * const SCSessionId;
+extern NSString * const SCUserPassword;
+extern NSString * const SCUserLoginName;
 extern NSString * const SCLoginModelUserDict;//字典
 extern NSString * const SCSelectCarSuccess;
 extern NSString * const SCIsTheAppInstalledForTheFirstTime;

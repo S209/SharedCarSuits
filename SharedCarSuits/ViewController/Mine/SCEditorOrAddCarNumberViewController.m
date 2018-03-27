@@ -35,7 +35,9 @@
     [self setNavigationWithTitle:@"编辑/添加车牌"];
     [self sy_leftBarButtonItem];
     [self setupView];
-    self.carNumberArray = [NSMutableArray arrayWithCapacity:7];
+    self.carNumberArray = [[NSMutableArray alloc] initWithObjects:@"0",@"0",@"0",@"0",@"0",@"0",@"0",nil];
+    
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCarName:) name:SCSelectCarSuccess object:nil];
 }
 
@@ -48,23 +50,23 @@
     [self.view addSubview:carInfo];
     [carInfo mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
-        make.top.equalTo(self.view.mas_top).with.offset(SYNavigationBarHeight);
+        make.top.equalTo(self.view.mas_top).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(-0);
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
     }];
     
+    //车牌地域
     SCChoiseAreaView * areaView = [[SCChoiseAreaView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     areaView.delegate = self;
     areaView.hidden = YES;
     self.areaView = areaView;
     [self.view addSubview:areaView];
-    
+    //车牌号
     SCChoiseCarNumberView * carNumberView = [[SCChoiseCarNumberView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     carNumberView.delegate = self;
     carNumberView.hidden = YES;
     self.carNumberView = carNumberView;
     [self.view addSubview:carNumberView];
-    
 }
 
 #pragma mark 创建选择车牌的View
@@ -82,7 +84,7 @@
 - (void)sureBtnClick
 {
     NSMutableString * carNumberString = [[NSMutableString alloc] init];
-    [self.carNumberArray insertObject:self.regionString atIndex:0];
+    [self.carNumberArray replaceObjectAtIndex:0 withObject:self.regionString];
     for (NSUInteger i = 0; i < self.carNumberArray.count; i++) {
         [carNumberString appendString:[self.carNumberArray safeObjectAtIndex:i]];
     }
@@ -152,8 +154,8 @@
 
 - (void)choiseCarNumberViewDidItemWithContent:(NSString *)content andIndex:(NSInteger)index
 {
-    if (index > 1 && index <= 6) {
-        [self.carNumberArray insertObject:content atIndex:index-1];
+    if (index >= 1 && index <= 6) {
+        [self.carNumberArray replaceObjectAtIndex:index withObject:content];
         [self.carInfo updateCarInfoWithInfo:content andIndex:index btnClickState:YES];
     }
 }

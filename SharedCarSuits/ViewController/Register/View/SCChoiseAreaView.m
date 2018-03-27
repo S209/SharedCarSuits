@@ -19,9 +19,23 @@
     }
     return self;
 }
+- (void)btnClick:(UIButton *)sender
+{
+    self.hidden = YES;
+}
 
 - (void)setupAreaView
 {
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.mas_left).with.offset(0);
+        make.right.equalTo(self.mas_right).with.offset(-0);
+        make.top.equalTo(self.mas_top).with.offset(0);
+        make.bottom.equalTo(self.mas_bottom).with.offset(-0);
+    }];
+    
     UIView * topView = [[UIView alloc] init];
     topView.backgroundColor = [UIColor whiteColor];
     [self addSubview:topView];

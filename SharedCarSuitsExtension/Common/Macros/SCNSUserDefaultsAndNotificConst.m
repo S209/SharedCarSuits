@@ -7,6 +7,8 @@
 //
 
 NSString * const SCUserId = @"SCUserId";
+NSString * const SCUserPassword = @"SCUserPassword";
+NSString * const SCUserLoginName = @"SCUserLoginName";
 NSString * const SCSessionId = @"SCSessionId";
 NSString * const SCLoginModelUserDict = @"SCLoginModelUserDict";
 NSString * const SCSelectCarSuccess = @"SCSelectCarSuccess";

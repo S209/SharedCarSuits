@@ -8,10 +8,9 @@
 
 #ifndef SCThirdInfoConst_h
 #define SCThirdInfoConst_h
-/*
- App ID：e3cc8d215f      App Key：8328ba7a-567e-4462-aac2-5695084b3751
- */
-#define BuglyAppId @"e3cc8d215f"
-#define BuglyAppKey @"8328ba7a-567e-4462-aac2-5695084b3751"
+
+#define BuglyAppId @"a09e5cdc70"
+//#define BuglyAppKey @""
+#define GaoDeApiKey @"abf3b0e0c1ef6061e3e55c89d939a53b"
 
 #endif /* SCThirdInfoConst_h */

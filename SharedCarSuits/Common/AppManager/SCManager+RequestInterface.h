@@ -9,7 +9,7 @@
 #import "SCManager.h"
 @class SCNetworkMultiDataObj;
 @interface SCManager (RequestInterface)
-
+@property (nonatomic, assign) BOOL hasShowMsg;
 /**
  注册获取验证码(完)
  @param phoneNumber <#phoneNumber description#>

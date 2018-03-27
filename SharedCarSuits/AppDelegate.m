@@ -18,8 +18,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-     [AMapServices sharedServices].apiKey = @"abf3b0e0c1ef6061e3e55c89d939a53b";
-    [Bugly startWithAppId:@"a09e5cdc70"];
+     [AMapServices sharedServices].apiKey = GaoDeApiKey;
+    [Bugly startWithAppId:BuglyAppId];
     [[SCManager shareInstance] getPositionWithGetPositionBlock:^(NSString *latitudeAndLongitude) {
         self.latitudeAndLongitude = latitudeAndLongitude;
     } getGeocoderBlock:^(NSString *geocoderString) {

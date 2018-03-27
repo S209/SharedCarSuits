@@ -22,8 +22,11 @@
     return self;
 }
 
+
 - (void)setupView
 {
+   
+    
     UILabel * brand = [[UILabel alloc] init];
     [self addSubview:brand];
     brand.text = @"品牌";
@@ -59,9 +62,7 @@
         make.right.equalTo(self.mas_right).with.offset(-15);
         make.height.mas_equalTo(40);
     }];
-    
-    
-    
+
     
     UILabel * carNumberLabel = [[UILabel alloc] init];
     [self addSubview:carNumberLabel];
@@ -160,13 +161,19 @@
 
 - (void)updateCarName:(NSString *)carName
 {
-    self.choiseBrandLabel.text = [NSString stringWithFormat:@"  %@",carName];
+    if (carName.length) {
+        self.choiseBrandLabel.text = [NSString stringWithFormat:@"  %@",carName];
+    }
 }
+    
 
 - (void)setPageModel:(SCMyGarageListPageModel *)pageModel
 {
     _pageModel = pageModel;
-    self.choiseBrandLabel.text = [NSString stringWithFormat:@"  %@",pageModel.carModel];
+    if (pageModel.carModel.length) {
+      self.choiseBrandLabel.text = [NSString stringWithFormat:@"  %@",pageModel.carModel];
+    }
+   
     for (NSUInteger i = 0; i < 7; i++) {
         UIButton * areaBtn = (UIButton *)[self viewWithTag:300+i];
         [areaBtn setTitleColor:[UIColor sc_colorWith6C6DFD] forState:UIControlStateNormal];

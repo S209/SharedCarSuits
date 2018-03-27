@@ -156,9 +156,6 @@
 #pragma mark loginViewWithDelegate
 - (void)loginViewLoginWithAccount:(NSString *)account password:(NSString *)password
 {
-    
-   
-    
     [[SCManager shareInstance] logInWithLoginName:account passWord:password success:^(NSURLSessionDataTask *serializer, id responseObject) {
         SCHomeTabBarController * homeTabBarController = [[SCHomeTabBarController alloc] init];
         [AppDelegate getAppDelegate].window.rootViewController = homeTabBarController;

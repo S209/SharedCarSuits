@@ -12,7 +12,13 @@ typedef void(^GetGeocoderBlock)(NSString * geocoderString);
 @interface SCManager (CommonMethods)
 - (void)setUserUid:(NSString *)uId;
 - (void)setSessionId:(NSString *)sessionId;
+- (void)setUserPassword:(NSString *)password;
+- (void)setUserLoginName:(NSString *)loginName;
+
 + (NSString *)getUserId;
++ (NSString *)getUserPassword;
++ (NSString *)getUserLoginName;
+
 + (BOOL)isLogin;
 + (BOOL)hasNeedLogin;
 + (void)exit;

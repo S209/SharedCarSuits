@@ -15,6 +15,8 @@
 #import "SCAppointmentServiceModel.h"
 #import "SCOrderInfoModel.h"
 #import <NSDate+MTDates.h>
+#import "SCManager+CommonMethods.h"
+#import "SCManager+MBProgressHUD.h"
 @interface SCMyAppointmentViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
@@ -70,8 +72,10 @@
         [timeBtn setTitle:mentModel.time forState:UIControlStateNormal];
         BOOL flag = [self hasCanClickWithTime:mentModel.time];
         if (flag){
+             timeBtn.enabled = YES;
             [timeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         }else{
+            timeBtn.enabled = NO;
             [timeBtn setTitleColor:[UIColor sc_colorWithCCCCCC] forState:UIControlStateNormal];
         }
         timeBtn.titleLabel.font = [UIFont sy_font12];
@@ -109,8 +113,15 @@
     //2018-02-26+8:00:00
     NSString * time = [NSString stringWithFormat:@"%@:%@",currentDateStr,selectTime];
     NSDate * appointmentDate = [NSDate mt_dateFromString:time usingFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+
+    
     NSDate * date = [NSDate date];
-    NSComparisonResult result = [date compare:appointmentDate];
+    NSTimeZone *zone = [NSTimeZone systemTimeZone];
+    NSInteger interval = [zone secondsFromGMTForDate: date];
+    NSDate *localeDate = [date  dateByAddingTimeInterval: interval];
+    
+    NSComparisonResult result = [localeDate compare:appointmentDate];
 
     if (result == -1){
         return YES;
@@ -205,8 +216,13 @@
         [timeBtn setTitleColor:[UIColor sc_colorWithCCCCCC] forState:UIControlStateNormal];
         timeBtn.frame = CGRectMake(pieceX, pieceY, pieceSize, 0.5*pieceSize);
         [timeBtn addTarget:self action:@selector(timeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [timeBtn setTitle:[self.timeArray safeObjectAtIndex:i] forState:UIControlStateNormal];
         timeBtn.titleLabel.font = [UIFont sy_font12];
+        BOOL flag = [self hasCanClickWithTime:[self.timeArray safeObjectAtIndex:i]];
+        if (flag){
+            [timeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        }else{
+            [timeBtn setTitleColor:[UIColor sc_colorWithCCCCCC] forState:UIControlStateNormal];
+        }
     }
 
     CGFloat timeHeight = 4 * pieceSize * 0.5 + 7*3 + 65 + 25;
@@ -361,44 +377,53 @@
 
 - (void)timeBtnClick:(UIButton *)sender
 {
-    NSInteger tag = sender.tag - 300;
-    SCAppointmentModel * mentModel = [self.timeArray safeObjectAtIndex:tag];
-    self.reservationTimeString = mentModel.time;
+    if (sender.enabled) {
+        NSInteger tag = sender.tag - 300;
+        SCAppointmentModel * mentModel = [self.timeArray safeObjectAtIndex:tag];
+        self.reservationTimeString = mentModel.time;
+        [sender setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
 }
 
 - (void)makeAnAppointmentBtnClick:(UIButton *)sender
 {
-    NSMutableString * projectString = [NSMutableString string];
-    for (NSUInteger i = 0; i < self.selectServiceArray.count; i++) {
-        SCAppointmentServiceModel * model = [self.selectServiceArray safeObjectAtIndex:i];
-        [projectString appendString:[NSString stringWithFormat:@"%zd",model.idDes]];
-        if (i < self.selectServiceArray.count-1) {
-            [projectString appendString:@";"];
+    self.reservationTimeString = @"8:00";
+#warning
+    if (self.reservationTimeString.length) {
+        NSMutableString * projectString = [NSMutableString string];
+        for (NSUInteger i = 0; i < self.selectServiceArray.count; i++) {
+            SCAppointmentServiceModel * model = [self.selectServiceArray safeObjectAtIndex:i];
+            [projectString appendString:[NSString stringWithFormat:@"%zd",model.idDes]];
+            if (i < self.selectServiceArray.count-1) {
+                [projectString appendString:@";"];
+            }
         }
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.locale = [NSLocale currentLocale];
+        //设定时间格式,这里可以设置成自己需要的格式
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        //用[NSDate date]可以获取系统当前时间
+        NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
+        //2018-02-26+8:00:00
+        NSString * time = [NSString stringWithFormat:@"%@:%@",currentDateStr,self.reservationTimeString];
+#warning 店的ID 写死
+        [[SCManager shareInstance] makeAnAppointmentWithShopId:@"1" orderType:[NSString stringWithFormat:@"%zd",_serviceType] projectIds:projectString carId:@"0" date:time success:^(NSURLSessionDataTask *serializer, id responseObject) {
+            SCOrderInfoModel * infoModel = [SCOrderInfoModel yy_modelWithDictionary:responseObject];
+            SCOrderConfirmationViewController * orderConfirmation = [[SCOrderConfirmationViewController alloc] init];
+            orderConfirmation.infoModel = infoModel;
+            orderConfirmation.orderType = 1;
+            orderConfirmation.listArray = self.selectServiceArray;
+            [self.navigationController pushViewController:orderConfirmation animated:YES];
+            
+        } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+            
+        }];
+    }else{
+        [SCManager dismissInfo:@"不在预约时间的范围内"];
     }
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.locale = [NSLocale currentLocale];
-    //设定时间格式,这里可以设置成自己需要的格式
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    //用[NSDate date]可以获取系统当前时间
-    NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
-    //2018-02-26+8:00:00
-    NSString * time = [NSString stringWithFormat:@"%@:%@",currentDateStr,self.reservationTimeString];
-    [[SCManager shareInstance] makeAnAppointmentWithShopId:@"1" orderType:[NSString stringWithFormat:@"%zd",_serviceType] projectIds:projectString carId:@"0" date:time success:^(NSURLSessionDataTask *serializer, id responseObject) {
-        SCOrderInfoModel * infoModel = [SCOrderInfoModel yy_modelWithDictionary:responseObject];
-        SCOrderConfirmationViewController * orderConfirmation = [[SCOrderConfirmationViewController alloc] init];
-        orderConfirmation.infoModel = infoModel;
-        orderConfirmation.orderType = 1;
-        orderConfirmation.listArray = self.selectServiceArray;
-        [self.navigationController pushViewController:orderConfirmation animated:YES];
-        
-    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
-    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-        
-    }];
-    
 }
 
 

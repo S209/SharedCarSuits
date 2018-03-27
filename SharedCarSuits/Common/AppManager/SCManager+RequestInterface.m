@@ -14,7 +14,22 @@
 #import "SCLaunchViewController.h"
 #import "AppDelegate.h"
 #import "SCNetworkMultiDataObj.h"
+#import <objc/runtime.h>
 @implementation SCManager (RequestInterface)
+- (void)setHasShowMsg:(BOOL)hasShowMsg
+{
+    objc_setAssociatedObject(self, @"hasShowMsg", [NSNumber numberWithBool:hasShowMsg], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)hasShowMsg
+{
+    NSNumber * flag = objc_getAssociatedObject(self, @"hasShowMsg");
+    return [flag boolValue];
+}
+
+
+
+
 - (void)getRegisteredVerificationCodeWithPhoneNumber:(NSString *)phoneNumber success:(SuccessBlock)success
                                               notice:(OptionBlock)notice
                                              failure:(FailureBlock)failure
@@ -42,6 +57,8 @@
         if (success) {
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:SCHasNeedLogin];
             [[NSUserDefaults standardUserDefaults] synchronize];
+            [[SCManager shareInstance] setUserLoginName:loginName];
+            [[SCManager shareInstance] setUserPassword:passWord];
             
             NSData * data = [NSKeyedArchiver archivedDataWithRootObject:responseObject];
             [[NSUserDefaults standardUserDefaults] setObject:data forKey:SCLoginModelUserDict];
@@ -426,6 +443,7 @@
 - (void)getHomeBannerListWithSuccess:(SuccessBlock)success notice:(OptionBlock)notice failure:(FailureBlock)failure
 {
     NSDictionary * parameterDict = @{};
+    self.hasShowMsg = YES;
     [self requestUrl:SCUrl_BannerList andParamater:parameterDict success:^(NSURLSessionDataTask *serializer, id responseObject) {
         if (success) {
             success(serializer,responseObject);
@@ -505,7 +523,7 @@
         if (code == 200) {
             if (success) {
                id dataDict = [responseObject objectForKey:@"data"];
-                if ([NSString stringWithFormat:@"%@",[responseObject objectForKey:@"message"]].length>0) {
+                if (self.hasShowMsg && [NSString stringWithFormat:@"%@",[responseObject objectForKey:@"message"]].length>0) {
                     [SCManager dismissInfo:[responseObject objectForKey:@"message"]];
                 }
                 
@@ -536,9 +554,20 @@
                 if (notice) {
                     notice(serializer,responseObject);
                 }
-            }else if (code == 900){               
-
-                [SCManager exit];
+            }else if (code == 900){
+              
+                if ([SCManager getUserId].length != 0 &&[SCManager getUserPassword].length!=0) {
+                    self.hasShowMsg = NO;
+                    [self logInWithLoginName:[SCManager getUserLoginName] passWord:[SCManager getUserPassword] success:^(NSURLSessionDataTask *serializer, id responseObject) {
+                        self.hasShowMsg = YES;
+                    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+                        
+                    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+                        
+                    }];
+                }else{
+                    [SCManager exit];
+                }
             }
             if (failure) {
                 failure(serializer,nil);

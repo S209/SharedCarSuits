@@ -19,5 +19,4 @@
 @property (nonatomic, strong) SCMyGarageListPageModel * pageModel;
 - (void)updateCarInfoWithInfo:(NSString *)info andIndex:(NSInteger)index btnClickState:(BOOL)flag;
 - (void)updateCarName:(NSString *)carName;
-
 @end

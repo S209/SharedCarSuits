@@ -240,21 +240,45 @@ static NSString * const KEY_UUID = @"唯一识别的key_uuid";
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
++ (NSString *)getUserId
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:SCUserId];
+}
+
 - (void)setSessionId:(NSString *)sessionId
 {
     [[NSUserDefaults standardUserDefaults] setValue:sessionId forKey:SCSessionId];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+ (NSString *)getUserId
-{
-  return [[NSUserDefaults standardUserDefaults] objectForKey:SCUserId];
-}
-
 + (NSString *)getSessionId
 {
-   return [[NSUserDefaults standardUserDefaults] objectForKey:SCSessionId];
+    return [[NSUserDefaults standardUserDefaults] objectForKey:SCSessionId];
 }
+
+
++ (NSString *)getUserPassword
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:SCUserPassword];
+}
+
+- (void)setUserPassword:(NSString *)password
+{
+    [[NSUserDefaults standardUserDefaults] setObject:password forKey:SCUserPassword];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)setUserLoginName:(NSString *)loginName
+{
+    [[NSUserDefaults standardUserDefaults] setObject:loginName forKey:SCUserLoginName];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (NSString *)getUserLoginName
+{
+  return [[NSUserDefaults standardUserDefaults] objectForKey:SCUserLoginName];
+}
+
 
 + (BOOL)isLogin
 {

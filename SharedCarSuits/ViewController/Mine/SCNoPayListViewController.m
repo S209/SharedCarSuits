@@ -63,10 +63,7 @@
     //设定时间格式,这里可以设置成自己需要的格式
     [dateFormatter setDateFormat:@"yyyy-MM-dd+HH:mm:ss"];
     //用[NSDate date]可以获取系统当前时间
-    NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
-#warning
-    currentDateStr = @"";
-    
+    NSString * currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
     [[SCManager shareInstance] getOrderListWithOrderState:orderState length:10 createTime:currentDateStr success:^(NSURLSessionDataTask *serializer, id responseObject) {
         NSArray * listArray = [responseObject objectForKey:@"list"];
         NSArray * dataArray = [NSArray yy_modelArrayWithClass:[SCOrderListModel class] json:listArray];

@@ -139,31 +139,31 @@
     [self.segmentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(15);
         make.right.equalTo(self.contentView.mas_right).with.offset(-15);
-        make.top.equalTo(self.serviceLabel.mas_bottom).with.offset(14);
+        make.top.equalTo(self.contentView.mas_top).with.offset(50);
         make.height.mas_equalTo(0.5);
     }];
     
     [self.projectLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(15);
         make.right.equalTo(self.contentView.mas_right).with.offset(-15);
-        make.top.equalTo(self.segmentView.mas_bottom).with.offset(18);
+        make.top.equalTo(self.segmentView.mas_bottom).with.offset(16);
     }];
     
     [self.moneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(15);
         make.right.equalTo(self.contentView.mas_right).with.offset(-0);
-        make.top.equalTo(self.projectLabel.mas_bottom).with.offset(20);
+        make.top.equalTo(self.projectLabel.mas_bottom).with.offset(15);
     }];
     
     [self.carInfoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(15);
-        make.top.equalTo(self.moneyLabel.mas_bottom).with.offset(20);
+        make.top.equalTo(self.moneyLabel.mas_bottom).with.offset(16);
         make.right.equalTo(self.contentView.mas_right).with.offset(-0);
     }];
     
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(15);
-        make.top.equalTo(self.carInfoLabel.mas_bottom).with.offset(10);
+        make.top.equalTo(self.carInfoLabel.mas_bottom).with.offset(8);
         make.right.equalTo(self.contentView.mas_right).with.offset(-0);
     }];
 
@@ -178,7 +178,7 @@
     [self.segmentTwoView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).with.offset(15);
         make.right.equalTo(self.contentView.mas_right).with.offset(-15);
-        make.top.equalTo(self.timeLabel.mas_bottom).with.offset(20);
+        make.top.equalTo(self.segmentView.mas_bottom).with.offset(145);
         make.height.mas_equalTo(0.5);
     }];
     
@@ -288,7 +288,7 @@
 {
     if (orderType == OrderTypeNoPay||
         orderType == OrderTypePayed) {
-        return 255;
+        return 252;
     }else{
        return 255-47-15;
     }

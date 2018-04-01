@@ -100,6 +100,7 @@
 		0573B02C203D53C50017D852 /* SCMyGarageListPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0573B02B203D53C50017D852 /* SCMyGarageListPageModel.m */; };
 		0573B02E203E70B90017D852 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0573B02D203E70B90017D852 /* citydict.plist */; };
 		05800D232070A754003E308B /* SCCarDropDownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05800D222070A754003E308B /* SCCarDropDownMenuView.m */; };
+		05800D2620712229003E308B /* SCDropDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05800D2520712229003E308B /* SCDropDownListView.m */; };
 		058846852062A983004693CF /* SCNavigationDetailsPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 058846842062A983004693CF /* SCNavigationDetailsPageView.m */; };
 		0588468E2064A2B1004693CF /* SCEvaluateRowOneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0588468D2064A2B1004693CF /* SCEvaluateRowOneTableViewCell.m */; };
 		058846912064A2C0004693CF /* SCEvaluateRowTwoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 058846902064A2C0004693CF /* SCEvaluateRowTwoTableViewCell.m */; };
@@ -337,6 +338,8 @@
 		0573B02D203E70B90017D852 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
 		05800D212070A754003E308B /* SCCarDropDownMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCCarDropDownMenuView.h; sourceTree = "<group>"; };
 		05800D222070A754003E308B /* SCCarDropDownMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCCarDropDownMenuView.m; sourceTree = "<group>"; };
+		05800D2420712229003E308B /* SCDropDownListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDropDownListView.h; sourceTree = "<group>"; };
+		05800D2520712229003E308B /* SCDropDownListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDropDownListView.m; sourceTree = "<group>"; };
 		058846832062A983004693CF /* SCNavigationDetailsPageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCNavigationDetailsPageView.h; sourceTree = "<group>"; };
 		058846842062A983004693CF /* SCNavigationDetailsPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCNavigationDetailsPageView.m; sourceTree = "<group>"; };
 		0588468C2064A2B1004693CF /* SCEvaluateRowOneTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCEvaluateRowOneTableViewCell.h; sourceTree = "<group>"; };
@@ -621,6 +624,8 @@
 				0553FF2920655C8D00A3EEA8 /* SCStoreDetailsAlertView.m */,
 				05800D212070A754003E308B /* SCCarDropDownMenuView.h */,
 				05800D222070A754003E308B /* SCCarDropDownMenuView.m */,
+				05800D2420712229003E308B /* SCDropDownListView.h */,
+				05800D2520712229003E308B /* SCDropDownListView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1334,6 +1339,7 @@
 				05C94273202E907800B78CA4 /* UIFont+Addition.m in Sources */,
 				055D4CCF2058D078009DE091 /* SCMyAppointmentViewCell.m in Sources */,
 				05D34DC12031BCC3002AADA4 /* SCManager+CommonMethods.m in Sources */,
+				05800D2620712229003E308B /* SCDropDownListView.m in Sources */,
 				058846912064A2C0004693CF /* SCEvaluateRowTwoTableViewCell.m in Sources */,
 				055D4CDD2058D078009DE091 /* SCRegisterViewCarInfoView.m in Sources */,
 				05DAD56A203172E8000E13C2 /* SCManager+AppInfo.m in Sources */,

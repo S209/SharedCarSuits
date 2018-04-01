@@ -220,10 +220,6 @@
 - (void)setUserModel:(SCUserModel *)userModel
 {
     _userModel = userModel;
-//    NSString* userModelHeadUrl = [userModel.headUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-  
-    
     [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:userModel.headUrl] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         NSLog(@"===%ld===",receivedSize);
     } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {

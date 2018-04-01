@@ -14,5 +14,5 @@
 @property (nonatomic, copy) NSString * loginName;
 @property (nonatomic, copy) NSString * shopId;//默认ID
 @property (nonatomic, assign) NSInteger ifVIP;
-@property (nonatomic, copy) NSArray <SCMyGarageListPageModel *> * carsArray;
+@property (nonatomic, copy) NSArray <SCMyGarageListPageModel *> * cars;
 @end

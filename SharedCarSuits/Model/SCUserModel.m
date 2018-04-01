@@ -7,7 +7,9 @@
 //
 
 #import "SCUserModel.h"
-
+#import "SCMyGarageListPageModel.h"
 @implementation SCUserModel
-
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"cars" : [SCMyGarageListPageModel class]};
+}
 @end

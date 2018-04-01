@@ -21,7 +21,7 @@
 #import "SCMyGarageListPageModel.h"
 #import "SCCarDropDownMenuView.h"
 #import "SCReservationViewController.h"
-@interface SCMyAppointmentViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface SCMyAppointmentViewController ()<UITableViewDataSource,UITableViewDelegate,SCCarDropDownMenuViewDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
 @property (nonatomic, strong) NSMutableArray * timeArray;
@@ -155,7 +155,6 @@
 }
 
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.lastBtnTag = -99;
@@ -170,16 +169,14 @@
 
 - (void)setupRightItemView
 {
-    SCCarDropDownMenuView * dropDownMenuView = [[SCCarDropDownMenuView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-100-15, 30, 100, 25)];
+    SCCarDropDownMenuView * dropDownMenuView = [[SCCarDropDownMenuView alloc] initWithFrame:CGRectMake(40, 30, 100, 25)];
     self.dropDownMenuView = dropDownMenuView;
+    dropDownMenuView.delegate = self;
     SCUserModel * userModel = [SCManager getUserModel];
-    dropDownMenuView.dataArray = [userModel.carsArray mutableCopy];
     dropDownMenuView.backgroundColor = [UIColor redColor];
-    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:dropDownMenuView];
+    dropDownMenuView.dataArray = [userModel.cars mutableCopy];
 }
-
-
 
 - (void)setupView
 {
@@ -228,7 +225,6 @@
     [todayBtn setTitleColor:[UIColor sc_colorWithFC8739] forState:UIControlStateNormal];
     [todayBtn setTitle:@"今日" forState:UIControlStateNormal];
     [todayBtn addTarget:self action:@selector(todayBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-
   
     NSInteger column = 6;
     NSInteger pieceSize = (SCREEN_WIDTH - 30-5*9)/column;
@@ -549,9 +545,14 @@
 #pragma mark getShopId
 - (NSString *)getShopId
 {
-    return @"";
     SCUserModel * userModel = [SCManager getUserModel];
     return userModel.shopId;
+}
+
+#pragma mark 显示下拉的车列表
+- (void)clickCarDropDownMenuView
+{
+    
 }
 
 

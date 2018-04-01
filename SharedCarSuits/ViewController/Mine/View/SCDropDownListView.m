@@ -1,19 +1,20 @@
 //
-//  SCCarDropDownMenuView.m
+//  SCDropDownListView.m
 //  SharedCarSuits
 //
 //  Created by tuhaisheng on 2018/4/1.
 //  Copyright © 2018年 tuhaisheng. All rights reserved.
 //
 
-#import "SCCarDropDownMenuView.h"
+#import "SCDropDownListView.h"
 #import "SCMyGarageListPageModel.h"
-@interface SCCarDropDownMenuView ()<UITableViewDelegate,UITableViewDataSource>
+
+@interface SCDropDownListView () <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
-@property (nonatomic, weak) UIImageView * icoTriangleDown;
 @end
-@implementation SCCarDropDownMenuView
-- (instancetype)initWithFrame:(CGRect)frame
+@implementation SCDropDownListView
+
+- (instancetype) initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -31,11 +32,6 @@
     tableView.dataSource = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.frame = self.bounds;
- 
-    UIImageView * icoTriangleDown = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ico_triangle_down"]];
-    [self addSubview:icoTriangleDown];
-    icoTriangleDown.frame = CGRectMake(100-20, 10, 17*0.5, 5);
-
 }
 
 #pragma mark UITableViewDelegate
@@ -67,13 +63,13 @@
         carLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         carLabel.numberOfLines = 1;
         [carLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(cell.contentView.mas_left).with.offset(10);
+            make.left.equalTo(cell.contentView.mas_left).with.offset(10);
             make.centerY.mas_equalTo(cell.contentView.mas_centerY);
             make.left.equalTo(cell.contentView.mas_left).with.offset(12);
             make.right.equalTo(cell.contentView.mas_right).with.offset(-20);
         }];
     }
- 
+    
     SCMyGarageListPageModel * pageModel = [self.dataArray safeObjectAtIndex:indexPath.row];
     UILabel * label = [cell viewWithTag:300];
     label.text = pageModel.carNum;

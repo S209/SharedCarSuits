@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SharedCarSuits/ViewController/Mine/SCMyAppointmentViewController.m"
-            timestampString = "544282089.1809731"
+            timestampString = "544285485.863889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "-setupView"
             landmarkType = "7">
          </BreakpointContent>
@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SharedCarSuits/ViewController/Mine/SCMyAppointmentViewController.m"
-            timestampString = "544282089.181434"
+            timestampString = "544285485.864887"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "-setupView"
             landmarkType = "7">
          </BreakpointContent>
@@ -84,7 +84,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SharedCarSuitsExtension/Web/SCBaseWebViewController.m"
-            timestampString = "544282089.181857"
+            timestampString = "544285485.86564"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
@@ -100,7 +100,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SharedCarSuitsExtension/Web/SCBaseWebViewController.m"
-            timestampString = "544282089.181937"
+            timestampString = "544285485.8662699"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
@@ -116,7 +116,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SharedCarSuitsExtension/Web/SCBaseWebViewController.m"
-            timestampString = "544282089.182003"
+            timestampString = "544285485.866495"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "89"
@@ -132,7 +132,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SharedCarSuits/Common/AppManager/SCManager+RequestInterface.m"
-            timestampString = "544247977.947309"
+            timestampString = "544283199.033229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "392"
@@ -148,7 +148,7 @@
                   moduleName = "SharedCarSuits"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Desktop/Work/ShareCarSuitsByGitLab/SharedCarSuits/Common/AppManager/SCManager+RequestInterface.m"
-                  timestampString = "544279972.5718729"
+                  timestampString = "544283571.687174"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "392"
@@ -163,7 +163,7 @@
                   moduleName = "SharedCarSuits"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Desktop/Work/ShareCarSuitsByGitLab/SharedCarSuits/Common/AppManager/SCManager+RequestInterface.m"
-                  timestampString = "544279972.574621"
+                  timestampString = "544283571.690087"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "392"
@@ -180,7 +180,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SharedCarSuits/ViewController/Mine/SCNoPayListViewController.m"
-            timestampString = "544282089.182146"
+            timestampString = "544285485.8668081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "119"
@@ -196,7 +196,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SharedCarSuits/ViewController/Mine/SCOrderConfirmationViewController.m"
-            timestampString = "544282089.182252"
+            timestampString = "544285485.867322"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "242"
@@ -212,7 +212,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SharedCarSuits/ViewController/Mine/SCOrderConfirmationViewController.m"
-            timestampString = "544282089.1823421"
+            timestampString = "544285485.867751"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "234"
@@ -228,7 +228,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SharedCarSuits/ViewController/Mine/SCOrderCancelListViewController.m"
-            timestampString = "544282089.182422"
+            timestampString = "544285485.86798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
@@ -244,7 +244,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SharedCarSuits/ViewController/Mine/SCOrderCancelListViewController.m"
-            timestampString = "544282089.182528"
+            timestampString = "544285485.868524"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
@@ -260,7 +260,7 @@
                   moduleName = "SharedCarSuits"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Desktop/Work/ShareCarSuitsByGitLab/SharedCarSuits/ViewController/Mine/SCOrderCancelListViewController.m"
-                  timestampString = "544279972.6298341"
+                  timestampString = "544283571.724588"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "69"
@@ -275,7 +275,7 @@
                   moduleName = "SharedCarSuits"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Desktop/Work/ShareCarSuitsByGitLab/SharedCarSuits/ViewController/Mine/SCOrderCancelListViewController.m"
-                  timestampString = "544279972.631665"
+                  timestampString = "544283571.72905"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "69"
@@ -292,7 +292,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SharedCarSuits/ViewController/Mine/SCMyCouponViewController.m"
-            timestampString = "544282089.182624"
+            timestampString = "544285485.868733"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
@@ -308,7 +308,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SharedCarSuits/Common/AppManager/SCManager+RequestInterface.m"
-            timestampString = "544258117.256627"
+            timestampString = "544283199.0369329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
@@ -324,7 +324,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SharedCarSuits/ViewController/ReservationController/SCReservationViewController.m"
-            timestampString = "544282089.182719"
+            timestampString = "544285485.869272"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "192"
@@ -340,12 +340,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SharedCarSuits/ViewController/ReservationController/SCReservationViewController.m"
-            timestampString = "544282089.182781"
+            timestampString = "544285485.869773"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "193"
             endingLineNumber = "193"
             landmarkName = "-reservationViewCellDefaultWithModel:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SharedCarSuits/ViewController/Mine/View/SCCarDropDownMenuView.m"
+            timestampString = "544285485.8699321"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "-setDataArray:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SharedCarSuits/ViewController/Mine/View/SCCarDropDownMenuView.m"
+            timestampString = "544285485.870536"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-tableView:heightForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SharedCarSuits/ViewController/Mine/SCEditorUserInfoViewController.m"
+            timestampString = "544283077.909512"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "-completeClick"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SharedCarSuits/Common/AppManager/SCManager+RequestInterface.m"
+            timestampString = "544283199.040841"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-logInWithLoginName:passWord:success:notice:failure:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

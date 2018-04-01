@@ -15,10 +15,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupView];
+    [self setupWkWbView];
 }
 
-- (void)setupView
+- (void)setupWkWbView
 {
     WKWebView * wkWbView = [[WKWebView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:wkWbView];
@@ -51,6 +51,44 @@
 - (void)callJSMethod:(NSString *)methodName {
     [self callJSMethod:methodName data:nil];
 }
+
+#pragma mark - WKNavigationDelegate
+- (void)webViewWebContentProcessDidTerminate:(WKWebView *)webView
+{
+    [webView reload];
+}
+
+- (void)webView:(UIWebView*)webView DidFailLoadWithError:(NSError*)error
+{
+    
+}
+
+// 页面开始加载时调用
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
+    NSString * title = webView.title;
+}
+// 当内容开始返回时调用
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation{
+    
+}
+// 页面加载完成之后调用
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+    self.title = webView.title;
+//    if (webView.title.length == 0) {
+//        [webView reload];
+//    }
+}
+// 页面加载失败时调用
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation{
+
+}
+
+- (void)webView:(WKWebView *)webView
+didReceiveServerRedirectForProvisionalNavigation:
+(null_unspecified WKNavigation *)navigation {
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

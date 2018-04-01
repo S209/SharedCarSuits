@@ -22,7 +22,8 @@
 
 - (void)setupView
 {
- [self.wkWbView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_bannerModel.src]]];
+    [self.wkWbView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_bannerModel.src]]];
+    [self.view addSubview:self.wkWbView];
 }
 
 - (void)didReceiveMemoryWarning {

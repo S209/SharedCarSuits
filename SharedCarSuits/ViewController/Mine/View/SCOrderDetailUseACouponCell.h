@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class SCCouponModel;
 @interface SCOrderDetailUseACouponCell : UITableViewCell
+@property (nonatomic, strong) SCCouponModel * couponModel;
 + (instancetype)orderDetailUseACouponCellWithTabeleView:(UITableView *)tableview;
 + (CGFloat)cellHeight;
+
 @end

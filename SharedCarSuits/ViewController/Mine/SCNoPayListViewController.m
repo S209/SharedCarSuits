@@ -26,6 +26,11 @@
     return _dataArray;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor sc_colorWithF4F4F4];
@@ -50,6 +55,10 @@
     tableView.mj_header = [SCDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
     [tableView.mj_header beginRefreshing];
 }
+
+
+
+//- (void)update
 
 - (void)loadData
 {
@@ -89,7 +98,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.dataArray.count;
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -107,10 +115,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     SCOrderConfirmationViewController * confirmationViewController = [[SCOrderConfirmationViewController alloc] init];
     confirmationViewController.orderType = 1;
     confirmationViewController.listModel = [self.dataArray safeObjectAtIndex:indexPath.row];
     [self.navigationController pushViewController:confirmationViewController animated:YES];
+    
 }
 
 

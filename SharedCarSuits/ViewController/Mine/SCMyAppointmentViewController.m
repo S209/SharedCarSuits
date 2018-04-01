@@ -17,6 +17,7 @@
 #import <NSDate+MTDates.h>
 #import "SCManager+CommonMethods.h"
 #import "SCManager+MBProgressHUD.h"
+#import "SCOrderListModel.h"
 @interface SCMyAppointmentViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
@@ -31,6 +32,7 @@
 @property (nonatomic, strong) NSMutableArray * selectServiceArray;
 @property (nonatomic, weak) UILabel * numberOfServiceLabel;
 @property (nonatomic, copy) NSString * reservationTimeString;
+@property (nonatomic, assign) NSInteger lastBtnTag;
 @end
 
 @implementation SCMyAppointmentViewController
@@ -104,6 +106,10 @@
 
 
 - (BOOL)hasCanClickWithTime:(NSString *)selectTime{
+    if (self.timeType == 1) {
+        return YES;
+    }
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.locale = [NSLocale currentLocale];
     //设定时间格式,这里可以设置成自己需要的格式
@@ -111,17 +117,22 @@
     //用[NSDate date]可以获取系统当前时间
     NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
     //2018-02-26+8:00:00
-    NSString * time = [NSString stringWithFormat:@"%@:%@",currentDateStr,selectTime];
+    NSString * time = [NSString stringWithFormat:@"%@ %@:00",currentDateStr,selectTime];
     NSDate * appointmentDate = [NSDate mt_dateFromString:time usingFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSTimeZone * zone = [NSTimeZone systemTimeZone];
+    NSInteger appointmentInterval = [zone secondsFromGMTForDate:appointmentDate];
+    NSDate * localeAppointmentDate = [appointmentDate  dateByAddingTimeInterval: appointmentInterval];
+    
     
 
     
     NSDate * date = [NSDate date];
-    NSTimeZone *zone = [NSTimeZone systemTimeZone];
+//    NSTimeZone *zone = [NSTimeZone systemTimeZone];
     NSInteger interval = [zone secondsFromGMTForDate: date];
-    NSDate *localeDate = [date  dateByAddingTimeInterval: interval];
+    NSDate * localeDate = [date  dateByAddingTimeInterval: interval];
     
-    NSComparisonResult result = [localeDate compare:appointmentDate];
+    NSComparisonResult result = [localeDate compare:localeAppointmentDate];
 
     if (result == -1){
         return YES;
@@ -141,6 +152,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.lastBtnTag = -99;
     [self setNavigationWithTitle:@"预约流程"];
     [self sy_leftBarButtonItem];
     [self setupView];
@@ -315,27 +327,27 @@
 #pragma mark
 - (void)loadNewDataWithTime
 {
-//    dispatch_group_t group = dispatch_group_create();
-//    dispatch_group_async(group, dispatch_get_global_queue(0,0), ^{
-        // 并行执行的线程一
-        [[SCManager shareInstance] appointmentOrderTodayOrTodayListWithShopId:@"1" orderType:[NSString stringWithFormat:@"%zd",_serviceType] carId:@"0" timeType:[NSString stringWithFormat:@"%zd",self.timeType] success:^(NSURLSessionDataTask *serializer, id responseObject) {
-            NSArray * responseArray = [NSArray yy_modelArrayWithClass:[SCAppointmentModel class] json:responseObject];
-            self.timeArray = [responseArray mutableCopy];
-        } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-            
-        } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-            
-        }];
-//    });
+    //    dispatch_group_t group = dispatch_group_create();
+    //    dispatch_group_async(group, dispatch_get_global_queue(0,0), ^{
+    // 并行执行的线程一
+    [[SCManager shareInstance] appointmentOrderTodayOrTodayListWithShopId:@"1" orderType:[NSString stringWithFormat:@"%zd",_serviceType] carId:@"0" timeType:[NSString stringWithFormat:@"%zd",self.timeType] success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        NSArray * responseArray = [NSArray yy_modelArrayWithClass:[SCAppointmentModel class] json:responseObject];
+        self.timeArray = [responseArray mutableCopy];
+    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+        
+    }];
+    //    });
     
-//    dispatch_group_async(group, dispatch_get_global_queue(0,0), ^{
-        // 并行执行的线程二 SCUrl_AppointmentOrderTime
+    //    dispatch_group_async(group, dispatch_get_global_queue(0,0), ^{
+    // 并行执行的线程二 SCUrl_AppointmentOrderTime
     
-//    });
-//    dispatch_group_notify(group, dispatch_get_global_queue(0,0), ^{
-//        // 汇总结果
-//        [self.tableView reloadData];
-//    });
+    //    });
+    //    dispatch_group_notify(group, dispatch_get_global_queue(0,0), ^{
+    //        // 汇总结果
+    //        [self.tableView reloadData];
+    //    });
 }
 
 
@@ -378,17 +390,25 @@
 - (void)timeBtnClick:(UIButton *)sender
 {
     if (sender.enabled) {
-        NSInteger tag = sender.tag - 300;
+         NSInteger tag = sender.tag - 300;
+        if (self.lastBtnTag != tag && self.lastBtnTag >= 0)
+        {
+            UIButton * lastBtn = (UIButton *)[self.view viewWithTag:self.lastBtnTag+300];
+            [lastBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            lastBtn.backgroundColor = [UIColor sc_colorWithf8f8f8];
+        }
+
+        self.lastBtnTag = tag;
         SCAppointmentModel * mentModel = [self.timeArray safeObjectAtIndex:tag];
-        self.reservationTimeString = mentModel.time;
-        [sender setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        self.reservationTimeString = [NSString stringWithFormat:@"%@:00",mentModel.time];
+        [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        sender.backgroundColor = [UIColor sc_colorWith6C6DFD];
     }
 }
 
 - (void)makeAnAppointmentBtnClick:(UIButton *)sender
 {
-    self.reservationTimeString = @"8:00";
-#warning
+
     if (self.reservationTimeString.length) {
         NSMutableString * projectString = [NSMutableString string];
         for (NSUInteger i = 0; i < self.selectServiceArray.count; i++) {
@@ -406,14 +426,19 @@
         //用[NSDate date]可以获取系统当前时间
         NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
         //2018-02-26+8:00:00
-        NSString * time = [NSString stringWithFormat:@"%@:%@",currentDateStr,self.reservationTimeString];
+        NSString * time = [NSString stringWithFormat:@"%@+%@",currentDateStr,self.reservationTimeString];
 #warning 店的ID 写死
         [[SCManager shareInstance] makeAnAppointmentWithShopId:@"1" orderType:[NSString stringWithFormat:@"%zd",_serviceType] projectIds:projectString carId:@"0" date:time success:^(NSURLSessionDataTask *serializer, id responseObject) {
             SCOrderInfoModel * infoModel = [SCOrderInfoModel yy_modelWithDictionary:responseObject];
+            
+            SCOrderListModel * listModel = [[SCOrderListModel alloc] init];
+            listModel.orderType = _serviceType;
+           
+            
             SCOrderConfirmationViewController * orderConfirmation = [[SCOrderConfirmationViewController alloc] init];
             orderConfirmation.infoModel = infoModel;
-            orderConfirmation.orderType = 1;
-            orderConfirmation.listArray = self.selectServiceArray;
+            
+            orderConfirmation.orderType = _serviceType;
             [self.navigationController pushViewController:orderConfirmation animated:YES];
             
         } notice:^(NSURLSessionDataTask *serializer, id responseObject) {

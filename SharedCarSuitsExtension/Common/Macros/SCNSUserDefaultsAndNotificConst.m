@@ -14,3 +14,4 @@ NSString * const SCLoginModelUserDict = @"SCLoginModelUserDict";
 NSString * const SCSelectCarSuccess = @"SCSelectCarSuccess";
 NSString * const SCIsTheAppInstalledForTheFirstTime = @"SCIsTheAppInstalledForTheFirstTime";
 NSString * const SCHasNeedLogin = @"SCHasNeedLogin";
+NSString * const SCSelectCoupon = @"SCSelectCoupon";//SCCouponModel

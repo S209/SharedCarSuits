@@ -8,6 +8,9 @@
 
 #import "SCOrderDetailUseACouponCell.h"
 
+@interface SCOrderDetailUseACouponCell()
+
+@end
 @implementation SCOrderDetailUseACouponCell
 
 - (void)awakeFromNib {
@@ -44,6 +47,14 @@
 + (CGFloat)cellHeight
 {
     return 50;
+}
+
+
+- (void)setCouponModel:(SCCouponModel *)couponModel
+{
+    _couponModel = couponModel;
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

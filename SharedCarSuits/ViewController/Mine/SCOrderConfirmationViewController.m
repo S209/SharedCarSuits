@@ -14,13 +14,22 @@
 #import "SCOrderDetailOrderInfoViewCell.h"
 #import "SCOrderDetailPaymentWayViewCell.h"
 #import "SCOrderDetailUseACouponCell.h"
+#import "SCMyCouponViewController.h"
+#import "SCCouponModel.h"
 @interface SCOrderConfirmationViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
 @property (nonatomic, weak) UILabel * paymentTimeLabel;
+@property (nonatomic, strong) SCCouponModel * couponModel;
+@property (nonatomic, weak) SCOrderDetailUseACouponCell * couponCell;
 @end
 
 @implementation SCOrderConfirmationViewController
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (NSMutableArray *)dataArray
 {
@@ -36,7 +45,7 @@
     self.view.backgroundColor = [UIColor sc_colorWithf8f8f8];
     [self setNavigationWithTitle:@"订单确认"];
     [self setupView];
-    
+    [self addNotific];
 }
 
 - (void)setupView
@@ -49,7 +58,6 @@
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     tableView.tableHeaderView = [self setupTableHeaderView];
-//    if (_orderType == 1) {
         [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.view.mas_left).with.offset(0);
             make.right.equalTo(self.view.mas_right).with.offset(-0);
@@ -57,22 +65,6 @@
             make.bottom.equalTo(self.view.mas_bottom).with.offset(-44);
         }];
         [self setupBottomView];
-//    }else if (_orderType == 2){
-//        [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(self.view.mas_left).with.offset(0);
-//            make.right.equalTo(self.view.mas_right).with.offset(-0);
-//            make.top.equalTo(self.view.mas_top).with.offset(0);
-//            make.bottom.equalTo(self.view.mas_bottom).with.offset(-44);
-//        }];
-//        [self setupCancelBottomView];
-//    }else{
-//        [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(self.view.mas_left).with.offset(0);
-//            make.right.equalTo(self.view.mas_right).with.offset(-0);
-//            make.top.equalTo(self.view.mas_top).with.offset(0);
-//            make.bottom.equalTo(self.view.mas_bottom).with.offset(-0);
-//        }];
-//    }
 }
 
 - (void)setupBottomView{
@@ -213,6 +205,7 @@
     }else {
         SCOrderDetailUseACouponCell * cell = [SCOrderDetailUseACouponCell orderDetailUseACouponCellWithTabeleView:tableView];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        self.couponCell = cell;
         return cell;
     }
 }
@@ -231,6 +224,29 @@
     }else{
         return [SCOrderDetailUseACouponCell cellHeight];
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 3) {//支付方式
+        
+    }else if (indexPath.section == 4) {//使用优惠券
+        SCMyCouponViewController * myCouponViewController = [[SCMyCouponViewController alloc] init];
+        [self.navigationController pushViewController:myCouponViewController animated:YES];
+    }
+}
+
+
+- (void)addNotific
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectCoupon:) name:SCSelectCoupon object:nil];
+}
+
+- (void)selectCoupon:(NSNotification *)notific
+{
+    SCCouponModel * couponModel = notific.object;
+    self.couponModel = couponModel;
+    self.couponCell.couponModel = couponModel;
 }
 
 - (void)didReceiveMemoryWarning {

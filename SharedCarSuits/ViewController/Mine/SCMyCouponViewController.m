@@ -121,6 +121,14 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SCCouponModel * model = [self.dataArray safeObjectAtIndex:indexPath.row];
+    [[NSNotificationCenter defaultCenter] postNotificationName:SCSelectCoupon object:model];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -14,6 +14,7 @@
 #import "SCLaunchViewController.h"
 #import "AppDelegate.h"
 #import <TZLocationManager.h>
+#import "SCUserModel.h"
 static NSString * const KEY_IN_KEYCHAIN_UUID = @"唯一识别的KEY_UUID";
 static NSString * const KEY_UUID = @"唯一识别的key_uuid";
 @implementation SCManager (CommonMethods)
@@ -330,4 +331,13 @@ static NSString * const KEY_UUID = @"唯一识别的key_uuid";
     }];
     return nil;
 }
+
++ (SCUserModel *)getUserModel
+{
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:SCLoginModelUserDict];
+    NSDictionary * userDict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    SCUserModel  * userModel = [SCUserModel yy_modelWithDictionary:userDict];
+    return userModel;
+}
+
 @end

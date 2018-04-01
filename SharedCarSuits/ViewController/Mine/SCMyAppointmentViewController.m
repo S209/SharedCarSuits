@@ -5,7 +5,6 @@
 //  Created by tuhaisheng on 2018/2/23.
 //  Copyright © 2018年 tuhaisheng. All rights reserved.
 //
-
 #import "SCMyAppointmentViewController.h"
 #import "SCMyAppointmentViewCell.h"
 #import "SCReservationAlertView.h"
@@ -18,6 +17,10 @@
 #import "SCManager+CommonMethods.h"
 #import "SCManager+MBProgressHUD.h"
 #import "SCOrderListModel.h"
+#import "SCUserModel.h"
+#import "SCMyGarageListPageModel.h"
+#import "SCCarDropDownMenuView.h"
+#import "SCReservationViewController.h"
 @interface SCMyAppointmentViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
@@ -33,6 +36,7 @@
 @property (nonatomic, weak) UILabel * numberOfServiceLabel;
 @property (nonatomic, copy) NSString * reservationTimeString;
 @property (nonatomic, assign) NSInteger lastBtnTag;
+@property (nonatomic, weak) SCCarDropDownMenuView * dropDownMenuView;
 @end
 
 @implementation SCMyAppointmentViewController
@@ -104,6 +108,15 @@
     [self.view updateConstraintsIfNeeded];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSString * shopId = [self getShopId];
+    if (shopId.length == 0) {
+        [self showAlertViewWithNoDefaultShopId];
+    }
+}
+
 
 - (BOOL)hasCanClickWithTime:(NSString *)selectTime{
     if (self.timeType == 1) {
@@ -123,17 +136,10 @@
     NSTimeZone * zone = [NSTimeZone systemTimeZone];
     NSInteger appointmentInterval = [zone secondsFromGMTForDate:appointmentDate];
     NSDate * localeAppointmentDate = [appointmentDate  dateByAddingTimeInterval: appointmentInterval];
-    
-    
-
-    
     NSDate * date = [NSDate date];
-//    NSTimeZone *zone = [NSTimeZone systemTimeZone];
     NSInteger interval = [zone secondsFromGMTForDate: date];
     NSDate * localeDate = [date  dateByAddingTimeInterval: interval];
-    
     NSComparisonResult result = [localeDate compare:localeAppointmentDate];
-
     if (result == -1){
         return YES;
     }
@@ -155,11 +161,25 @@
     self.lastBtnTag = -99;
     [self setNavigationWithTitle:@"预约流程"];
     [self sy_leftBarButtonItem];
+     [self setupRightItemView];
     [self setupView];
     [self loadNewDataWithTime];
     self.timeType = 0;
     [self loadSerVice];
 }
+
+- (void)setupRightItemView
+{
+    SCCarDropDownMenuView * dropDownMenuView = [[SCCarDropDownMenuView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-100-15, 30, 100, 25)];
+    self.dropDownMenuView = dropDownMenuView;
+    SCUserModel * userModel = [SCManager getUserModel];
+    dropDownMenuView.dataArray = [userModel.carsArray mutableCopy];
+    dropDownMenuView.backgroundColor = [UIColor redColor];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:dropDownMenuView];
+}
+
+
 
 - (void)setupView
 {
@@ -327,45 +347,61 @@
 #pragma mark
 - (void)loadNewDataWithTime
 {
-    //    dispatch_group_t group = dispatch_group_create();
-    //    dispatch_group_async(group, dispatch_get_global_queue(0,0), ^{
-    // 并行执行的线程一
-    [[SCManager shareInstance] appointmentOrderTodayOrTodayListWithShopId:@"1" orderType:[NSString stringWithFormat:@"%zd",_serviceType] carId:@"0" timeType:[NSString stringWithFormat:@"%zd",self.timeType] success:^(NSURLSessionDataTask *serializer, id responseObject) {
-        NSArray * responseArray = [NSArray yy_modelArrayWithClass:[SCAppointmentModel class] json:responseObject];
-        self.timeArray = [responseArray mutableCopy];
-    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
-    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-        
-    }];
-    //    });
-    
-    //    dispatch_group_async(group, dispatch_get_global_queue(0,0), ^{
-    // 并行执行的线程二 SCUrl_AppointmentOrderTime
-    
-    //    });
-    //    dispatch_group_notify(group, dispatch_get_global_queue(0,0), ^{
-    //        // 汇总结果
-    //        [self.tableView reloadData];
-    //    });
+    NSString * shopId = [self getShopId];
+    if (shopId.length == 0) {
+        [self showAlertViewWithNoDefaultShopId];
+    }else{
+        [[SCManager shareInstance] appointmentOrderTodayOrTodayListWithShopId:shopId orderType:[NSString stringWithFormat:@"%zd",_serviceType] carId:@"0" timeType:[NSString stringWithFormat:@"%zd",self.timeType] success:^(NSURLSessionDataTask *serializer, id responseObject) {
+            NSArray * responseArray = [NSArray yy_modelArrayWithClass:[SCAppointmentModel class] json:responseObject];
+            self.timeArray = [responseArray mutableCopy];
+        } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+            
+        }];
+    }
 }
 
+#pragma mark NoDefaultShopId
+- (void)showAlertViewWithNoDefaultShopId
+{
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"你还没有设置默认店面" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+    }];
+    
+    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        SCReservationViewController * reservationViewController = [[SCReservationViewController alloc] init];
+        reservationViewController.appointmentProcess = YES;
+        [self.navigationController pushViewController:reservationViewController animated:YES];
+    }];
+
+    [alertVc addAction:cancle];
+    [alertVc addAction:confirm];
+    [self presentViewController:alertVc animated:YES completion:nil];
+}
 
 - (void)loadSerVice
 {
-    [[SCManager shareInstance] appointmentOrderWithShopId:@"1" orderType:[NSString stringWithFormat:@"%zd",_serviceType] carId:@"0" success:^(NSURLSessionDataTask *serializer, id responseObject) {
-        NSLog(@"===%@===",responseObject);
-        NSDictionary * projectDict =  [responseObject safeObjectAtIndex:0];
-        NSArray * projectArray = [projectDict objectForKey:@"project"];
-        NSArray * dataArray = [NSArray yy_modelArrayWithClass:[SCAppointmentServiceModel class] json:projectArray];
-        
-        self.dataArray = [dataArray mutableCopy];
-        [self.tableView reloadData];
-    } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
-    } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
-        
-    }];
+    NSString * shopId = [self getShopId];
+    if (shopId.length == 0) {
+        [self showAlertViewWithNoDefaultShopId];
+    }else{
+        [[SCManager shareInstance] appointmentOrderWithShopId:shopId orderType:[NSString stringWithFormat:@"%zd",_serviceType] carId:@"0" success:^(NSURLSessionDataTask *serializer, id responseObject) {
+            NSLog(@"===%@===",responseObject);
+            NSDictionary * projectDict =  [responseObject safeObjectAtIndex:0];
+            NSArray * projectArray = [projectDict objectForKey:@"project"];
+            NSArray * dataArray = [NSArray yy_modelArrayWithClass:[SCAppointmentServiceModel class] json:projectArray];
+            
+            self.dataArray = [dataArray mutableCopy];
+            [self.tableView reloadData];
+        } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
+            
+        } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
+            
+        }];
+    }
 }
 
 
@@ -408,17 +444,22 @@
 
 - (void)makeAnAppointmentBtnClick:(UIButton *)sender
 {
-
-    if (self.reservationTimeString.length) {
-        NSMutableString * projectString = [NSMutableString string];
-        for (NSUInteger i = 0; i < self.selectServiceArray.count; i++) {
-            SCAppointmentServiceModel * model = [self.selectServiceArray safeObjectAtIndex:i];
-            [projectString appendString:[NSString stringWithFormat:@"%zd",model.idDes]];
-            if (i < self.selectServiceArray.count-1) {
-                [projectString appendString:@";"];
-            }
+   
+    //SCReservationViewController
+    NSMutableString * projectString = [NSMutableString string];
+    for (NSUInteger i = 0; i < self.selectServiceArray.count; i++) {
+        SCAppointmentServiceModel * model = [self.selectServiceArray safeObjectAtIndex:i];
+        [projectString appendString:[NSString stringWithFormat:@"%zd",model.idDes]];
+        if (i < self.selectServiceArray.count-1) {
+            [projectString appendString:@";"];
         }
-        
+    }
+    NSString * shopId = [self getShopId];
+    if (shopId.length == 0) {
+        [self showAlertViewWithNoDefaultShopId];
+        return;
+    }
+    if (self.reservationTimeString.length && projectString.length) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         dateFormatter.locale = [NSLocale currentLocale];
         //设定时间格式,这里可以设置成自己需要的格式
@@ -427,8 +468,7 @@
         NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
         //2018-02-26+8:00:00
         NSString * time = [NSString stringWithFormat:@"%@+%@",currentDateStr,self.reservationTimeString];
-#warning 店的ID 写死
-        [[SCManager shareInstance] makeAnAppointmentWithShopId:@"1" orderType:[NSString stringWithFormat:@"%zd",_serviceType] projectIds:projectString carId:@"0" date:time success:^(NSURLSessionDataTask *serializer, id responseObject) {
+        [[SCManager shareInstance] makeAnAppointmentWithShopId:shopId orderType:[NSString stringWithFormat:@"%zd",_serviceType] projectIds:projectString carId:@"0" date:time success:^(NSURLSessionDataTask *serializer, id responseObject) {
             SCOrderInfoModel * infoModel = [SCOrderInfoModel yy_modelWithDictionary:responseObject];
             
             SCOrderListModel * listModel = [[SCOrderListModel alloc] init];
@@ -504,6 +544,14 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [SCMyAppointmentViewCell cellHeight];
+}
+
+#pragma mark getShopId
+- (NSString *)getShopId
+{
+    return @"";
+    SCUserModel * userModel = [SCManager getUserModel];
+    return userModel.shopId;
 }
 
 

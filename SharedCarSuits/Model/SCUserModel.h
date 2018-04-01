@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class SCMyGarageListPageModel;
 @interface SCUserModel : NSObject
 @property (nonatomic, copy) NSString * realName;
 @property (nonatomic, copy) NSString * headUrl;
 @property (nonatomic, copy) NSString * loginName;
+@property (nonatomic, copy) NSString * shopId;//默认ID
+@property (nonatomic, assign) NSInteger ifVIP;
+@property (nonatomic, copy) NSArray <SCMyGarageListPageModel *> * carsArray;
 @end

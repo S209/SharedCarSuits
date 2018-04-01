@@ -38,6 +38,14 @@
     [self setupView];
 }
 
+- (void)setAppointmentProcess:(BOOL)appointmentProcess
+{
+    _appointmentProcess = appointmentProcess;
+    if (appointmentProcess) {
+        [self sy_leftBarButtonItem];
+    }
+}
+
 - (void)loadNewData
 {
     self.currentPage = 1;
@@ -181,9 +189,10 @@
 {
     
     [[SCManager shareInstance] shopDefaultWithId:[NSString stringWithFormat:@"%zd",listModel.shopId] success:^(NSURLSessionDataTask *serializer, id responseObject) {
-//dataArray
-        
-        [self loadNewData];
+          [self loadNewData];
+        if (self.appointmentProcess) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
         
     } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
@@ -207,6 +216,13 @@
     [self.navigationController pushViewController:controller animated:YES];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SCShopListModel * listModel = [self.dataArray safeObjectAtIndex:indexPath.row];
+    SCNavigationController * controller = [[SCNavigationController alloc] init];
+    controller.listModel = listModel;
+    [self.navigationController pushViewController:controller animated:YES];
+}
 
 
 - (void)didReceiveMemoryWarning {

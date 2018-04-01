@@ -76,7 +76,7 @@
     UILabel * priceLabel = [[UILabel alloc] init];
     [self.contentView addSubview:priceLabel];
     self.priceLabel = priceLabel;
-    priceLabel.font = [UIFont sy_font9];
+    priceLabel.font = [UIFont sy_font19];
     priceLabel.textColor = [UIColor sc_colorWith6C6DFD];
     
     
@@ -86,7 +86,7 @@
     unitLabel.font = [UIFont sy_font10];
     unitLabel.textColor = [UIColor sc_colorWith6C6DFD];
     [unitLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(priceLabel.mas_bottom).with.offset(0);
+        make.top.equalTo(priceLabel.mas_top).with.offset(0);
         make.left.equalTo(serviceNameLabel.mas_left).with.offset(0);
 
     }];
@@ -129,12 +129,11 @@
     for (NSUInteger i = 0;i < servieceArray.count ;i++) {
         [mutableString appendString:[servieceArray safeObjectAtIndex:i]];
         if (i != servieceArray.count-1) {
-            [mutableString appendString:@"| "];
+            [mutableString appendString:@" | "];
         }
     }
     self.serviceNameLabel.text = mutableString;
     self.priceLabel.text = listModel.price;
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -38,26 +38,26 @@
 - (void)loadNewData
 {
     self.pageIndex = 1;
-    [self loadDataWithPage:1];
+    [self loadDataWithPage:1 withCouponId:@"0"];
 }
 
 - (void)loadMoreData
 {
     self.pageIndex += 1;
-    [self loadDataWithPage:self.pageIndex];
-}
-
-- (void)loadDataWithPage:(NSInteger)page
-{
-    NSString * length = [NSString stringWithFormat:@"%zd",10*page];
-    NSString *  couponId;
     SCCouponModel * couponModel = [self.dataArray lastObject];
+    NSString *  couponId;
     if (couponModel.cpuponId > 0){
         couponId = [NSString stringWithFormat:@"%zd",couponModel.cpuponId];
-    }else
-    {
+    }else{
         couponId = @"0";
     }
+    [self loadDataWithPage:self.pageIndex withCouponId:couponId];
+}
+
+- (void)loadDataWithPage:(NSInteger)page withCouponId:(NSString *)couponId
+{
+    NSString * length = [NSString stringWithFormat:@"%zd",10*page];
+
     WEAKSELF
     [[SCManager shareInstance] myCouponListWithId:couponId andLength:length success:^(NSURLSessionDataTask *serializer, id responseObject) {
         STRONGSELF

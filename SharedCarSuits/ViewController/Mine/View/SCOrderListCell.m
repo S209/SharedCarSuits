@@ -21,6 +21,7 @@
 @property (nonatomic, weak) UIImageView * bottomImageView;
 @property (nonatomic, weak) UIView * bottomSegmentView;
 @property (nonatomic, assign) OrderType orderType;
+@property (nonatomic, weak) UILabel * unitLabel;
 @end
 @implementation SCOrderListCell
 
@@ -75,7 +76,20 @@
     
     UILabel * moneyLabel = [[UILabel alloc] init];
     [self.contentView addSubview:moneyLabel];
+    moneyLabel.textColor = [UIColor sc_colorWith6C6DFD];
     self.moneyLabel = moneyLabel;
+    
+    UILabel * unitLabel = [[UILabel alloc] init];
+    self.unitLabel = unitLabel;
+    [self.contentView addSubview:unitLabel];
+    unitLabel.text = @"¥";
+    unitLabel.font = [UIFont sy_font10];
+    unitLabel.textColor = [UIColor sc_colorWith6C6DFD];
+    [unitLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+       make.top.equalTo(self.moneyLabel.mas_top).with.offset(0);
+        make.left.equalTo(projectLabel.mas_left).with.offset(0);
+    }];
+
     
     UILabel * carInfoLabel = [[UILabel alloc] init];
     [self.contentView addSubview:carInfoLabel];
@@ -150,7 +164,7 @@
     }];
     
     [self.moneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView.mas_left).with.offset(15);
+        make.left.equalTo(self.unitLabel.mas_right).with.offset(0);
         make.right.equalTo(self.contentView.mas_right).with.offset(-0);
         make.top.equalTo(self.projectLabel.mas_bottom).with.offset(15);
     }];
@@ -275,9 +289,16 @@
     NSArray * projectArray = [listModel.orderProjectName componentsSeparatedByString:@";"];
     
     NSMutableString * mutableString = [[NSMutableString alloc] init];
-    for (NSString * string in projectArray) {
-        [mutableString appendString:string];
+    
+    for (NSUInteger i = 0; i < projectArray.count; i++) {
+        NSString * string = [projectArray safeObjectAtIndex:i];
+          [mutableString appendString:string];
+        if (i < projectArray.count-1) {
+            [mutableString appendString:@" | "];
+        }
     }
+    
+
     self.projectLabel.text = mutableString;
     self.carInfoLabel.text = [NSString stringWithFormat:@"车辆信息：%@",listModel.carNum];
     self.moneyLabel.text = listModel.price;

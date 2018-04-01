@@ -9,6 +9,7 @@
 #import "SCManager.h"
 typedef void(^GetPositionBlock)(NSString * latitudeAndLongitude);
 typedef void(^GetGeocoderBlock)(NSString * geocoderString);
+@class SCUserModel;
 @interface SCManager (CommonMethods)
 - (void)setUserUid:(NSString *)uId;
 - (void)setSessionId:(NSString *)sessionId;
@@ -18,7 +19,7 @@ typedef void(^GetGeocoderBlock)(NSString * geocoderString);
 + (NSString *)getUserId;
 + (NSString *)getUserPassword;
 + (NSString *)getUserLoginName;
-
++ (SCUserModel *)getUserModel;
 + (BOOL)isLogin;
 + (BOOL)hasNeedLogin;
 + (void)exit;

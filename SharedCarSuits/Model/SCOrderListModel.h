@@ -18,7 +18,7 @@
 @property (nonatomic, copy) NSString * carNum;
 @property (nonatomic, copy) NSString * shopName;
 @property (nonatomic, copy) NSString * finishTime;
-@property (nonatomic, copy) NSString * restTime;
+@property (nonatomic, assign) NSInteger restTime;
 @property (nonatomic, copy) NSString * orderProjectName;
 @property (nonatomic, copy) NSString * payTime;
 @property (nonatomic, copy) NSString * orderId;

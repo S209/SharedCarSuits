@@ -10,7 +10,6 @@
 #import "SCOrderListCell.h"
 #import "SCOrderListModel.h"
 #import "SCManager+RequestInterface.h"
-#import "SCOrderConfirmationViewController.h"
 #import "SCOrderDetailViewController.h"
 @interface SCOrderCancelListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;

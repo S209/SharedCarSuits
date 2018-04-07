@@ -35,7 +35,7 @@
     [self setNavigationWithTitle:@"注册"];
     [self sy_leftBarButtonItem];
     [self setupView];
-    self.carNumberArray = [NSMutableArray arrayWithCapacity:6];
+      self.carNumberArray = [[NSMutableArray alloc] initWithObjects:@"0",@"0",@"0",@"0",@"0",@"0",@"0",nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCarName:) name:SCSelectCarSuccess object:nil];
 }
@@ -141,8 +141,10 @@
 
 - (void)choiseCarNumberViewDidItemWithContent:(NSString *)content andIndex:(NSInteger)index
 {
-    [self.carNumberArray insertObject:content atIndex:index-1];
-    [self.carInfo updateCarInfoWithInfo:content andIndex:index btnClickState:YES];
+    if (index >= 1 && index <= 6) {
+        [self.carNumberArray replaceObjectAtIndex:index withObject:content];
+        [self.carInfo updateCarInfoWithInfo:content andIndex:index btnClickState:YES];
+    }
 }
 
 

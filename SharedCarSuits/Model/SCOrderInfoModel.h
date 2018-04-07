@@ -23,6 +23,6 @@
 @property (nonatomic, assign) NSInteger orderType;
 @property (nonatomic, copy) NSString * carNum;
 @property (nonatomic, assign) NSInteger restTime;
-@property (nonatomic, copy) NSString * oderProjectName;
+@property (nonatomic, copy) NSString * orderProjectName;
 @property (nonatomic, copy) NSString * orderId;
 @end

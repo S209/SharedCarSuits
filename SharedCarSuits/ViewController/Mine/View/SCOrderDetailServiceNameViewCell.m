@@ -14,6 +14,7 @@
 @property (nonatomic, weak) UILabel * serviceNameLabel;
 @property (nonatomic, weak) UILabel * priceLabel;
 @property (nonatomic, copy) NSString * priceString;
+
 @end
 @implementation SCOrderDetailServiceNameViewCell
 

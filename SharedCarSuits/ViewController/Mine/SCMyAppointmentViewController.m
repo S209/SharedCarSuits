@@ -490,8 +490,8 @@
     listModel.orderNo = infoModel.orderNo;
     listModel.orderType = infoModel.orderType;
     listModel.carNum = infoModel.carNum;
-    listModel.restTime = [NSString stringWithFormat:@"%zd",infoModel.restTime];
-    listModel.orderProjectName = infoModel.oderProjectName;
+    listModel.restTime = infoModel.restTime;
+    listModel.orderProjectName = infoModel.orderProjectName;
     listModel.orderId = infoModel.orderId;
     return listModel;
 }
@@ -551,10 +551,12 @@
 }
 
 #pragma mark getShopId
+#warning 先写死
 - (NSString *)getShopId
 {
-    SCUserModel * userModel = [SCManager getUserModel];
-    return userModel.shopId;
+    return @"1";
+//    SCUserModel * userModel = [SCManager getUserModel];
+//    return userModel.shopId;
 }
 
 #pragma mark 显示下拉的车列表

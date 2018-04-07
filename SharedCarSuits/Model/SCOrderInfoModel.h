@@ -18,8 +18,11 @@
 @interface SCOrderInfoModel : NSObject
 @property (nonatomic, copy) NSString * appointTime;
 @property (nonatomic, copy) NSString * createTime;
-@property (nonatomic, copy) NSString * orderId;
+@property (nonatomic, copy) NSString * price;
 @property (nonatomic, copy) NSString * orderNo;
+@property (nonatomic, assign) NSInteger orderType;
+@property (nonatomic, copy) NSString * carNum;
 @property (nonatomic, assign) NSInteger restTime;
-@property (nonatomic, strong) SCOrderListModel * listModel;
+@property (nonatomic, copy) NSString * oderProjectName;
+@property (nonatomic, copy) NSString * orderId;
 @end

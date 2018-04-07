@@ -16,12 +16,15 @@
 #import "SCOrderDetailUseACouponCell.h"
 #import "SCMyCouponViewController.h"
 #import "SCCouponModel.h"
+#import "SCOrderInfoModel.h"
+
 @interface SCOrderConfirmationViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
 @property (nonatomic, weak) UILabel * paymentTimeLabel;
 @property (nonatomic, strong) SCCouponModel * couponModel;
 @property (nonatomic, weak) SCOrderDetailUseACouponCell * couponCell;
+@property (nonatomic, strong) SCOrderListModel * listModel;
 @end
 
 @implementation SCOrderConfirmationViewController
@@ -218,7 +221,7 @@
     }else if (indexPath.section == 1){
         return [SCOrderDetailReservationViewCell cellHeight];
     }else if (indexPath.section == 2){
-        return [SCOrderDetailOrderInfoViewCell cellHeightWithOrderType:_orderType];
+        return [SCOrderDetailOrderInfoViewCell cellHeightWithOrderType:self.infoModel.orderType];
     }else if (indexPath.section == 3){
         return [SCOrderDetailPaymentWayViewCell cellHeight];
     }else{
@@ -248,6 +251,8 @@
     self.couponModel = couponModel;
     self.couponCell.couponModel = couponModel;
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

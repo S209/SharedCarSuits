@@ -466,27 +466,35 @@
         NSString * time = [NSString stringWithFormat:@"%@+%@",currentDateStr,self.reservationTimeString];
         [[SCManager shareInstance] makeAnAppointmentWithShopId:shopId orderType:[NSString stringWithFormat:@"%zd",_serviceType] projectIds:projectString carId:@"0" date:time success:^(NSURLSessionDataTask *serializer, id responseObject) {
             SCOrderInfoModel * infoModel = [SCOrderInfoModel yy_modelWithDictionary:responseObject];
-            
-            SCOrderListModel * listModel = [[SCOrderListModel alloc] init];
-            listModel.orderType = _serviceType;
-           
-            
             SCOrderConfirmationViewController * orderConfirmation = [[SCOrderConfirmationViewController alloc] init];
-            orderConfirmation.infoModel = infoModel;
-            
-            orderConfirmation.orderType = _serviceType;
+            orderConfirmation.listModel = [self getListModelWithInfoModel:infoModel];
             [self.navigationController pushViewController:orderConfirmation animated:YES];
-            
         } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
             
         } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
             
         }];
+    }else if (projectString.length==0){
+        [SCManager dismissInfo:@"没有相应的服务项目"];
     }else{
         [SCManager dismissInfo:@"不在预约时间的范围内"];
     }
 }
 
+- (SCOrderListModel *)getListModelWithInfoModel:(SCOrderInfoModel *)infoModel
+{
+    SCOrderListModel * listModel = [[SCOrderListModel alloc] init];
+    listModel.appointTime = infoModel.appointTime;
+    listModel.createTime = infoModel.createTime;
+    listModel.price = infoModel.price;
+    listModel.orderNo = infoModel.orderNo;
+    listModel.orderType = infoModel.orderType;
+    listModel.carNum = infoModel.carNum;
+    listModel.restTime = [NSString stringWithFormat:@"%zd",infoModel.restTime];
+    listModel.orderProjectName = infoModel.oderProjectName;
+    listModel.orderId = infoModel.orderId;
+    return listModel;
+}
 
 #pragma mark Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

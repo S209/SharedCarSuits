@@ -115,14 +115,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     SCOrderConfirmationViewController * confirmationViewController = [[SCOrderConfirmationViewController alloc] init];
-    confirmationViewController.orderType = 1;
-    confirmationViewController.listModel = [self.dataArray safeObjectAtIndex:indexPath.row];
+    SCOrderListModel * listModel =  [self.dataArray safeObjectAtIndex:indexPath.row];
+    confirmationViewController.listModel = listModel;
     [self.navigationController pushViewController:confirmationViewController animated:YES];
-    
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

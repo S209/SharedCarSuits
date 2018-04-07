@@ -340,4 +340,10 @@ static NSString * const KEY_UUID = @"唯一识别的key_uuid";
     return userModel;
 }
 
++ (void)setUserModel:(SCUserModel *)userModel
+{
+    NSData * data = [userModel yy_modelToJSONData];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:SCLoginModelUserDict];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 @end

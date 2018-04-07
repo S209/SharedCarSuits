@@ -20,6 +20,7 @@ typedef void(^GetGeocoderBlock)(NSString * geocoderString);
 + (NSString *)getUserPassword;
 + (NSString *)getUserLoginName;
 + (SCUserModel *)getUserModel;
++ (void)setUserModel:(SCUserModel *)userModel;
 + (BOOL)isLogin;
 + (BOOL)hasNeedLogin;
 + (void)exit;

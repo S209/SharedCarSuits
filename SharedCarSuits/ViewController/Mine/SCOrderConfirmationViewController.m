@@ -24,7 +24,6 @@
 @property (nonatomic, weak) UILabel * paymentTimeLabel;
 @property (nonatomic, strong) SCCouponModel * couponModel;
 @property (nonatomic, weak) SCOrderDetailUseACouponCell * couponCell;
-@property (nonatomic, strong) SCOrderListModel * listModel;
 @end
 
 @implementation SCOrderConfirmationViewController
@@ -221,7 +220,7 @@
     }else if (indexPath.section == 1){
         return [SCOrderDetailReservationViewCell cellHeight];
     }else if (indexPath.section == 2){
-        return [SCOrderDetailOrderInfoViewCell cellHeightWithOrderType:self.infoModel.orderType];
+        return [SCOrderDetailOrderInfoViewCell cellHeightWithOrderType:self.listModel.orderType];
     }else if (indexPath.section == 3){
         return [SCOrderDetailPaymentWayViewCell cellHeight];
     }else{

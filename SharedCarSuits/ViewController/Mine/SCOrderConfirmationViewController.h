@@ -10,6 +10,5 @@
 //待支付页面
 @class SCOrderListModel,SCOrderInfoModel;
 @interface SCOrderConfirmationViewController : SCBaseViewController
-//@property (nonatomic, strong) SCOrderInfoModel * infoModel;
 @property (nonatomic, strong) SCOrderListModel * listModel;
 @end

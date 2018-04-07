@@ -10,6 +10,7 @@
 
 @interface SCCouponModel : NSObject
 @property (nonatomic, copy) NSString * createTime;
+@property (nonatomic, assign) NSInteger isTime;//0 是无效， 1是有效
 @property (nonatomic, assign) NSInteger price;
 @property (nonatomic, assign) NSInteger isUsed;
 @property (nonatomic, assign) NSInteger orderType;

@@ -14,6 +14,8 @@
 #import "SCManager+CommonMethods.h"
 #import "SCViewStorePicturesView.h"
 #import "SCNavigationController.h"
+#import "SCUserModel.h"
+#import "SCMyGarageListPageModel.h"
 @interface SCReservationViewController () <UITableViewDelegate,UITableViewDataSource,SCReservationViewCellDelegate>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
@@ -191,6 +193,13 @@
     [[SCManager shareInstance] shopDefaultWithId:[NSString stringWithFormat:@"%zd",listModel.shopId] success:^(NSURLSessionDataTask *serializer, id responseObject) {
           [self loadNewData];
         if (self.appointmentProcess) {
+            SCMyGarageListPageModel * carModel = [SCMyGarageListPageModel yy_modelWithDictionary:responseObject];
+            if (carModel) {
+                SCUserModel * userModel = [SCManager getUserModel];
+                NSMutableArray * carArray = [userModel.cars mutableCopy];
+                [carArray addObject:carModel];
+                [SCManager setUserModel:userModel];
+            }
             [self.navigationController popViewControllerAnimated:YES];
         }
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {

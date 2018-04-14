@@ -28,7 +28,9 @@
     label.font = [UIFont sy_boldFont17];
     label.textColor = [UIColor sc_colorWith444444];
     label.textAlignment = NSTextAlignmentCenter;
-    [label sizeThatFits:CGSizeMake(200, 44)];
+//    [label sizeThatFits:CGSizeMake(200, 44)];
+    label.frame = CGRectMake(0, 0, SCREEN_WIDTH, SYNavigationBarHeight);
+    [label sizeToFit];
     self.navigationItem.titleView = label;
 }
 - (BOOL)prefersStatusBarHidden

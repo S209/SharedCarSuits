@@ -189,7 +189,7 @@
 {
     NSString * couponId = [NSString stringWithFormat:@"%zd",model.cpuponId];
     [[SCManager shareInstance] couponReceiveWithCouponId:couponId success:^(NSURLSessionDataTask *serializer, id responseObject) {
-        
+        [self.navigationController popViewControllerAnimated:YES];
     } notice:^(NSURLSessionDataTask *serializer, id responseObject) {
         
     } failure:^(NSURLSessionDataTask *serializer, NSError *error) {
